@@ -191,7 +191,7 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -630,7 +630,7 @@ Living document
 \end_layout
 
 \begin_layout Subsection
-Purpose
+Purpose of the project
 \end_layout
 
 \begin_layout Standard
@@ -674,27 +674,42 @@ maximum 2km of walking for any single travel
 \end_layout
 
 \begin_layout Itemize
-the possibility of setting flexible constraints (e.g.
+the possibility of setting flexible events (e.g.
  there must be a time slot of at least 1:30h each day between 11:30 and
  14:30 for lunch)
 \end_layout
 
+\begin_layout Subsection
+About this document
+\end_layout
+
 \begin_layout Standard
 This document shows the functional and non-functional requirements of the
- system.
- They will be based on different aspects: the needs expressed by the stakeholder
-s, the constraints which it is subject to, the typical scenarios that will
- happen after its deployment.
- The targeted audience in this case will be mainly made of software engineers
- and developers who have to actually develop the service here described.
+ system and the specifications of the proposed implementation.
+ Requirements are based on the needs expressed by the stakeholders, and
+ are subject to constraints imposed by the external world.
+ Common scenarios are included to document the main interactions between
+ the users and the system.
+ This document mainly targets the software engineers and developers who
+ will have to develop the service here described, but also the project owner,
+ prof.
+ Di Nitto.
 \end_layout
 
 \begin_layout Subsection
-Scope
+Scope, constraints and assumptions about external services and events
 \end_layout
 
 \begin_layout Standard
-Travelendar+ users will interact with various services directly and indirectly.
+Travelendar+ needs to interact with many entities and cope with events beyond
+ our control, which can disrupt user experience.
+ In order to provide our users convenient services such as automatic car
+ sharing reservations or weather-aware travel planning we need to use the
+ services of other companies, and due to the nature of these services have
+ to expect less than perfect reliability.
+ The specifications of the service are based upon the assumption that most
+ of the time external services will behave as expected but also document
+ what to do when this assumptions won't hold.
 \end_layout
 
 \begin_layout Subsection
@@ -727,8 +742,8 @@ be warned if it appears that there's no suitable transportation mean to
 \end_layout
 
 \begin_layout Itemize
-plan for travel between appointments, consulting smart suggestions given
- by the app;
+plan for travel between appointments, using smart suggestions given by the
+ app;
 \end_layout
 
 \begin_layout Itemize
@@ -736,7 +751,7 @@ buy tickets or passes for public transportation;
 \end_layout
 
 \begin_layout Itemize
-make reservations for sharing mobility services;
+make reservations for sharing mobility services directly in-app;
 \end_layout
 
 \begin_layout Itemize
@@ -749,6 +764,33 @@ flexible events
 \end_inset
 
 ;
+\end_layout
+
+\begin_layout Subsection
+Stakeholders
+\end_layout
+
+\begin_layout Standard
+The main stakeholder in this project is our professor, Elisabetta Di Nitto,
+ which we'll consider a paying customer that has tasked our development
+ team to design and eventually build Travelendar+.
+ The specifications and requirements of the project are coming from her.
+\end_layout
+
+\begin_layout Subsection
+Reference documents
+\end_layout
+
+\begin_layout Itemize
+project assignment (
+\begin_inset Quotes eld
+\end_inset
+
+Mandatory Project Assignment.pdf
+\begin_inset Quotes erd
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -767,21 +809,40 @@ Proposed System
 \end_layout
 
 \begin_layout Standard
-The server-side implementation will be structured through a net of micro-service
-s mainly written in Python and managed through Docker.
- The server will run the business logic, host PowerEnjoy's website, and
- users' data.
- Besides, we propose a web/mobile application which allows to registered
- users to use PowerEnjoy's services.
- The web client will use Python/Javascript and HTML5/CSS for web pages generatio
-n and formatting respectively.
- We will also use open-source libraries such as Flask to speed up the developmen
-t.
- The mobile applications will be deployed on the main platforms currently
- available (iOS, Android, Windows Phone) and will be written accordingly
- to each devices' programming language.
- Client-server communication will be platform agnostic since it will happen
- through an encrypted RESTful API which returns its data through JSON.
+We propose a web and mobile app based system.
+ Users will be able to use Travelendar+ on all platforms and have their
+ appointments always available thanks to automatic synchronization.
+ Basic funcionality (e.g.
+ adding an event to the calendar) will be available offline, but many features
+ will need internet connectivity in order for the app to be able to query
+ the backend and sync data across devices.
+\end_layout
+
+\begin_layout Standard
+The web frontend will be targeted at modern browsers with support for HTML5,
+ CSS3 and recent JS APIs.
+ Shims will be used to ensure the best possibile compatibility with older
+ browsers, altough not all features will be available to legacy clients.
+ The web UI and mobile apps for Android and iOS will be built upon the React
+ framework, that allows to have a consistent interface across all platforms.
+\end_layout
+
+\begin_layout Standard
+The backend will be implemented as an ensemble of loosely coupled microservices,
+ built using consolidated technologies.
+ This design choice allows for easier scalability and flexibility, and reliabili
+ty via redundancy of critical components.
+ Most of the buisiness logic will be implemented in Python, while components
+ that need to handle many concurrent connections will be implemented in
+ Node.js and/or Erlang.
+\end_layout
+
+\begin_layout Standard
+Map data will come from an external service such as Google Maps, since projects
+ like OpenStreetMaps are not reliable enough to offer a consistent user
+ experience.
+ Public transport data will be sourced from the relevant companies APIs
+ and websites.
 \end_layout
 
 \begin_layout Subsection
@@ -5202,7 +5263,7 @@ ttfamily,columns=fixed]{#1}
 
 \begin_layout Plain Layout
 
-
+% 
 \backslash
 lstinputlisting[language=alloy]{res/alloy/AlloyPowerEnjoy.als} 
 \end_layout
