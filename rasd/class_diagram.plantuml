@@ -1,0 +1,86 @@
+@startuml
+
+Event <|-- RecurringEvent
+Event <|-- FlexibleEvent
+Event -- User
+
+User -- TransportPreferences
+
+class User
+class TransportPreferences {
+    HasOwnCar
+    HasDrivingLicence
+    CanUseBike
+    CanUseTrain
+    CanUseMetro
+    CanUseBus
+    CanUseRoadCar
+    MaxWalkingDistance
+}
+
+class Event {
+    Name
+    Place
+    StartTime
+    Duration
+    TravelParticipants
+}
+class RecurringEvent {
+    Frequency
+    Days
+    RecurringStart
+    RecurringEnd
+}
+class FlexibleEvent {
+    ConstraintTimeStart
+    ConstraintTimeEnd
+}
+
+SharingMobilityServicePosition <|-- CarSharingPosition
+SharingMobilityServicePosition <|-- BikeSharingPosition
+
+class SharingMobilityServicePosition
+class CarSharingPosition 
+class BikeSharingPosition
+
+PublicTransportSegment <|-- BusSegment
+PublicTransportSegment <|-- MetroSegment
+PublicTransportSegment <|-- RoadCarSegment
+PublicTransportSegment <|-- TrainSegment
+
+class PublicTransportSegment {
+    StartPosition
+    EndPosition
+    Time
+    Duration
+    CO2Emission
+}
+
+class BusSegment
+class MetroSegment
+class RoadCarSegment
+class TrainSegment
+
+class PublicTransportTicket {
+    ValidForMeans
+    ValidForTime
+    Cost
+}
+
+class PublicTransportPass {
+    ValidForMeans
+    ValidFromDate
+    ValidToDate
+    Cost
+}
+
+RoutePlanner -- PublicTransportSegment
+RoutePlanner -- SharingMobilityServicePosition
+RoutePlanner -- TransportPreferences
+class RoutePlanner {
+    + findBestRoutes(startPosition: Position, endPosition: Position): List<Route>
+    + findBestRoutes(comingFrom: Event, goingTo: Event): List<Route>
+}
+
+
+@enduml
