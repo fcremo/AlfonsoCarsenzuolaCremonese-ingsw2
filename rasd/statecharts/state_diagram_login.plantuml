@@ -1,0 +1,8 @@
+@startuml
+
+[*] --> Login
+Login: Enter username and password to \naccess to the application's function
+Login --> Login: Error
+Login --> [*]: OK
+
+@enduml

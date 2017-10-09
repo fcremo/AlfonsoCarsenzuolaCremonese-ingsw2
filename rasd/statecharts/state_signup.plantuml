@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> SignUp
+SignUp: Enter basical personal information \n(username, password)
+SignUp --> SignUp: Username \nalready \nuse
+
+SignUp --> Registration
+Registration: Enter further personal information (e.g. email, \ntelephon number, name, address...)
+Registration --> [*]:  New user \n registered
+@enduml
