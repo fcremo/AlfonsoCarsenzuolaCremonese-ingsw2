@@ -1,39 +1,48 @@
 @startuml
 
+skinparam classAttributeIconSize 0
+
 Event <|-- RecurringEvent
 Event <|-- FlexibleEvent
 Event -- User
 
 User -- TransportPreferences
 
-class User
+class User {
+    - Username
+    - Password
+    - Name
+    - Surname
+    - Birthday
+}
+
 class TransportPreferences {
-    HasOwnCar
-    HasDrivingLicence
-    CanUseBike
-    CanUseTrain
-    CanUseMetro
-    CanUseBus
-    CanUseRoadCar
-    MaxWalkingDistance
+    - HasOwnCar
+    - HasDrivingLicence
+    - CanUseBike
+    - CanUseTrain
+    - CanUseMetro
+    - CanUseBus
+    - CanUseRoadCar
+    - MaxWalkingDistance
 }
 
 class Event {
-    Name
-    Place
-    StartTime
-    Duration
-    TravelParticipants
+    - Name
+    - Place
+    - StartTime
+    - Duration
+    - TravelParticipants
 }
 class RecurringEvent {
-    Frequency
-    Days
-    RecurringStart
-    RecurringEnd
+    - Frequency
+    - Days
+    - RecurringStart
+    - RecurringEnd
 }
 class FlexibleEvent {
-    ConstraintTimeStart
-    ConstraintTimeEnd
+    - ConstraintTimeStart
+    - ConstraintTimeEnd
 }
 
 SharingMobilityServicePosition <|-- CarSharingPosition
@@ -49,11 +58,11 @@ PublicTransportSegment <|-- RoadCarSegment
 PublicTransportSegment <|-- TrainSegment
 
 class PublicTransportSegment {
-    StartPosition
-    EndPosition
-    Time
-    Duration
-    CO2Emission
+    - StartPosition
+    - EndPosition
+    - Time
+    - Duration
+    - CO2Emission
 }
 
 class BusSegment
@@ -62,16 +71,16 @@ class RoadCarSegment
 class TrainSegment
 
 class PublicTransportTicket {
-    ValidForMeans
-    ValidForTime
-    Cost
+    - ValidForMeans
+    - ValidForTime
+    - Cost
 }
 
 class PublicTransportPass {
-    ValidForMeans
-    ValidFromDate
-    ValidToDate
-    Cost
+    - ValidForMeans
+    - ValidFromDate
+    - ValidToDate
+    - Cost
 }
 
 RoutePlanner -- PublicTransportSegment
