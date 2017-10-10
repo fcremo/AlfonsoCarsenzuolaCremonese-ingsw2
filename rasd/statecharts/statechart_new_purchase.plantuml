@@ -1,0 +1,18 @@
+@startuml
+
+[*] -right-> NewPurchase
+NewPurchase --> NewTicketBuy
+NewPurchase --> NewPassBuy
+
+NewTicketBuy --> ChooseTicket
+NewPassBuy --> ChoosePass
+
+ChooseTicket --> Payment
+ChoosePass --> Payment
+
+Payment --> Error
+Error --> Payment:Retry
+
+Payment -right-> [*]
+
+@enduml
