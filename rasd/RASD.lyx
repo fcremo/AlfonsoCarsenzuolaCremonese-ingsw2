@@ -196,6 +196,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1405136424 "filippo"
 \end_header
 
 \begin_body
@@ -701,15 +702,33 @@ Scope, constraints and assumptions about external services and events
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1405136424 1507647008
 Travelendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
  In order to provide our users convenient services such as automatic car
- sharing reservations or weather-aware travel planning we need to use the
- services of other companies, and due to the nature of these services have
- to expect less than perfect reliability.
+ sharing reservations or weather-aware travel planning we need to source
+ data from external entities which cannot be expected to be perfectly reliable.
  The specifications of the service are based upon the assumption that most
  of the time external services will behave as expected but also document
  what to do when this assumptions won't hold.
+
+\change_inserted -1405136424 1507646166
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1405136424 1507647016
+Fill this section
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -774,7 +793,13 @@ Stakeholders
 The main stakeholder in this project is our professor, Elisabetta Di Nitto,
  which we'll consider a paying customer that has tasked our development
  team to design and eventually build Travelendar+.
- The specifications and requirements of the project are coming from her.
+ The specifications and requirements 
+\change_deleted -1405136424 1507644789
+of 
+\change_inserted -1405136424 1507644790
+for 
+\change_unchanged
+the project are coming from her.
 \end_layout
 
 \begin_layout Subsection
@@ -791,6 +816,20 @@ Mandatory Project Assignment.pdf
 \end_inset
 
 )
+\change_inserted -1405136424 1507645911
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1405136424 1507647574
+Definitions, acronyms, abbreviations
+\end_layout
+
+\begin_layout Description
+
+\change_inserted -1405136424 1507647596
+MVP Minimum Viable Product
 \end_layout
 
 \begin_layout Standard
@@ -802,6 +841,131 @@ Mandatory Project Assignment.pdf
 
 \begin_layout Section
 Overall Description
+\change_inserted -1405136424 1507646318
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1405136424 1507646324
+Product perspective
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507646342
+here we include further details on the shared phenomena and a domain model
+ (class diagrams and statecharts) 
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1405136424 1507646347
+Product functions
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507646356
+here we include the most important requirements
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1405136424 1507646359
+User characteristics
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507646365
+here we include anything that is relevant to clarify their needs
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1405136424 1507647109
+Assumptions, dependencies and constraints
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507647355
+Travelendar+ needs to interact with many entities and cope with events beyond
+ our control, which can disrupt user experience.
+ Here we document constraints and assumptions on which we'll rely on for
+ our design.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1405136424 1507647097
+Data sources
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507647157
+In order to provide our users convenient services such as automatic car
+ sharing reservations or weather-aware travel planning we need to source
+ data from external entities which cannot be expected to be perfectly reliable.
+ The specifications of the service are based upon the assumption that most
+ of the time those external services will behave as expected but also document
+ what to do when this assumption won't hold.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1405136424 1507647191
+Area limit and app availability
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507647619
+We assume that appointments for which the user wants help scheduling his
+ travels are limited to the same area (e.g.
+ the metropolitan area of Milan).
+ The app will be available only to users of certain supported cities, initially
+ targeting the mostly populated Italian cities for the MVP.
+ Many factors make this constraint necessary:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1507647667
+public transportation regulations, prices, ticketing systems and timetables
+ (and associated data sources) vary wildly in quality, format and availability
+ between cities
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1507647761
+time estimates on long travels — especially when involving public transportation
+ — are not accurate
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1405136424 1507647637
+Other assumptions
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1405136424 1507647637
+We suppose these conditions will be respected at any given time:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1507646383
+users input correctly all relevant informations about their appointments
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -843,66 +1007,12 @@ Map data will come from an external service such as Google Maps, since projects
  experience.
  Public transport data will be sourced from the relevant companies APIs
  and websites.
-\end_layout
 
-\begin_layout Subsection
-Domain Properties
-\end_layout
+\change_inserted -1405136424 1507644941
+ Weather data will be obtained from one of the many providers available,
+ at this moment still to be determined.
+\change_unchanged
 
-\begin_layout Standard
-We suppose these conditions will be respected at any given time:
-\end_layout
-
-\begin_layout Itemize
-the user will request help only if he/she needs it;
-\end_layout
-
-\begin_layout Itemize
-the user will never try to exploit the system's features (e.g.
- sleep in the car);
-\end_layout
-
-\begin_layout Itemize
-the user will never fake his/her position to cause a denial of service;
- 
-\end_layout
-
-\begin_layout Itemize
-the user will only provide correct and authentic information while signing
- up;
-\end_layout
-
-\begin_layout Itemize
-a booked car will always be driven by the user who reserved it;
-\end_layout
-
-\begin_layout Itemize
-the user will never be robbed of the access credentials and the verification
- code;
-\end_layout
-
-\begin_layout Itemize
-the user agrees to be geolocalized;
-\end_layout
-
-\begin_layout Itemize
-each available car is fully functional;
-\end_layout
-
-\begin_layout Itemize
-each car has an embedded key to turn on the engine;
-\end_layout
-
-\begin_layout Itemize
-each car is equipped with a properly working ADS and an ECS;
-\end_layout
-
-\begin_layout Itemize
-each car is fitted with a properly working notification touchscreen display;
-\end_layout
-
-\begin_layout Itemize
-an available car will always be found in the supposed position;
 \end_layout
 
 \begin_layout Standard
