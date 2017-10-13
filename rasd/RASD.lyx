@@ -197,6 +197,7 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1405136424 "filippo"
+\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -732,48 +733,70 @@ Fill this section
 \end_layout
 
 \begin_layout Subsection
+
+\change_deleted 666129059 1507884091
 Goals 
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 666129059 1507884091
 Travelendar+ users will be able to:
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 register themselves to the system;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 log into the system;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 set constraints on the transportation means they can employ;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 add appointments to their calendar;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 be warned if it appears that there's no suitable transportation mean to
  reach an appointment in time;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 plan for travel between appointments, using smart suggestions given by the
  app;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 buy tickets or passes for public transportation;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 make reservations for sharing mobility services directly in-app;
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 666129059 1507884091
 schedule 
 \begin_inset Quotes eld
 \end_inset
@@ -783,6 +806,24 @@ flexible events
 \end_inset
 
 ;
+\change_inserted 666129059 1507884108
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1507884126
+Copy to 2.2 Product functions
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -849,6 +890,20 @@ Overall Description
 
 \change_inserted -1405136424 1507646324
 Product perspective
+\change_inserted 666129059 1507883877
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1507883899
+Class diagrams
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1507883902
+State charts
 \end_layout
 
 \begin_layout Standard
@@ -862,6 +917,80 @@ here we include further details on the shared phenomena and a domain model
 
 \change_inserted -1405136424 1507646347
 Product functions
+\change_inserted 666129059 1507883955
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1507883957
+Travelendar+ users will be able to:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+register themselves to the system;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+log into the system;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+set constraints on the transportation means they can employ;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+add appointments to their calendar;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+be warned if it appears that there's no suitable transportation mean to
+ reach an appointment in time;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+plan for travel between appointments, using smart suggestions given by the
+ app;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+buy tickets or passes for public transportation;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+make reservations for sharing mobility services directly in-app;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 666129059 1507883957
+schedule 
+\begin_inset Quotes eld
+\end_inset
+
+flexible events
+\begin_inset Quotes erd
+\end_inset
+
+;
+\change_inserted -1405136424 1507646347
+
 \end_layout
 
 \begin_layout Standard
@@ -874,6 +1003,31 @@ here we include the most important requirements
 
 \change_inserted -1405136424 1507646359
 User characteristics
+\change_inserted 666129059 1507884465
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1507885303
+Two different types of users can access to the system, each of them can
+ use different services of the system application.
+ Those users are described below with a synthetic description of their privilege
+s.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1507885344
+Guest (Unregistered User)
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1507885371
+Client (Registered User)
+\change_inserted -1405136424 1507646359
+
 \end_layout
 
 \begin_layout Standard
