@@ -196,6 +196,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1730310665 "fabcars"
 \author -1405136424 "filippo"
 \author 666129059 "Alessandro Alfonso"
 \end_header
@@ -917,6 +918,14 @@ here we include further details on the shared phenomena and a domain model
 
 \change_inserted -1405136424 1507646347
 Product functions
+\change_inserted -1730310665 1508155290
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1508155303
+Functional Requirement
 \change_inserted 666129059 1507883955
 
 \end_layout
@@ -949,6 +958,16 @@ set constraints on the transportation means they can employ;
 
 \change_inserted 666129059 1507883957
 add appointments to their calendar;
+\change_inserted -1730310665 1508156894
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508156916
+delete an already schedule appointment;
+\change_inserted 666129059 1507883957
+
 \end_layout
 
 \begin_layout Itemize
@@ -989,14 +1008,93 @@ flexible events
 \end_inset
 
 ;
-\change_inserted -1405136424 1507646347
+\change_inserted -1730310665 1508155766
 
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508156550
+choose the method of transport between their own (car) and public/sharing
+ (bus, bike...);
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157287
+find the best way (in term of time or distance) to reach the destination;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157432
+get a notification if the scheduled trip should be changed (e.g.
+ bad weather forecast or bus strike);
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157487
+get a schedulable notification as a reminder for the appointment;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157524
+get a list of all the schedule appointment and access to further information
+ by clicking on it.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1508155558
+Not-Functional Requirement
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -1405136424 1507646356
+\change_inserted -1730310665 1508156195
+Tralvendar+ should be:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157002
+enough fast when users interact with it (e.g.
+ max 15 seconds to schedule a trip);
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508156851
+multiplatform so that eahc user can access to the app's service from pc,
+ smartphone or tablet with authomatic syncronization between all devices;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508156491
+scalable for an increasing number of users that use Tralvendar+;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157015
+usable 24/7;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508157729
+simple and use-friendly graphic.
+\end_layout
+
+\begin_layout Itemize
+
+\change_deleted -1730310665 1508157721
 here we include the most important requirements
+\change_inserted -1405136424 1507646356
+
 \end_layout
 
 \begin_layout Subsection
