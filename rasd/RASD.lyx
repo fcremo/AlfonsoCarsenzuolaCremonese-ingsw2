@@ -152,7 +152,7 @@ End
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
-\pdf_pdfborder false
+\pdf_pdfborder true
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
@@ -196,9 +196,8 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1730310665 "fabcars"
-\author -1405136424 "filippo"
 \author 666129059 "Alessandro Alfonso"
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -529,7 +528,7 @@ Introduction
 \end_layout
 
 \begin_layout Subsection
-Revision History
+Revision history
 \end_layout
 
 \begin_layout Standard
@@ -657,7 +656,13 @@ Life, simplified
 \end_layout
 
 \begin_layout Itemize
-in-app reservations for sharing mobility services (car, bike)
+
+\change_deleted 1604105849 1508170209
+in-app 
+\change_inserted 1604105849 1508170211
+automatic 
+\change_unchanged
+reservations for sharing mobility services (car, bike)
 \end_layout
 
 \begin_layout Itemize
@@ -728,12 +733,29 @@ navigation apps (e.g.
 
 \begin_layout Standard
 Altough applications such as Citymapper or Google Maps already offer an
- excellent user experience that Travelendar+ must strive to offer, none
- of those apps allow to seamlessly schedule an appointment while keeping
- track of weather and travel times.
- Moreover, ticketing apps for public transportation are often not well built,
- which would increase the need for the in-app ticket purchase functionality
- in Travelendar+.
+ excellent user experience, none of those apps allow to seamlessly schedule
+ an appointment while keeping track of weather and travel times.
+ Moreover, ticketing apps for public transportation are often 
+\change_deleted 1604105849 1508170257
+not well built
+\change_inserted 1604105849 1508170269
+poorly built
+\change_unchanged
+, which 
+\change_deleted 1604105849 1508170280
+would 
+\change_unchanged
+increase
+\change_inserted 1604105849 1508170281
+s
+\change_unchanged
+ the need for the in-app ticket purchase functionality in Travelendar+.
+
+\change_inserted 1604105849 1508170360
+ The existing sharing mobility services don't offer the possibility to automatic
+ally reserve the nearest vehicle at a certain date and time.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -742,19 +764,19 @@ The system will need to interact with external entities and events beyond
  which can disrupt user experience.
  The specifications of the service are based upon the assumption that most
  of the time those external entities will behave as expected but also document
- what to do when the domain assumptions (documented in section X.X) won't
- hold.
- 
-\begin_inset Note Note
-status open
+ what to do when the domain assumptions (documented in section 
+\change_inserted 1604105849 1508169430
 
-\begin_layout Plain Layout
-Insert cross-reference to the assumptions section
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Assumptions, dependencies and constraints"
 
 \end_inset
 
 
+\change_unchanged
+) won't hold.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -800,7 +822,7 @@ MVP Minimum Viable Product
 \end_layout
 
 \begin_layout Section
-Overall Description
+Overall description
 \end_layout
 
 \begin_layout Subsection
@@ -867,12 +889,26 @@ ty via redundancy of critical components.
 Public transport data will be sourced from the relevant companies APIs and
  websites.
  Weather and map data will come from an external service.
-\change_inserted -1405136424 1508164136
+\change_inserted 1604105849 1508164136
 
 \end_layout
 
 \begin_layout Subsubsection
 Class diagrams
+\change_inserted 1604105849 1508169883
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1604105849 1508169908
+\begin_inset Graphics
+	filename class_diagram/class_diagram.plantuml
+	width 100col%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -883,25 +919,8 @@ State charts
 Product functions
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-here we include the most important requirements
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Product functions
-\end_layout
-
 \begin_layout Subsubsection
-Functional Requirement
+Functional requirements
 \end_layout
 
 \begin_layout Standard
@@ -909,43 +928,63 @@ Travelendar+ users will be able to:
 \end_layout
 
 \begin_layout Itemize
-register themselves to the system;
+register themselves to the system
 \end_layout
 
 \begin_layout Itemize
-log into the system;
+log into the system
 \end_layout
 
 \begin_layout Itemize
-set constraints on the transportation means they can employ;
+set constraints on the transportation means they can employ
 \end_layout
 
 \begin_layout Itemize
-add appointments to their calendar;
+add appointments to their calendar
 \end_layout
 
 \begin_layout Itemize
-delete an already schedule appointment;
-\end_layout
-
-\begin_layout Itemize
-be warned if it appears that there's no suitable transportation mean to
- reach an appointment in time;
+delete an already scheduled appointment
 \end_layout
 
 \begin_layout Itemize
 plan for travel between appointments, using smart suggestions given by the
- app;
+ app
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+find the best way (in terms of time, cost, distance, carbon emissions, ...)
+ to reach the destination
 \end_layout
 
 \begin_layout Itemize
-buy tickets or passes for public transportation;
+schedule automatic reservation of a vehicle
 \end_layout
 
 \begin_layout Itemize
-make reservations for sharing mobility services directly in-app;
+buy tickets or passes for public transportation
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+get a notification if the scheduled trip should be changed
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bad weather forecast
+\end_layout
+
+\begin_layout Itemize
+due to public transportation strikes, accidents, etc
+\end_layout
+
+\begin_layout Itemize
+due to unavailability of sharing mobility vehicles
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 schedule 
 \begin_inset Quotes eld
@@ -955,33 +994,20 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
-;
+
 \end_layout
 
 \begin_layout Itemize
-find the best way (in term of time or distance) to reach the destination;
+get a schedulable notification as a reminder for the appointment
 \end_layout
 
 \begin_layout Itemize
-get a notification if the scheduled trip should be changed (e.g.
- bad weather forecast or bus strike);
+get a list of all the scheduled appointments and access detailed informations
+ 
 \end_layout
 
 \begin_layout Itemize
-get a schedulable notification as a reminder for the appointment;
-\end_layout
-
-\begin_layout Itemize
-get a list of all the schedule appointment and access to further information
- by clicking on it;
-\end_layout
-
-\begin_layout Itemize
-modify the profile information;
-\end_layout
-
-\begin_layout Itemize
-book only one shared vehicle per time.
+modify their profile information
 \end_layout
 
 \begin_layout Subsubsection
@@ -993,27 +1019,35 @@ Tralvendar+ should be:
 \end_layout
 
 \begin_layout Itemize
-enough fast when users interact with it (e.g.
- max 15 seconds to schedule a trip);
+fast
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1 second maximum response time for most pages and actions (under normal
+ conditions)
 \end_layout
 
 \begin_layout Itemize
-multiplatform so that eahc user can access to the app's service from pc,
- smartphone or tablet with authomatic syncronization between all devices;
+15 seconds to load trip suggestions
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+multiplatform so that each user can access to app from pc, smartphone or
+ tablet with authomatic syncronization between all devices
 \end_layout
 
 \begin_layout Itemize
-scalable for an increasing number of users that use Tralvendar+;
+scalable for an increasing number of users that use Tralvendar+
 \end_layout
 
 \begin_layout Itemize
-usable 24/7;
+available 24/7
 \end_layout
 
 \begin_layout Itemize
-simple and use-friendly graphic.
-\change_inserted -1405136424 1508164281
-
+simple and use-friendly
 \end_layout
 
 \begin_layout Subsection
@@ -1021,8 +1055,9 @@ User characteristics
 \end_layout
 
 \begin_layout Standard
-The application is designed to be used by registered, logged in users.
- Unregistered users can interact with Travelendar+ in some occasions.
+The application is primarily designed to be used by registered, logged in
+ users.
+ Non registered users can interact with Travelendar+ on some occasions.
  Here are documented the main characteristics and interactions for registered
  and unregistered users.
 \end_layout
@@ -1130,14 +1165,27 @@ The account settings page/screen will be accessible at any moment to edit
 \end_layout
 
 \begin_layout Subsection
+
+\change_inserted 1604105849 1508172451
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Assumptions, dependencies and constraints"
+
+\end_inset
+
+
+\change_unchanged
 Assumptions, dependencies and constraints
 \end_layout
 
 \begin_layout Standard
 Travelendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
- Here we document constraints and assumptions on which we'll rely on for
- our design.
+ Here we document constraints and assumptions
+\change_deleted 1604105849 1508172499
+ 
+\change_unchanged
+ which we'll rely on in our design.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1238,238 +1286,8 @@ Map data will come from an external service such as Google Maps, since projects
  and websites.
  Weather data will be obtained from one of the many providers available,
  at this moment still to be determined.
-\end_layout
+\change_unchanged
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Assumptions
-\end_layout
-
-\begin_layout Standard
-This section explores some of the vague concepts or loosely explained ones:
- further hypotheses have been added to expand the description of the requirement
-s and to account better for the interaction between the external environment
- and the developed application.
-\end_layout
-
-\begin_layout Standard
-Due to some unclear points in the specification we made some assumptions,
- which are: 
-\end_layout
-
-\begin_layout Itemize
-the system allows users to locate any car in PowerEnjoy's area of operation;
-\end_layout
-
-\begin_layout Itemize
-the system's money saving option has to be enabled or disabled in the user
- profile;
-\end_layout
-
-\begin_layout Itemize
-the system permits users to reserve an available car only in his/her city;
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-with "a certain geographical region" we mean that the user can reach the
- vehicle in a reasonable amount of time;
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-the system can locate its users through Cellular Data or GPS; 
-\end_layout
-
-\begin_layout Itemize
-the system's proximity check is done through one of these: numerical code
- on each cars' windshield or GPS data from user's phone;
-\end_layout
-
-\begin_layout Itemize
-the fees are applied as soon as one of these conditions is met: one minute
- is elapsed from the car's doors opening, or the engine is revved;
-\end_layout
-
-\begin_layout Itemize
-each seat is equipped with a sensor which is used to detect the number of
- passengers into each car;
-\end_layout
-
-\begin_layout Itemize
-each user can't reserve more than one car at the same time;
-\end_layout
-
-\begin_layout Itemize
-to be eligible for the 10% discount, almost two passengers have to remain
- seated at the same time for at least one minute;
-\end_layout
-
-\begin_layout Itemize
-if a car is parked in a special area, the discount equals to 40%;
-\end_layout
-
-\begin_layout Subsection
-Actors Identifying
-\end_layout
-
-\begin_layout Standard
-The system provides the interaction of two different types of actors who
- can use different functionalities of the application system.
- The types are set out below along with a brief description of their privileges.
-\end_layout
-
-\begin_layout Subsubsection
-Guest
-\end_layout
-
-\begin_layout Standard
-A person that is not registered (yet!) so can check for cars' position,
- register or ask for help/advice.
-\end_layout
-
-\begin_layout Paragraph
-Privileges:
-\end_layout
-
-\begin_layout Itemize
-Register to the system by creating a new account;
-\end_layout
-
-\begin_layout Itemize
-Check available cars' position and status;
-\end_layout
-
-\begin_layout Itemize
-Contact the customer service;
-\end_layout
-
-\begin_layout Subsubsection
-User
-\end_layout
-
-\begin_layout Standard
-A person that is already registered to the system with his personal information;
- a guest can become a user after the authentication to the system using
- the login form.
-\end_layout
-
-\begin_layout Paragraph
-Privileges:
-\end_layout
-
-\begin_layout Itemize
-Log into the system;
-\end_layout
-
-\begin_layout Itemize
-Consult reservations' history;
-\end_layout
-
-\begin_layout Itemize
-Edit account information:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-personal and billing data;
-\end_layout
-
-\begin_layout Itemize
-enable/disable money saving option; 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Check available cars' position and status;
-\end_layout
-
-\begin_layout Itemize
-Reserve a reservable car;
-\end_layout
-
-\begin_layout Itemize
-Rent the reserved car;
-\end_layout
-
-\begin_layout Itemize
-Check active reservation status:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Remaining time until the reservation expires;
-\end_layout
-
-\begin_layout Itemize
-Reserved car's position and status;
-\end_layout
-
-\begin_layout Itemize
-Elapsed rental time;
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Request help through the ECS;
-\end_layout
-
-\begin_layout Itemize
-Terminate the rent;
-\end_layout
-
-\begin_layout Itemize
-Contact the customer service;
-\end_layout
-
-\begin_layout Subsubsection
-Deactivated User
-\end_layout
-
-\begin_layout Standard
-A user with revoked privileges.
- He/she cannot use the service until the issues with his/her account are
- solved (e.g expired license).
-\end_layout
-
-\begin_layout Paragraph
-Privileges:
-\end_layout
-
-\begin_layout Itemize
-Log into the system;
-\end_layout
-
-\begin_layout Itemize
-Consult reservations' history;
-\end_layout
-
-\begin_layout Itemize
-Edit account information:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-personal and billing data;
-\end_layout
-
-\begin_layout Itemize
-enable/disable money saving option; 
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Check available cars' position and status;
-\end_layout
-
-\begin_layout Itemize
-Contact the customer service;
 \end_layout
 
 \begin_layout Standard
@@ -1480,13 +1298,13 @@ Contact the customer service;
 \end_layout
 
 \begin_layout Section
-Specific Requirements
+Specific requirements
 \end_layout
 
 \begin_layout Standard
-In this section will be analyzed in detail functional and non-functional
- requirements that the system developed has to satisfy, when the domain
- properties previously denoted hold and referring to the declared goals.
+This section will analyze in detail functional and non-functional requirements
+ that the developed system has to satisfy, when the domain properties previously
+ denoted hold and referring to the declared goals.
 \end_layout
 
 \begin_layout Subsection
@@ -1506,7 +1324,7 @@ Register themselves to the system:
 \begin_deeper
 \begin_layout Enumerate
 The system has to guarantee the registration to a new user by creating a
- new account.
+ new account
 \end_layout
 
 \end_deeper
@@ -1517,7 +1335,7 @@ Log into the system:
 \begin_deeper
 \begin_layout Enumerate
 The system has to allow the login to an already registered user when he
- types the correct username and the password in the login form.
+ types the correct username and the password in the login form
 \end_layout
 
 \end_deeper
@@ -1527,25 +1345,25 @@ Set constraints on the transportation means they can employ:
 
 \begin_deeper
 \begin_layout Enumerate
-Users can set their preferred means of transport;
+Users can set their preferred means of transport
 \end_layout
 
 \begin_layout Enumerate
-Users can choose some transportation means to avoid.
+Users can choose some transportation means to avoid
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Users can add appointments to their calendar;
+Users can add appointments to their calendar
 \end_layout
 
 \begin_layout Enumerate
-Users can delete an already schedule appointment;
+Users can delete an already schedule appointment
 \end_layout
 
 \begin_layout Enumerate
 Users must be warned if it appears that there's no suitable transportation
- mean to reach an appointment in time;
+ mean to reach an appointment in time
 \end_layout
 
 \begin_layout Enumerate
@@ -1556,12 +1374,12 @@ Plan for travel between appointments, using smart suggestions given by the
 \begin_deeper
 \begin_layout Enumerate
 Using the preference and the coinstraints set by the users, the application
- has to give to the users a list that contains the best solutions;
+ has to give to the users a list that contains the best solutions
 \end_layout
 
 \begin_layout Enumerate
 Users can choose the preferred (from the list) path for the scheduled trip
- or ask for more solutions.
+ or ask for more solutions
 \end_layout
 
 \end_deeper
@@ -1571,7 +1389,7 @@ Buy tickets or passes for public transportation:
 
 \begin_deeper
 \begin_layout Enumerate
-Users are able to by tickets or passes directly from the app.
+Users are able to by tickets or passes directly from the app
 \end_layout
 
 \end_deeper
@@ -1583,7 +1401,7 @@ Make reservations for sharing mobility services directly in-app:
 \begin_layout Enumerate
 Users can choose to use sharing mobility since when they schedule an appointment
 , then the app will search a shared vehicle from an hour before the scheduled
- departure.
+ departure
 \end_layout
 
 \end_deeper
@@ -1596,15 +1414,9 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
-:
+ 
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-asdasd
-\end_layout
-
-\end_deeper
 \begin_layout Enumerate
 Find the best way (in term of time, distance, cost, carbon emission,...) to
  reach the destination:
@@ -1612,11 +1424,11 @@ Find the best way (in term of time, distance, cost, carbon emission,...) to
 
 \begin_deeper
 \begin_layout Enumerate
-Users can set their preference for each or for only one specific trip;
+Users can set their preference for each or for only one specific trip
 \end_layout
 
 \begin_layout Enumerate
-The preference can be modify in every moment.
+The preference can be modify in every moment
 \end_layout
 
 \end_deeper
@@ -1627,8 +1439,7 @@ Get a notification if the scheduled trip should be changed:
 \begin_deeper
 \begin_layout Enumerate
 App must notify the users if it is no longer possible to follow the established
- trip, for any reason.
- 
+ trip, for any reason
 \end_layout
 
 \begin_layout Enumerate
@@ -1637,21 +1448,21 @@ The users must be notify if they schedule a trip some days before and:
 
 \begin_deeper
 \begin_layout Enumerate
-It's raining and in the trip is expected the use of a bike;
+It's raining and in the trip is expected the use of a bike
 \end_layout
 
 \begin_layout Enumerate
-There is bus striking and the bus is included in the trip;
+There is bus striking and the bus is included in the trip
 \end_layout
 
 \begin_layout Enumerate
 The app can't fine a sharing vehicle until 30 minutes before the scheduled
- starting of the trip.
+ starting of the trip
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-The users are able to change the scheduled trip after getting the notification.
+The users are able to change the scheduled trip after getting the notification
 \end_layout
 
 \end_deeper
@@ -1661,23 +1472,23 @@ Get a schedulable notification as a reminder for the appointment:
 
 \begin_deeper
 \begin_layout Enumerate
-Users can choose when get a reminder(s) for the scheduled appointments.
+Users can choose when get a reminder(s) for the scheduled appointments
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 Get a list of all the scheduled appointments and access to further information
- by clicking on it.
+ by clicking on it
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
 The app must provide to the users a list containing all the schedueld appointmen
-ts;
+ts
 \end_layout
 
 \begin_layout Enumerate
-Users are able to click on a specific appointment to get more information.
+Users are able to click on a specific appointment to get more information
 \end_layout
 
 \end_deeper
@@ -1688,7 +1499,7 @@ Modify the profile information:
 \begin_deeper
 \begin_layout Enumerate
 The system has to allow the user to modify his/her personal information
- (payment method, email, phone number,...).
+ (payment method, email, phone number,...)
 \end_layout
 
 \end_deeper
@@ -1809,13 +1620,6 @@ This section will present some possible situations that may occur from the
  interaction between a user and the system developed.
 \end_layout
 
-\begin_layout Standard
-\begin_inset space \quad{}
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Alice is curious about PowerEnjoy
 \end_layout
@@ -1827,11 +1631,7 @@ Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
  the registration page.
  Alice then enters all the data needed by the system to complete the process:
  name and surname, username, email address, password, ID card number and
- licens
-\change_deleted -1730310665 1508161924
-e
-\change_unchanged
- number.
+ license number.
  To complete the sign-up she finally enters the billing information.
  Once everything is done, the system sends her a confirmation mail with
  a link used to activate her new account.
