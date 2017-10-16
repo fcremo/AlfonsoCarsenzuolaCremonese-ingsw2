@@ -196,8 +196,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1405136424 "filippo"
-\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -676,7 +674,7 @@ maximum 2km of walking for any single travel
 \end_layout
 
 \begin_layout Itemize
-the possibility of setting flexible events (e.g.
+the possibility of scheduling flexible events (e.g.
  there must be a time slot of at least 1:30h each day between 11:30 and
  14:30 for lunch)
 \end_layout
@@ -699,130 +697,60 @@ This document shows the functional and non-functional requirements of the
 \end_layout
 
 \begin_layout Subsection
-Scope, constraints and assumptions about external services and events
+Scope
 \end_layout
 
 \begin_layout Standard
+Travelendar+ will be available on all the most used platforms (web, mobile
+ and desktop).
+ Other apps that partially cover Travelendar+ functionality already exist:
+\end_layout
 
-\change_deleted -1405136424 1507647008
-Travelendar+ needs to interact with many entities and cope with events beyond
- our control, which can disrupt user experience.
- In order to provide our users convenient services such as automatic car
- sharing reservations or weather-aware travel planning we need to source
- data from external entities which cannot be expected to be perfectly reliable.
+\begin_layout Itemize
+calendar apps that provide weather information
+\end_layout
+
+\begin_layout Itemize
+public transport assistants (such as Citymapper)
+\end_layout
+
+\begin_layout Itemize
+public transport ticketing apps
+\end_layout
+
+\begin_layout Itemize
+navigation apps (e.g.
+ Google Maps)
+\end_layout
+
+\begin_layout Standard
+Altough applications such as Citymapper or Google Maps already offer an
+ excellent user experience that Travelendar+ must strive to offer, none
+ of those apps allow to seamlessly schedule an appointment while keeping
+ track of weather and travel times.
+ Moreover, ticketing apps for public transportation are often not well built,
+ which would increase the need for the in-app ticket purchase functionality
+ in Travelendar+.
+\end_layout
+
+\begin_layout Standard
+The system will need to interact with external entities and events beyond
+ of our control (public transportation, sharing mobility services, weather)
+ which can disrupt user experience.
  The specifications of the service are based upon the assumption that most
- of the time external services will behave as expected but also document
- what to do when this assumptions won't hold.
-
-\change_inserted -1405136424 1507646166
+ of the time those external entities will behave as expected but also document
+ what to do when the domain assumptions (documented in section X.X) won't
+ hold.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -1405136424 1507647016
-Fill this section
-\change_unchanged
-
+Insert cross-reference to the assumptions section
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsection
-
-\change_deleted 666129059 1507884091
-Goals 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 666129059 1507884091
-Travelendar+ users will be able to:
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-register themselves to the system;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-log into the system;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-set constraints on the transportation means they can employ;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-add appointments to their calendar;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-be warned if it appears that there's no suitable transportation mean to
- reach an appointment in time;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-plan for travel between appointments, using smart suggestions given by the
- app;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-buy tickets or passes for public transportation;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-make reservations for sharing mobility services directly in-app;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 666129059 1507884091
-schedule 
-\begin_inset Quotes eld
-\end_inset
-
-flexible events
-\begin_inset Quotes erd
-\end_inset
-
-;
-\change_inserted 666129059 1507884108
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 666129059 1507884126
-Copy to 2.2 Product functions
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -834,13 +762,7 @@ Stakeholders
 The main stakeholder in this project is our professor, Elisabetta Di Nitto,
  which we'll consider a paying customer that has tasked our development
  team to design and eventually build Travelendar+.
- The specifications and requirements 
-\change_deleted -1405136424 1507644789
-of 
-\change_inserted -1405136424 1507644790
-for 
-\change_unchanged
-the project are coming from her.
+ The specifications and requirements for the project are coming from her.
 \end_layout
 
 \begin_layout Subsection
@@ -857,19 +779,13 @@ Mandatory Project Assignment.pdf
 \end_inset
 
 )
-\change_inserted -1405136424 1507645911
-
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1405136424 1507647574
 Definitions, acronyms, abbreviations
 \end_layout
 
 \begin_layout Description
-
-\change_inserted -1405136424 1507647596
 MVP Minimum Viable Product
 \end_layout
 
@@ -882,104 +798,90 @@ MVP Minimum Viable Product
 
 \begin_layout Section
 Overall Description
-\change_inserted -1405136424 1507646318
-
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1405136424 1507646324
 Product perspective
-\change_inserted 666129059 1507883877
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_inserted 666129059 1507883899
-Class diagrams
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_inserted 666129059 1507883902
-State charts
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted -1405136424 1507646342
+\begin_layout Plain Layout
 here we include further details on the shared phenomena and a domain model
  (class diagrams and statecharts) 
 \end_layout
 
-\begin_layout Subsection
+\end_inset
 
-\change_inserted -1405136424 1507646347
+
+\end_layout
+
+\begin_layout Subsubsection
+Class diagrams
+\end_layout
+
+\begin_layout Subsubsection
+State charts
+\end_layout
+
+\begin_layout Subsection
 Product functions
-\change_inserted 666129059 1507883955
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+here we include the most important requirements
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1507883957
 Travelendar+ users will be able to:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 register themselves to the system;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 log into the system;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 set constraints on the transportation means they can employ;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 add appointments to their calendar;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 be warned if it appears that there's no suitable transportation mean to
  reach an appointment in time;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 plan for travel between appointments, using smart suggestions given by the
  app;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 buy tickets or passes for public transportation;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 make reservations for sharing mobility services directly in-app;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 schedule 
 \begin_inset Quotes eld
 \end_inset
@@ -989,79 +891,137 @@ flexible events
 \end_inset
 
 ;
-\change_inserted -1405136424 1507646347
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1405136424 1507646356
-here we include the most important requirements
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1405136424 1507646359
 User characteristics
-\change_inserted 666129059 1507884465
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1507885303
-Two different types of users can access to the system, each of them can
- use different services of the system application.
- Those users are described below with a synthetic description of their privilege
-s.
+The application is designed to be used by registered, logged in users.
+ Unregistered users can interact with Travelendar+ in some occasions.
+ Here are documented the main characteristics and interactions for registered
+ and unregistered users.
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 666129059 1507885344
-Guest (Unregistered User)
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_inserted 666129059 1507885371
-Client (Registered User)
-\change_inserted -1405136424 1507646359
-
+First time users
 \end_layout
 
 \begin_layout Standard
+Users may start using Travelendar+ when:
+\end_layout
 
-\change_inserted -1405136424 1507646365
-here we include anything that is relevant to clarify their needs
+\begin_layout Itemize
+they access the web app (directly, by search result or otherwise)
+\end_layout
+
+\begin_layout Itemize
+they download the app for the first time on a certain device
+\end_layout
+
+\begin_layout Itemize
+they are sent an invite to try the app from a registered user
+\end_layout
+
+\begin_layout Standard
+In each case the users are sent to an informational page (or application
+ screen depending on the used platform) that shows the main features of
+ Travelendar+ and invites them to sign up.
+ Users that decide to sign up are asked an email and a password and will
+ receive a confirmation email on the specified address.
+\end_layout
+
+\begin_layout Subsubsection
+Unregistered users with a sharing link
+\end_layout
+
+\begin_layout Standard
+Unregistered users (identified by an email address and other optional informatio
+ns) may be invited to an event by a registered user.
+ An email is sent to them as a reminder.
+ The email contains all relevant informations about the event such as name,
+ date and time, location, weather forecast, and also a link to view the
+ event in the web-based version of the app, which can be used to consult
+ updated information about the email.
+\end_layout
+
+\begin_layout Standard
+The email invites them to sign up to Travelendar+ with a link to the information
+al page.
+\end_layout
+
+\begin_layout Subsubsection
+Registered users
+\end_layout
+
+\begin_layout Standard
+Registered users will be identified by their email and a password.
+ Other informations will be asked when appropriate:
+\end_layout
+
+\begin_layout Itemize
+a dismissible 
+\begin_inset Quotes eld
+\end_inset
+
+complete your profile
+\begin_inset Quotes erd
+\end_inset
+
+ button will be visible in the main screen of the app
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+it will lead to the profile settings page/screen which offers to input and
+ modify all account information
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+when planning the first travel users will be asked
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+which transportation means they can and cannot use
+\end_layout
+
+\begin_layout Itemize
+account information for sharing mobility services
+\end_layout
+
+\begin_layout Itemize
+the maximum walking distance for any single travel
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+credit card information will be asked on the first payment
+\end_layout
+
+\begin_layout Standard
+The account settings page/screen will be accessible at any moment to edit
+ the provided information.
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1405136424 1507647109
 Assumptions, dependencies and constraints
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1405136424 1507647355
 Travelendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
  Here we document constraints and assumptions on which we'll rely on for
  our design.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1405136424 1507647097
 Data sources
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1405136424 1507647157
 In order to provide our users convenient services such as automatic car
  sharing reservations or weather-aware travel planning we need to source
  data from external entities which cannot be expected to be perfectly reliable.
@@ -1071,14 +1031,10 @@ In order to provide our users convenient services such as automatic car
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1405136424 1507647191
 Area limit and app availability
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1405136424 1507647619
 We assume that appointments for which the user wants help scheduling his
  travels are limited to the same area (e.g.
  the metropolitan area of Milan).
@@ -1088,38 +1044,26 @@ We assume that appointments for which the user wants help scheduling his
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1405136424 1507647667
 public transportation regulations, prices, ticketing systems and timetables
  (and associated data sources) vary wildly in quality, format and availability
  between cities
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1405136424 1507647761
 time estimates on long travels — especially when involving public transportation
  — are not accurate
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1405136424 1507647637
 Other assumptions
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1405136424 1507647637
 We suppose these conditions will be respected at any given time:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1405136424 1507646383
 users input correctly all relevant informations about their appointments
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
@@ -1161,12 +1105,8 @@ Map data will come from an external service such as Google Maps, since projects
  experience.
  Public transport data will be sourced from the relevant companies APIs
  and websites.
-
-\change_inserted -1405136424 1507644941
  Weather data will be obtained from one of the many providers available,
  at this moment still to be determined.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1928,7 +1868,7 @@ From previously denoted scenarios and from the whole analysis we did in
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1962,7 +1902,7 @@ Guest Use Case
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1996,7 +1936,7 @@ User Use Case
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4222,7 +4162,7 @@ This section presents the sequence diagram of the most important interaction,
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4523,7 +4463,7 @@ Car Unlock Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4640,9 +4580,9 @@ status open
 \align center
 \begin_inset Graphics
 	filename res/img/ClassD.png
+	display false
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -5544,65 +5484,6 @@ lstinputlisting[language=alloy]{res/alloy/AlloyPowerEnjoy.als}
 
 \end_layout
 
-\begin_layout Subsection
-Generated Worlds 
-\end_layout
-
-\begin_layout Standard
-Here are presented three generated worlds, according to the model speciﬁed
- in Alloy.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename res/img/world1.png
-	height 100theight%
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename res/img/world2.png
-	height 100theight%
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename res/img/world3.png
-	height 100theight%
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Appendix
 \end_layout
@@ -5652,18 +5533,12 @@ Hours spent
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/hours.png
-	width 50text%
-	height 50theight%
-	keepAspectRatio
+Inserire tabella ore individuali
+\end_layout
 
 \end_inset
 
@@ -5674,19 +5549,10 @@ status open
 Acknowledgments
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 The template for this document was taken (with explicit prior permission)
  from the SE2 project of Colaci, De Pasquale, Rinaldi (https://github.com/giancar
 locolaci/SE2_Project_Colaci_DePasquale_Rinaldi)
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body
