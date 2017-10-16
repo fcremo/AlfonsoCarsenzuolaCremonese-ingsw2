@@ -915,90 +915,56 @@ here we include further details on the shared phenomena and a domain model
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1405136424 1507646347
 Product functions
-\change_inserted -1730310665 1508155290
-
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1508155303
 Functional Requirement
-\change_inserted 666129059 1507883955
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1507883957
 Travelendar+ users will be able to:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 register themselves to the system;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 log into the system;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 set constraints on the transportation means they can employ;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 add appointments to their calendar;
-\change_inserted -1730310665 1508156894
-
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508156916
 delete an already schedule appointment;
-\change_inserted 666129059 1507883957
-
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 be warned if it appears that there's no suitable transportation mean to
  reach an appointment in time;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 plan for travel between appointments, using smart suggestions given by the
  app;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 buy tickets or passes for public transportation;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 make reservations for sharing mobility services directly in-app;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 666129059 1507883957
 schedule 
 \begin_inset Quotes eld
 \end_inset
@@ -1008,92 +974,86 @@ flexible events
 \end_inset
 
 ;
-\change_inserted -1730310665 1508155766
+\change_deleted -1730310665 1508160636
 
 \end_layout
 
 \begin_layout Itemize
 
-\change_inserted -1730310665 1508156550
+\change_deleted -1730310665 1508160636
 choose the method of transport between their own (car) and public/sharing
  (bus, bike...);
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157287
 find the best way (in term of time or distance) to reach the destination;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157432
 get a notification if the scheduled trip should be changed (e.g.
  bad weather forecast or bus strike);
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157487
 get a schedulable notification as a reminder for the appointment;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157524
 get a list of all the schedule appointment and access to further information
- by clicking on it.
-\end_layout
+ by clicking on it
+\change_inserted -1730310665 1508161842
+;
+\change_deleted -1730310665 1508161842
+.
+\change_inserted -1730310665 1508160846
 
-\begin_layout Subsubsection
-
-\change_inserted -1730310665 1508155558
-Not-Functional Requirement
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1730310665 1508156195
-Tralvendar+ should be:
 \end_layout
 
 \begin_layout Itemize
 
-\change_inserted -1730310665 1508157002
+\change_inserted -1730310665 1508161845
+modify the profile information;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1508161868
+book only one shared vehicle per time.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Non-Functional Requirement
+\end_layout
+
+\begin_layout Standard
+Tralvendar+ should be:
+\end_layout
+
+\begin_layout Itemize
 enough fast when users interact with it (e.g.
  max 15 seconds to schedule a trip);
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508156851
 multiplatform so that eahc user can access to the app's service from pc,
  smartphone or tablet with authomatic syncronization between all devices;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508156491
 scalable for an increasing number of users that use Tralvendar+;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157015
 usable 24/7;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1508157729
 simple and use-friendly graphic.
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted -1730310665 1508157721
-here we include the most important requirements
-\change_inserted -1405136424 1507646356
+\change_inserted -1730310665 1508157982
 
 \end_layout
 
@@ -1524,219 +1484,286 @@ Functional requirements
 The functional requirements include the functionalities that the system
  must necessarily have and describe the interactions between the system
  developed and the external environment independently from the implementation.
+\change_inserted -1730310665 1508158587
+
 \end_layout
 
 \begin_layout Enumerate
-Registration of a guest to the system:
+
+\change_inserted -1730310665 1508159093
+Register themselves to the system:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
+
+\change_inserted -1730310665 1508158675
 The system has to guarantee the registration to a new user by creating a
  new account.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Login of a user into the system:
+
+\change_inserted -1730310665 1508159097
+Log into the system:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
+
+\change_inserted -1730310665 1508158759
 The system has to allow the login to an already registered user when he
  types the correct username and the password in the login form.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Find the location of available cars in a specified area:
+
+\change_inserted -1730310665 1508159100
+Set constraints on the transportation means they can employ:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system has to allow both guests and users to specify the address where
- they want to locate an available car or to use their position;
+
+\change_inserted -1730310665 1508159298
+Users can set their preferred means of transport;
 \end_layout
 
 \begin_layout Enumerate
-The system has to guarantee that a car is showed on the map if and only
- if it is available (that means that every available car is showed and that
- every showed car is available);
-\end_layout
 
-\begin_layout Enumerate
-The system has to guarantee that the car's position is regularly showed
- up to date.
+\change_inserted -1730310665 1508159322
+Users can choose some transportation means to avoid.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Book a car with the possibility to cancel the reservation:
+
+\change_inserted -1730310665 1508159893
+Users can add appointments to their calendar;
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508159905
+Users can delete an already schedule appointment;
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508159887
+Users must be warned if it appears that there's no suitable transportation
+ mean to reach an appointment in time;
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508159877
+Plan for travel between appointments, using smart suggestions given by the
+ app:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system has to guarantee that only a user (i.e.
- not a guest) can reserve a car;
+
+\change_inserted -1730310665 1508159926
+Using the preference and the coinstraints set by the users, the application
+ has to give to the users a list that contains the best solutions;
 \end_layout
 
 \begin_layout Enumerate
-The system must be able to check the position of the user;
+
+\change_inserted -1730310665 1508160013
+Users can choose the preferred (from the list) path for the scheduled trip
+ or ask for more solutions.
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
-The system has to guarantee that any user can reserve only one car at a
- time;
+
+\change_inserted -1730310665 1508160248
+Buy tickets or passes for public transportation:
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
-The system has to ensure that the same car cannot be reserved at the same
- time by different users;
+
+\change_inserted -1730310665 1508160274
+Users are able to by tickets or passes directly from the app.
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
-The system has to guarantee that any user can have at most an active reservation
-;
+
+\change_inserted -1730310665 1508160286
+Make reservations for sharing mobility services directly in-app:
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
-The system has to guarantee that every reservable car is available;
+
+\change_inserted -1730310665 1508160599
+Users can choose to use sharing mobility since when they schedule an appointment
+, then the app will search a shared vehicle from an hour before the scheduled
+ departure.
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
-The system has to ensure that only a reservable car can be reserved;
-\end_layout
 
-\begin_layout Enumerate
-The system has to guarantee that when a user reserves a car, the latter
- is no more available;
-\end_layout
-
-\begin_layout Enumerate
-The system has to ensure that only an active reservation can expire or be
- canceled;
-\end_layout
-
-\begin_layout Enumerate
-The system has to make sure that when a reservation expires or is revoked,
- the car becomes available again;
-\end_layout
-
-\begin_layout Enumerate
-When a reservation is activated, the system starts a countdown at the end
- of which the reservation expires if the user did not pick-up the reserved
- car;
-\begin_inset Newpage pagebreak
+\change_inserted -1730310665 1508161463
+Schedule 
+\begin_inset Quotes eld
 \end_inset
 
+flexible events
+\begin_inset Quotes erd
+\end_inset
 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Open his/her reserved car;
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-The system must be able to check the proximity of the user to the reserved
- car;
-\end_layout
-
-\begin_layout Enumerate
-The system must be able to check if the money saving option is enabled for
- the current reservation;
-\end_layout
-
-\begin_layout Enumerate
-The system has to allow the user to insert the verification code;
-\end_layout
-
-\begin_layout Enumerate
-The system has to unlock the reserved car only if the entered verification
- code is correct;
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Be notified of active reservation status:
+:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system must be able to retrieve the starting time of the rental;
-\end_layout
 
-\begin_layout Enumerate
-The system must be able to calculate and notify the elapsed time of the
- rental periodically;
-\end_layout
-
-\begin_layout Enumerate
-The system must be able to communicate with every grid power station to
- check their power plugs' availability;
-\end_layout
-
-\begin_layout Enumerate
-The system, to ensure a uniform distribution of parked cars, must be able
- to notify the user the nearest selected station where to leave the car
- to get a discount only if he/she inputs a destination and the money saving
- option is active; 
+\change_inserted -1730310665 1508161451
+asdasd
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-End the rental:
+
+\change_inserted -1730310665 1508160726
+Find the best way (in term of time, distance, cost, carbon emission,...) to
+ reach the destination:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system has to allow the user to communicate that he/she wants to terminate
- the rental using the car's display;
+
+\change_inserted -1730310665 1508160798
+Users can set their preference for each or for only one specific trip;
 \end_layout
 
 \begin_layout Enumerate
-The system has to allow the user to end the rental only if he is in a safe
- parking area;
-\end_layout
 
-\begin_layout Enumerate
-The system has to guarantee that when a reservation is ended, the car becomes
- available again;
+\change_inserted -1730310665 1508160794
+The preference can be modify in every moment.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Know the total cost at the end of the rental:
+
+\change_inserted -1730310665 1508161460
+Get a notification if the scheduled trip should be changed:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system has to communicate with the ADS to retrieve the car status and
- rental information;
+
+\change_inserted -1730310665 1508161219
+App must notify the users if it is no longer possible to follow the established
+ trip, for any reason.
+ 
 \end_layout
 
 \begin_layout Enumerate
-The system must be able to apply the discounts, if any, handling the previously
- retrieved information;
+
+\change_inserted -1730310665 1508161249
+The users must be notify if they schedule a trip some days before and:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161331
+It's raining and in the trip is expected the use of a bike;
 \end_layout
 
 \begin_layout Enumerate
-The system must communicate to the user the final cost of the rental;
+
+\change_inserted -1730310665 1508161355
+There is bus striking and the bus is included in the trip;
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161414
+The app can't fine a sharing vehicle until 30 minutes before the scheduled
+ starting of the trip.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
+
+\change_inserted -1730310665 1508161438
+The users are able to change the scheduled trip after getting the notification.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161476
+Get a schedulable notification as a reminder for the appointment:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161506
+Users can choose when get a reminder(s) for the scheduled appointments.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161697
+Get a list of all the scheduled appointments and access to further information
+ by clicking on it.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161728
+The app must provide to the users a list containing all the schedueld appointmen
+ts;
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508161726
+Users are able to click on a specific appointment to get more information.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508160872
 Modify the profile information:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-The system has to allow the user to modify his/her personal information;
+
+\change_inserted -1730310665 1508161918
+The system has to allow the user to modify his/her personal information
+ (payment method, email, phone number,...).
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
-The system has to allow the user to enable or disable the money saving option;
+
+\change_inserted -1730310665 1508161938
+Book only one shared vehicle per time:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508162004
+The app busts that only one shared vehicle is booked per time
 \end_layout
 
 \end_deeper
@@ -1865,7 +1892,11 @@ Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
  the registration page.
  Alice then enters all the data needed by the system to complete the process:
  name and surname, username, email address, password, ID card number and
- license number.
+ licens
+\change_deleted -1730310665 1508161924
+e
+\change_unchanged
+ number.
  To complete the sign-up she finally enters the billing information.
  Once everything is done, the system sends her a confirmation mail with
  a link used to activate her new account.
