@@ -890,8 +890,56 @@ Overall Description
 
 \change_inserted -1405136424 1507646324
 Product perspective
-\change_inserted 666129059 1507883877
+\change_inserted 666129059 1508155752
 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1508157587
+Travelendar+ is a modern application based on the latest technological and
+ economic innovations so that its users can take advantages of different
+ recent services: users can use sharing mobility to move quickly and comfortably
+, check the status of the interessed trasportation mean and verify the weather
+ conditions of the appointment location directly from the app.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1508155537
+We propose a web and mobile app based system.
+ Users will be able to use Travelendar+ on all platforms and have their
+ appointments always available thanks to automatic synchronization.
+ Basic funcionality (e.g.
+ adding an event to the calendar) will be available offline, but many features
+ will need internet connectivity in order for the app to be able to query
+ the backend and sync data across devices.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1508155537
+The web frontend will be targeted at modern browsers with support for HTML5,
+ CSS3 and recent JS APIs.
+ Shims will be used to ensure the best possibile compatibility with older
+ browsers, altough not all features will be available to legacy clients.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1508155537
+The backend will be implemented as an ensemble of loosely coupled microservices,
+ built using consolidated technologies.
+ This design choice allows for easier scalability and flexibility, and reliabili
+ty via redundancy of critical components.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 666129059 1508157677
+Public transport data will be sourced from the relevant companies APIs and
+ websites.
+ Weather and map data will come from an external service.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1127,6 +1175,8 @@ Proposed System
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 666129059 1508155520
 We propose a web and mobile app based system.
  Users will be able to use Travelendar+ on all platforms and have their
  appointments always available thanks to automatic synchronization.
@@ -1137,6 +1187,8 @@ We propose a web and mobile app based system.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 666129059 1508155520
 The web frontend will be targeted at modern browsers with support for HTML5,
  CSS3 and recent JS APIs.
  Shims will be used to ensure the best possibile compatibility with older
@@ -1146,6 +1198,8 @@ The web frontend will be targeted at modern browsers with support for HTML5,
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 666129059 1508155520
 The backend will be implemented as an ensemble of loosely coupled microservices,
  built using consolidated technologies.
  This design choice allows for easier scalability and flexibility, and reliabili
@@ -1156,13 +1210,13 @@ ty via redundancy of critical components.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 666129059 1508155520
 Map data will come from an external service such as Google Maps, since projects
  like OpenStreetMaps are not reliable enough to offer a consistent user
  experience.
  Public transport data will be sourced from the relevant companies APIs
  and websites.
-
-\change_inserted -1405136424 1507644941
  Weather data will be obtained from one of the many providers available,
  at this moment still to be determined.
 \change_unchanged
