@@ -196,6 +196,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1405136424 "filippo"
 \author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
@@ -1019,20 +1020,16 @@ Tralvendar+ should be:
 \end_layout
 
 \begin_layout Itemize
-fast
+fast (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Performance-requirements"
+
+\end_inset
+
+)
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-1 second maximum response time for most pages and actions (under normal
- conditions)
-\end_layout
-
-\begin_layout Itemize
-15 seconds to load trip suggestions
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 multiplatform so that each user can access to app from pc, smartphone or
  tablet with authomatic syncronization between all devices
@@ -1235,6 +1232,16 @@ We suppose these conditions will be respected at any given time:
 
 \begin_layout Itemize
 users input correctly all relevant informations about their appointments
+\change_inserted -1405136424 1508248939
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508248966
+users have a reliable internet connection
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -1514,18 +1521,56 @@ The app busts that only one shared vehicle is booked per time
 
 \end_deeper
 \begin_layout Subsection
-Performance requirement
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Performance-requirements"
+
+\end_inset
+
+Performance and responsivness requirements
 \end_layout
 
 \begin_layout Standard
-We expected our app to be enough fast, not only during the interaction with
- the users, but also in computing the best solutions for the trip to the
- next appointment's destination.
- In our mind, it could be pleasing that the app give a list containing the
- best solutions (after asking to sharing service, public transportation,..)
- in a maximum time of 20 seconds.
- In all the other interaction between app and users it is expected that
- the app is fast that the users could use it without problems.
+Users expect apps and websites to be fast and responsive, which entails
+ both technical and UI requirements.
+ We fix the following response times:
+\end_layout
+
+\begin_layout Itemize
+1 second maximum response time for most pages and actions, including
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+showing the main screen (starting the app)
+\end_layout
+
+\begin_layout Itemize
+showing the details screen for an event
+\end_layout
+
+\begin_layout Itemize
+inserting or modifying an event
+\end_layout
+
+\begin_layout Itemize
+updating profile information
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+15 seconds to load trip suggestions
+\end_layout
+
+\begin_layout Itemize
+1 minute maximum delay for receiving scheduled notifications
+\end_layout
+
+\begin_layout Standard
+Trip suggestions should be loaded incrementally, so that informations can
+ be displayed to the user as soon as possible.
+ In order to give hints to the user as to when the app is loading or processing
+ spinners will be shown for each waiting period longer than 1 second.
 \end_layout
 
 \begin_layout Subsection
@@ -1534,6 +1579,14 @@ Design constraints
 
 \begin_layout Subsubsection
 Standards compliance
+\change_inserted -1405136424 1508249893
+
+\end_layout
+
+\begin_layout Paragraph
+
+\change_inserted -1405136424 1508249916
+Data export formats
 \end_layout
 
 \begin_layout Subsubsection
@@ -1541,9 +1594,16 @@ Hardware limitations
 \end_layout
 
 \begin_layout Standard
-Our app doesn't have any particoular constraint, but we expected that it
- will be run (?) on modern computers, smartphones or tablets, so that it
- can satisfy the performance requirement.
+Our app doesn't have particular hardware constraints., but we expect
+\change_deleted -1405136424 1508249559
+ed
+\change_unchanged
+ that it will be run 
+\change_deleted -1405136424 1508249515
+(?) 
+\change_unchanged
+on modern computers, smartphones or tablets, so that it can satisfy the
+ performance requirement.
 \change_inserted -1730310665 1508228895
 
 \end_layout
@@ -5419,8 +5479,20 @@ Acknowledgments
 
 \begin_layout Standard
 The template for this document was taken (with explicit prior permission)
- from the SE2 project of Colaci, De Pasquale, Rinaldi (https://github.com/giancar
-locolaci/SE2_Project_Colaci_DePasquale_Rinaldi)
+ from the SE2 project of Colaci, De Pasquale, Rinaldi (
+\change_deleted -1405136424 1508249651
+https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
+\change_inserted -1405136424 1508249651
+
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi"
+
+\end_inset
+
+
+\change_unchanged
+)
 \end_layout
 
 \end_body
