@@ -196,6 +196,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
@@ -1414,9 +1415,28 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
- 
+
+\change_inserted -1730310665 1508247950
+:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508248782
+Users are able to set constraints on what they must do during the day (e.g.
+ maybe a user want to have lunch between 12 am and 2 pm) and the app must
+ consider the user's preference
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted -1730310665 1508248840
+The app must notify users if they are going to schedule an event that go
+ against the set constraints
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Find the best way (in term of time, distance, cost, carbon emission,...) to
  reach the destination:
