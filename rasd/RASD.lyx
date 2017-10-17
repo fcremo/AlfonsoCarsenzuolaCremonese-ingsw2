@@ -1703,94 +1703,38 @@ The app busts that only one shared vehicle is booked per time
 
 \end_deeper
 \begin_layout Subsection
-Non-functional requirements 
+Performance requirement
 \end_layout
 
 \begin_layout Standard
-The non-functional requirements are those not related to the functionality,
- but rather consider the quality of the system to be implemented (Quality
- of Service, QoS), regardless of the application domain.
- 
-\begin_inset VSpace smallskip
-\end_inset
+We expected our app to be enough fast, not only during the interaction with
+ the users, but also in computing the best solutions for the trip to the
+ next appointment's destination.
+ In our mind, it could be pleasing that the app give a list containing the
+ best solutions (after asking to sharing service, public transportation,..)
+ in a maximum time of 20 seconds.
+ In all the other interaction between app and users it is expected that
+ the app is fast that the users could use it without problems.
+\end_layout
 
+\begin_layout Subsection
+Design constraints
+\end_layout
 
+\begin_layout Subsubsection
+Standards compliance
+\end_layout
+
+\begin_layout Subsubsection
+Hardware limitations
 \end_layout
 
 \begin_layout Standard
+Our app doesn't have any particoular constraint, but we expected that it
+ will be run (?) on modern computers, smartphones or tablets, so that it
+ can satisfy the performance requirement.
+\change_inserted -1730310665 1508228895
 
-\end_layout
-
-\begin_layout Standard
-Security:
-\end_layout
-
-\begin_layout Itemize
-Each user will only be able to access functionality that competes to his
- category, and it is, therefore, necessary to provide an authentication
- method: it will be used the symmetric username/password one.
- Furthermore, each credential will not be stored in cleartext, and client/server
- communications will be protected by asymmetric encryption.
- 
-\end_layout
-
-\begin_layout Standard
-Portability: 
-\end_layout
-
-\begin_layout Itemize
-The client must be compatible with all hardware and software platforms to
- reach as many users as possible.
- This requirement is satisfied by realizing the client as a web application,
- in this way the only assumptions that must be met by users are the availability
- of a web browser and a connection to the Internet.
- 
-\end_layout
-
-\begin_layout Standard
-Stability and reliability: 
-\end_layout
-
-\begin_layout Itemize
-The system must notify the user the result of each his/her transaction request
- while maintaining an optimal level of reliability.
- Therefore it will be able to face with the possible loss of connection
- between clients and the central server by ensuring atomicity of all operations.
-\end_layout
-
-\begin_layout Standard
-Performance: 
-\end_layout
-
-\begin_layout Itemize
-As for performance, the timing of getting and insertion the information
- in the database must be acceptable to do not block the whole system.
- 
-\end_layout
-
-\begin_layout Standard
-Concurrency management: 
-\end_layout
-
-\begin_layout Itemize
-The system must ensure data consistency while dealing with multiple concurrent
- accesses to the same resource in the database by multiple users authenticated
- to the system.
- 
-\end_layout
-
-\begin_layout Standard
-Graphical User Interfaces (GUIs): 
-\end_layout
-
-\begin_layout Itemize
-The system has to include several graphical user interfaces: intuitive,
- complete and exceptionally easy to use.
- An interface to contain areas of input, dialog boxes, buttons, links and
- drop-down menus will be developed.
- The interfaces will interact with business logic and then be differentiated
- according to user roles in the system: each interface will provide access
- to features that compete for the particular user who is logged in.
 \end_layout
 
 \begin_layout Standard
