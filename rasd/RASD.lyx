@@ -196,9 +196,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1730310665 "Fabrizio Carsenzuola"
 \author 666129059 "Alessandro Alfonso"
-\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -657,13 +655,7 @@ Life, simplified
 \end_layout
 
 \begin_layout Itemize
-
-\change_deleted 1604105849 1508170209
-in-app 
-\change_inserted 1604105849 1508170211
-automatic 
-\change_unchanged
-reservations for sharing mobility services (car, bike)
+automatic reservations for sharing mobility services (car, bike)
 \end_layout
 
 \begin_layout Itemize
@@ -736,27 +728,11 @@ navigation apps (e.g.
 Altough applications such as Citymapper or Google Maps already offer an
  excellent user experience, none of those apps allow to seamlessly schedule
  an appointment while keeping track of weather and travel times.
- Moreover, ticketing apps for public transportation are often 
-\change_deleted 1604105849 1508170257
-not well built
-\change_inserted 1604105849 1508170269
-poorly built
-\change_unchanged
-, which 
-\change_deleted 1604105849 1508170280
-would 
-\change_unchanged
-increase
-\change_inserted 1604105849 1508170281
-s
-\change_unchanged
- the need for the in-app ticket purchase functionality in Travelendar+.
-
-\change_inserted 1604105849 1508170360
+ Moreover, ticketing apps for public transportation are often poorly built,
+ which increases the need for the in-app ticket purchase functionality in
+ Travelendar+.
  The existing sharing mobility services don't offer the possibility to automatic
 ally reserve the nearest vehicle at a certain date and time.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -766,16 +742,12 @@ The system will need to interact with external entities and events beyond
  The specifications of the service are based upon the assumption that most
  of the time those external entities will behave as expected but also document
  what to do when the domain assumptions (documented in section 
-\change_inserted 1604105849 1508169430
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Assumptions, dependencies and constraints"
 
 \end_inset
 
-
-\change_unchanged
 ) won't hold.
  
 \end_layout
@@ -845,8 +817,6 @@ here we include further details on the shared phenomena and a domain model
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1508157587
 Travelendar+ is a modern application based on the latest technological and
  economic innovations so that its users can take advantages of different
  recent services: users can use sharing mobility to move quickly and comfortably
@@ -855,8 +825,6 @@ Travelendar+ is a modern application based on the latest technological and
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1508155537
 We propose a web and mobile app based system.
  Users will be able to use Travelendar+ on all platforms and have their
  appointments always available thanks to automatic synchronization.
@@ -867,8 +835,6 @@ We propose a web and mobile app based system.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1508155537
 The web frontend will be targeted at modern browsers with support for HTML5,
  CSS3 and recent JS APIs.
  Shims will be used to ensure the best possibile compatibility with older
@@ -876,8 +842,6 @@ The web frontend will be targeted at modern browsers with support for HTML5,
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1508155537
 The backend will be implemented as an ensemble of loosely coupled microservices,
  built using consolidated technologies.
  This design choice allows for easier scalability and flexibility, and reliabili
@@ -885,24 +849,16 @@ ty via redundancy of critical components.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 666129059 1508157677
 Public transport data will be sourced from the relevant companies APIs and
  websites.
  Weather and map data will come from an external service.
-\change_inserted 1604105849 1508164136
-
 \end_layout
 
 \begin_layout Subsubsection
 Class diagrams
-\change_inserted 1604105849 1508169883
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508169908
 \begin_inset Graphics
 	filename class_diagram/class_diagram.plantuml
 	width 100col%
@@ -1162,27 +1118,20 @@ The account settings page/screen will be accessible at any moment to edit
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 1604105849 1508172451
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Assumptions, dependencies and constraints"
 
 \end_inset
 
-
-\change_unchanged
 Assumptions, dependencies and constraints
 \end_layout
 
 \begin_layout Standard
 Travelendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
- Here we document constraints and assumptions
-\change_deleted 1604105849 1508172499
- 
-\change_unchanged
- which we'll rely on in our design.
+ Here we document constraints and assumptions which we'll rely on in our
+ design.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1232,69 +1181,14 @@ We suppose these conditions will be respected at any given time:
 
 \begin_layout Itemize
 users input correctly all relevant informations about their appointments
-\change_inserted -1405136424 1508248939
-
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1405136424 1508248966
 users have a reliable internet connection
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
 Proposed System
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 666129059 1508155520
-We propose a web and mobile app based system.
- Users will be able to use Travelendar+ on all platforms and have their
- appointments always available thanks to automatic synchronization.
- Basic funcionality (e.g.
- adding an event to the calendar) will be available offline, but many features
- will need internet connectivity in order for the app to be able to query
- the backend and sync data across devices.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 666129059 1508155520
-The web frontend will be targeted at modern browsers with support for HTML5,
- CSS3 and recent JS APIs.
- Shims will be used to ensure the best possibile compatibility with older
- browsers, altough not all features will be available to legacy clients.
- The web UI and mobile apps for Android and iOS will be built upon the React
- framework, that allows to have a consistent interface across all platforms.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 666129059 1508155520
-The backend will be implemented as an ensemble of loosely coupled microservices,
- built using consolidated technologies.
- This design choice allows for easier scalability and flexibility, and reliabili
-ty via redundancy of critical components.
- Most of the buisiness logic will be implemented in Python, while components
- that need to handle many concurrent connections will be implemented in
- Node.js and/or Erlang.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 666129059 1508155520
-Map data will come from an external service such as Google Maps, since projects
- like OpenStreetMaps are not reliable enough to offer a consistent user
- experience.
- Public transport data will be sourced from the relevant companies APIs
- and websites.
- Weather data will be obtained from one of the many providers available,
- at this moment still to be determined.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1421,23 +1315,17 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_inserted -1730310665 1508247950
 :
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-
-\change_inserted -1730310665 1508248782
 Users are able to set constraints on what they must do during the day (e.g.
  maybe a user want to have lunch between 12 am and 2 pm) and the app must
  consider the user's preference
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted -1730310665 1508248840
 The app must notify users if they are going to schedule an event that go
  against the set constraints
 \end_layout
@@ -1598,13 +1486,9 @@ Design constraints
 
 \begin_layout Subsubsection
 Standards compliance
-\change_inserted -1405136424 1508249893
-
 \end_layout
 
 \begin_layout Paragraph
-
-\change_inserted -1405136424 1508249916
 Data export formats
 \end_layout
 
@@ -1613,18 +1497,9 @@ Hardware limitations
 \end_layout
 
 \begin_layout Standard
-Our app doesn't have particular hardware constraints., but we expect
-\change_deleted -1405136424 1508249559
-ed
-\change_unchanged
- that it will be run 
-\change_deleted -1405136424 1508249515
-(?) 
-\change_unchanged
-on modern computers, smartphones or tablets, so that it can satisfy the
- performance requirement.
-\change_inserted -1730310665 1508228895
-
+Our app doesn't have particular hardware constraints., but we expect that
+ it will be run on modern computers, smartphones or tablets, so that it
+ can satisfy the performance requirement.
 \end_layout
 
 \begin_layout Standard
@@ -2928,7 +2803,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Check available cars' position and status
+Create a new event
 \end_layout
 
 \begin_layout Standard
@@ -2964,7 +2839,7 @@ vspace{0.15cm}
 
 \end_inset
 
-Guest, User or Deactivated User
+Registered User
 \begin_inset ERT
 status open
 
@@ -3042,21 +2917,31 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-The actor opens the map
+The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The system requires the actor to enter an address or to use his position
- to localize cars 
+The actor enters event name, hour, place and other standard information
 \end_layout
 
 \begin_layout Enumerate
-The actor types the address where he wants to find an available car or clicks
- 
+The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+The system shows the quickest, the cheapest and the most ecologic route
+\end_layout
+
+\begin_layout Enumerate
+The actor chooses one of the proposed routes or no one through the checkboxes
+\end_layout
+
+\begin_layout Enumerate
+The actor confirms the event creation clicking the 
 \begin_inset Quotes eld
 \end_inset
 
-Use my position
+Confirm
 \begin_inset Quotes erd
 \end_inset
 
@@ -3064,21 +2949,7 @@ Use my position
 \end_layout
 
 \begin_layout Enumerate
-The system verifies the correctness of the information and send a request
- to the RMSS 
-\end_layout
-
-\begin_layout Enumerate
-The system receives an answer from the RMSS with the available cars and
- shows them to the actor on the map
-\end_layout
-
-\begin_layout Enumerate
-The actor taps the icon that stands for the available car he chooses 
-\end_layout
-
-\begin_layout Enumerate
-The system shows to the actor the status of the selected available car
+The system shows a summary screen
 \end_layout
 
 \end_inset
@@ -3110,8 +2981,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The actor obtains all the information about the position and the status
- of any available car in a certain area.
+The actor has a new event in his scheduled events.
 \begin_inset ERT
 status open
 
@@ -3156,10 +3026,20 @@ vspace{0.15cm}
 
 \end_inset
 
-The address field is empty.
- The inserted address is not found or the location service does not work.
+
+\change_deleted 666129059 1508493970
+The address field is empty
+\change_inserted 666129059 1508493970
+One of the fields of the basic information is empty.
+\change_unchanged
+.
+ 
+\change_deleted 666129059 1508493949
+The inserted address is not found or the location service does not work.
  There is no available cars in the selected area.
  In these cases the system notifies the error and cannot complete the request.
+\change_unchanged
+
 \begin_inset ERT
 status open
 
@@ -5499,18 +5379,12 @@ Acknowledgments
 \begin_layout Standard
 The template for this document was taken (with explicit prior permission)
  from the SE2 project of Colaci, De Pasquale, Rinaldi (
-\change_deleted -1405136424 1508249651
-https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
-\change_inserted -1405136424 1508249651
-
 \begin_inset CommandInset href
 LatexCommand href
 target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi"
 
 \end_inset
 
-
-\change_unchanged
 )
 \end_layout
 
