@@ -197,6 +197,8 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1405136424 "filippo"
+\author -1730310665 "fabcars"
+\author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
 
@@ -1302,11 +1304,8 @@ Assumptions and dependencies
 \begin_layout Standard
 Travlendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
- Here we document constraints and assumptions
-\change_deleted 1604105849 1508172499
- 
-\change_unchanged
- which we'll rely on in our design.
+ Here we document constraints and assumptions which we'll rely on in our
+ design.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1632,9 +1631,22 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
- 
+:
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Users are able to set constraints on what they must do during the day (e.g.
+ maybe a user want to have lunch between 12 am and 2 pm) and the app must
+ consider the user's preference
+\end_layout
+
+\begin_layout Itemize
+The app must notify users if they are going to schedule an event that go
+ against the set constraints
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 Find the best way (in term of time, distance, cost, carbon emission,...) to
  reach the destination:
@@ -1812,7 +1824,7 @@ Hardware limitations
 \end_layout
 
 \begin_layout Standard
-Our app doesn't have particular hardware constraints., but we expect that
+Our app doesn't have particular hardware constraints, but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
  can satisfy the performance requirement.
 \end_layout
@@ -1834,22 +1846,21 @@ This section will present some possible situations that may occur from the
 \end_layout
 
 \begin_layout Subsection
-Alice is curious about PowerEnjoy
+Elisabetta is curious about Travlendar+
 \end_layout
 
 \begin_layout Standard
-Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
- tries to register to PowerEnjoy.
+Lily tells Elisabetta about a new service called PowerEnjoy: Elisabetta,
+ now curious, tries to register to Travlendar+.
  She visits the homepage, browses the site a little and then proceeds to
  the registration page.
  Alice then enters all the data needed by the system to complete the process:
- name and surname, username, email address, password, ID card number and
- license number.
+ name and surname, username, email address, password and credit card data.
  To complete the sign-up she finally enters the billing information.
  Once everything is done, the system sends her a confirmation mail with
  a link used to activate her new account.
  She has now completed the registration, and she can log into the system
- and power enjoy the service.
+ and use all the services given by our app.
 \end_layout
 
 \begin_layout Standard
@@ -1860,23 +1871,20 @@ Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
 \end_layout
 
 \begin_layout Subsection
-Grandpa Peter and his expired license
+Filippo is getting married!
 \end_layout
 
 \begin_layout Standard
-Grandpa Peter has been registered to PowerEnjoy for a quite long time.
- He loves the car sharing model, now more than ever since his old Panda
- broke a long time ago and he could not pick up his nephews, David and Goliath,
- from the pool.
- There is a problem, though: Peter is getting old, and his license has to
- be renewed to drive again.
- After a long day at the Driver and Vehicle Licensing Agency, Grandpa Peter
- successfully got his shiny license back! To reactivate his PowerEnjoy account,
- Peter has to edit his account data and insert the new license card number:
- after having logged in, he proceeds to his personal area by clicking “Edit
- Personal Data", he puts the new data in the system, and finally he saves
- the changes.
- Grandpa Peter is on the road, again!
+Filippo gets married and, to live with his wife, he has to move freom his
+ parents' house to the new one.
+ So when he insert a new event doesn't want that the app calculates the
+ route from his old house, because it is quite distance from the new one
+ and the expected travel time would be incorrect.
+ He can access to his personal private area (after having logged in) and,
+ by clicking “Edit Personal Data", he inserts the new data in the system,
+ and finally he saves the changes.
+ Filippo can now use the app again and stay happy with his wife (having
+ some children).
 \end_layout
 
 \begin_layout Standard
@@ -1887,30 +1895,20 @@ Grandpa Peter has been registered to PowerEnjoy for a quite long time.
 \end_layout
 
 \begin_layout Subsection
-Grandpa Peter and his nephews
+Alessandro is always drunk
 \end_layout
 
 \begin_layout Standard
-It's rainy outside, so Grandpa Peter has to pick up his two nephews from
- the pool: he picks up his smartphone and checks if there are any available
- cars near him.
- He is getting old so he cannot walk for a long time, so he reserves the
- nearest car which, unfortunately, has less than 50% battery charge remaining.
- Once in the car's reach, Peter taps on “Open Vehicle” and inputs his verificati
-on code.
- His memory is aging just like him so the usual “1969” code, which corresponds
- to the year he married his beloved Franca, turned into “1967” which is
- not accepted by the system.
- The system prompts him again, and this time Peter does not fail: the doors
- unlock, and Grandpa is on the road once more! Peter's driving skills are
- still amazing: he picks up the kids and gets home in no time, so he ends
- the rent.
- Unfortunately, he is not able to use the 20% discount due to the battery
- charge left, but he will be cut 10% since he took at least two other people
- in the car.
-\end_layout
-
-\begin_layout Standard
+Alessandro is a good boy, but he has one really bad habit: on Sunday he
+ goes out with his friends and he drinks a lot; on Monday he has his duties
+ to do but, having an hangover, he forgets some things.
+ Fortunately, he has an account on Travlendar+, so on Friday he makes a
+ note of all his appointments on the calendar.
+ The application not only reminds him his scheduled events with a notification,
+ but also drives him with route indications.
+ So, on Monday Alessandro will arrive in time at work and his department
+ boss won't fire him.
+ Thanks Travlendar+!
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -1918,27 +1916,19 @@ on code.
 \end_layout
 
 \begin_layout Subsection
-Pablo and Tata go to the cinema
+Fabrizio, the sport addicted
 \end_layout
 
 \begin_layout Standard
-Tata and Pablo make a great couple.
- It's Friday night, and the theaters are flooded by the latest sci-fi movie
- everyone love.
- Pablo loves all those lightsabers and starships while Tata just can't get
- the point out of them.
- The film will start in more than one hour: Pablo is ready for the night
- out, Tata has to fix her makeup.
- “Five minutes and I am ready!" - she said.
- Unfortunately, Pablo forgot to charge his phone so he can't use his phone's
- GPS to save precious battery juice and reserves his PowerEnjoy car by entering
- his address into the app.
- Time goes by; one hour has passed, and Pablo is still waiting for Tata
- who seems to have no intentions leaving the bathroom.
- The film has just begun, the reservation expired, the car is available
- to be reserved again, and Pablo has to pay 1€ fee: “One minute and we are
- rolling!” - she said.
- Pablo, may the force be with you! 
+Fabrizio is a sport addicted and he really belives in the problem of air
+ pollution, so he prefers not to use car or motor vehicles.
+ In his preference he can sets to select always the most ecologic route,
+ so that he can runs or cycles around the city.
+ He does sport and doesn't pollute the air! But if he is in hurry because
+ he has an appointment with his girlfriend (and if he arrives late she will
+ stay angry for the whole day), when he shedueles this event, he can choose
+ the quickest route.
+ An exception can be made for just one time: it is for a good reason!
 \end_layout
 
 \begin_layout Standard
@@ -1949,25 +1939,38 @@ Tata and Pablo make a great couple.
 \end_layout
 
 \begin_layout Subsection
-Gustavo, the discount hunter
+Michele, the motobiker
 \end_layout
 
 \begin_layout Standard
-Gustavo is a saver, methodic and old-fashioned man, and he built an economic
- empire from scratch.
- He owns a vintage 1968 Ford Torino which is only used on Saturday afternoons
- with his closest friend to honor the times long gone: on the other days,
- he mainly uses PowerEnjoy.
- Gustavo has turned on the money saving option while signing up, and he
- loves it.
- Once in the car, he logs in and proceed to set up his seat and insert his
- destination: the system now calculates the overall cars distribution in
- the city, verifies the availability of power plugs in the nearest power
- grid stations to the arrival and suggests to park in a special area just
- 300 meters away from his destination.
- Once there, Gustavo, just before ending the rental, takes care of plugging
- the car into the power grid: now, the smartphone application shows him
- the total cost which includes the 40% discount.
+Michele, is in love with his motorbike.
+ He moves all around Milan with it, so that he can avoid traffic congestion
+ because he is always in hurry.
+ He is a very busy man especially near lunch time, but he wants to eat everyday
+ between 12 am and 2 pm, so he schedules lunch as a flexible and recurrent
+ event.
+ The app day by day will manage Michele's lunch itself (choosing the best
+ moment during the interval of time that Michele has set) in order to give
+ him the time that he has set in his preference.
+ If Michele doesn't have enough time between 12am and 2 pm to have lunch,
+ the application will notify him this fact and then Michele can choose whether
+ have a shorter lunch or delete (or modify) another event.
+ Poor Michele!
+\end_layout
+
+\begin_layout Subsection
+Luca and his birthday
+\end_layout
+
+\begin_layout Standard
+Luca is a very raver boy.
+ He really like party and for his birthday he wants to invite a lot of people.
+ Luca is looking for an application that lets him to share this event to
+ his friends.
+ Fortunatly, browsing on a search engin he finds out Travlendar+.
+ He now can create a big shared party, maybe a lot expensive for him, but
+ this birthday will never be forgotten.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2229,9 +2232,8 @@ The guest reaches the registration page
 \end_layout
 
 \begin_layout Enumerate
-The system requires the guest to enter all his/her personal information,
- driving license data and login credentials along with the verification
- code
+The system requires the guest to enter all his/her personal information
+ and login credentials along with the verification code, sent by email
 \end_layout
 
 \begin_layout Enumerate
@@ -2240,7 +2242,7 @@ The guest types the requested information and presses the ’Next’ button
 
 \begin_layout Enumerate
 The system verifies the uniqueness of the email, the equality of the twice
- typed passwords and that the driving license is not expired yet
+ typed passwords
 \end_layout
 
 \begin_layout Enumerate
@@ -2260,8 +2262,8 @@ The system shows to the guest a recap of the information already provided
 \end_layout
 
 \begin_layout Enumerate
-The guest ticks the “I read carefully, and I accept the contract” box and
- presses the “Confirm and Complete Registration” button
+The guest ticks the “I read carefully, and I accept the genral condition”
+ box and presses the “Confirm and Complete Registration” button
 \end_layout
 
 \begin_layout Enumerate
@@ -2350,8 +2352,9 @@ vspace{0.15cm}
 The email the guest typed has been already used.
  The second password does not match with the first one.
  One of the fields is empty.
- The SSN is not in compliance with the other guest's personal information.
- The driving license is already expired.
+ The Taxpayer's Code is not in compliance with the other guest's personal
+ information.
+ The code sent by email arrives in the guest's spam inbox.
  The external payment service didn't confirm the billing information.
  The guest did not accept the EULA.
  In these cases the system notifies the error and cannot complete the registrati
@@ -2418,7 +2421,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -2656,7 +2659,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -2752,8 +2755,7 @@ Edit personal information
 
 \begin_layout Enumerate
 The system allows the actor to change his address, mobile phone number,
- password (and to confirm it), driving license number, the expiration date
- and the authority who released it
+ email or password (and to confirm it)
 \end_layout
 
 \begin_layout Enumerate
@@ -2766,6 +2768,10 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 The system shows the actor his updated information
+\end_layout
+
+\begin_layout Enumerate
+The system sends an email as a notification of the changement
 \end_layout
 
 \end_inset
@@ -2844,7 +2850,6 @@ vspace{0.15cm}
 
 One of the fields is empty.
  The second password does not match with the first one.
- The driving license is already expired.
  In these cases the system notifies the error and cannot complete the request.
 \begin_inset ERT
 status open
@@ -2908,7 +2913,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -3014,6 +3019,10 @@ The system receives a confirmation from the external payment service about
 
 \begin_layout Enumerate
 The system shows the actor his updated information
+\end_layout
+
+\begin_layout Enumerate
+The system sends an email as a notification of the changement
 \end_layout
 
 \end_inset
