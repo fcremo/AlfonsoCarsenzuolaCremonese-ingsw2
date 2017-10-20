@@ -910,6 +910,8 @@ Class diagrams
 \end_inset
 
 
+\change_inserted -1730310665 1508499468
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1603,8 +1605,6 @@ Hardware limitations
 Our app doesn't have particular hardware constraints., but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
  can satisfy the performance requirement.
-\change_inserted -1730310665 1508228895
-
 \end_layout
 
 \begin_layout Standard
@@ -1683,7 +1683,8 @@ Alessandro is a good boy, but he has one really bad habit: on Sunday he
  Fortunately, he has an account on Travlendar+, so on Friday he makes a
  note of all his appointments on the calendar.
  The application not only reminds him his scheduled events with a notification,
- but also drives him with route indications.
+ but also allows him to open a navigation app (e.g.
+ Google Maps) .
  So, on Monday Alessandro will arrive in time at work and his department
  boss won't fire him.
  Thanks Travlendar+!
@@ -3163,7 +3164,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Reserve a car
+Edit an event
 \end_layout
 
 \begin_layout Standard
@@ -3219,9 +3220,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, he has already checked the position
- and the status of an available car and he is logged into the system for
- the whole reservation.
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
 \begin_inset ERT
 status open
 
@@ -3254,24 +3254,24 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-The user clicks on “Reserve car” button
+The user clicks on a specific scheduled event
 \end_layout
 
 \begin_layout Enumerate
-The system send to the RMSS the user position and his reservation request
- 
+The system allows the actor to change event name, hour, place and the other
+ standard information
 \end_layout
 
 \begin_layout Enumerate
-The system receives an affirmative answer from the RMSS 
+The user enters the new information and presses ’Save’
 \end_layout
 
 \begin_layout Enumerate
-The system creates a new instance of the reservation 
+The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
-The system notifies the user the success of the reservation
+The system shows the actor his updated information
 \end_layout
 
 \end_inset
@@ -3303,7 +3303,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The user reserved successfully a car.
+The user has modified his personal information.
 \begin_inset ERT
 status open
 
@@ -3348,12 +3348,11 @@ vspace{0.15cm}
 
 \end_inset
 
-The communication with the RMSS failed.
- The system says to the user that the service is temporarily not available.
- The localization service does not work.
- The system receives a negative answer from the RMSS.
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The place doesn't not exist.
  In these cases the system notifies the error to the user and he cannot
- complete the reservation.
+ modify the event.
 \begin_inset ERT
 status open
 
@@ -3380,7 +3379,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Open the reserved car
+Accept/Decline a shared event
 \end_layout
 
 \begin_layout Standard
@@ -3404,7 +3403,7 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+Guest/User
 \end_layout
 
 \end_inset
@@ -3436,8 +3435,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, has already reserved a car and
- he is logged into the system.
+The guest/user has a working Internet connection and he had recived an email
+ containing an invitation to a shared event 
 \begin_inset ERT
 status open
 
@@ -3470,39 +3469,76 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-The user reaches the car he reserved.
- 
+The actor can click on the link given in the email to get further information
+ about the shared event 
 \end_layout
 
 \begin_layout Enumerate
-The system checks user position or requires him to enter the code on the
- windshield 
+The system ask to the actor to login/signup, to be able to rescheduled the
+ event (e.g.
+ changing for the actor the starting location and schedule a route specific
+ for the actor), but this is not necessary 
 \end_layout
 
 \begin_layout Enumerate
-If necessary, the user enters the code he can read on the windshield
+The actor can click on 
+\begin_inset Quotes eld
+\end_inset
+
+Accept
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Decline
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ buttons (the default decision is 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+) 
 \end_layout
 
 \begin_layout Enumerate
-The system requires the user enter his verification code 
+The system notify to the user that had created the shared event the actor's
+ decision 
 \end_layout
 
 \begin_layout Enumerate
-The user types his verification code 
-\end_layout
+If the actor chooses 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Enumerate
-The system verifies the correctness of the verification code and the status
- of the reservation
-\end_layout
+Accept
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Enumerate
-The system unlocks the car doors, terminates the reservation and creates
- a rent instance on the RMSS
-\end_layout
+ or 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Enumerate
-The user opens the car doors 
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ the system will notify the actor when the event is closer
 \end_layout
 
 \end_inset
@@ -3534,7 +3570,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The user can get in the car.
+The actor can choose how to do with an event shared whit him.
 \begin_inset ERT
 status open
 
@@ -3579,13 +3615,12 @@ vspace{0.15cm}
 
 \end_inset
 
-The user failed to unlock the car in less than one hour: the system notifies
- the end of the reservation to the user, declares the reserved car as available
- again and applies 1€ of fee to the user.
- | The system is not able to check the user position.
- The user fails to enter the windshield code.
- The verification code is not correct.
- In these cases the system doesn’t unlock the doors.
+The actor fail login/signup.
+ In this case the user can retry to do login/signup
+\change_deleted -1730310665 1508499059
+.
+\change_unchanged
+
 \begin_inset ERT
 status open
 
