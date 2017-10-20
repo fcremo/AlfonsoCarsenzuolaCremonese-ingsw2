@@ -2011,14 +2011,7 @@ The guest reaches the registration page
 
 \begin_layout Enumerate
 The system requires the guest to enter all his/her personal information
-\change_deleted -1730310665 1508490619
-, driving license data
-\change_unchanged
- and login credentials along with the verification code
-\change_inserted -1730310665 1508490981
-, sent by email
-\change_unchanged
-
+ and login credentials along with the verification code, sent by email
 \end_layout
 
 \begin_layout Enumerate
@@ -2028,10 +2021,6 @@ The guest types the requested information and presses the ’Next’ button
 \begin_layout Enumerate
 The system verifies the uniqueness of the email, the equality of the twice
  typed passwords
-\change_deleted -1730310665 1508490694
- and that the driving license is not expired yet
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
@@ -2051,13 +2040,8 @@ The system shows to the guest a recap of the information already provided
 \end_layout
 
 \begin_layout Enumerate
-The guest ticks the “I read carefully, and I accept the 
-\change_deleted -1730310665 1508490904
-contract
-\change_inserted -1730310665 1508490909
-genral condition
-\change_unchanged
-” box and presses the “Confirm and Complete Registration” button
+The guest ticks the “I read carefully, and I accept the genral condition”
+ box and presses the “Confirm and Complete Registration” button
 \end_layout
 
 \begin_layout Enumerate
@@ -2146,26 +2130,10 @@ vspace{0.15cm}
 The email the guest typed has been already used.
  The second password does not match with the first one.
  One of the fields is empty.
- The 
-\change_deleted -1730310665 1508491415
-SSN
-\change_inserted -1730310665 1508491435
-Taxpayer's Code
-\change_unchanged
- is not in compliance with the other guest's personal information.
-
-\change_inserted -1730310665 1508491617
+ The Taxpayer's Code is not in compliance with the other guest's personal
+ information.
  The code sent by email arrives in the guest's spam inbox.
-
-\change_deleted -1730310665 1508491547
- 
-\change_inserted -1730310665 1508491592
- 
-\change_deleted -1730310665 1508491015
-The driving license is already expired.
- 
-\change_unchanged
-The external payment service didn't confirm the billing information.
+ The external payment service didn't confirm the billing information.
  The guest did not accept the EULA.
  In these cases the system notifies the error and cannot complete the registrati
 on.
@@ -2232,10 +2200,6 @@ vspace{0.15cm}
 \end_inset
 
 User
-\change_deleted -1730310665 1508491246
- or Deactivated User
-\change_unchanged
-
 \begin_inset ERT
 status open
 
@@ -2474,10 +2438,6 @@ vspace{0.15cm}
 \end_inset
 
 User
-\change_deleted -1730310665 1508491346
- or Deactivated User
-\change_unchanged
-
 \begin_inset ERT
 status open
 
@@ -2572,18 +2532,8 @@ Edit personal information
 \end_layout
 
 \begin_layout Enumerate
-The system allows the actor to change his address, mobile phone number
-\change_inserted -1730310665 1508492076
-, email or
-\change_deleted -1730310665 1508491866
-,
-\change_unchanged
- password (and to confirm it)
-\change_deleted -1730310665 1508491858
-, driving license number, the expiration date and the authority who released
- it
-\change_unchanged
-
+The system allows the actor to change his address, mobile phone number,
+ email or password (and to confirm it)
 \end_layout
 
 \begin_layout Enumerate
@@ -2596,16 +2546,10 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 The system shows the actor his updated information
-\change_inserted -1730310665 1508491791
-
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted -1730310665 1508491808
 The system sends an email as a notification of the changement
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2684,11 +2628,6 @@ vspace{0.15cm}
 
 One of the fields is empty.
  The second password does not match with the first one.
-
-\change_deleted -1730310665 1508491834
- The driving license is already expired.
-
-\change_unchanged
  In these cases the system notifies the error and cannot complete the request.
 \begin_inset ERT
 status open
@@ -2753,10 +2692,6 @@ vspace{0.15cm}
 \end_inset
 
 User
-\change_deleted -1730310665 1508491878
- or Deactivated User
-\change_unchanged
-
 \begin_inset ERT
 status open
 
@@ -2862,16 +2797,10 @@ The system receives a confirmation from the external payment service about
 
 \begin_layout Enumerate
 The system shows the actor his updated information
-\change_inserted -1730310665 1508492023
-
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted -1730310665 1508492024
 The system sends an email as a notification of the changement
-\change_unchanged
-
 \end_layout
 
 \end_inset
