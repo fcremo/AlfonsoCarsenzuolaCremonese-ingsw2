@@ -196,6 +196,8 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1405136424 "filippo"
+\author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
 \end_header
 
@@ -259,7 +261,7 @@ LARGE Politecnico di Milano}
 \backslash
 textsc{
 \backslash
-Large Travelendar+}
+Large Travlendar+}
 \backslash
 
 \backslash
@@ -394,6 +396,7 @@ end{minipage}
 \begin_layout Standard
 \begin_inset Graphics
 	filename res/img/logopm.pdf
+	display false
 	width 30text%
 
 \end_inset
@@ -635,9 +638,9 @@ Purpose of the project
 \end_layout
 
 \begin_layout Standard
-We're tasked to design Travelendar+, an application that helps its users
+We're tasked to design Travlendar+, an application that helps its users
  schedule appointments and arrange for travel between them.
- The killer feature of Travelendar+ is it's ability to account for travel
+ The killer feature of Travlendar+ is it's ability to account for travel
  time between appointment locations.
  This allows to suggest the best travel means for any specific appointment,
  based on many factors such as time required, cost, weather, CO2 emissions,
@@ -655,7 +658,7 @@ Life, simplified
 \end_layout
 
 \begin_layout Itemize
-automatic reservations for sharing mobility services (car, bike)
+in-app automatic reservations for sharing mobility services (car, bike)
 \end_layout
 
 \begin_layout Itemize
@@ -675,9 +678,14 @@ maximum 2km of walking for any single travel
 \end_layout
 
 \begin_layout Itemize
-the possibility of scheduling flexible events (e.g.
- there must be a time slot of at least 1:30h each day between 11:30 and
- 14:30 for lunch)
+the possibility of scheduling flexible events (see 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "DEF: Flexible event definition"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Subsection
@@ -686,7 +694,7 @@ About this document
 
 \begin_layout Standard
 This document shows the functional and non-functional requirements of the
- system and the specifications of the proposed implementation.
+ system to be developed.
  Requirements are based on the needs expressed by the stakeholders, and
  are subject to constraints imposed by the external world.
  Common scenarios are included to document the main interactions between
@@ -702,9 +710,9 @@ Scope
 \end_layout
 
 \begin_layout Standard
-Travelendar+ will be available on all the most used platforms (web, mobile
+Travlendar+ will be available on all the most used platforms (web, mobile
  and desktop).
- Other apps that partially cover Travelendar+ functionality already exist:
+ Other apps that partially cover Travlendar+ functionality already exist:
 \end_layout
 
 \begin_layout Itemize
@@ -730,7 +738,7 @@ Altough applications such as Citymapper or Google Maps already offer an
  an appointment while keeping track of weather and travel times.
  Moreover, ticketing apps for public transportation are often poorly built,
  which increases the need for the in-app ticket purchase functionality in
- Travelendar+.
+ Travlendar+.
  The existing sharing mobility services don't offer the possibility to automatic
 ally reserve the nearest vehicle at a certain date and time.
 \end_layout
@@ -759,7 +767,7 @@ Stakeholders
 \begin_layout Standard
 The main stakeholder in this project is our professor, Elisabetta Di Nitto,
  which we'll consider a paying customer that has tasked our development
- team to design and eventually build Travelendar+.
+ team to design and eventually build Travlendar+.
  The specifications and requirements for the project are coming from her.
 \end_layout
 
@@ -784,6 +792,34 @@ Definitions, acronyms, abbreviations
 \end_layout
 
 \begin_layout Description
+\begin_inset CommandInset label
+LatexCommand label
+name "DEF: Flexible event definition"
+
+\end_inset
+
+Flexible
+\begin_inset space ~
+\end_inset
+
+event An event which does not have fixed start and end times, but has a
+ duration, start and end time constraints and optional location.
+ The app will try to keep a free spot in order to accomodate for the flexible
+ event.
+ It may repeat.
+ An example would be 
+\begin_inset Quotes eld
+\end_inset
+
+30 minutes for lunch between 11:30 AM and 14:00 PM, every day from monday
+ to friday
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
 MVP Minimum Viable Product
 \end_layout
 
@@ -803,31 +839,18 @@ Product perspective
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-here we include further details on the shared phenomena and a domain model
- (class diagrams and statecharts) 
+Travlendar+ will be composed of three major components
 \end_layout
 
-\end_inset
-
-
+\begin_layout Subsubsection
+User applications
 \end_layout
 
 \begin_layout Standard
-Travelendar+ is a modern application based on the latest technological and
- economic innovations so that its users can take advantages of different
- recent services: users can use sharing mobility to move quickly and comfortably
-, check the status of the interessed trasportation mean and verify the weather
- conditions of the appointment location directly from the app.
-\end_layout
-
-\begin_layout Standard
-We propose a web and mobile app based system.
- Users will be able to use Travelendar+ on all platforms and have their
- appointments always available thanks to automatic synchronization.
+Travlendar+ users will need to be able to use the service from their computers
+ and mobile devices.We propose a web and mobile app based system.
+ Users will be able to use Travlendar+ on all platforms and have their appointme
+nts always available thanks to automatic synchronization.
  Basic funcionality (e.g.
  adding an event to the calendar) will be available offline, but many features
  will need internet connectivity in order for the app to be able to query
@@ -839,19 +862,131 @@ The web frontend will be targeted at modern browsers with support for HTML5,
  CSS3 and recent JS APIs.
  Shims will be used to ensure the best possibile compatibility with older
  browsers, altough not all features will be available to legacy clients.
+ Mobile applications will need to support 95% of the user base of iOS and
+ Android when the app will be released, which at the time of writing this
+ document means supporting Android 4.4+ and iOS 10+.
+\end_layout
+
+\begin_layout Subsubsection
+Administrative backend
 \end_layout
 
 \begin_layout Standard
-The backend will be implemented as an ensemble of loosely coupled microservices,
- built using consolidated technologies.
+An administrative web application will be needed to provide customer support
+ and to manage the system.
+ From there it will be possible to consult usage statistics, monitor service
+ status and so on.
+\end_layout
+
+\begin_layout Standard
+The backend will be accessible only to authenticated Travlendar+ staff.
+\end_layout
+
+\begin_layout Subsubsection
+Business logic (server side backend)
+\end_layout
+
+\begin_layout Standard
+Most of Travlendar+ advanced functionality will depend on server side services:
+\end_layout
+
+\begin_layout Itemize
+map data and travel itineraries
+\end_layout
+
+\begin_layout Itemize
+public transport information such as timetables, costs, realtime status
+\end_layout
+
+\begin_layout Itemize
+sharing mobility services informations and functionality (e.g.
+ automatic reservations)
+\end_layout
+
+\begin_layout Itemize
+calendar data storage and synchronization between devices
+\end_layout
+
+\begin_layout Itemize
+push notifications
+\end_layout
+
+\begin_layout Standard
+A considerable amount of these functionalities will need data and services
+ from external entities.
+ Implementation details such as the specific service to use for weather
+ data are left to the design document.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+It could be implemented as an ensemble of loosely coupled services, built
+ using consolidated technologies.
  This design choice allows for easier scalability and flexibility, and reliabili
 ty via redundancy of critical components.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Data sources and external services
 \end_layout
 
 \begin_layout Standard
-Public transport data will be sourced from the relevant companies APIs and
- websites.
- Weather and map data will come from an external service.
+This data will come from external sources:
+\end_layout
+
+\begin_layout Itemize
+public transport information
+\end_layout
+
+\begin_layout Itemize
+weather forecast
+\end_layout
+
+\begin_layout Itemize
+maps
+\end_layout
+
+\begin_layout Itemize
+traffic information
+\end_layout
+
+\begin_layout Standard
+This services will be provided by or depend on external services:
+\end_layout
+
+\begin_layout Itemize
+Sharing mobility services (find and reserve vehicles)
+\end_layout
+
+\begin_layout Itemize
+Public transportation tickets
+\end_layout
+
+\begin_layout Standard
+This services may be provided by external services (the decision to implement
+ in-house or not is left to the design phase):
+\end_layout
+
+\begin_layout Itemize
+Route planning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Review this section, I probably forgot something
+\end_layout
+
+\end_inset
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -861,10 +996,13 @@ Class diagrams
 \begin_layout Standard
 \begin_inset Graphics
 	filename class_diagram/class_diagram.plantuml
+	display false
 	width 100col%
 
 \end_inset
 
+
+\change_inserted -1730310665 1508499468
 
 \end_layout
 
@@ -873,106 +1011,122 @@ State charts
 \end_layout
 
 \begin_layout Subsection
-Product functions
-\end_layout
-
-\begin_layout Subsubsection
-Functional requirements
+Main product functionality
 \end_layout
 
 \begin_layout Standard
-Travelendar+ users will be able to:
-\end_layout
-
-\begin_layout Itemize
-register themselves to the system
-\end_layout
-
-\begin_layout Itemize
-log into the system
-\end_layout
-
-\begin_layout Itemize
-set constraints on the transportation means they can employ
-\end_layout
-
-\begin_layout Itemize
-add appointments to their calendar
-\end_layout
-
-\begin_layout Itemize
-delete an already scheduled appointment
-\end_layout
-
-\begin_layout Itemize
-plan for travel between appointments, using smart suggestions given by the
- app
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-find the best way (in terms of time, cost, distance, carbon emissions, ...)
- to reach the destination
-\end_layout
-
-\begin_layout Itemize
-schedule automatic reservation of a vehicle
-\end_layout
-
-\begin_layout Itemize
-buy tickets or passes for public transportation
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-get a notification if the scheduled trip should be changed
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-bad weather forecast
-\end_layout
-
-\begin_layout Itemize
-due to public transportation strikes, accidents, etc
-\end_layout
-
-\begin_layout Itemize
-due to unavailability of sharing mobility vehicles
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-schedule 
-\begin_inset Quotes eld
-\end_inset
-
-flexible events
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-get a schedulable notification as a reminder for the appointment
-\end_layout
-
-\begin_layout Itemize
-get a list of all the scheduled appointments and access detailed informations
+Here we describe the main functionality that Travlendar+ will provide.
+ Detailed functional and non functional requirements are described in section
  
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Specific-requirements"
 
-\begin_layout Itemize
-modify their profile information
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
-Non functional Requirements
+Appointments managment
 \end_layout
 
 \begin_layout Standard
-Tralvendar+ should be:
+Users will be able to manage their appointments by adding, editing and removing
+ them.
+ Multiple calendars can be used (e.g.
+ a user can have a Work and a Personal calendar).
+ They will be able to share single events and entire calendars with other
+ people (even not registered to Travlendar+) by generating a sharing link
+ or sending an email.
+ A warning will be shown if it is not possible to reach an appointment destinati
+on in time or if the appointment makes scheduling a flexible event impossible.
+\end_layout
+
+\begin_layout Subsubsection
+Travel planning
+\end_layout
+
+\begin_layout Standard
+Users will be able to plan for travel between appointments.
+ They can associate to an appointment a starting location and time from
+ where they will reach the destination (by default the ones of the previous
+ event in that day, if present).
+ They will receive suggestions compatible with the travel means they can
+ use, and be able to see (when applicable):
+\end_layout
+
+\begin_layout Itemize
+cost of the trip
+\end_layout
+
+\begin_layout Itemize
+estimated time taken
+\end_layout
+
+\begin_layout Itemize
+calories
+\end_layout
+
+\begin_layout Itemize
+distance
+\end_layout
+
+\begin_layout Itemize
+weather forecast
+\end_layout
+
+\begin_layout Itemize
+CO2 emissions
+\end_layout
+
+\begin_layout Standard
+A notification will inform the users in case of bad weather, strikes, accidents
+ along the way and unabailability of sharing mobility vehicles.
+\end_layout
+
+\begin_layout Subsubsection
+Automatic sharing mobility vehicle reservations
+\end_layout
+
+\begin_layout Standard
+Users will be able to program automatic reservation of a sharing mobility
+ vehicle for their appointments, and our service will start searching for
+ a vehicle to reserve near to their position a configurable amount of time
+ before the start of the trip.
+ If no vehicles are available the users will receive a notification and
+ alternative travel suggestions.
+\end_layout
+
+\begin_layout Subsubsection
+In-app tickets shop
+\end_layout
+
+\begin_layout Standard
+Users will be able to buy tickets and passes for public transportation directly
+ in the app.
+\end_layout
+
+\begin_layout Subsection
+Non functional requirements
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This section should be reviewed and probably moved elsewhere or up in the
+ hierarchy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Travlendar+ should be:
 \end_layout
 
 \begin_layout Itemize
@@ -987,12 +1141,21 @@ reference "subsec:Performance-requirements"
 \end_layout
 
 \begin_layout Itemize
-multiplatform so that each user can access to app from pc, smartphone or
- tablet with authomatic syncronization between all devices
+multiplatform
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Desktop web app
 \end_layout
 
 \begin_layout Itemize
-scalable for an increasing number of users that use Tralvendar+
+Mobile app (iOS and Android)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+scalable for an increasing number of users that use Travlendar+
 \end_layout
 
 \begin_layout Itemize
@@ -1000,7 +1163,18 @@ available 24/7
 \end_layout
 
 \begin_layout Itemize
-simple and use-friendly
+simple and user-friendly
+\end_layout
+
+\begin_layout Itemize
+secure and privacy respecting (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Legal-constraints"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Subsection
@@ -1010,7 +1184,7 @@ User characteristics
 \begin_layout Standard
 The application is primarily designed to be used by registered, logged in
  users.
- Non registered users can interact with Travelendar+ on some occasions.
+ Non registered users can interact with Travlendar+ on some occasions.
  Here are documented the main characteristics and interactions for registered
  and unregistered users.
 \end_layout
@@ -1020,11 +1194,11 @@ First time users
 \end_layout
 
 \begin_layout Standard
-Users may start using Travelendar+ when:
+Users may start using Travlendar+ when:
 \end_layout
 
 \begin_layout Itemize
-they access the web app (directly, by search result or otherwise)
+they access the web app (directly, from a search engine or otherwise)
 \end_layout
 
 \begin_layout Itemize
@@ -1038,7 +1212,7 @@ they are sent an invite to try the app from a registered user
 \begin_layout Standard
 In each case the users are sent to an informational page (or application
  screen depending on the used platform) that shows the main features of
- Travelendar+ and invites them to sign up.
+ Travlendar+ and invites them to sign up.
  Users that decide to sign up are asked an email and a password and will
  receive a confirmation email on the specified address.
 \end_layout
@@ -1053,13 +1227,13 @@ ns) may be invited to an event by a registered user.
  An email is sent to them as a reminder.
  The email contains all relevant informations about the event such as name,
  date and time, location, weather forecast, and also a link to view the
- event in the web-based version of the app, which can be used to consult
- updated information about the email.
+ event in the web-based version of the app, which can be used to view updated
+ information about the event.
 \end_layout
 
 \begin_layout Standard
-The email invites them to sign up to Travelendar+ with a link to the information
-al page.
+The email invites them to sign up to Travlendar+ with a link to the informationa
+l page.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1124,18 +1298,18 @@ name "subsec:Assumptions, dependencies and constraints"
 
 \end_inset
 
-Assumptions, dependencies and constraints
+Assumptions and dependencies
 \end_layout
 
 \begin_layout Standard
-Travelendar+ needs to interact with many entities and cope with events beyond
+Travlendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
  Here we document constraints and assumptions which we'll rely on in our
  design.
 \end_layout
 
 \begin_layout Subsubsection
-Data sources
+Data sources and external services
 \end_layout
 
 \begin_layout Standard
@@ -1145,6 +1319,17 @@ In order to provide our users convenient services such as automatic car
  The specifications of the service are based upon the assumption that most
  of the time those external services will behave as expected but also document
  what to do when this assumption won't hold.
+\end_layout
+
+\begin_layout Paragraph
+Commercial agreements
+\end_layout
+
+\begin_layout Standard
+Some of the external services (e.g.
+ public transportation tickets) don't have a public API available, and an
+ agreement with the companies providing the service will be needed in order
+ to gain access and use their APIs.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1188,7 +1373,42 @@ users have a reliable internet connection
 \end_layout
 
 \begin_layout Subsection
-Proposed System
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Legal-constraints"
+
+\end_inset
+
+Legal constraints
+\end_layout
+
+\begin_layout Standard
+Travlendar+ will need to comply with the law of the states of the targeted
+ users, which will include, but not limited to:
+\end_layout
+
+\begin_layout Itemize
+European 
+\begin_inset Quotes eld
+\end_inset
+
+Cookie Law
+\begin_inset Quotes erd
+\end_inset
+
+ (Directive 2002/58/EC)
+\end_layout
+
+\begin_layout Itemize
+European General Data Protection Regulation (2016/679)
+\end_layout
+
+\begin_layout Standard
+Proper review by a lawyer will need to be performed before the start of
+ the development of the product.
+ Law compliance is not expected to be a major issue with regards to the
+ requirements in this document.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1199,6 +1419,12 @@ Proposed System
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Specific-requirements"
+
+\end_inset
+
 Specific requirements
 \end_layout
 
@@ -1213,100 +1439,190 @@ Functional requirements
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: this section needs to be finished
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 The functional requirements include the functionalities that the system
  must necessarily have and describe the interactions between the system
  developed and the external environment independently from the implementation.
+ They are divided into functionality categories as follows.
 \end_layout
 
-\begin_layout Enumerate
-Register themselves to the system:
+\begin_layout Subsubsection
+User account managment
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-The system has to guarantee the registration to a new user by creating a
- new account
+\begin_layout Standard
+The following operations must be supported:
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-Log into the system:
+\begin_layout Itemize
+User registration
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-The system has to allow the login to an already registered user when he
- types the correct username and the password in the login form
+\begin_layout Itemize
+User authentication
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-Set constraints on the transportation means they can employ:
+\begin_layout Itemize
+User settings
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-Users can set their preferred means of transport
+\begin_layout Itemize
+Allows to change user informations such as email, password, etc...
 \end_layout
 
-\begin_layout Enumerate
-Users can choose some transportation means to avoid
+\begin_layout Itemize
+Allows to set constraints on the transportation means the user can employ
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
-Users can add appointments to their calendar
+\begin_layout Itemize
+Password reset
 \end_layout
 
-\begin_layout Enumerate
-Users can delete an already schedule appointment
+\begin_deeper
+\begin_layout Itemize
+An email is sent to the user when he requests to reset his password
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
+The email contains a link that allows to change the password
+\end_layout
+
+\begin_layout Itemize
+Passwords must not be sent by email
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Calendar and events managment
+\end_layout
+
+\begin_layout Itemize
+Users can create, edit and delete calendars
+\end_layout
+
+\begin_layout Itemize
+Users can view their calendars and events
+\end_layout
+
+\begin_layout Itemize
+Users can add events to one of their calendars
+\end_layout
+
+\begin_layout Itemize
+Users can modify their events
+\end_layout
+
+\begin_layout Itemize
+Users can delete an event
+\end_layout
+
+\begin_layout Itemize
+Users can share an event or an entire calendar with another person by email
+ or link
+\end_layout
+
+\begin_layout Itemize
+Users can choose to receive reminders (via push notifications and/or email)
+ for their events
+\end_layout
+
+\begin_layout Subsubsection
+Travel planning
+\end_layout
+
+\begin_layout Standard
+When creating or modifying an event users will be able to specify a location
+ and schedule their travel from the previous event location.
+\end_layout
+
+\begin_layout Itemize
 Users must be warned if it appears that there's no suitable transportation
  mean to reach an appointment in time
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 Plan for travel between appointments, using smart suggestions given by the
  app:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Using the preference and the coinstraints set by the users, the application
  has to give to the users a list that contains the best solutions
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 Users can choose the preferred (from the list) path for the scheduled trip
  or ask for more solutions
+\change_inserted -1405136424 1508346705
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346705
+find the best way (in terms of time, cost, distance, carbon emissions, ...)
+ to reach the destination
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346705
+schedule automatic reservation of a vehicle
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346705
+buy tickets or passes for public transportation
+\change_unchanged
+
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Buy tickets or passes for public transportation:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Users are able to by tickets or passes directly from the app
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Make reservations for sharing mobility services directly in-app:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Users can choose to use sharing mobility since when they schedule an appointment
 , then the app will search a shared vehicle from an hour before the scheduled
  departure
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Subsubsection
+
+\change_inserted -1405136424 1508491922
+Flexible events
+\end_layout
+
+\begin_layout Itemize
 Schedule 
 \begin_inset Quotes eld
 \end_inset
@@ -1325,105 +1641,103 @@ Users are able to set constraints on what they must do during the day (e.g.
  consider the user's preference
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 The app must notify users if they are going to schedule an event that go
  against the set constraints
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Find the best way (in term of time, distance, cost, carbon emission,...) to
  reach the destination:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Users can set their preference for each or for only one specific trip
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 The preference can be modify in every moment
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 Get a notification if the scheduled trip should be changed:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 App must notify the users if it is no longer possible to follow the established
  trip, for any reason
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 The users must be notify if they schedule a trip some days before and:
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 It's raining and in the trip is expected the use of a bike
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 There is bus striking and the bus is included in the trip
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 The app can't fine a sharing vehicle until 30 minutes before the scheduled
  starting of the trip
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
+\begin_layout Itemize
 The users are able to change the scheduled trip after getting the notification
+\change_inserted -1405136424 1508346719
+
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
-Get a schedulable notification as a reminder for the appointment:
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346719
+get a notification if the scheduled trip should be changed due to
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-Users can choose when get a reminder(s) for the scheduled appointments
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346719
+bad weather forecast (for bike and walking trips)
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346719
+public transportation strikes, accidents, etc
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508346760
+unavailability of sharing mobility vehicles to reserve automatically
 \end_layout
 
 \end_deeper
-\begin_layout Enumerate
-Get a list of all the scheduled appointments and access to further information
- by clicking on it
+\begin_layout Itemize
+
+\change_inserted -1405136424 1508493425
+modify their profile information
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-The app must provide to the users a list containing all the schedueld appointmen
-ts
-\end_layout
+\begin_layout Itemize
 
-\begin_layout Enumerate
-Users are able to click on a specific appointment to get more information
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-Modify the profile information:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
+\change_inserted -1405136424 1508493430
 The system has to allow the user to modify his/her personal information
  (payment method, email, phone number,...)
-\end_layout
+\change_unchanged
 
-\end_deeper
-\begin_layout Enumerate
-Book only one shared vehicle per time:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-The app busts that only one shared vehicle is booked per time
 \end_layout
 
 \end_deeper
@@ -1489,7 +1803,14 @@ Standards compliance
 \end_layout
 
 \begin_layout Paragraph
-Data export formats
+Data interchange formats
+\end_layout
+
+\begin_layout Standard
+In order to allow interoperation with other calendar applications Travlendar+
+ will need to support iCalendar and CalDAV formats.
+ Another custom format such as JSON or XML may be used for exporting data
+ that is not supported by the other two standard formats.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1497,7 +1818,7 @@ Hardware limitations
 \end_layout
 
 \begin_layout Standard
-Our app doesn't have particular hardware constraints., but we expect that
+Our app doesn't have particular hardware constraints, but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
  can satisfy the performance requirement.
 \end_layout
@@ -1519,22 +1840,21 @@ This section will present some possible situations that may occur from the
 \end_layout
 
 \begin_layout Subsection
-Alice is curious about PowerEnjoy
+Elisabetta is curious about Travlendar+
 \end_layout
 
 \begin_layout Standard
-Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
- tries to register to PowerEnjoy.
+Lily tells Elisabetta about a new service called PowerEnjoy: Elisabetta,
+ now curious, tries to register to Travlendar+.
  She visits the homepage, browses the site a little and then proceeds to
  the registration page.
  Alice then enters all the data needed by the system to complete the process:
- name and surname, username, email address, password, ID card number and
- license number.
+ name and surname, username, email address, password and credit card data.
  To complete the sign-up she finally enters the billing information.
  Once everything is done, the system sends her a confirmation mail with
  a link used to activate her new account.
  She has now completed the registration, and she can log into the system
- and power enjoy the service.
+ and use all the services given by our app.
 \end_layout
 
 \begin_layout Standard
@@ -1545,23 +1865,20 @@ Lily tells Alice about a new service called PowerEnjoy: Alice, now curious,
 \end_layout
 
 \begin_layout Subsection
-Grandpa Peter and his expired license
+Filippo is getting married!
 \end_layout
 
 \begin_layout Standard
-Grandpa Peter has been registered to PowerEnjoy for a quite long time.
- He loves the car sharing model, now more than ever since his old Panda
- broke a long time ago and he could not pick up his nephews, David and Goliath,
- from the pool.
- There is a problem, though: Peter is getting old, and his license has to
- be renewed to drive again.
- After a long day at the Driver and Vehicle Licensing Agency, Grandpa Peter
- successfully got his shiny license back! To reactivate his PowerEnjoy account,
- Peter has to edit his account data and insert the new license card number:
- after having logged in, he proceeds to his personal area by clicking “Edit
- Personal Data", he puts the new data in the system, and finally he saves
- the changes.
- Grandpa Peter is on the road, again!
+Filippo gets married and, to live with his wife, he has to move freom his
+ parents' house to the new one.
+ So when he insert a new event doesn't want that the app calculates the
+ route from his old house, because it is quite distance from the new one
+ and the expected travel time would be incorrect.
+ He can access to his personal private area (after having logged in) and,
+ by clicking “Edit Personal Data", he inserts the new data in the system,
+ and finally he saves the changes.
+ Filippo can now use the app again and stay happy with his wife (having
+ some children).
 \end_layout
 
 \begin_layout Standard
@@ -1572,30 +1889,21 @@ Grandpa Peter has been registered to PowerEnjoy for a quite long time.
 \end_layout
 
 \begin_layout Subsection
-Grandpa Peter and his nephews
+Alessandro is always drunk
 \end_layout
 
 \begin_layout Standard
-It's rainy outside, so Grandpa Peter has to pick up his two nephews from
- the pool: he picks up his smartphone and checks if there are any available
- cars near him.
- He is getting old so he cannot walk for a long time, so he reserves the
- nearest car which, unfortunately, has less than 50% battery charge remaining.
- Once in the car's reach, Peter taps on “Open Vehicle” and inputs his verificati
-on code.
- His memory is aging just like him so the usual “1969” code, which corresponds
- to the year he married his beloved Franca, turned into “1967” which is
- not accepted by the system.
- The system prompts him again, and this time Peter does not fail: the doors
- unlock, and Grandpa is on the road once more! Peter's driving skills are
- still amazing: he picks up the kids and gets home in no time, so he ends
- the rent.
- Unfortunately, he is not able to use the 20% discount due to the battery
- charge left, but he will be cut 10% since he took at least two other people
- in the car.
-\end_layout
-
-\begin_layout Standard
+Alessandro is a good boy, but he has one really bad habit: on Sunday he
+ goes out with his friends and he drinks a lot; on Monday he has his duties
+ to do but, having an hangover, he forgets some things.
+ Fortunately, he has an account on Travlendar+, so on Friday he makes a
+ note of all his appointments on the calendar.
+ The application not only reminds him his scheduled events with a notification,
+ but also allows him to open a navigation app (e.g.
+ Google Maps) .
+ So, on Monday Alessandro will arrive in time at work and his department
+ boss won't fire him.
+ Thanks Travlendar+!
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -1603,27 +1911,19 @@ on code.
 \end_layout
 
 \begin_layout Subsection
-Pablo and Tata go to the cinema
+Fabrizio, the sport addicted
 \end_layout
 
 \begin_layout Standard
-Tata and Pablo make a great couple.
- It's Friday night, and the theaters are flooded by the latest sci-fi movie
- everyone love.
- Pablo loves all those lightsabers and starships while Tata just can't get
- the point out of them.
- The film will start in more than one hour: Pablo is ready for the night
- out, Tata has to fix her makeup.
- “Five minutes and I am ready!" - she said.
- Unfortunately, Pablo forgot to charge his phone so he can't use his phone's
- GPS to save precious battery juice and reserves his PowerEnjoy car by entering
- his address into the app.
- Time goes by; one hour has passed, and Pablo is still waiting for Tata
- who seems to have no intentions leaving the bathroom.
- The film has just begun, the reservation expired, the car is available
- to be reserved again, and Pablo has to pay 1€ fee: “One minute and we are
- rolling!” - she said.
- Pablo, may the force be with you! 
+Fabrizio is a sport addicted and he really belives in the problem of air
+ pollution, so he prefers not to use car or motor vehicles.
+ In his preference he can sets to select always the most ecologic route,
+ so that he can runs or cycles around the city.
+ He does sport and doesn't pollute the air! But if he is in hurry because
+ he has an appointment with his girlfriend (and if he arrives late she will
+ stay angry for the whole day), when he shedueles this event, he can choose
+ the quickest route.
+ An exception can be made for just one time: it is for a good reason!
 \end_layout
 
 \begin_layout Standard
@@ -1634,25 +1934,38 @@ Tata and Pablo make a great couple.
 \end_layout
 
 \begin_layout Subsection
-Gustavo, the discount hunter
+Michele, the motobiker
 \end_layout
 
 \begin_layout Standard
-Gustavo is a saver, methodic and old-fashioned man, and he built an economic
- empire from scratch.
- He owns a vintage 1968 Ford Torino which is only used on Saturday afternoons
- with his closest friend to honor the times long gone: on the other days,
- he mainly uses PowerEnjoy.
- Gustavo has turned on the money saving option while signing up, and he
- loves it.
- Once in the car, he logs in and proceed to set up his seat and insert his
- destination: the system now calculates the overall cars distribution in
- the city, verifies the availability of power plugs in the nearest power
- grid stations to the arrival and suggests to park in a special area just
- 300 meters away from his destination.
- Once there, Gustavo, just before ending the rental, takes care of plugging
- the car into the power grid: now, the smartphone application shows him
- the total cost which includes the 40% discount.
+Michele, is in love with his motorbike.
+ He moves all around Milan with it, so that he can avoid traffic congestion
+ because he is always in hurry.
+ He is a very busy man especially near lunch time, but he wants to eat everyday
+ between 12 am and 2 pm, so he schedules lunch as a flexible and recurrent
+ event.
+ The app day by day will manage Michele's lunch itself (choosing the best
+ moment during the interval of time that Michele has set) in order to give
+ him the time that he has set in his preference.
+ If Michele doesn't have enough time between 12am and 2 pm to have lunch,
+ the application will notify him this fact and then Michele can choose whether
+ have a shorter lunch or delete (or modify) another event.
+ Poor Michele!
+\end_layout
+
+\begin_layout Subsection
+Luca and his birthday
+\end_layout
+
+\begin_layout Standard
+Luca is a very raver boy.
+ He really like party and for his birthday he wants to invite a lot of people.
+ Luca is looking for an application that lets him to share this event to
+ his friends.
+ Fortunatly, browsing on a search engin he finds out Travlendar+.
+ He now can create a big shared party, maybe a lot expensive for him, but
+ this birthday will never be forgotten.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1914,9 +2227,8 @@ The guest reaches the registration page
 \end_layout
 
 \begin_layout Enumerate
-The system requires the guest to enter all his/her personal information,
- driving license data and login credentials along with the verification
- code
+The system requires the guest to enter all his/her personal information
+ and login credentials along with the verification code, sent by email
 \end_layout
 
 \begin_layout Enumerate
@@ -1925,7 +2237,7 @@ The guest types the requested information and presses the ’Next’ button
 
 \begin_layout Enumerate
 The system verifies the uniqueness of the email, the equality of the twice
- typed passwords and that the driving license is not expired yet
+ typed passwords
 \end_layout
 
 \begin_layout Enumerate
@@ -1945,8 +2257,8 @@ The system shows to the guest a recap of the information already provided
 \end_layout
 
 \begin_layout Enumerate
-The guest ticks the “I read carefully, and I accept the contract” box and
- presses the “Confirm and Complete Registration” button
+The guest ticks the “I read carefully, and I accept the genral condition”
+ box and presses the “Confirm and Complete Registration” button
 \end_layout
 
 \begin_layout Enumerate
@@ -2035,8 +2347,9 @@ vspace{0.15cm}
 The email the guest typed has been already used.
  The second password does not match with the first one.
  One of the fields is empty.
- The SSN is not in compliance with the other guest's personal information.
- The driving license is already expired.
+ The Taxpayer's Code is not in compliance with the other guest's personal
+ information.
+ The code sent by email arrives in the guest's spam inbox.
  The external payment service didn't confirm the billing information.
  The guest did not accept the EULA.
  In these cases the system notifies the error and cannot complete the registrati
@@ -2103,7 +2416,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -2341,7 +2654,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -2437,8 +2750,7 @@ Edit personal information
 
 \begin_layout Enumerate
 The system allows the actor to change his address, mobile phone number,
- password (and to confirm it), driving license number, the expiration date
- and the authority who released it
+ email or password (and to confirm it)
 \end_layout
 
 \begin_layout Enumerate
@@ -2451,6 +2763,10 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 The system shows the actor his updated information
+\end_layout
+
+\begin_layout Enumerate
+The system sends an email as a notification of the changement
 \end_layout
 
 \end_inset
@@ -2529,7 +2845,6 @@ vspace{0.15cm}
 
 One of the fields is empty.
  The second password does not match with the first one.
- The driving license is already expired.
  In these cases the system notifies the error and cannot complete the request.
 \begin_inset ERT
 status open
@@ -2593,7 +2908,7 @@ vspace{0.15cm}
 
 \end_inset
 
-User or Deactivated User
+User
 \begin_inset ERT
 status open
 
@@ -2699,6 +3014,10 @@ The system receives a confirmation from the external payment service about
 
 \begin_layout Enumerate
 The system shows the actor his updated information
+\end_layout
+
+\begin_layout Enumerate
+The system sends an email as a notification of the changement
 \end_layout
 
 \end_inset
@@ -3066,7 +3385,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Reserve a car
+Edit an event
 \end_layout
 
 \begin_layout Standard
@@ -3122,9 +3441,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, he has already checked the position
- and the status of an available car and he is logged into the system for
- the whole reservation.
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
 \begin_inset ERT
 status open
 
@@ -3157,24 +3475,24 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-The user clicks on “Reserve car” button
+The user clicks on a specific scheduled event
 \end_layout
 
 \begin_layout Enumerate
-The system send to the RMSS the user position and his reservation request
- 
+The system allows the actor to change event name, hour, place and the other
+ standard information
 \end_layout
 
 \begin_layout Enumerate
-The system receives an affirmative answer from the RMSS 
+The user enters the new information and presses ’Save’
 \end_layout
 
 \begin_layout Enumerate
-The system creates a new instance of the reservation 
+The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
-The system notifies the user the success of the reservation
+The system shows the actor his updated information
 \end_layout
 
 \end_inset
@@ -3206,7 +3524,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The user reserved successfully a car.
+The user has modified his personal information.
 \begin_inset ERT
 status open
 
@@ -3251,12 +3569,11 @@ vspace{0.15cm}
 
 \end_inset
 
-The communication with the RMSS failed.
- The system says to the user that the service is temporarily not available.
- The localization service does not work.
- The system receives a negative answer from the RMSS.
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The place doesn't not exist.
  In these cases the system notifies the error to the user and he cannot
- complete the reservation.
+ modify the event.
 \begin_inset ERT
 status open
 
@@ -3283,7 +3600,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Open the reserved car
+Accept/Decline a shared event
 \end_layout
 
 \begin_layout Standard
@@ -3307,7 +3624,7 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-User
+Guest/User
 \end_layout
 
 \end_inset
@@ -3339,8 +3656,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, has already reserved a car and
- he is logged into the system.
+The guest/user has a working Internet connection and he had recived an email
+ containing an invitation to a shared event 
 \begin_inset ERT
 status open
 
@@ -3373,39 +3690,76 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-The user reaches the car he reserved.
- 
+The actor can click on the link given in the email to get further information
+ about the shared event 
 \end_layout
 
 \begin_layout Enumerate
-The system checks user position or requires him to enter the code on the
- windshield 
+The system ask to the actor to login/signup, to be able to rescheduled the
+ event (e.g.
+ changing for the actor the starting location and schedule a route specific
+ for the actor), but this is not necessary 
 \end_layout
 
 \begin_layout Enumerate
-If necessary, the user enters the code he can read on the windshield
+The actor can click on 
+\begin_inset Quotes eld
+\end_inset
+
+Accept
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Decline
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ buttons (the default decision is 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+) 
 \end_layout
 
 \begin_layout Enumerate
-The system requires the user enter his verification code 
+The system notify to the user that had created the shared event the actor's
+ decision 
 \end_layout
 
 \begin_layout Enumerate
-The user types his verification code 
-\end_layout
+If the actor chooses 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Enumerate
-The system verifies the correctness of the verification code and the status
- of the reservation
-\end_layout
+Accept
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Enumerate
-The system unlocks the car doors, terminates the reservation and creates
- a rent instance on the RMSS
-\end_layout
+ or 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Enumerate
-The user opens the car doors 
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ the system will notify the actor when the event is closer
 \end_layout
 
 \end_inset
@@ -3437,7 +3791,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The user can get in the car.
+The actor can choose how to do with an event shared whit him.
 \begin_inset ERT
 status open
 
@@ -3482,13 +3836,12 @@ vspace{0.15cm}
 
 \end_inset
 
-The user failed to unlock the car in less than one hour: the system notifies
- the end of the reservation to the user, declares the reserved car as available
- again and applies 1€ of fee to the user.
- | The system is not able to check the user position.
- The user fails to enter the windshield code.
- The verification code is not correct.
- In these cases the system doesn’t unlock the doors.
+The actor fail login/signup.
+ In this case the user can retry to do login/signup
+\change_deleted -1730310665 1508499059
+.
+\change_unchanged
+
 \begin_inset ERT
 status open
 
@@ -5386,6 +5739,42 @@ target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
 \end_inset
 
 )
+\end_layout
+
+\begin_layout Subsection
+References
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: fix this mess and add proper bibliography and references in the text
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32002L0058:EN:HTML
+ european cookie law
+\end_layout
+
+\begin_layout Standard
+http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN
+ european general data protection law
+\end_layout
+
+\begin_layout Standard
+https://tools.ietf.org/html/rfc5545 iCalendar RFC
+\end_layout
+
+\begin_layout Standard
+https://tools.ietf.org/html/rfc4791 and https://tools.ietf.org/html/rfc6638
+ CalDAV RFCs
 \end_layout
 
 \end_body
