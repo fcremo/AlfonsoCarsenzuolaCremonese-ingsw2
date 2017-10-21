@@ -196,9 +196,9 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1405136424 "filippo"
 \author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
+\author -1405136424 "filippo"
 \end_header
 
 \begin_body
@@ -3838,10 +3838,6 @@ vspace{0.15cm}
 
 The actor fail login/signup.
  In this case the user can retry to do login/signup
-\change_deleted -1730310665 1508499059
-.
-\change_unchanged
-
 \begin_inset ERT
 status open
 
@@ -3868,7 +3864,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Use the reserved car and terminate the rent
+Delete an already scheduled event
 \end_layout
 
 \begin_layout Standard
@@ -3924,8 +3920,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, has already opened his reserved
- car and he is logged into the system.
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
 \begin_inset ERT
 status open
 
@@ -3958,29 +3954,15 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-If the money saving option is actived, the user can enter his final address
- on the touchscreen display in the car
+The user clicks on a specific scheduled event
 \end_layout
 
 \begin_layout Enumerate
-If the user did it, the system shows a special parking area near his destination
-\end_layout
-
-\begin_layout Enumerate
-The user starts the engine and uses the car 
-\end_layout
-
-\begin_layout Enumerate
-As a matter of choice, the user takes care of plugging the car into the
- power grid
-\end_layout
-
-\begin_layout Enumerate
-The user clicks 
+The user has to click on 
 \begin_inset Quotes eld
 \end_inset
 
-Terminate rent
+Delete event
 \begin_inset Quotes erd
 \end_inset
 
@@ -3988,23 +3970,21 @@ Terminate rent
 \end_layout
 
 \begin_layout Enumerate
-The system verifies nobody is in the car and that it is in a safe parking
- area
+The system shows a confermation window
 \end_layout
 
 \begin_layout Enumerate
-The system locks the car doors again, verifies the car's status and updates
- the rent instance
+If the user accept, the event will be deleted, else nothing will happened
 \end_layout
 
 \begin_layout Enumerate
-If necessary, the system contacts the MES for an ordinary (or extraordinary)
- car maintenance.
+If the event was scheduled as recurrent, the system will ask whether the
+ user wants to delete only the current or all the events.
 \end_layout
 
 \begin_layout Enumerate
-The system calculates the total cost and notifies the end of the rental
- to the user along with the total cost
+If the event was shared the system will notify via email to all the other
+ users the delation
 \end_layout
 
 \end_inset
@@ -4036,20 +4016,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The user successfully rented a car.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
+The event selected by the user is deleted.
 \end_layout
 
 \end_inset
@@ -4081,13 +4048,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The address is not correct or it is not found.
- The system notifies the error to the user and requires him to insert it
- again.
- | The car is not in a safe parking area.
- The car is not empty.
- In these cases the system doesn’t allow to terminate the rent.
- | The user can't pay the total cost: the system deactivate the user.
+
 \begin_inset ERT
 status open
 
