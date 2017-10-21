@@ -1,0 +1,58 @@
+@startuml
+actor Guest
+participant System
+participant ExternalService
+actor User
+activate Guest #FFBBBB
+Guest -> System: Registration
+activate System #FFBBBB
+System -> System: LoadRegistrationPage
+System --> Guest: ShowRegistrationPage
+deactivate System #FFBBBB
+Guest -> System: InsertInformation
+activate System #FFBBBB
+System -> System: VerifyInformation
+group check information
+else correct informationyellow
+System --> Guest: NotifyCorrectInformation
+System -> Guest: sendEmailWithCode
+deactivate System #FFBBBB
+Guest -> System: insertVerificationCode
+activate System #FFBBBB
+System -> System: verifyCode
+System --> Guest: NotifyCorrectCode
+deactivate System #FFBBBB
+System -> Guest: SendRedirectionMessage
+Guest -> ExternalService: insertBillingInformation
+activate ExternalService #FFBBBB
+ExternalService -> ExternalService: verifyBillingInformation
+group check billing information
+else correct billing information
+ExternalService -> System: correctBillingInformation
+deactivate ExternalService #FFBBBB
+System -> Guest: acceptingEULA
+group check information
+else confirmed
+Guest --> System: sendConfermation
+activate System #FFBBBB
+System -> User: <<createUser>>
+activate User #FFBBBB
+System -> Guest: sendVerificationEmail
+System --> User: showLoginPage
+deactivate User #FFBBBB
+deactivate System #FFBBBB
+else not confirmed 
+Guest --> System: sendCancellation
+System -> Guest: errorMessage
+end
+else incorrect billing information
+ExternalService -> System: incorrectBillingInformation
+activate ExternalService #FFBBBB
+System -> Guest: notifyInvalidBillingInfo
+end
+deactivate ExternalService #FFBBBB
+else incorrect information
+System --> Guest: notifyIncorrectInfo
+activate System #FFBBBB
+end
+@enduml
