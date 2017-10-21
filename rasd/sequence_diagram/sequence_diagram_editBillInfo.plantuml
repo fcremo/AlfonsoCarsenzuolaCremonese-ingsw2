@@ -1,0 +1,34 @@
+@startuml
+
+actor User
+participant System
+participant ExternalService
+
+activate User #FFBBBB
+User -> System: PersonalArea
+activate System #FFBBBB
+System -> System: LoadPersonalAreaInformation
+System --> User: ShowPersonalAreaPage
+deactivate System
+User -> System: EditBillingInformation
+activate System #FFBBBB
+System --> User: RedirectionMessage
+deactivate System
+User -> ExternalService: InsertNewBillingInformation
+activate ExternalService #FFBBBB
+ExternalService -> ExternalService: VerifyData
+deactivate ExternalService
+
+alt correct data
+  ExternalService -> System: CorrectInformation
+  activate System #FFBBBB
+  System --> User: ShowNewBillingInformation
+  deactivate System
+else incorrect data
+  ExternalService -> System: IncorrectInformation
+  activate System #FFBBBB
+  System --> User: Error
+  deactivate System
+end
+
+@enduml

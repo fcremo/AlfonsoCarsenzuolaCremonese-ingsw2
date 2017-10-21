@@ -3261,17 +3261,16 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 
-\change_deleted 666129059 1508578794
+\change_deleted 666129059 1508591951
 The system shows the quickest, the cheapest and the most ecologic route
-\change_inserted 666129059 1508578796
-The system shows the quickest, the cheapest and the most ecological route
- with their respective means of transport
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
+
+\change_deleted 666129059 1508591951
 The actor chooses one of the proposed routes or no one through the checkboxes
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -3560,8 +3559,22 @@ The actor enters event name, hour, place and other standard information
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508575221
+\change_inserted 666129059 1508591959
 The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508592188
+The actor clicks the 
+\begin_inset Quotes eld
+\end_inset
+
+Suggested routes
+\begin_inset Quotes erd
+\end_inset
+
+ button
 \end_layout
 
 \begin_layout Enumerate
@@ -3573,16 +3586,16 @@ The system shows the quickest, the cheapest and the most ecological route
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508579487
-The actor chooses one of the proposed routes through the checkboxes
+\change_inserted 666129059 1508592774
+The actor chooses one of the proposed routes through the button
 \change_unchanged
 
 \end_layout
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508578644
-The actor chooses 
+\change_inserted 666129059 1508592810
+The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3590,19 +3603,29 @@ Sharing transporation means
 \begin_inset Quotes erd
 \end_inset
 
- through the checkboxe
+ button
 \end_layout
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508578715
-The actor chooses the auto-reservation function through the checkboxe
+\change_inserted 666129059 1508593478
+The actor clicks the 
+\begin_inset Quotes eld
+\end_inset
+
+auto-reservation function
+\begin_inset Quotes erd
+\end_inset
+
+ button
 \end_layout
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508578759
-The actor chooses one or more bike or car sharing services
+\change_inserted 666129059 1508593504
+The actor chooses one or more bike or car sharing services through the buttons
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -3903,23 +3926,8 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 
-\change_inserted 666129059 1508579410
-The system shows the quickest, the cheapest and the most ecological route
- with their respective means of transport
-\end_layout
-
-\begin_layout Enumerate
-
-\change_inserted 666129059 1508579494
-The actor chooses one of the proposed routes or no one through the checkboxes
-\change_unchanged
-
-\end_layout
-
-\begin_layout Enumerate
-
-\change_inserted 666129059 1508579555
-The actor chooses 
+\change_inserted 666129059 1508593580
+The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3927,7 +3935,7 @@ Flexible event
 \begin_inset Quotes erd
 \end_inset
 
- through the checkboxe
+ button
 \end_layout
 
 \begin_layout Enumerate
@@ -4295,6 +4303,10 @@ vspace{0.15cm}
 
 \end_inset
 
+
+\change_inserted 666129059 1508601326
+C
+\change_unchanged
 
 \end_layout
 
@@ -4798,7 +4810,11 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-Guest, User or Deactivated User
+Guest, User
+\change_deleted 666129059 1508601790
+ or Deactivated User
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -5002,15 +5018,15 @@ This section presents the sequence diagram of the most important interaction,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_reg.png
+	filename sequence_diagram/sequence_diagram_registration.plantuml
+	display false
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 

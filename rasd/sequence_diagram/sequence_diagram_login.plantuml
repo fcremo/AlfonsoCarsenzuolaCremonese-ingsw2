@@ -1,0 +1,23 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: Login
+activate System #FFBBBB
+System -> System: LoadLoginPage
+System --> User: ShowLoginPage
+deactivate System
+User -> System: InsertLoginData
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: CorrectLogin
+else not correct data
+  System --> User: Error
+end
+
+@enduml

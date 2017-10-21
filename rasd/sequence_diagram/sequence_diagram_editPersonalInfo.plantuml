@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: PersonalArea
+activate System #FFBBBB
+System -> System: LoadPersonalAreaInformation
+System --> User: ShowPersonalAreaPage
+deactivate System
+User -> System: EditPersonalInformation
+activate System #FFBBBB
+System -> System: LoadPersonalEditableInformation
+System --> User: ShowEditableInformationForm
+deactivate System
+User -> System: InsertEditatedInformation
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: ShowNewPersonalAreaPage
+else incorrect data
+  System --> User: Error
+end
+
+@enduml

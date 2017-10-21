@@ -1,0 +1,42 @@
+@startuml
+
+actor User
+participant System
+participant RouteService
+participant SharingService
+
+activate User #FFBBBB
+User -> System: NewEvent
+activate System #FFBBBB
+System --> User: ShowNewEventForm
+deactivate System
+User -> System: InsertInformation
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: DataConfirmation
+  User -> System: SuggestedRoutes
+  System -> RouteService: RequestRoutes
+  activate RouteService #FFBBBB
+  RouteService -> System: SentRoutes
+  deactivate RouteService
+  System --> User: ShowRoutes
+  User -> System: SharingServices
+  System -> SharingService: RequestSharingServices
+  activate SharingService #FFBBBB
+  SharingService -> System: SentSharingAvailableServices
+  deactivate SharingService
+  System --> User: ShowSharingAvailableServices
+  User -> System: AutoReservation
+  System --> User: AutoReservationConfirmation
+  User -> System: SelectSharingServices
+  System --> User: SelectedSharingServicesConfirmation
+  User -> System: NewEventConfirm
+  System --> User: ShowCreatedEvent
+else incorrect data
+  System --> User: Error
+end
+
+@enduml
