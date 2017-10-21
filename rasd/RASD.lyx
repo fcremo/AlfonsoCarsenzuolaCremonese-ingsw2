@@ -197,8 +197,8 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1730310665 "fabcars"
-\author 666129059 "Alessandro Alfonso"
 \author -1405136424 "filippo"
+\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -986,6 +986,7 @@ Review this section, I probably forgot something
 \end_layout
 
 \end_inset
+
 
 \end_layout
 
@@ -3571,7 +3572,11 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place doesn't not exist.
+ The place doesn't
+\change_deleted -1730310665 1508575061
+ not
+\change_unchanged
+ exist.
  In these cases the system notifies the error to the user and he cannot
  modify the event.
 \begin_inset ERT
@@ -3695,8 +3700,13 @@ The actor can click on the link given in the email to get further information
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to login/signup, to be able to rescheduled the
- event (e.g.
+The system ask to the actor to 
+\change_inserted -1730310665 1508575144
+singup/login
+\change_deleted -1730310665 1508575138
+login/signup
+\change_unchanged
+, to be able to rescheduled the event (e.g.
  changing for the actor the starting location and schedule a route specific
  for the actor), but this is not necessary 
 \end_layout
@@ -3836,7 +3846,13 @@ vspace{0.15cm}
 
 \end_inset
 
-The actor fail login/signup.
+The actor fail 
+\change_deleted -1730310665 1508575199
+login/signup
+\change_inserted -1730310665 1508575199
+singup/login
+\change_unchanged
+.
  In this case the user can retry to do login/signup
 \begin_inset ERT
 status open
@@ -4297,13 +4313,38 @@ Sequence Diagram
 \begin_layout Standard
 This section presents the sequence diagram of the most important interaction,
  in order to have a dynamic sight of the main entities too.
+\change_inserted -1730310665 1508579260
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -1730310665 1508579260
+\begin_inset Graphics
+	filename sequence_diagram/registration.plantuml
+	display false
+	width 100col%
+
+\end_inset
+
+
+\change_deleted -1730310665 1508579436
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1508577627
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1730310665 1508577627
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4332,6 +4373,8 @@ Registration Sequence Diagram
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
