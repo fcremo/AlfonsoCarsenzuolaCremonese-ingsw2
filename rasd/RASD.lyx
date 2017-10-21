@@ -197,8 +197,8 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1730310665 "fabcars"
-\author 666129059 "Alessandro Alfonso"
 \author -1405136424 "filippo"
+\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -986,6 +986,7 @@ Review this section, I probably forgot something
 \end_layout
 
 \end_inset
+
 
 \end_layout
 
@@ -3123,6 +3124,10 @@ vspace{0.15cm}
 
 \begin_layout Subsubsection
 Create a new event
+\change_inserted 666129059 1508576477
+ - Scenario 1 (Standard event)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -3203,7 +3208,14 @@ vspace{0.15cm}
 
 \end_inset
 
+
+\change_deleted 666129059 1508575309
 The actor has a working Internet connection.
+\change_inserted 666129059 1508575310
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
+\change_unchanged
+
 \begin_inset ERT
 status open
 
@@ -3248,7 +3260,14 @@ The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
+
+\change_deleted 666129059 1508578794
 The system shows the quickest, the cheapest and the most ecologic route
+\change_inserted 666129059 1508578796
+The system shows the quickest, the cheapest and the most ecological route
+ with their respective means of transport
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -3348,10 +3367,16 @@ vspace{0.15cm}
 
 \change_deleted 666129059 1508493970
 The address field is empty
-\change_inserted 666129059 1508493970
+\change_inserted 666129059 1508575120
 One of the fields of the basic information is empty.
-\change_unchanged
+ The starting hour is after the ending one.
+ The place does not exist.
+ In these cases the system notifies the error to the user and he cannot
+ modify the event.
+\change_deleted 666129059 1508575006
 .
+
+\change_unchanged
  
 \change_deleted 666129059 1508493949
 The inserted address is not found or the location service does not work.
@@ -3363,6 +3388,680 @@ The inserted address is not found or the location service does not work.
 status open
 
 \begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1508576536
+Create a new event - Scenario 2 (Choose mobility sharing) 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+
+\change_inserted 666129059 1508575221
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="block" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+Registered User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575293
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508575221
+The actor clicks the new event button
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508575221
+The actor enters event name, hour, place and other standard information
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508575221
+The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508578545
+The system shows the quickest, the cheapest and the most ecological route
+ with their respective means of transport
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579487
+The actor chooses one of the proposed routes through the checkboxes
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508578644
+The actor chooses 
+\begin_inset Quotes eld
+\end_inset
+
+Sharing transporation means
+\begin_inset Quotes erd
+\end_inset
+
+ through the checkboxe
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508578715
+The actor chooses the auto-reservation function through the checkboxe
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508578759
+The actor chooses one or more bike or car sharing services
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508575221
+The actor confirms the event creation clicking the 
+\begin_inset Quotes eld
+\end_inset
+
+Confirm
+\begin_inset Quotes erd
+\end_inset
+
+ button
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508575221
+The system shows a summary screen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor has a new event in his scheduled events.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The place does not exist.
+ In these cases the system notifies the error to the user and he cannot
+ modify the event.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508575221
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 666129059 1508579409
+Create a new event - Scenario 3 (Flexible event)
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+
+\change_inserted 666129059 1508579410
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="block" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+Registered User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The actor clicks the new event button
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The actor enters event name, hour, place and other standard information
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The system shows the quickest, the cheapest and the most ecological route
+ with their respective means of transport
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579494
+The actor chooses one of the proposed routes or no one through the checkboxes
+\change_unchanged
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579555
+The actor chooses 
+\begin_inset Quotes eld
+\end_inset
+
+Flexible event
+\begin_inset Quotes erd
+\end_inset
+
+ through the checkboxe
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508580128
+The actor inserts the event duration
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508581879
+The actor inserts the range of time
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The actor confirms the event creation clicking the 
+\begin_inset Quotes eld
+\end_inset
+
+Confirm
+\begin_inset Quotes erd
+\end_inset
+
+ button
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 666129059 1508579410
+The system shows a summary screen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508581977
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor has a new flexible event in his scheduled events.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The place does not exist.
+ In these cases the system notifies the error to the user and he cannot
+ modify the event.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 666129059 1508579410
 
 
 \backslash
