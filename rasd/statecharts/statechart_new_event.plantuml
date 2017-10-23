@@ -2,23 +2,24 @@
 
 [*] -right-> NewEvent
 NewEvent -right-> [*]
-NewEvent: Input basic information (name, place, duration)
 
-NewEvent --> AddParticipant
+NewEvent -up-> AddParticipant
 AddParticipant --> AddParticipant
 AddParticipant --> NewEvent
-
-NewEvent -down-> AddRecurrencyInformation
-state AddRecurrencyInformation: For recurring events (e.g. repeat every monday)
+NewEvent -up-> AddRecurrencyInformation
 AddRecurrencyInformation -> NewEvent
+NewEvent --> ScheduleTrip
+ScheduleTrip --> ChooseRoute
+ChooseRoute --> [*]
 
-NewEvent -right-> ScheduleTrip
-ScheduleTrip -right-> [*]
+    NewEvent: Input basic information (name, place, duration)
 
-state ScheduleTrip {
-    ScheduleTrip: Schedule the trip and check if it's possible\n\
-    to be in time given the previous event. \n\
-    See separate detailed statechart.
-}
+    ScheduleTrip: Schedule the trip and check if it's possible\nto be in time given the previous event.\nSee separate detailed statechart.
+
+    ChooseRoute: The user can choose the route he prefer based on the\ntime needed, the cost, the emission of CO2 and if\nhe want to use sharied means
+
+    AddParticipant: For sharing the event with other\npeople (also with user that not\nnecessarily have an account on\nTravlendar+  
+
+    AddRecurrencyInformation: For recurring events (e.g. repeat every monday)
 
 @enduml
