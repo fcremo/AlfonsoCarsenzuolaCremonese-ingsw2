@@ -194,9 +194,9 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
-\author -1730310665 "fabcars"
 \end_header
 
 \begin_body
@@ -414,25 +414,14 @@ end{minipage}
 [3cm]
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{res/img/logopm}
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename res/img/logopm.pdf
-	display false
-	width 30text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -470,6 +459,16 @@ end{titlepage}
 
 \begin_layout Plain Layout
 
+
+\backslash
+newpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents{}
 \end_layout
 
 \begin_layout Plain Layout
@@ -478,31 +477,6 @@ end{titlepage}
 \backslash
 newpage
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -4186,12 +4160,11 @@ The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to 
-singup/login
-, to be able to rescheduled the event (e.g.
+The system ask to the actor to singup/login, to be able to rescheduled the
+ event (e.g.
  changing for the actor the starting location and schedule a route specific
- for the actor), but this is not necessary 
-The actor enters event name, hour, place and other standard information
+ for the actor), but this is not necessary The actor enters event name,
+ hour, place and other standard information
 \end_layout
 
 \begin_layout Enumerate
