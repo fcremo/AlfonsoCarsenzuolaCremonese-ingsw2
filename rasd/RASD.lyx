@@ -414,25 +414,14 @@ end{minipage}
 [3cm]
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{res/img/logopm}
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename res/img/logopm.pdf
-	display false
-	width 30text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -470,6 +459,16 @@ end{titlepage}
 
 \begin_layout Plain Layout
 
+
+\backslash
+newpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents{}
 \end_layout
 
 \begin_layout Plain Layout
@@ -478,31 +477,6 @@ end{titlepage}
 \backslash
 newpage
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
