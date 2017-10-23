@@ -1,0 +1,19 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: SelectEvent
+activate System #FFBBBB
+System -> System: LoadSelectedEvent
+System --> User: ShowSelectedEvent
+deactivate System
+User -> System: DeleteEvent
+activate System #FFBBBB
+System -> User: RequestDeletionConfirm
+User -> System: DeletionConfirm
+System --> User: ShowDeletionPerformedConfirm
+deactivate System
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: SelectEvent
+activate System #FFBBBB
+System -> System: LoadSelectedEvent
+System --> User: ShowSelectedEvent
+deactivate System
+User -> System: EditEvent
+activate System #FFBBBB
+System -> System: LoadEditableEventInformation
+System --> User: ShowEditableEventInformation
+deactivate System
+User -> System: InsertEditatedInformation
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: ShowEditatedEvent
+else incorrect data
+  System --> User: Error
+end
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: ContactCustomerService
+activate System #FFBBBB
+System -> System: LoadCustomerServicePage
+System --> User: ShowCustomerServicePage
+deactivate System
+User -> System: InsertRequest
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: ShowRequestConfermation
+else incorrect data
+  System --> User: Error
+end
+
+@enduml

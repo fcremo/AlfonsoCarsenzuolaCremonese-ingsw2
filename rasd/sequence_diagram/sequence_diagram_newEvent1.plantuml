@@ -1,0 +1,24 @@
+@startuml
+
+actor User
+participant System
+
+activate User #FFBBBB
+User -> System: NewEvent
+activate System #FFBBBB
+System --> User: ShowNewEventForm
+deactivate System
+User -> System: InsertInformation
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: DataConfirmation
+  User -> System: NewEventConfirm
+  System --> User: ShowCreatedEvent
+else incorrect data
+  System --> User: Error
+end
+
+@enduml
