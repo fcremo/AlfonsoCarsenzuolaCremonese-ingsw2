@@ -1,0 +1,54 @@
+@startuml
+
+actor User
+participant System
+actor Recipient
+
+activate User #FFBBBB
+User -> System: NewEvent
+activate System #FFBBBB
+System --> User: ShowNewEventForm
+deactivate System
+User -> System: InsertInformation
+activate System #FFBBBB
+System -> System: VerifyData
+deactivate System
+
+alt correct data
+  System --> User: DataConfirmation
+  User -> System: ShareEvent
+  System -> System: LoadSharedEventForm
+  System --> User: ShowSharedEventForm
+  User -> System: InsertSharedEventInformation
+  System -> System: VerifyData
+
+  alt correct data
+    System --> User: DataConfirmation
+    User -> System: NewEventConfirm
+    System --> User: ShowCreatedEvent
+    System -> Recipient: SendEmailSharedEvent
+    activate Recipient #FFBBBB
+    Recipient -> Recipient: EvaluateSharedEvent
+    deactivate Recipient
+
+    alt accept event
+      Recipient -> System: AcceptEvent
+      activate System #FFBBBB
+      System -> User: SendConfirmEmail
+      deactivate System
+    else decline event
+      Recipient -> System: DeclineEvent
+      activate System #FFBBBB
+      System -> User: SendDeclineEmail
+      deactivate System
+    end
+
+  else incorrect data
+    System --> User: Error
+  end
+
+else incorrect data
+  System --> User: Error
+end
+
+@enduml
