@@ -194,9 +194,9 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
-\author -1730310665 "fabcars"
 \end_header
 
 \begin_body
@@ -4186,12 +4186,11 @@ The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to 
-singup/login
-, to be able to rescheduled the event (e.g.
+The system ask to the actor to singup/login, to be able to rescheduled the
+ event (e.g.
  changing for the actor the starting location and schedule a route specific
- for the actor), but this is not necessary 
-The actor enters event name, hour, place and other standard information
+ for the actor), but this is not necessary The actor enters event name,
+ hour, place and other standard information
 \end_layout
 
 \begin_layout Enumerate
@@ -5294,34 +5293,155 @@ Sequence Diagram
 \begin_layout Standard
 This section presents the sequence diagram of the most important interaction,
  in order to have a dynamic sight of the main entities too.
-\change_inserted -1730310665 1508579260
-
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
 
-\change_inserted -1730310665 1508579260
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename sequence_diagram/registration.plantuml
+	filename sequence_diagram/sequence_diagram_registration.plantuml
 	display false
-	width 100col%
+	height 95theight%
 
 \end_inset
 
 
-\change_deleted -1730310665 1508579436
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Registration
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
 
-\change_inserted -1730310665 1508577627
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_login.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Login
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
 
-\change_deleted -1730310665 1508577627
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_editPersonalInfo.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Edit personal info
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_editBillInfo.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Edit billing info
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_newEvent1.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New event 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -5330,21 +5450,17 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_registration.plantuml
+	filename sequence_diagram/sequence_diagram_newEvent2.plantuml
 	display false
-	width 100text%
-	height 100theight%
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Registration Sequence Diagram
+New event 2
 \end_layout
 
 \end_inset
@@ -5355,18 +5471,35 @@ Registration Sequence Diagram
 \end_inset
 
 
-\change_unchanged
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_newEvent3.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New event 3
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -5375,21 +5508,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_login.png
-	width 70text%
-	height 70theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_editEvent.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Login Sequence Diagram
+Edit event
 \end_layout
 
 \end_inset
@@ -5400,39 +5529,25 @@ Login Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_checkavailability.png
-	width 100text%
-	height 90theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_deleteEvent.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Check Cars' Availability Sequence Diagram
+Delete event
 \end_layout
 
 \end_inset
@@ -5443,39 +5558,25 @@ Check Cars' Availability Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_editinfo.png
-	width 100text%
-	height 70theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_customerService.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modify Personal Information Sequence Diagram
+Contact customer service
 \end_layout
 
 \end_inset
@@ -5486,39 +5587,25 @@ Modify Personal Information Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_editbilling.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_newEvent2.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modify Billing Information Sequence Diagram
+New Event 1
 \end_layout
 
 \end_inset
@@ -5526,184 +5613,6 @@ Modify Billing Information Sequence Diagram
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/seqdia_reservation.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
- Car Reservation Sequence Diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/seqdia_opencar.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Car Unlock Sequence Diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/seqdia_rent.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Car Rental Sequence Diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/seqdia_contact.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Contact Customer Service Sequence Diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
