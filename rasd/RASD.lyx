@@ -194,8 +194,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1730310665 "fabcars"
-\author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
 
@@ -1029,217 +1027,6 @@ Review this section, I probably forgot something
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted -1730310665 1508760108
-Class diagrams
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1730310665 1508760108
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Scegliere dove mettere il class diagram se qui o sotto
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conviene forse scrivere due righe di intro?
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename class_diagram/class_diagram.plantuml
-	display false
-	width 100col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Class diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted -1730310665 1508760662
-State charts
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conviene forse scrivere due righe di intro?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1730310665 1508760662
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename statecharts/statechart_signup.plantuml
-	display false
-	width 100text%
-	height 95theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Signup
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename statecharts/statechart_diagram_login.plantuml
-	display false
-	width 65text%
-	height 65theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Login
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename statecharts/statechart_new_event.plantuml
-	display false
-	width 65text%
-	height 95theight%
-	rotateAngle 90
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-New event
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename statecharts/statechart_new_purchase.plantuml
-	display false
-	width 65text%
-	height 95theight%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-New purchase
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -2434,6 +2221,19 @@ Luca is a very raver boy.
  
 \end_layout
 
+\begin_layout Subsection
+Andrea is offline
+\end_layout
+
+\begin_layout Standard
+Andrea has a very bad memory and every months he forgot to top-up his phone,
+ so if he finishes the credit he must remain offline for a day.
+ When he has to add to Travlendar+ a new event, even if he is offline, he
+ can do it (otherwise he would forget also the appointment!) The only limitation
+ for Andrea is that the application when the device is offline won't calculate
+ the route or tell him the weather forcast.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -3588,11 +3388,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Create a new event
-\change_inserted 666129059 1508576477
- - Scenario 1 (Standard event)
-\change_unchanged
-
+Create a new event - Scenario 0 (Offline event)
 \end_layout
 
 \begin_layout Standard
@@ -3673,14 +3469,7 @@ vspace{0.15cm}
 
 \end_inset
 
-
-\change_deleted 666129059 1508575309
-The actor has a working Internet connection.
-\change_inserted 666129059 1508575310
-The user has a working Internet connection, he is already logged into the
- system and he has at least one event in his scheduled event.
-\change_unchanged
-
+The user is already logged into the system 
 \begin_inset ERT
 status open
 
@@ -3725,17 +3514,256 @@ The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
+The actor confirms the event creation clicking the 
+\begin_inset Quotes eld
+\end_inset
 
-\change_deleted 666129059 1508591951
-The system shows the quickest, the cheapest and the most ecologic route
+Confirm
+\begin_inset Quotes erd
+\end_inset
+
+ button
 \end_layout
 
 \begin_layout Enumerate
+The system shows a summary screen
+\end_layout
 
-\change_deleted 666129059 1508591951
-The actor chooses one of the proposed routes or no one through the checkboxes
-\change_unchanged
+\begin_layout Enumerate
+The application won't let the user to choose the route or to share the event
+ with other people
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor has a new event in his scheduled events.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The place does not exist.
+ In these cases the system notifies the error to the user and he cannot
+ modify the event.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Create a new event - Scenario 1 (Standard event)
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="block" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+Registered User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has a working Internet connection and he is already logged into
+ the system 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The actor clicks the new event button
+\end_layout
+
+\begin_layout Enumerate
+The actor enters event name, hour, place and other standard information
+\end_layout
+
+\begin_layout Enumerate
+The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
@@ -3828,26 +3856,12 @@ vspace{0.15cm}
 
 \end_inset
 
-
-\change_deleted 666129059 1508493970
-The address field is empty
-\change_inserted 666129059 1508575120
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
  The place does not exist.
  In these cases the system notifies the error to the user and he cannot
  modify the event.
-\change_deleted 666129059 1508575006
-.
-
-\change_unchanged
  
-\change_deleted 666129059 1508493949
-The inserted address is not found or the location service does not work.
- There is no available cars in the selected area.
- In these cases the system notifies the error and cannot complete the request.
-\change_unchanged
-
 \begin_inset ERT
 status open
 
@@ -3874,15 +3888,11 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 666129059 1508576536
 Create a new event - Scenario 2 (Choose mobility sharing) 
 \end_layout
 
 \begin_layout Standard
 \paragraph_spacing onehalf
-
-\change_inserted 666129059 1508575221
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
@@ -3893,8 +3903,6 @@ Create a new event - Scenario 2 (Choose mobility sharing)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 Actors
 \end_layout
 
@@ -3904,14 +3912,10 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -3926,8 +3930,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 666129059 1508575221
-
 
 \backslash
 vspace{0.15cm}
@@ -3946,8 +3948,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 Preconditions
 \end_layout
 
@@ -3957,14 +3957,10 @@ Preconditions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575293
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -3973,14 +3969,12 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, he is already logged into the
- system and he has at least one event in his scheduled event.
+The user has a working Internet connection and he is already logged into
+ the system 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -4000,8 +3994,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 Events
 \end_layout
 
@@ -4011,26 +4003,18 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508575221
 The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508575221
 The actor enters event name, hour, place and other standard information
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508591959
 The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508592188
 The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
@@ -4043,23 +4027,15 @@ Suggested routes
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508578545
 The system shows the quickest, the cheapest and the most ecological route
  with their respective means of transport
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508592774
 The actor chooses one of the proposed routes through the button
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508592810
 The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
@@ -4072,8 +4048,6 @@ Sharing transporation means
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508593478
 The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
@@ -4086,16 +4060,10 @@ auto-reservation function
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508593504
 The actor chooses one or more bike or car sharing services through the buttons
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508575221
 The actor confirms the event creation clicking the 
 \begin_inset Quotes eld
 \end_inset
@@ -4108,8 +4076,6 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508575221
 The system shows a summary screen
 \end_layout
 
@@ -4121,8 +4087,6 @@ The system shows a summary screen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 Postconditions
 \end_layout
 
@@ -4132,14 +4096,10 @@ Postconditions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -4154,8 +4114,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 666129059 1508575221
-
 
 \backslash
 vspace{0.15cm}
@@ -4174,8 +4132,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 Exceptions
 \end_layout
 
@@ -4185,14 +4141,10 @@ Exceptions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -4211,8 +4163,6 @@ One of the fields of the basic information is empty.
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508575221
 
 
 \backslash
@@ -4235,15 +4185,11 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 666129059 1508579409
 Create a new event - Scenario 3 (Flexible event)
 \end_layout
 
 \begin_layout Standard
 \paragraph_spacing onehalf
-
-\change_inserted 666129059 1508579410
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
@@ -4254,8 +4200,6 @@ Create a new event - Scenario 3 (Flexible event)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 Actors
 \end_layout
 
@@ -4265,14 +4209,10 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4287,8 +4227,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 666129059 1508579410
-
 
 \backslash
 vspace{0.15cm}
@@ -4307,8 +4245,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 Preconditions
 \end_layout
 
@@ -4318,14 +4254,10 @@ Preconditions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4334,14 +4266,12 @@ vspace{0.15cm}
 
 \end_inset
 
-The user has a working Internet connection, he is already logged into the
- system and he has at least one event in his scheduled event.
+The user has a working Internet connection and he is already logged into
+ the system 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4361,8 +4291,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 Events
 \end_layout
 
@@ -4372,8 +4300,6 @@ Events
 \begin_inset Text
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508579410
 The actor clicks the new event button
 \end_layout
 
@@ -4386,14 +4312,10 @@ The system ask to the actor to singup/login, to be able to rescheduled the
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508579410
 The system verifies the correctness and the completeness of the information
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508593580
 The actor clicks the 
 \begin_inset Quotes eld
 \end_inset
@@ -4406,20 +4328,14 @@ Flexible event
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508580128
 The actor inserts the event duration
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508581879
 The actor inserts the range of time
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508579410
 The actor confirms the event creation clicking the 
 \begin_inset Quotes eld
 \end_inset
@@ -4432,8 +4348,6 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-
-\change_inserted 666129059 1508579410
 The system shows a summary screen
 \end_layout
 
@@ -4445,8 +4359,6 @@ The system shows a summary screen
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 Postconditions
 \end_layout
 
@@ -4456,14 +4368,10 @@ Postconditions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508581977
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4478,8 +4386,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 666129059 1508579410
-
 
 \backslash
 vspace{0.15cm}
@@ -4498,8 +4404,6 @@ vspace{0.15cm}
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 Exceptions
 \end_layout
 
@@ -4509,14 +4413,10 @@ Exceptions
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4535,8 +4435,6 @@ One of the fields of the basic information is empty.
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 666129059 1508579410
 
 
 \backslash
@@ -4770,10 +4668,6 @@ vspace{0.15cm}
 
 \end_inset
 
-
-\change_inserted 666129059 1508601326
-C
-\change_unchanged
 
 \end_layout
 
@@ -5494,7 +5388,7 @@ E' la posizione migliore dove metterlo?
 
 \begin_layout Standard
 In this section are presentd the state charts diagram of the basic action
- that an actor can do.
+ (high level view) that an actor can do.
  To see a more depth view of what the application can do and how it work,
  see below 
 \begin_inset CommandInset ref
@@ -5510,7 +5404,7 @@ reference "subsec:Sequence-diagram"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5541,7 +5435,7 @@ Signup
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5586,7 +5480,7 @@ occorre modificare per maggiore coerenza
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5617,7 +5511,7 @@ New event
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6008,7 +5902,7 @@ This diagram is intended as a starting draft to be expanded further in the
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
