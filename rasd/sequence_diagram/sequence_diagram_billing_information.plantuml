@@ -1,0 +1,30 @@
+@startuml
+
+actor User
+participant System
+participant ExternalService
+activate User #FFBBBB
+System --> User: AskForBillingInformation
+activate System #FFBBBB
+alt billing info now
+    System -> User: SendRedirectionMessage
+    deactivate System #FFBBBB
+    User -> ExternalService: insertBillingInformation
+    activate ExternalService #FFBBBB
+    ExternalService -> ExternalService: verifyBillingInformation
+    deactivate ExternalService #FFBBBB
+    alt correct billing information
+        ExternalService -> System: correctBillingInformation
+        System -> User: NotifyCorrectBillingInfo
+        else incorrect billing information
+        ExternalService -> System: incorrectBillingInformation
+        activate ExternalService #FFBBBB
+        deactivate ExternalService #FFBBBB
+        System -> User: notifyInvalidBillingInfo
+    end
+else billing info later
+System --> User: SendConfermationMessage
+deactivate User #FFBBBB
+end
+
+@enduml
