@@ -1,0 +1,37 @@
+@startuml
+
+actor User
+
+left to right direction
+
+User --|> (Create new event)
+(Create new event) ..> (Log In) :<<includes>>
+
+User --|> (Edit an event)
+(Edit an event) ..> (Log In) :<<includes>>
+
+User --|> (Set the event as flexible)
+(Set the event as flexible) ..> (Create new event) :<<includes>>
+(Set the event as flexible) ..> (Edit an event) :<<includes>>
+(Set the event as flexible) ..> (Log In) :<<includes>>
+
+User --|> (Share an event)
+(Share an event) ..> (Create new event) :<<includes>>
+(Share an event) ..> (Edit an event) :<<includes>>
+(Share an event) ..> (Log In) :<<includes>>
+
+User --|> (Plan travel)
+(Plan travel) ..> (Create new event) :<<includes>>
+(Plan travel) ..> (Edit an event) :<<includes>>
+(Plan travel) ..> (Log In) :<<includes>>
+
+User --|> (Consult scheduled event)
+(Consult scheduled event) ..> (Log In) :<<includes>>
+
+User --|> (Visualize account information)
+(Edit personal data) .> (Visualize account information) :<<extends>>
+(Visualize account information) ..> (Log In) :<<includes>>
+
+User --|> (Contact the customer service)
+
+@enduml

@@ -696,8 +696,9 @@ Travlendar+ could be considered a venture capital backed project that has
  make the assumption that it will be free to use for the time being, while
  avoiding decisions that will make difficult to include billing into the
  system.
- An obvious way to make a profit would be to earn a percentage of what the
- users pay to sharing mobility services and taxis reserved through the app.
+ An obvious and technically easy way to make a profit would be to earn a
+ percentage of what the users pay to sharing mobility services and taxis
+ reserved through the app.
 \end_layout
 
 \begin_layout Subsection
@@ -2036,9 +2037,45 @@ Map and points of interest
 
 \begin_layout Itemize
 
-\change_inserted 1604105849 1508746124
+\change_inserted 1604105849 1508750607
 Routing service between two points, that accounts for the transport mean
  used (car, bike, walk)
+\end_layout
+
+\begin_layout Paragraph*
+
+\change_inserted 1604105849 1508750613
+Email service 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1604105849 1508750734
+In order to send messages for registration, password resets, reminders and
+ event sharing the system needs an email service, which may be external.
+ The following characteristics are required:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1508750768
+Supports secure protocols (STARTTLS or pure TLS)
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1508750977
+Has good reputation in spam filters
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1508751053
+Guarantees availability (99.9%+)
 \end_layout
 
 \begin_layout Subsection
@@ -2068,6 +2105,197 @@ Hardware limitations
 Our app doesn't have particular hardware constraints, but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
  can satisfy the performance requirement.
+\change_inserted 1604105849 1508751596
+
+\end_layout
+
+\begin_layout Subsection
+Software system attributes
+\end_layout
+
+\begin_layout Subsubsection
+Reliability and availability
+\end_layout
+
+\begin_layout Standard
+Nowadays users expect all applications to always work.
+ Even excluding faults to their devices or connections being 100% available
+ and reliable is challenging, as these properties depend on our services
+ and also on many external ones.
+ Single points of failure must be avoided where possible.
+\end_layout
+
+\begin_layout Paragraph
+Single points of failure
+\end_layout
+
+\begin_layout Standard
+Avoiding single points of failure can be achieved by technical design decisions,
+ with techniques such as load balancing and separation of concerns (microservice
+s).
+ In the event an non-fundamental service (e.g.
+ car sharing API) stops working the app should keep functioning, altough
+ in a degraded state (not be able to reserve cars, but still able to reserve
+ other services).
+ Of course a tradeoff must be made between reliability and cost/architecture
+ simplicity.
+ The design decisions regarding this are left to the design document.
+\end_layout
+
+\begin_layout Paragraph
+Testing and development environment
+\end_layout
+
+\begin_layout Standard
+Test suites must be written where possible, and code changes must never
+ be deployed if regressions are introduced.
+ Testing of the software must be performed on a staging environment that
+ will be as similar as possible to the production environment, with no access
+ to production databases.
+\end_layout
+
+\begin_layout Paragraph
+Backups and restore, disaster recovery
+\end_layout
+
+\begin_layout Standard
+Automated regular backups of code and data must be performed.
+ Incremental backups of production data must be performed at least every
+ 6 hours and snapshots must be performed at least daily.
+ Data restore and disaster recovery procedures must be documented, automated
+ where possible, and tested at least once every three months on a staging
+ environment different from the production environment.
+\end_layout
+
+\begin_layout Paragraph
+Infrastructure reliability
+\end_layout
+
+\begin_layout Standard
+The chosen hosting provider must give reliability guarantees both via technical
+ means and contractual ones.
+ The hosting location for the production environmente must have proper redundanc
+ies in place for power and connectivity in order to guarantee 99.9%+ service
+ level agreement.
+\end_layout
+
+\begin_layout Subsubsection
+Security
+\end_layout
+
+\begin_layout Standard
+The system must be developed following security best practices.
+ This implies technology-agnostic requirements which are detailed here as
+ well as technology-dependent ones which are a concern of the development
+ team.
+\end_layout
+
+\begin_layout Paragraph
+General reccomendations
+\end_layout
+
+\begin_layout Itemize
+All software must be updated in short time after the release of security
+ advisories
+\end_layout
+
+\begin_layout Itemize
+The principle of least privilege must be followed
+\end_layout
+
+\begin_layout Itemize
+Regular security reviews must be performed
+\end_layout
+
+\begin_layout Itemize
+A way to safely report security vulnerabilities must be present
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A bug bounty program may be evaluated
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+No security protocols or algorithms shall be created if a secure standard
+ exists
+\end_layout
+
+\begin_layout Paragraph
+Data security
+\end_layout
+
+\begin_layout Standard
+User data must be stored as securely as possible:
+\end_layout
+
+\begin_layout Itemize
+databases must be password protected and not directly accessible from the
+ public internet
+\end_layout
+
+\begin_layout Itemize
+normal developers should not have direct access to production databases
+\end_layout
+
+\begin_layout Itemize
+data should be stored encrypted at rest
+\end_layout
+
+\begin_layout Itemize
+password must be stored after being hashed with a secure algorithm
+\end_layout
+
+\begin_layout Paragraph
+Application security
+\end_layout
+
+\begin_layout Standard
+Common vulnerabilities must be avoided.
+ This includes vulnerabilities from lists such as OWASP Top 10, or certificate
+ validation errors.
+ The development team must be knowledgeable about the possible pitfalls
+ in the chosen software stack.
+\end_layout
+
+\begin_layout Paragraph
+Transport security
+\end_layout
+
+\begin_layout Standard
+All network traffic must be encrypted with standard algorithms.
+ The reccomendation is TLS with a modern configuration.
+\end_layout
+
+\begin_layout Paragraph
+Operational security
+\end_layout
+
+\begin_layout Standard
+A small group of authorized people must be in charge of deployment and maintaina
+nce and only them should have access to the production environment.
+ Where possible deployment procedures should be automated.
+\end_layout
+
+\begin_layout Paragraph
+Physical security
+\end_layout
+
+\begin_layout Standard
+A hosting provider with proper physical security must be chosen.
+ This includes 24/7 surveillance, strong authentication, authorization and
+ accounting.
+\end_layout
+
+\begin_layout Subsubsection
+Maintainability
+\end_layout
+
+\begin_layout Standard
+Code, database schemas and deployment procedures must be documented in order
+ to allow new developers to gain familiarity with the system in a reasonable
+ time.
 \end_layout
 
 \begin_layout Standard

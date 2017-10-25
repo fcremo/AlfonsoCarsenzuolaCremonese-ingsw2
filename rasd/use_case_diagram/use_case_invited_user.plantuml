@@ -1,0 +1,13 @@
+@startuml
+
+actor InvitedUser
+
+left to right direction
+
+InvitedUser --|> (Log In)
+InvitedUser --|> (Sign Up)
+InvitedUser --|> (Accept / Decline shared event)
+InvitedUser --|> (Visit home page)
+InvitedUser --|> (Contact the customer service)
+
+@enduml
