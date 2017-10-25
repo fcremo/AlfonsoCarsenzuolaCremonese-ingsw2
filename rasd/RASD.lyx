@@ -414,14 +414,25 @@ end{minipage}
 [3cm]
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
 
 
-\backslash
-includegraphics[width=0.3
-\backslash
-textwidth]{res/img/logopm}
 \end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename res/img/logopm.pdf
+	display false
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
@@ -459,16 +470,6 @@ end{titlepage}
 
 \begin_layout Plain Layout
 
-
-\backslash
-newpage
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tableofcontents{}
 \end_layout
 
 \begin_layout Plain Layout
@@ -477,6 +478,31 @@ tableofcontents{}
 \backslash
 newpage
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
@@ -1008,10 +1034,41 @@ Review this section, I probably forgot something
 \end_layout
 
 \begin_layout Subsubsection
+
+\change_deleted -1730310665 1508760108
 Class diagrams
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1730310665 1508760108
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Scegliere dove mettere il class diagram se qui o sotto
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+conviene forse scrivere due righe di intro?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename class_diagram/class_diagram.plantuml
 	display false
@@ -1020,10 +1077,171 @@ Class diagrams
 \end_inset
 
 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Class diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
+
+\change_deleted -1730310665 1508760662
 State charts
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+conviene forse scrivere due righe di intro?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1730310665 1508760662
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename statecharts/statechart_signup.plantuml
+	display false
+	width 100text%
+	height 95theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Signup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename statecharts/statechart_diagram_login.plantuml
+	display false
+	width 65text%
+	height 65theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Login
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename statecharts/statechart_new_event.plantuml
+	display false
+	width 65text%
+	height 95theight%
+	rotateAngle 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New event
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename statecharts/statechart_new_purchase.plantuml
+	display false
+	width 65text%
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New purchase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -4883,7 +5101,7 @@ The actor can click on the link given in the email to get further information
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to login/signup, to be able to rescheduled the
+The system ask to the actor to singup/login, to be able to rescheduled the
  event (e.g.
  changing for the actor the starting location and schedule a route specific
  for the actor), but this is not necessary 
@@ -5024,13 +5242,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The actor fail 
-\change_deleted -1730310665 1508575199
-login/signup
-\change_inserted -1730310665 1508575199
-singup/login
-\change_unchanged
-.
+The actor fail singup/login.
  In this case the user can retry to do login/signup
 \begin_inset ERT
 status open
@@ -5294,10 +5506,6 @@ Actors
 
 \begin_layout Plain Layout
 Guest, User
-\change_deleted 666129059 1508601790
- or Deactivated User
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5489,40 +5697,44 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsection
-Sequence Diagram
+State Charts
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+conviene forse scrivere più di due righe di intro?
 \end_layout
-
-\begin_layout Standard
-This section presents the sequence diagram of the most important interaction,
- in order to have a dynamic sight of the main entities too.
-\change_inserted -1730310665 1508579260
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1730310665 1508579260
-\begin_inset Graphics
-	filename sequence_diagram/registration.plantuml
-	display false
-	width 100col%
 
 \end_inset
 
 
-\change_deleted -1730310665 1508579436
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+E' la posizione migliore dove metterlo?
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
+In this section are presentd the state charts diagram of the basic action
+ that an actor can do.
+ To see a more depth view of what the application can do and how it work,
+ see below 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sequence-diagram"
 
-\change_inserted -1730310665 1508577627
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1730310665 1508577627
 \begin_inset Float figure
 wide false
 sideways false
@@ -5531,54 +5743,41 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_registration.plantuml
+	filename statecharts/statechart_signup.plantuml
+	display false
+	width 100text%
+	height 95theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Signup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename statecharts/statechart_diagram_login.plantuml
 	display false
 	width 100text%
 	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Registration Sequence Diagram
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/seqdia_login.png
-	width 70text%
-	height 70theight%
 	keepAspectRatio
 
 \end_inset
@@ -5587,10 +5786,11 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Login Sequence Diagram
+Login
 \end_layout
 
 \end_inset
@@ -5601,39 +5801,37 @@ Login Sequence Diagram
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+occorre modificare per maggiore coerenza
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_checkavailability.png
-	width 100text%
-	height 90theight%
+	filename statecharts/statechart_new_event.plantuml
+	display false
+	width 95text%
+	height 95theight%
 	keepAspectRatio
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Check Cars' Availability Sequence Diagram
+New event
 \end_layout
 
 \end_inset
@@ -5644,39 +5842,27 @@ Check Cars' Availability Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_editinfo.png
-	width 100text%
-	height 70theight%
+	filename statecharts/statechart_new_purchase.plantuml
+	display false
+	width 65text%
+	height 95theight%
 	keepAspectRatio
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modify Personal Information Sequence Diagram
+New purchase
 \end_layout
 
 \end_inset
@@ -5687,16 +5873,25 @@ Modify Personal Information Sequence Diagram
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Sequence-diagram"
+
+\end_inset
+
+Sequence Diagram
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+This section presents the sequence diagram of the most important interaction,
+ in order to have a dynamic sight of the main entities too.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -5705,21 +5900,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_editbilling.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_registration.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modify Billing Information Sequence Diagram
+Registration
 \end_layout
 
 \end_inset
@@ -5730,16 +5921,6 @@ Modify Billing Information Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -5748,21 +5929,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_reservation.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_login.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
- Car Reservation Sequence Diagram
+Login
 \end_layout
 
 \end_inset
@@ -5773,16 +5950,6 @@ status collapsed
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -5791,21 +5958,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_opencar.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_editPersonalInfo.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Car Unlock Sequence Diagram
+Edit personal info
 \end_layout
 
 \end_inset
@@ -5816,16 +5979,6 @@ Car Unlock Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -5834,20 +5987,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_rent.png
-	width 100text%
-	height 100theight%
+	filename sequence_diagram/sequence_diagram_editBillInfo.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Car Rental Sequence Diagram
+Edit billing info
 \end_layout
 
 \end_inset
@@ -5858,16 +6008,6 @@ Car Rental Sequence Diagram
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -5876,21 +6016,17 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/seqdia_contact.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
+	filename sequence_diagram/sequence_diagram_newEvent1.plantuml
+	display false
+	height 95theight%
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Contact Customer Service Sequence Diagram
+New event 1
 \end_layout
 
 \end_inset
@@ -5901,10 +6037,177 @@ Contact Customer Service Sequence Diagram
 \end_inset
 
 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_newEvent2.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New event 2
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_newEvent3.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New event 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_newSharedEvent.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New shared event
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_editEvent.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Edit event
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_deleteEvent.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Delete event
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_customerService.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Contact customer service
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -5930,13 +6233,6 @@ This diagram is intended as a starting draft to be expanded further in the
 \end_layout
 
 \begin_layout Standard
-\begin_inset space \quad{}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -5945,10 +6241,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/ClassD.png
+	filename class_diagram/class_diagram.plantuml
 	display false
 	width 100text%
-	height 100theight%
+	height 95theight%
+	keepAspectRatio
+	rotateAngle 90
 
 \end_inset
 
