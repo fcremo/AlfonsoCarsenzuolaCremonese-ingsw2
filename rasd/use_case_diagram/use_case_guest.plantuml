@@ -1,0 +1,12 @@
+@startuml
+
+actor Guest
+
+left to right direction
+
+Guest --|> (Log In)
+Guest --|> (Sign Up)
+Guest --|> (Visit home page)
+Guest --|> (Contact the customer service)
+
+@enduml
