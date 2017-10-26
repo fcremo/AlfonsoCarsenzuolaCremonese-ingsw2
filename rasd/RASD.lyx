@@ -196,7 +196,6 @@ End
 \html_be_strict false
 \author -1730310665 "fabcars"
 \author 666129059 "Alessandro Alfonso"
-\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -877,7 +876,7 @@ Travlendar+ users will need to be able to use the service from their computers
  We propose to build a desktop web app and Android and iOS applications.
  Users will be able to use Travlendar+ on all their devices and have their
  calendars always available thanks to automatic synchronization.
- Basic functionality (e.g.
+ For the mobile apps basic functionality (e.g.
  adding an event to the calendar) will be available even if the device is
  temporarily offline, but many features will need internet connectivity
  in order for the app to be able to query the backend and sync data across
@@ -892,9 +891,9 @@ The web frontend will be targeted at modern browsers with support for HTML5,
  Mobile applications will need to support 95% of the user base of iOS and
  Android when the app will be released, which at the time of writing this
  document means supporting Android 4.4+ and iOS 10+.
- A desktop application is not a strict requirement, but we note that with
- some appropriate implementation decisions the web application should be
- easily converted into a desktop application.
+ A native desktop application is not a strict requirement, but we note that
+ with some appropriate implementation decisions the web application should
+ be easily converted into a desktop application.
  The decision on whether to build a desktop version is left to the design
  phase, where we'll evaluate the costs and benefits.
 \end_layout
@@ -932,7 +931,8 @@ Backend
 \end_layout
 
 \begin_layout Standard
-Most of Travlendar+ advanced functionality will depend on server side services:
+Most of Travlendar+ advanced functionality will depend on server side services
+ for:
 \end_layout
 
 \begin_layout Itemize
@@ -944,7 +944,7 @@ public transport information such as timetables and realtime status
 \end_layout
 
 \begin_layout Itemize
-public transport tickets
+public transport tickets and passes
 \end_layout
 
 \begin_layout Itemize
@@ -953,7 +953,12 @@ sharing mobility services informations and functionality (vehicle position,
 \end_layout
 
 \begin_layout Itemize
-calendar synchronization between devices
+taxi services informations and functionality (prices, automatic reservations,
+ ...)
+\end_layout
+
+\begin_layout Itemize
+calendar storage and synchronization between devices
 \end_layout
 
 \begin_layout Itemize
@@ -1398,10 +1403,17 @@ simple and user-friendly
 \end_layout
 
 \begin_layout Itemize
-secure and privacy respecting (see section 
+secure and privacy respecting (see sections 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Legal-constraints"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Security"
 
 \end_inset
 
@@ -1514,7 +1526,7 @@ which transportation means they can and cannot use
 \end_layout
 
 \begin_layout Itemize
-credentials for sharing mobility services and taxis
+credentials for sharing mobility and taxi services
 \end_layout
 
 \begin_layout Itemize
@@ -1544,7 +1556,7 @@ Assumptions and dependencies
 \begin_layout Standard
 Travlendar+ needs to interact with many entities and cope with events beyond
  our control, which can disrupt user experience.
- Here we document assumptions which we'll rely on in our design.
+ Here we document assumptions on which we'll rely for our design.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1573,6 +1585,8 @@ Some of the external services (e.g.
  public transportation tickets, taxi and sharing mobility services) don't
  have a public API available, and an agreement with the companies providing
  the service will be needed in order to gain access and use their APIs.
+ We assume these agreements will be made before the start of the design
+ phase.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1585,7 +1599,7 @@ We assume that appointments for which the user wants help scheduling his
  the metropolitan area of Milan).
  The app will be available only to users of certain supported cities, initially
  targeting the most populated Italian cities for the MVP.
- Many factors make this constraint necessary:
+ This constraint is necessary because:
 \end_layout
 
 \begin_layout Itemize
@@ -1595,8 +1609,8 @@ public transportation regulations, prices, ticketing systems and timetables
 \end_layout
 
 \begin_layout Itemize
-time estimates on long travels — especially when involving public transportation
- — are not accurate
+time estimates for long travels — especially when involving public transportatio
+n — are not accurate
 \end_layout
 
 \begin_layout Subsubsection
@@ -1604,7 +1618,7 @@ Other assumptions
 \end_layout
 
 \begin_layout Standard
-We suppose these conditions will be respected at any given time:
+We suppose these assumptions will hold:
 \end_layout
 
 \begin_layout Itemize
@@ -1708,7 +1722,7 @@ TODO: this section needs to be finished
 The functional requirements include the functionalities that the system
  must necessarily have and describe the interactions between the system
  developed and the external environment independently from the implementation.
- They are divided into functionality categories as follows.
+ They are divided into categories as follows.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1809,8 +1823,8 @@ Travel planning
 \begin_layout Standard
 When creating or modifying an event users will be able to specify starting
  and destination locations and time and schedule their travel.
- By default the starting point is the ones of the previous event in the
- same day, if it exists.
+ By default the starting point is the one of the previous event in the same
+ day, if it exists.
 \end_layout
 
 \begin_layout Itemize
@@ -1962,14 +1976,10 @@ Trip suggestions should be loaded incrementally, so that informations can
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 1604105849 1508603568
 External software interface requirements
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508603744
 Taxi services
 \begin_inset Newline newline
 \end_inset
@@ -1978,43 +1988,31 @@ Taxi services
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508604151
 In order to automatically reserve a taxi one or more external services must
  be integrated with our system.
  Those external services must provide the following functions:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604056
 User authentication (optional): depending on the agreement with the company
  providing the service the user might be required to register an account
  to the taxi service.
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508603978
 Reservation: service must allow to reserve a taxi at a given day, time and
  location
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604069
 Cost estimation for a trip between two locations (including base fare)
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604097
 Billing history: for showing our users their trip details
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508603779
 Sharing mobility services
 \begin_inset Newline newline
 \end_inset
@@ -2023,52 +2021,38 @@ Sharing mobility services
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508604173
 In order to automatically reserve a vehicle one or more external services
  must be integrated with our system.
  These services must provide:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604187
 User authentication (optional): depending on the agreement with the company
  providing the service the user might be required to register an account
  with them.
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604272
 Vehicle positions: the service must allow to get a list of the available
  vehicles in a given area
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604341
 Vehicle informations: the service must allow to get details on a specific
  vehicle (remaining fuel, cost per minute or km, allowed passengers, ...)
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508604366
 Reservation: the service must allow to reserve a specific vehicle and cancel
  the reservation
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508741596
 Cost estimation (optional): the cost may be estimated by the external service
  or by us, given the starting and end locations
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508741604
 Weather services
 \begin_inset Newline newline
 \end_inset
@@ -2077,27 +2061,19 @@ Weather services
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508741677
 In order to account for weather conditions for travel planning the system
  will need an external service providing :
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508741695
 Real time weather conditions at a given position
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508743856
 Weather forecasts at a given position, at least for the next 5 days
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508743876
 Public transport information service 
 \begin_inset Newline newline
 \end_inset
@@ -2106,47 +2082,33 @@ Public transport information service
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508743976
 In order to provide our users informations about public transport the system
  will need an external service providing:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744251
 Information about which lines exist, their path, stops and timetables
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744212
 Real time status about a specific line (optional)
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744219
 Vehicle position
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744230
 Strikes
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744265
 Accidents
 \end_layout
 
 \end_deeper
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508744280
 Public transport ticketing service 
 \begin_inset Newline newline
 \end_inset
@@ -2155,42 +2117,30 @@ Public transport ticketing service
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508744310
 In order to provide our users with an in-app ticket shop an external service
  which provides the following will be needed:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744388
 Informations about which tickets/passes are available for a certain line
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744402
 Cost
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744402
 Duration/validity
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744587
 Ticket and passes shop
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508744596
 Payments must go through a payment processor Travelendar+ can interact directly
  via an API (e.g.
  Stripe)
@@ -2198,16 +2148,12 @@ Payments must go through a payment processor Travelendar+ can interact directly
 
 \end_deeper
 \begin_layout Standard
-
-\change_inserted 1604105849 1508744914
 Combined tickets rules (e.g.
  tickets valid for a single run in metro + train) might need to be hardcoded
  in the system, since they wildly vary between cities.
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508744920
 Payment processor service 
 \begin_inset Newline newline
 \end_inset
@@ -2216,8 +2162,6 @@ Payment processor service
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508745956
 In order to provide our users with an in-app ticket shop an external payment
  processor which allows the user to pay using his credit card (and possibly
  other means) will be needed.
@@ -2226,8 +2170,6 @@ In order to provide our users with an in-app ticket shop an external payment
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508745981
 Map data and routing service 
 \begin_inset Newline newline
 \end_inset
@@ -2236,28 +2178,20 @@ Map data and routing service
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508746041
 In order to help our users plan for travel an external service providing
  map data will be needed:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508746061
 Map and points of interest
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508750607
 Routing service between two points, that accounts for the transport mean
  used (car, bike, walk)
 \end_layout
 
 \begin_layout Paragraph*
-
-\change_inserted 1604105849 1508750613
 Email service 
 \begin_inset Newline newline
 \end_inset
@@ -2266,28 +2200,20 @@ Email service
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1508750734
 In order to send messages for registration, password resets, reminders and
  event sharing the system needs an email service, which may be external.
  The following characteristics are required:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508750768
 Supports secure protocols (STARTTLS or pure TLS)
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508750977
 Has good reputation in spam filters
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1508751053
 Guarantees availability (99.9%+)
 \end_layout
 
@@ -2318,8 +2244,6 @@ Hardware limitations
 Our app doesn't have particular hardware constraints, but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
  can satisfy the performance requirement.
-\change_inserted 1604105849 1508751596
-
 \end_layout
 
 \begin_layout Subsection
@@ -2393,6 +2317,12 @@ ies in place for power and connectivity in order to guarantee 99.9%+ service
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Security"
+
+\end_inset
+
 Security
 \end_layout
 
@@ -4606,7 +4536,7 @@ The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to singup/login, to be able to rescheduled the
+The system ask to the actor to signup/login, to be able to rescheduled the
  event (e.g.
  changing for the actor the starting location and schedule a route specific
  for the actor), but this is not necessary The actor enters event name,
@@ -4999,10 +4929,6 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1508601326
-C
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -5101,7 +5027,7 @@ The actor can click on the link given in the email to get further information
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to singup/login, to be able to rescheduled the
+The system ask to the actor to signup/login, to be able to rescheduled the
  event (e.g.
  changing for the actor the starting location and schedule a route specific
  for the actor), but this is not necessary 
@@ -5505,7 +5431,7 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-Guest, User
+Guest, User or Deactivated User
 \end_layout
 
 \end_inset
