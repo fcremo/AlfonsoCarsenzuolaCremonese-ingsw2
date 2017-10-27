@@ -195,7 +195,6 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1730310665 "fabcars"
-\author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
 
@@ -749,6 +748,17 @@ navigation apps (e.g.
 \begin_layout Itemize
 taxi apps (e.g.
  MyTaxi, Uber)
+\change_inserted 1604105849 1509112021
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1509112053
+sharing mobility services applications (e.g.
+ enjoy, mobike)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -936,7 +946,7 @@ Most of Travlendar+ advanced functionality will depend on server side services
 \end_layout
 
 \begin_layout Itemize
-map data and travel itineraries
+map data and travel routes
 \end_layout
 
 \begin_layout Itemize
@@ -962,7 +972,7 @@ calendar storage and synchronization between devices
 \end_layout
 
 \begin_layout Itemize
-push notifications
+push and email notifications
 \end_layout
 
 \begin_layout Standard
@@ -1608,7 +1618,7 @@ Modify and delete and event
 \end_layout
 
 \begin_layout Itemize
-Share an event or an entire calendar with another person by email or link
+Share an event or an entire calendar with another person by email
 \end_layout
 
 \begin_layout Itemize
@@ -1628,7 +1638,7 @@ When creating or modifying an event users will be able to specify starting
 \end_layout
 
 \begin_layout Itemize
-A warning muse be shown if it appears that there's no suitable transportation
+A warning must be shown if it appears that there's no suitable transportation
  mean to reach an appointment in time
 \end_layout
 
@@ -1645,6 +1655,24 @@ users can choose the preferred option from the list
 \begin_layout Itemize
 the best options in terms of time, cost, distance, carbon emissions to reach
  the destination must be shown
+\change_inserted 1604105849 1509116612
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1604105849 1509116618
+riformulare questa parte
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -1723,7 +1751,7 @@ flexible events
 \begin_deeper
 \begin_layout Itemize
 Users are able to set constraints on what they must do during the day (e.g.
- maybe a user want to have lunch between 12 am and 2 pm)
+ a user might want to have lunch between 12 am and 2 pm)
 \end_layout
 
 \begin_layout Itemize
@@ -1819,7 +1847,7 @@ Cost estimation for a trip between two locations (including base fare)
 \end_layout
 
 \begin_layout Itemize
-Billing history: for showing our users their trip details
+Billing history (optional): for showing our users their trip details
 \end_layout
 
 \begin_layout Paragraph*
@@ -2053,7 +2081,14 @@ Hardware limitations
 \begin_layout Standard
 Our app doesn't have particular hardware constraints, but we expect that
  it will be run on modern computers, smartphones or tablets, so that it
- can satisfy the performance requirement.
+ can satisfy the performance requirements (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Performance-requirements"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -2440,17 +2475,15 @@ Use cases model
 \begin_layout Standard
 From previously denoted scenarios and from the whole analysis we did in
  this document, we individuated the use cases of the system to be developed.
- In these pictures there are some use Cases diagram which represent actors,
+ In these pictures there are some use case diagrams which represent actors,
  their use cases and their interactions.
- Then some of them are better explained using a less formal and more narrative
- way.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2484,24 +2517,6 @@ Guest Use Case
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1508937228
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1730310665 1508937242
-RIGUARDARE user use case
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -2542,7 +2557,7 @@ User Use Case
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2570,13 +2585,6 @@ Invited User Use Case
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -2737,7 +2745,7 @@ The system shows to the guest a recap of the information already provided
 \end_layout
 
 \begin_layout Enumerate
-The guest ticks the “I read carefully, and I accept the genral condition”
+The guest ticks the “I read carefully, and I accept the general conditions”
  box and presses the “Confirm and Complete Registration” button
 \end_layout
 
@@ -2746,8 +2754,7 @@ The system sends an email to notify the correct registration to the guest
 \end_layout
 
 \begin_layout Enumerate
-The system reports the registration and redirects the user to the login
- page
+The system reports the registration and redirects the user to the main page
 \end_layout
 
 \begin_layout Enumerate
@@ -2762,8 +2769,8 @@ If the User accept, the system wait to a confirmation from the external
 \end_layout
 
 \begin_layout Enumerate
-Else the system notifies the user that he must insert the billing information
- at the first time he schedule a new route using Tavlendar+.
+Else the system notifies the user that he will need to insert the billing
+ information the first time he will buy a ticket or pass in the app.
 \end_layout
 
 \end_inset
@@ -2842,10 +2849,8 @@ vspace{0.15cm}
 
 The email the guest typed has been already used.
  The second password does not match with the first one.
- One of the fields is empty.
- The user insert a wrong verification code.
- The Taxpayer's Code is not in compliance with the other guest's personal
- information.
+ One of the mandatory fields is empty.
+ The user inserts a wrong verification code.
  The code sent by email arrives in the guest's spam inbox.
 
 \change_deleted -1730310665 1508940319
@@ -2858,7 +2863,7 @@ on.
 
 \begin_layout Plain Layout
 The external payment service didn't confirm the billing information.
- In this case the user can insert the billing information in a second moment.
+ In this case the user can insert the billing informations later.
 \begin_inset ERT
 status open
 
@@ -2966,8 +2971,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The actor has a working Internet connection and he has already registered
- his account.
+The actor has a working Internet connection and is already registered.
 \begin_inset ERT
 status open
 
@@ -3016,7 +3020,7 @@ The system verifies the correctness of the email and password
 \end_layout
 
 \begin_layout Enumerate
-The system redirects the actor to his personal page
+The system redirects the actor to the main page
 \end_layout
 
 \end_inset
@@ -3246,7 +3250,7 @@ The actor clicks the
 \begin_inset Quotes eld
 \end_inset
 
-Edit personal information
+Edit personal informations
 \begin_inset Quotes erd
 \end_inset
 
@@ -3254,12 +3258,12 @@ Edit personal information
 \end_layout
 
 \begin_layout Enumerate
-The system allows the actor to change his address, mobile phone number,
- email or password (and to confirm it)
+The system allows the actor to change his settings including address, travel
+ preferences, email or password (and to confirm it)
 \end_layout
 
 \begin_layout Enumerate
-The user enters the new information and presses ’Save’
+The user enters the new informations and presses ’Save’
 \end_layout
 
 \begin_layout Enumerate
@@ -3348,7 +3352,7 @@ vspace{0.15cm}
 
 \end_inset
 
-One of the fields is empty.
+One of the mandatory fields is empty.
  The second password does not match with the first one.
  In these cases the system notifies the error and cannot complete the request.
 \begin_inset ERT
@@ -3508,8 +3512,19 @@ Edit billing information
 \end_layout
 
 \begin_layout Enumerate
-The system notifies the actor that he is going to be redirect to an external
+The system notifies the actor that he is going to be redirected to an external
  service web page where he will be required to enter his new billing information
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sistemare il problema webapp/applicazione mobile
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -3627,7 +3642,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Create a new event - Scenario 0 (Offline event)
+Create a new event - Scenario 1 (Offline event)
 \end_layout
 
 \begin_layout Standard
@@ -3849,9 +3864,8 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place does not exist.
  In these cases the system notifies the error to the user and he cannot
- modify the event.
+ create the event.
  
 \begin_inset ERT
 status open
@@ -3879,7 +3893,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Create a new event - Scenario 1 (Standard event)
+Create a new event - Scenario 2 (Standard event)
 \end_layout
 
 \begin_layout Standard
@@ -4097,9 +4111,8 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place does not exist.
  In these cases the system notifies the error to the user and he cannot
- modify the event.
+ create the event.
  
 \begin_inset ERT
 status open
@@ -4127,7 +4140,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Create a new event - Scenario 2 (Choose mobility sharing) 
+Create a new event - Scenario 3 (Choose mobility sharing) 
 \end_layout
 
 \begin_layout Standard
@@ -4136,7 +4149,7 @@ Create a new event - Scenario 2 (Choose mobility sharing)
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -4147,7 +4160,7 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4192,7 +4205,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4238,7 +4251,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -4246,7 +4259,7 @@ The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The actor enters event name, hour, place and other standard information
+The actor enters event name, hour, address and other standard information
 \end_layout
 
 \begin_layout Enumerate
@@ -4258,7 +4271,7 @@ The actor clicks the
 \begin_inset Quotes eld
 \end_inset
 
-Suggested routes
+Plan travel
 \begin_inset Quotes erd
 \end_inset
 
@@ -4266,12 +4279,11 @@ Suggested routes
 \end_layout
 
 \begin_layout Enumerate
-The system shows the quickest, the cheapest and the most ecological route
- with their respective means of transport
+The system shows the travel suggestions
 \end_layout
 
 \begin_layout Enumerate
-The actor chooses one of the proposed routes through the button
+The actor chooses one of the proposed routes
 \end_layout
 
 \begin_layout Enumerate
@@ -4331,7 +4343,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4376,7 +4388,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4394,9 +4406,9 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place does not exist.
+ The address does not exist.
  In these cases the system notifies the error to the user and he cannot
- modify the event.
+ create the event.
  
 \begin_inset ERT
 status open
@@ -4424,7 +4436,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Create a new event - Scenario 3 (Flexible event)
+Create a new event - Scenario 4 (Flexible event)
 \end_layout
 
 \begin_layout Standard
@@ -4433,7 +4445,7 @@ Create a new event - Scenario 3 (Flexible event)
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -4444,7 +4456,7 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4489,7 +4501,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4535,7 +4547,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -4543,11 +4555,7 @@ The actor clicks the new event button
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to signup/login, to be able to rescheduled the
- event (e.g.
- changing for the actor the starting location and schedule a route specific
- for the actor), but this is not necessary The actor enters event name,
- hour, place and other standard information
+The actor enters event name, hour, place and other standard information
 \end_layout
 
 \begin_layout Enumerate
@@ -4603,7 +4611,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4648,7 +4656,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4666,9 +4674,8 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place does not exist.
  In these cases the system notifies the error to the user and he cannot
- modify the event.
+ create the event.
  
 \begin_inset ERT
 status open
@@ -4882,7 +4889,7 @@ vspace{0.15cm}
 
 One of the fields of the basic information is empty.
  The starting hour is after the ending one.
- The place doesn't not exist.
+ The address does not exist.
  In these cases the system notifies the error to the user and he cannot
  modify the event.
 \begin_inset ERT
@@ -4920,7 +4927,7 @@ Accept/Decline a shared event
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -4931,7 +4938,7 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4951,7 +4958,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4967,8 +4974,8 @@ vspace{0.15cm}
 
 \end_inset
 
-The guest/user has a working Internet connection and he had recived an email
- containing an invitation to a shared event 
+The guest/user has a working Internet connection and he had received an
+ email containing an invitation to a shared event 
 \begin_inset ERT
 status open
 
@@ -4997,7 +5004,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -5006,7 +5013,7 @@ The actor can click on the link given in the email to get further information
 \end_layout
 
 \begin_layout Enumerate
-The system ask to the actor to signup/login, to be able to rescheduled the
+The system ask to the actor to signup/login, to be able to reschedule the
  event (e.g.
  changing for the actor the starting location and schedule a route specific
  for the actor), but this is not necessary 
@@ -5049,8 +5056,7 @@ Maybe
 \end_layout
 
 \begin_layout Enumerate
-The system notify to the user that had created the shared event the actor's
- decision 
+The system notifies the event creator about the actor's decision 
 \end_layout
 
 \begin_layout Enumerate
@@ -5070,7 +5076,7 @@ Maybe
 \begin_inset Quotes erd
 \end_inset
 
- the system will notify the actor when the event is closer
+ the system will send a reminder to the actor
 \end_layout
 
 \end_inset
@@ -5086,7 +5092,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5131,7 +5137,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5147,7 +5153,7 @@ vspace{0.15cm}
 
 \end_inset
 
-The actor fail singup/login.
+The actor fail signup/login.
  In this case the user can retry to do login/signup
 \begin_inset ERT
 status open
@@ -5184,7 +5190,7 @@ Delete an already scheduled event
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -5195,7 +5201,7 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5215,7 +5221,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5261,7 +5267,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -5281,11 +5287,11 @@ Delete event
 \end_layout
 
 \begin_layout Enumerate
-The system shows a confermation window
+The system shows a confirmation window
 \end_layout
 
 \begin_layout Enumerate
-If the user accept, the event will be deleted, else nothing will happened
+If the user accepts, the event will be deleted, else nothing will happened
 \end_layout
 
 \begin_layout Enumerate
@@ -5295,7 +5301,7 @@ If the event was scheduled as recurrent, the system will ask whether the
 
 \begin_layout Enumerate
 If the event was shared the system will notify via email to all the other
- users the delation
+ users the deletion
 \end_layout
 
 \end_inset
@@ -5311,7 +5317,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5343,7 +5349,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5395,7 +5401,7 @@ Contact customer service
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="middle" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -5406,11 +5412,11 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Guest, User or Deactivated User
+Guest, User 
 \end_layout
 
 \end_inset
@@ -5426,7 +5432,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5471,7 +5477,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -5505,7 +5511,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5550,7 +5556,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5626,17 +5632,23 @@ E' la posizione migliore dove metterlo?
 \end_layout
 
 \begin_layout Standard
-In this section are presentd the state charts diagram of the basic action
- (high level view
-\change_inserted -1730310665 1509026281
- from the users' perspective
-\change_unchanged
-) that an actor can do.
- To see a more depth view of what the application can do and how it work,
- see below 
+In this section are presented the state charts diagram of the basic action
+ (high level view from the users' perspective) that an actor can do.
+ To see a more in depth view of what the application can do and how it works,
+ see section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Sequence-diagram"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+correggere l'ingrish
+\end_layout
 
 \end_inset
 
@@ -5647,7 +5659,7 @@ reference "subsec:Sequence-diagram"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5678,7 +5690,7 @@ Signup
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5723,7 +5735,7 @@ occorre modificare per maggiore coerenza
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5754,7 +5766,7 @@ New event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5782,13 +5794,9 @@ New purchase
 \end_inset
 
 
-\change_inserted -1730310665 1509027428
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1509027453
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -5815,7 +5823,7 @@ This section presents the sequence diagram of the most important interaction,
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5844,7 +5852,7 @@ Registration
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5875,7 +5883,7 @@ Insert billing information
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5904,7 +5912,7 @@ Login
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5933,7 +5941,7 @@ Edit personal info
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5962,7 +5970,7 @@ Edit billing info
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5977,7 +5985,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event 1
+New event (Scenario 2)
 \end_layout
 
 \end_inset
@@ -5991,7 +5999,7 @@ New event 1
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6006,7 +6014,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event 2
+New event (Scenario 3)
 \end_layout
 
 \end_inset
@@ -6020,7 +6028,7 @@ New event 2
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6035,7 +6043,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event 3
+New event (Scenario 4)
 \end_layout
 
 \end_inset
@@ -6049,7 +6057,7 @@ New event 3
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6078,7 +6086,7 @@ New shared event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6107,7 +6115,7 @@ Edit event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6136,7 +6144,7 @@ Delete event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
