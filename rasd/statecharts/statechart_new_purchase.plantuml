@@ -15,4 +15,10 @@ Error --> Payment:Retry
 
 Payment -right-> [*]
 
+NewPurchase: User select between the system's proposals
+
+Payment: If the user has already insert billing information,\nhe doesn't has to do nothing, else he must insert it\nbefore go on
+
+note right of NewPurchase: The payment of cars/bikes sharing and taxis will be  \nmanaged externally (by the service providers)
+
 @enduml

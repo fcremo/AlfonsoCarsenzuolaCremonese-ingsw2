@@ -2346,7 +2346,7 @@ RIGUARDARE user use case
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5468,7 +5468,11 @@ E' la posizione migliore dove metterlo?
 
 \begin_layout Standard
 In this section are presentd the state charts diagram of the basic action
- (high level view) that an actor can do.
+ (high level view
+\change_inserted -1730310665 1509026281
+ from the users' perspective
+\change_unchanged
+) that an actor can do.
  To see a more depth view of what the application can do and how it work,
  see below 
 \begin_inset CommandInset ref
@@ -5484,7 +5488,7 @@ reference "subsec:Sequence-diagram"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5598,7 +5602,7 @@ status collapsed
 \begin_inset Graphics
 	filename statecharts/statechart_new_purchase.plantuml
 	display false
-	width 65text%
+	width 100text%
 	height 95theight%
 	keepAspectRatio
 
@@ -5616,6 +5620,17 @@ New purchase
 
 \end_layout
 
+\end_inset
+
+
+\change_inserted -1730310665 1509027428
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1509027453
+\begin_inset Newpage pagebreak
 \end_inset
 
 
