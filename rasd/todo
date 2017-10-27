@@ -1,0 +1,17 @@
+sistemare possibilità di mettere vincoli sui viaggi
+sistemare mockup per includere informazioni sui percorsi suggeriti (CO2, distanza, etc)
+controllare come pagano gli utenti per i taxi e i servizi di car sharing
+aggiungere come comportarsi in caso i servizi esterni non funzionino
+sistemare la questione dell'applicazione amministrativa
+tenere conto del fatto che l'utente può già avere il biglietto
+usare nomi coerenti per i vari tipi di utente
+sistemare che per condividere un evento con qualcuno serve la sua email
+sistemare come funziona la ricerca della macchina da prenotare automaticamente (quanto tempo prima e quanto distante), e cosa fare se non ce ne sono disponibili
+usare la minuscola negli elenchi
+i servizi di taxi e car sharing richiedono che l'utente si registri con loro
+controllare sezione 4 per errori grammaticali
+controllare che la descrizione delle funzionalità per contattare il customer service siano coerenti
+aggiungere nella descrizione degli eventi condivisi che l'applicazione tiene traccia di chi accetta o rifiuta un invito
+inserire che per page intendiamo anche schermata
+controllare le note
+sistemare tabella 5.1.10 punto 2 per specificare meglio come funzionano gli inviti ad eventi
