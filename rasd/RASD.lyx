@@ -413,25 +413,14 @@ end{minipage}
 [3cm]
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+includegraphics[width=0.3
+\backslash
+textwidth]{res/img/logopm}
 \end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename res/img/logopm.pdf
-	display false
-	width 30text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -478,30 +467,19 @@ end{titlepage}
 newpage
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+tableofcontents{}
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+newpage
 \end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -748,17 +726,11 @@ navigation apps (e.g.
 \begin_layout Itemize
 taxi apps (e.g.
  MyTaxi, Uber)
-\change_inserted 1604105849 1509112021
-
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1509112053
 sharing mobility services applications (e.g.
  enjoy, mobike)
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
