@@ -23,6 +23,7 @@ alt correct data
   ExternalService -> System: CorrectInformation
   activate System #FFBBBB
   System --> User: ShowNewBillingInformation
+  System -> User: SendEmailNotification
   deactivate System
 else incorrect data
   ExternalService -> System: IncorrectInformation

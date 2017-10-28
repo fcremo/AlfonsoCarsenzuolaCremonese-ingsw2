@@ -2,7 +2,7 @@
 
 actor User
 participant System
-actor Recipient
+actor InvitedUser
 
 activate User #FFBBBB
 User -> System: NewEvent
@@ -26,18 +26,18 @@ alt correct data
     System --> User: DataConfirmation
     User -> System: NewEventConfirm
     System --> User: ShowCreatedEvent
-    System -> Recipient: SendEmailSharedEvent
-    activate Recipient #FFBBBB
-    Recipient -> Recipient: EvaluateSharedEvent
-    deactivate Recipient
+    System -> InvitedUser: SendEmailSharedEvent
+    activate InvitedUser #FFBBBB
+    InvitedUser -> InvitedUser: EvaluateSharedEvent
+    deactivate InvitedUser
 
     alt accept event
-      Recipient -> System: AcceptEvent
+      InvitedUser -> System: AcceptEvent
       activate System #FFBBBB
       System -> User: SendConfirmEmail
       deactivate System
     else decline event
-      Recipient -> System: DeclineEvent
+      InvitedUser -> System: DeclineEvent
       activate System #FFBBBB
       System -> User: SendDeclineEmail
       deactivate System

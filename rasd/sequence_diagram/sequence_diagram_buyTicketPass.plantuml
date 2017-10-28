@@ -1,0 +1,38 @@
+@startuml
+
+actor User
+participant System
+participant PaymentProcessor
+
+activate User #FFBBBB
+User -> System: PersonalArea
+activate System #FFBBBB
+System -> System: LoadPersonalAreaInformation
+System --> User: ShowPersonalAreaPage
+deactivate System
+User -> System: BuyTicketPass
+activate System #FFBBBB
+System -> System: LoadTicketPassChoicePage
+System --> User: ShowTicketPassChoicePage
+deactivate System
+User -> System: ChooseTicketsPasses
+activate System #FFBBBB
+System -> PaymentProcessor: PaymentRequest
+deactivate System
+activate PaymentProcessor #FFBBBB
+PaymentProcessor -> PaymentProcessor: VerifyRequest
+deactivate PaymentProcessor
+
+alt correct payment
+  PaymentProcessor -> System: RequestAccepted
+  activate System #FFBBBB
+  System --> User: DataConfirmation
+  deactivate System
+else incorrect payment
+  PaymentProcessor -> System: RequestDeclined
+  activate System #FFBBBB
+  System --> User: Error
+  deactivate System
+end
+
+@enduml

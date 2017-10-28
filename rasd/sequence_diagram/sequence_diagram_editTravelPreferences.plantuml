@@ -9,18 +9,18 @@ activate System #FFBBBB
 System -> System: LoadPersonalAreaInformation
 System --> User: ShowPersonalAreaPage
 deactivate System
-User -> System: EditPersonalInformation
+User -> System: EditTravelPreferences
 activate System #FFBBBB
-System -> System: LoadPersonalEditableInformation
-System --> User: ShowEditableInformationForm
+System -> System: LoadTravelPreferencesInformation
+System --> User: ShowEditablePreferencesForm
 deactivate System
-User -> System: InsertEditatedInformation
+User -> System: InsertEditatedPreferences
 activate System #FFBBBB
 System -> System: VerifyData
 deactivate System
 
 alt correct data
-  System --> User: ShowNewPersonalInformation
+  System --> User: ShowNewTravelPreferences
 else incorrect data
   System --> User: Error
 end

@@ -195,6 +195,7 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1730310665 "fabcars"
+\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -748,15 +749,19 @@ The system will need to interact with external entities and events beyond
  of our control (public transportation, sharing mobility services, weather)
  which can disrupt user experience.
  The specifications of the service are based upon the assumption that most
- of the time those external entities will behave as expected but also document
- what to do when the domain assumptions (documented in section 
+ of the time those external entities will behave as expected (documented
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Assumptions and dependencies"
 
 \end_inset
 
-) won't hold.
+).
+ When one or some external services won't behave as expected, the application
+ will work the same but in a dregradated state.
+ If it is possible the system should notify the user that the application
+ will work in a limited way (and tells him which services are unaviable).
  
 \end_layout
 
@@ -888,23 +893,9 @@ An administrative web application will be needed to provide customer support
  and to manage the system.
  From there it will be possible to consult usage statistics, monitor service
  status and so on.
-\end_layout
-
-\begin_layout Standard
-The backend will be accessible only to authenticated Travlendar+ staff.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: expand this section
-\end_layout
-
-\end_inset
-
-
+ The backend will be accessible only to authenticated Travlendar+ staff.
+ In this document we don't analiyze how the administrative application will
+ do or how it will work.
 \end_layout
 
 \begin_layout Subsubsection
@@ -986,15 +977,15 @@ This services will be provided by or depend on external services:
 \end_layout
 
 \begin_layout Itemize
-Sharing mobility services (find and reserve vehicles)
+sharing mobility services (find and reserve vehicles)
 \end_layout
 
 \begin_layout Itemize
-Public transportation tickets
+public transportation tickets
 \end_layout
 
 \begin_layout Itemize
-Taxi reservations
+taxi reservations
 \end_layout
 
 \begin_layout Standard
@@ -1003,7 +994,7 @@ This services may be provided by external services (the decision to implement
 \end_layout
 
 \begin_layout Itemize
-Route planning
+route planning
 \end_layout
 
 \begin_layout Standard
@@ -1120,6 +1111,12 @@ Users will be able to plan automatic reservation of a sharing mobility vehicle
  the start of the trip.
  If no vehicles are available the users will receive a notification and
  alternative travel suggestions.
+ The user must be able to log in (or signup if it is the first time) into
+ the external service of sharing mobility vehicle or taxi.
+ The payment of these services will be managed externally (directly in the
+ sharing service or taxi system).
+ The user before use for the first time these service must insert a valid
+ payment method (credit card).
 \end_layout
 
 \begin_layout Subsubsection
@@ -1156,11 +1153,11 @@ multiplatform
 
 \begin_deeper
 \begin_layout Itemize
-Desktop web app
+desktop web app
 \end_layout
 
 \begin_layout Itemize
-Mobile app (iOS and Android)
+mobile app (iOS and Android)
 \end_layout
 
 \end_deeper
@@ -1237,6 +1234,22 @@ In each case the users are sent to an informational page (or application
  Travlendar+ and invites them to sign up.
  Users that decide to sign up are asked an email and a password and will
  receive a confirmation email at the specified address.
+\change_inserted 666129059 1509187444
+
+\end_layout
+
+\begin_layout Standard
+It is called 
+\begin_inset Quotes eld
+\end_inset
+
+Guest
+\begin_inset Quotes erd
+\end_inset
+
+ in use case diagrams and sequence diagrams.
+\change_inserted 666129059 1509187333
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1244,18 +1257,56 @@ Unregistered users with a sharing link
 \end_layout
 
 \begin_layout Standard
-Unregistered users (identified by an email address and other optional informatio
-ns) may be shared an event by a registered user.
+Unregistered users (identified by an email address -mandatorily insert by
+ the owner of the event- and other optional informations) may be shared
+ an event by a registered user or be invited to it.
  An email is sent to them as a reminder.
  The email contains all relevant informations about the event such as name,
  date and time, location, weather forecast, and also a link to view the
  event in the web-based version of the app, which can be used to view updated
- information about the event.
+ information about the event and, if they are invited, allows them to leave
+ a preference (
+\begin_inset Quotes eld
+\end_inset
+
+Accept
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Decline
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The preference will be visible to the event owner.
+ The email also contains a link to the informational page to invite unregistered
+ users to sign up.
+\change_inserted 666129059 1509187344
+
 \end_layout
 
 \begin_layout Standard
-The email invites them to sign up to Travlendar+ with a link to the informationa
-l page.
+It is called 
+\begin_inset Quotes eld
+\end_inset
+
+Invited User
+\begin_inset Quotes erd
+\end_inset
+
+ in use case diagrams and sequence diagrams.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1312,6 +1363,20 @@ credit card information will be asked optionally on registration, otherwise
 \begin_layout Standard
 The account settings page/screen will be accessible at any moment to edit
  the provided information.
+\change_inserted 666129059 1509187367
+
+\end_layout
+
+\begin_layout Standard
+It is called 
+\begin_inset Quotes eld
+\end_inset
+
+User
+\begin_inset Quotes erd
+\end_inset
+
+ in use case diagrams and sequence diagrams.
 \end_layout
 
 \begin_layout Subsection
@@ -1450,7 +1515,7 @@ European General Data Protection Regulation (2016/679)
 \end_layout
 
 \begin_layout Itemize
-Payment processing laws and tax codes
+payment processing laws and tax codes
 \end_layout
 
 \begin_layout Standard
@@ -1515,46 +1580,82 @@ The following operations must be supported:
 \end_layout
 
 \begin_layout Itemize
-User registration
+user registration
 \end_layout
 
 \begin_layout Itemize
-User authentication (log in)
+user authentication (log in)
 \end_layout
 
 \begin_layout Itemize
-User settings
+user settings
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Allows to change user informations such as email, password, etc...
+allows to change user informations such as email, password, etc...
 \end_layout
 
 \begin_layout Itemize
-Allows to set constraints on the transportation means the user can employ
+allows to set constraints on the transportation means the user can employ
 \end_layout
 
 \begin_layout Itemize
-Allows to provide credentials for sharing mobility and taxi services
+allows to provide credentials for sharing mobility and taxi services
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Password reset
+password reset
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-An email is sent to the user when he requests to reset his password
+an email is sent to the user when he requests to reset his password
 \end_layout
 
 \begin_layout Itemize
-The email contains a link that allows to change the password
+the email contains a link that allows to change the password
 \end_layout
 
 \begin_layout Itemize
-Passwords must not be sent by email
+passwords must not be sent by email
+\change_inserted -1730310665 1509187843
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509187975
+user is allowed to set personal preference about the generation of a route.
+ For example users can
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188005
+choose to use or not shared vehicles
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188010
+set the maximun walking distance
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188140
+insert details about transportation passes
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188230
+set the type of means that he is able to use (e.g.
+ if he don't have a license, he can not drive a car)
 \end_layout
 
 \end_deeper
@@ -1563,37 +1664,37 @@ Calendar and events managment
 \end_layout
 
 \begin_layout Itemize
-Create, edit and delete calendars
+create, edit and delete calendars
 \end_layout
 
 \begin_layout Itemize
-View calendars and events
+view calendars and events
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Calendars may be viewed by month, week or day
+calendars may be viewed by month, week or day
 \end_layout
 
 \begin_layout Itemize
-Event details must be accessible from the calendar overview
+event details must be accessible from the calendar overview
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Add an event to a calendar
+add an event to a calendar
 \end_layout
 
 \begin_layout Itemize
-Modify and delete and event
+modify and delete and event
 \end_layout
 
 \begin_layout Itemize
-Share an event or an entire calendar with another person by email
+share an event or an entire calendar with another person by email
 \end_layout
 
 \begin_layout Itemize
-Set and receive reminders (via push notifications and/or email) for specific
+set and receive reminders (via push notifications and/or email) for specific
  events or all events in a calendar
 \end_layout
 
@@ -1609,12 +1710,12 @@ When creating or modifying an event users will be able to specify starting
 \end_layout
 
 \begin_layout Itemize
-A warning must be shown if it appears that there's no suitable transportation
+a warning must be shown if it appears that there's no suitable transportation
  mean to reach an appointment in time
 \end_layout
 
 \begin_layout Itemize
-Using the preferences and coinstraints set by the user, the application
+using the preferences and coinstraints set by the user, the application
  has to give to a list that contains the best solutions
 \end_layout
 
@@ -1640,44 +1741,34 @@ riformulare questa parte
 
 \end_deeper
 \begin_layout Itemize
-If public transportation is chosen the app must offer to buy tickets or
+if public transportation is chosen the app must offer to buy tickets or
  passes
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Se ha gia un pass?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Users must be are able to by tickets or passes directly in the app
+users must be are able to by tickets or passes directly in the app
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-If the user chooses to use a shared vehicle the app must offer to reserve
+if the user chooses to use a shared vehicle the app must offer to reserve
  one automatically
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Users can choose which vehicles they want to use and the app will search
+users can choose which vehicles they want to use and the app will search
  one to reserve from an hour before the scheduled departure
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-If a taxi is chosen the app must offer to reserve one
+if a taxi is chosen the app must offer to reserve one
 \end_layout
 
 \begin_layout Itemize
-A notification must be shown if the scheduled trip should be changed
+a notification must be shown if the scheduled trip should be changed
 \end_layout
 
 \begin_deeper
@@ -1690,17 +1781,24 @@ due to public transportation strike
 \end_layout
 
 \begin_layout Itemize
-due to unavailability of a sharing vehicle until 30 minutes before the scheduled
- starting of the trip
+due to unavailability of a sharing vehicle until 20 minutes before the scheduled
+ start of the trip.
+ The app asks the user if it should continue looking for a shared vehicle
+ or if the trip should be manually rescheduled (excluding shared vehicles)
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+application must consider whether the user already has a passes when it
+ asks the user to use public transportation means
+\end_layout
+
 \begin_layout Subsubsection
 Flexible events
 \end_layout
 
 \begin_layout Itemize
-Schedule 
+schedule 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1708,21 +1806,42 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
-:
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Users are able to set constraints on what they must do during the day (e.g.
+users are able to set constraints on what they must do during the day (e.g.
  a user might want to have lunch between 12 am and 2 pm)
 \end_layout
 
 \begin_layout Itemize
-The app must notify users if they are going to schedule an event that go
+the app must notify users if they are going to schedule an event that go
  against the set constraints
 \end_layout
 
 \end_deeper
+\begin_layout Subsubsection
+Customer service 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+è abbstanza?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Users (registered or not) could contact customer service through a form
+ in the application.
+ Users, if not logged in, must insert a valid email address on which a system
+ administrator can answer to the user.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1795,22 +1914,31 @@ In order to automatically reserve a taxi one or more external services must
 \end_layout
 
 \begin_layout Itemize
-User authentication (optional): depending on the agreement with the company
- providing the service the user might be required to register an account
- to the taxi service.
+user authentication
+\change_deleted -1730310665 1509200228
+ (optional)
+\change_unchanged
+: depending on the agreement with the company providing the service the
+ user 
+\change_deleted -1730310665 1509200240
+might
+\change_inserted -1730310665 1509200241
+must
+\change_unchanged
+ be required to register an account to the taxi service.
 \end_layout
 
 \begin_layout Itemize
-Reservation: service must allow to reserve a taxi at a given day, time and
+reservation: service must allow to reserve a taxi at a given day, time and
  location
 \end_layout
 
 \begin_layout Itemize
-Cost estimation for a trip between two locations (including base fare)
+cost estimation for a trip between two locations (including base fare)
 \end_layout
 
 \begin_layout Itemize
-Billing history (optional): for showing our users their trip details
+billing history (optional): for showing our users their trip details
 \end_layout
 
 \begin_layout Paragraph*
@@ -1828,28 +1956,37 @@ In order to automatically reserve a vehicle one or more external services
 \end_layout
 
 \begin_layout Itemize
-User authentication (optional): depending on the agreement with the company
- providing the service the user might be required to register an account
- with them.
+user authentication
+\change_deleted -1730310665 1509200234
+ (optional)
+\change_unchanged
+: depending on the agreement with the company providing the service the
+ user 
+\change_deleted -1730310665 1509200214
+might
+\change_inserted -1730310665 1509200215
+must
+\change_unchanged
+ be required to register an account with them.
 \end_layout
 
 \begin_layout Itemize
-Vehicle positions: the service must allow to get a list of the available
+vehicle positions: the service must allow to get a list of the available
  vehicles in a given area
 \end_layout
 
 \begin_layout Itemize
-Vehicle informations: the service must allow to get details on a specific
+vehicle informations: the service must allow to get details on a specific
  vehicle (remaining fuel, cost per minute or km, allowed passengers, ...)
 \end_layout
 
 \begin_layout Itemize
-Reservation: the service must allow to reserve a specific vehicle and cancel
+reservation: the service must allow to reserve a specific vehicle and cancel
  the reservation
 \end_layout
 
 \begin_layout Itemize
-Cost estimation (optional): the cost may be estimated by the external service
+cost estimation (optional): the cost may be estimated by the external service
  or by us, given the starting and end locations
 \end_layout
 
@@ -1867,11 +2004,11 @@ In order to account for weather conditions for travel planning the system
 \end_layout
 
 \begin_layout Itemize
-Real time weather conditions at a given position
+real time weather conditions at a given position
 \end_layout
 
 \begin_layout Itemize
-Weather forecasts at a given position, at least for the next 5 days
+weather forecasts at a given position, at least for the next 5 days
 \end_layout
 
 \begin_layout Paragraph*
@@ -1888,24 +2025,24 @@ In order to provide our users informations about public transport the system
 \end_layout
 
 \begin_layout Itemize
-Information about which lines exist, their path, stops and timetables
+information about which lines exist, their path, stops and timetables
 \end_layout
 
 \begin_layout Itemize
-Real time status about a specific line (optional)
+real time status about a specific line (optional)
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Vehicle position
+vehicle position
 \end_layout
 
 \begin_layout Itemize
-Strikes
+strikes
 \end_layout
 
 \begin_layout Itemize
-Accidents
+accidents
 \end_layout
 
 \end_deeper
@@ -1923,26 +2060,26 @@ In order to provide our users with an in-app ticket shop an external service
 \end_layout
 
 \begin_layout Itemize
-Informations about which tickets/passes are available for a certain line
+informations about which tickets/passes are available for a certain line
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Cost
+cost
 \end_layout
 
 \begin_layout Itemize
-Duration/validity
+duration/validity
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Ticket and passes shop
+ticket and passes shop
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Payments must go through a payment processor Travelendar+ can interact directly
+payments must go through a payment processor Travelendar+ can interact directly
  via an API (e.g.
  Stripe)
 \end_layout
@@ -1984,11 +2121,11 @@ In order to help our users plan for travel an external service providing
 \end_layout
 
 \begin_layout Itemize
-Map and points of interest
+map and points of interest
 \end_layout
 
 \begin_layout Itemize
-Routing service between two points, that accounts for the transport mean
+routing service between two points, that accounts for the transport mean
  used (car, bike, walk)
 \end_layout
 
@@ -2007,15 +2144,15 @@ In order to send messages for registration, password resets, reminders and
 \end_layout
 
 \begin_layout Itemize
-Supports secure protocols (STARTTLS or pure TLS)
+supports secure protocols (STARTTLS or pure TLS)
 \end_layout
 
 \begin_layout Itemize
-Has good reputation in spam filters
+has good reputation in spam filters
 \end_layout
 
 \begin_layout Itemize
-Guarantees availability (99.9%+)
+guarantees availability (99.9%+)
 \end_layout
 
 \begin_layout Subsection
@@ -2146,30 +2283,30 @@ General reccomendations
 \end_layout
 
 \begin_layout Itemize
-All software must be updated in short time after the release of security
+all software must be updated in short time after the release of security
  advisories
 \end_layout
 
 \begin_layout Itemize
-The principle of least privilege must be followed
+the principle of least privilege must be followed
 \end_layout
 
 \begin_layout Itemize
-Regular security reviews must be performed
+regular security reviews must be performed
 \end_layout
 
 \begin_layout Itemize
-A way to safely report security vulnerabilities must be present
+a way to safely report security vulnerabilities must be present
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-A bug bounty program may be evaluated
+a bug bounty program may be evaluated
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-No security protocols or algorithms shall be created if a secure standard
+no security protocols or algorithms shall be created if a secure standard
  exists
 \end_layout
 
@@ -2345,10 +2482,6 @@ Alessandro is a good boy, but he has one really bad habit: on Sunday he
  So, on Monday Alessandro will arrive in time at work and his department
  boss won't fire him.
  Thanks Travlendar+!
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2406,7 +2539,7 @@ Luca is a very raver boy.
  Fortunatly, browsing on a search engin he finds out Travlendar+.
  He now can create a big shared party, maybe a lot expensive for him, but
  this birthday will never be forgotten.
- 
+ So he create a shared event invinting all his friends.
 \end_layout
 
 \begin_layout Subsection
@@ -2529,7 +2662,7 @@ User Use Case
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2560,10 +2693,44 @@ Invited User Use Case
 \end_inset
 
 
+\change_inserted -1730310665 1509195443
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Use case table
+\end_layout
+
+\begin_layout Standard
+The following tables analyze the interaction between an actor and the applicatio
+n and how the system should work
+\change_inserted 666129059 1509191591
+ from the user perspective
+\change_unchanged
+.
+ For semplicity, here we assume that the actor is using the web application.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+correggere l'ingrish
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Registration
+Signup
 \end_layout
 
 \begin_layout Standard
@@ -2824,10 +2991,6 @@ The email the guest typed has been already used.
  One of the mandatory fields is empty.
  The user inserts a wrong verification code.
  The code sent by email arrives in the guest's spam inbox.
-
-\change_deleted -1730310665 1508940319
- 
-\change_unchanged
  The guest did not accept the EULA.
  In these cases the system notifies the error and cannot complete the registrati
 on.
@@ -2862,7 +3025,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Log in
+Login
 \end_layout
 
 \begin_layout Standard
@@ -3246,10 +3409,6 @@ The system verifies the correctness and the completeness of the information
 The system shows the actor his updated information
 \end_layout
 
-\begin_layout Enumerate
-The system sends an email as a notification of the changement
-\end_layout
-
 \end_inset
 </cell>
 </row>
@@ -3349,6 +3508,260 @@ vspace{0.15cm}
 
 \end_inset
 
+
+\change_inserted 666129059 1509192702
+
+\end_layout
+
+\begin_layout Subsubsection
+Add/Edit travel preferences
+\change_inserted 666129059 1509193879
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="left" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor has a working Internet connection and he is already logged into
+ the system.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The actor reaches his personal area
+\end_layout
+
+\begin_layout Enumerate
+The actor clicks the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit travel preferences
+\begin_inset Quotes erd
+\end_inset
+
+ button
+\end_layout
+
+\begin_layout Enumerate
+The system allows the actor to change his settings about usable vehicles,
+ shared vehicles, maximum walking distance, transportation tickets/passes
+\end_layout
+
+\begin_layout Enumerate
+The user enters the new informations and presses ’Save’
+\end_layout
+
+\begin_layout Enumerate
+The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+The system shows the actor his updated information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has modified his travel preferences.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+Tickets or passes are invalid or expired.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\change_inserted 666129059 1509192740
 
 \end_layout
 
@@ -3611,6 +4024,262 @@ vspace{0.15cm}
 \end_inset
 
 
+\change_inserted 666129059 1509187959
+
+\end_layout
+
+\begin_layout Subsubsection
+Buy a ticket/pass
+\change_inserted 666129059 1509188013
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="left" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor has a working Internet connection and he is already logged into
+ the system.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The actor reaches his personal area
+\end_layout
+
+\begin_layout Enumerate
+The actor clicks the 
+\begin_inset Quotes eld
+\end_inset
+
+Buy tickets / passes
+\begin_inset Quotes erd
+\end_inset
+
+ button
+\end_layout
+
+\begin_layout Enumerate
+The actor chooses what kind of ticket / pass he wants to buy
+\end_layout
+
+\begin_layout Enumerate
+The system requires a final confirmation
+\end_layout
+
+\begin_layout Enumerate
+The actor confirms the purchase
+\end_layout
+
+\begin_layout Enumerate
+The system shows a summary page
+\end_layout
+
+\begin_layout Enumerate
+The system sends an email as a notification of the purchase
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has bought one or more tickets / passes.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The external payment service cannot complete the payment.
+ In this case the system notifies the error and cannot complete the request.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -3650,7 +4319,7 @@ vspace{0.15cm}
 
 \end_inset
 
-Registered User
+User
 \begin_inset ERT
 status open
 
@@ -3752,7 +4421,7 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-The system shows a summary screen
+The system shows a summary page
 \end_layout
 
 \begin_layout Enumerate
@@ -3901,7 +4570,7 @@ vspace{0.15cm}
 
 \end_inset
 
-Registered User
+User
 \begin_inset ERT
 status open
 
@@ -4004,7 +4673,7 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-The system shows a summary screen
+The system shows a summary page
 \end_layout
 
 \end_inset
@@ -4148,7 +4817,7 @@ vspace{0.15cm}
 
 \end_inset
 
-Registered User
+User
 \begin_inset ERT
 status open
 
@@ -4299,7 +4968,7 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-The system shows a summary screen
+The system shows a summary page
 \end_layout
 
 \end_inset
@@ -4444,7 +5113,7 @@ vspace{0.15cm}
 
 \end_inset
 
-Registered User
+User
 \begin_inset ERT
 status open
 
@@ -4567,7 +5236,7 @@ Confirm
 \end_layout
 
 \begin_layout Enumerate
-The system shows a summary screen
+The system shows a summary page
 \end_layout
 
 \end_inset
@@ -4672,6 +5341,295 @@ vspace{0.15cm}
 \end_inset
 
 
+\change_inserted 666129059 1509199717
+
+\end_layout
+
+\begin_layout Subsubsection
+Accept/Decline a shared event with invitation
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="left" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+User, Invited User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The guest/user has a working Internet connection and he had received an
+ email containing an invitation to a shared event 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The actor can click on the link given in the email to get further information
+ about the shared event 
+\end_layout
+
+\begin_layout Enumerate
+The system ask to the actor to signup/login, to be able to add to the actor's
+ calendar the event and to help him to plan the travel, but this is not
+ necessary 
+\end_layout
+
+\begin_layout Enumerate
+The actor can click on 
+\begin_inset Quotes eld
+\end_inset
+
+Accept
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Decline
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ buttons (the default decision is 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Enumerate
+The system notifies the event creator about the actor's decision 
+\end_layout
+
+\begin_layout Enumerate
+If the actor chooses 
+\begin_inset Quotes eld
+\end_inset
+
+Accept
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Maybe
+\begin_inset Quotes erd
+\end_inset
+
+ the system will send a reminder to the actor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor can choose how to do with an event shared whit him.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The actor fail signup/login.
+ In this case the user can retry to do login/signup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -4699,7 +5657,32 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
 User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4890,269 +5873,6 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Accept/Decline a shared event
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing onehalf
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="20text%">
-<column alignment="left" valignment="middle" width="75text%">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Actors
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Guest/User
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Preconditions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-The guest/user has a working Internet connection and he had received an
- email containing an invitation to a shared event 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Events
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Enumerate
-The actor can click on the link given in the email to get further information
- about the shared event 
-\end_layout
-
-\begin_layout Enumerate
-The system ask to the actor to signup/login, to be able to reschedule the
- event (e.g.
- changing for the actor the starting location and schedule a route specific
- for the actor), but this is not necessary 
-\end_layout
-
-\begin_layout Enumerate
-The actor can click on 
-\begin_inset Quotes eld
-\end_inset
-
-Accept
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\begin_inset Quotes eld
-\end_inset
-
-Decline
-\begin_inset Quotes erd
-\end_inset
-
- or 
-\begin_inset Quotes eld
-\end_inset
-
-Maybe
-\begin_inset Quotes erd
-\end_inset
-
- buttons (the default decision is 
-\begin_inset Quotes eld
-\end_inset
-
-Maybe
-\begin_inset Quotes erd
-\end_inset
-
-) 
-\end_layout
-
-\begin_layout Enumerate
-The system notifies the event creator about the actor's decision 
-\end_layout
-
-\begin_layout Enumerate
-If the actor chooses 
-\begin_inset Quotes eld
-\end_inset
-
-Accept
-\begin_inset Quotes erd
-\end_inset
-
- or 
-\begin_inset Quotes eld
-\end_inset
-
-Maybe
-\begin_inset Quotes erd
-\end_inset
-
- the system will send a reminder to the actor
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Postconditions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-The actor can choose how to do with an event shared whit him.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exceptions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-The actor fail signup/login.
- In this case the user can retry to do login/signup
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
 Delete an already scheduled event
 \end_layout
 
@@ -5177,7 +5897,32 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
 User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5388,7 +6133,32 @@ Actors
 \begin_inset Text
 
 \begin_layout Plain Layout
-Guest, User 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+User, Guest, Invited User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5573,7 +6343,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -5669,7 +6439,7 @@ status open
 \begin_inset Graphics
 	filename statecharts/statechart_diagram_login.plantuml
 	display false
-	width 100text%
+	width 80text%
 	height 100theight%
 	keepAspectRatio
 
@@ -5689,16 +6459,6 @@ Login
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-occorre modificare per maggiore coerenza
 \end_layout
 
 \end_inset
@@ -5795,12 +6555,12 @@ This section presents the sequence diagram of the most important interaction,
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_registration.plantuml
+	filename sequence_diagram/sequence_diagram_signup.plantuml
 	display false
 	height 95theight%
 
@@ -5810,7 +6570,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Registration
+Signup
 \end_layout
 
 \end_inset
@@ -5824,16 +6584,15 @@ Registration
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_billing_information.plantuml
+	filename sequence_diagram/sequence_diagram_billInformationPostSignup.plantuml
 	display false
 	width 100line%
 	height 95theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -5841,7 +6600,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Insert billing information
+Insert billing information after signup
 \end_layout
 
 \end_inset
@@ -5855,7 +6614,7 @@ Insert billing information
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5884,7 +6643,7 @@ Login
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5899,7 +6658,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Edit personal info
+Edit personal information
 \end_layout
 
 \end_inset
@@ -5913,7 +6672,36 @@ Edit personal info
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_editTravelPreferences.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Add/Edit travel preferences
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5928,7 +6716,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Edit billing info
+Edit billing information
 \end_layout
 
 \end_inset
@@ -5942,7 +6730,36 @@ Edit billing info
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence_diagram_buyTicketPass.plantuml
+	display false
+	height 95theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Buy Ticket/Pass
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5957,7 +6774,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 2)
+New standard event
 \end_layout
 
 \end_inset
@@ -5971,7 +6788,7 @@ New event (Scenario 2)
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5986,7 +6803,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 3)
+New event with sharing services
 \end_layout
 
 \end_inset
@@ -6000,7 +6817,7 @@ New event (Scenario 3)
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6015,7 +6832,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 4)
+New event with flexible option
 \end_layout
 
 \end_inset
@@ -6029,7 +6846,7 @@ New event (Scenario 4)
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6044,7 +6861,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New shared event
+New shared event with invitation
 \end_layout
 
 \end_inset
@@ -6058,7 +6875,7 @@ New shared event
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6087,7 +6904,7 @@ Edit event
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6116,7 +6933,7 @@ Delete event
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6200,7 +7017,7 @@ Class Diagram
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage pagebreak
 \end_inset
 
 

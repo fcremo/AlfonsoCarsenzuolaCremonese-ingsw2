@@ -1,0 +1,53 @@
+@startuml
+
+actor Guest
+participant System
+actor User
+
+activate Guest #FFBBBB
+Guest -> System: Registration
+activate System #FFBBBB
+System -> System: LoadRegistrationPage
+System --> Guest: ShowRegistrationPage
+deactivate System #FFBBBB
+Guest -> System: InsertInformation
+activate System #FFBBBB
+System -> System: VerifyInformation
+deactivate System #FFBBBB
+
+alt correct information
+  System --> Guest: NotifyCorrectInformation
+  System -> Guest: SendEmailWithCode
+  Guest -> System: InsertVerificationCode
+  System -> System: VerifyCode
+
+  alt correct verification code
+      System --> Guest: NotifyCorrectCode
+      System -> Guest: AcceptingEULA
+
+      alt confirmed
+        Guest --> System: SendConfermation
+        activate System #FFBBBB
+        System -> System: <<CreateUser>>
+        System -> Guest: SendVerificationEmail
+        activate User #FFBBBB
+        System --> User: ShowLoginPage
+        deactivate User #FFBBBB
+        deactivate System #FFBBBB
+      else not confirmed
+        Guest --> System: SendCancellation
+        activate System #FFBBBB
+        System -> Guest: ErrorMessage
+        deactivate System #FFBBBB
+      end
+
+  else incorrect verification code
+    System --> Guest: NotifyIncorrectCode
+  end
+
+else incorrect information
+  activate System #FFBBBB
+  System --> Guest: NotifyIncorrectInfo
+end
+
+@enduml
