@@ -1111,6 +1111,12 @@ Users will be able to plan automatic reservation of a sharing mobility vehicle
  the start of the trip.
  If no vehicles are available the users will receive a notification and
  alternative travel suggestions.
+ The user must be able to log in (or signup if it is the first time) into
+ the external service of sharing mobility vehicle or taxi.
+ The payment of these services will be managed externally (directly in the
+ sharing service or taxi system).
+ The user before use for the first time these service must insert a valid
+ payment method (credit card).
 \end_layout
 
 \begin_layout Subsubsection
@@ -1908,9 +1914,18 @@ In order to automatically reserve a taxi one or more external services must
 \end_layout
 
 \begin_layout Itemize
-user authentication (optional): depending on the agreement with the company
- providing the service the user might be required to register an account
- to the taxi service.
+user authentication
+\change_deleted -1730310665 1509200228
+ (optional)
+\change_unchanged
+: depending on the agreement with the company providing the service the
+ user 
+\change_deleted -1730310665 1509200240
+might
+\change_inserted -1730310665 1509200241
+must
+\change_unchanged
+ be required to register an account to the taxi service.
 \end_layout
 
 \begin_layout Itemize
@@ -1941,9 +1956,18 @@ In order to automatically reserve a vehicle one or more external services
 \end_layout
 
 \begin_layout Itemize
-user authentication (optional): depending on the agreement with the company
- providing the service the user might be required to register an account
- with them.
+user authentication
+\change_deleted -1730310665 1509200234
+ (optional)
+\change_unchanged
+: depending on the agreement with the company providing the service the
+ user 
+\change_deleted -1730310665 1509200214
+might
+\change_inserted -1730310665 1509200215
+must
+\change_unchanged
+ be required to register an account with them.
 \end_layout
 
 \begin_layout Itemize
