@@ -2706,7 +2706,7 @@ correggere l'ingrish
 \end_layout
 
 \begin_layout Subsubsection
-Registration
+Signup
 \end_layout
 
 \begin_layout Standard
@@ -3001,7 +3001,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Log in
+Login
 \end_layout
 
 \begin_layout Standard
@@ -4005,7 +4005,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Subsubsection
-Buying a ticket/pass
+Buy a ticket/pass
 \change_inserted 666129059 1509188013
 
 \end_layout
@@ -5317,245 +5317,7 @@ vspace{0.15cm}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection
-Edit an event
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing onehalf
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Actors
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-User
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Preconditions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-The user has a working Internet connection, he is already logged into the
- system and he has at least one event in his scheduled event.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Events
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Enumerate
-The user clicks on a specific scheduled event
-\end_layout
-
-\begin_layout Enumerate
-The system allows the actor to change event name, hour, place and the other
- standard information
-\end_layout
-
-\begin_layout Enumerate
-The user enters the new information and presses ’Save’
-\end_layout
-
-\begin_layout Enumerate
-The system verifies the correctness and the completeness of the information
-\end_layout
-
-\begin_layout Enumerate
-The system shows the actor his updated information
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Postconditions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-The user has modified his personal information.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exceptions
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-One of the fields of the basic information is empty.
- The starting hour is after the ending one.
- The address does not exist.
- In these cases the system notifies the error to the user and he cannot
- modify the event.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-vspace{0.15cm}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
+\change_inserted 666129059 1509199717
 
 \end_layout
 
@@ -5821,6 +5583,246 @@ vspace{0.15cm}
 
 The actor fail signup/login.
  In this case the user can retry to do login/signup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Edit an event
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="block" valignment="middle" width="75text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+User
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Preconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has a working Internet connection, he is already logged into the
+ system and he has at least one event in his scheduled event.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Events
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Enumerate
+The user clicks on a specific scheduled event
+\end_layout
+
+\begin_layout Enumerate
+The system allows the actor to change event name, hour, place and the other
+ standard information
+\end_layout
+
+\begin_layout Enumerate
+The user enters the new information and presses ’Save’
+\end_layout
+
+\begin_layout Enumerate
+The system verifies the correctness and the completeness of the information
+\end_layout
+
+\begin_layout Enumerate
+The system shows the actor his updated information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Postconditions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+The user has modified his personal information.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Exceptions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.15cm}
+\end_layout
+
+\end_inset
+
+One of the fields of the basic information is empty.
+ The starting hour is after the ending one.
+ The address does not exist.
+ In these cases the system notifies the error to the user and he cannot
+ modify the event.
 \begin_inset ERT
 status open
 
@@ -6534,7 +6536,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_registration.plantuml
+	filename sequence_diagram/sequence_diagram_signup.plantuml
 	display false
 	height 95theight%
 
@@ -6544,7 +6546,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Registration
+Signup
 \end_layout
 
 \end_inset
@@ -6563,11 +6565,10 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence_diagram_billing_information.plantuml
+	filename sequence_diagram/sequence_diagram_billInformationPostSignup.plantuml
 	display false
 	width 100line%
 	height 95theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -6633,7 +6634,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Edit personal info
+Edit personal information
 \end_layout
 
 \end_inset
@@ -6668,7 +6669,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Add / Edit travel preferences
+Add/Edit travel preferences
 \end_layout
 
 \end_inset
@@ -6701,7 +6702,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Edit billing info
+Edit billing information
 \end_layout
 
 \end_inset
@@ -6759,7 +6760,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 2)
+New standard event
 \end_layout
 
 \end_inset
@@ -6788,7 +6789,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 3)
+New event with sharing services
 \end_layout
 
 \end_inset
@@ -6817,7 +6818,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New event (Scenario 4)
+New event with flexible option
 \end_layout
 
 \end_inset
