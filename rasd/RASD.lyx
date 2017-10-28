@@ -1579,6 +1579,42 @@ the email contains a link that allows to change the password
 
 \begin_layout Itemize
 passwords must not be sent by email
+\change_inserted -1730310665 1509187843
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509187975
+user is allowed to set personal preference about the generation of a route.
+ For example users can
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188005
+choose to use or not shared vehicles
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188010
+set the maximun walking distance
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188140
+insert details about transportation passes
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1509188230
+set the type of means that he is able to use (e.g.
+ if he don't have a license, he can not drive a car)
 \end_layout
 
 \end_deeper
@@ -1666,16 +1702,6 @@ riformulare questa parte
 \begin_layout Itemize
 if public transportation is chosen the app must offer to buy tickets or
  passes
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Se ha gia un pass?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_deeper
@@ -1716,16 +1742,22 @@ due to public transportation strike
 \begin_layout Itemize
 due to unavailability of a sharing vehicle until 20 minutes before the scheduled
  start of the trip.
- The app
-\change_deleted -1730310665 1509182196
- 
-\change_unchanged
- asks the user if it should continue looking for a shared vehicle or if
- the trip should be manually rescheduled (excluding shared vehicles).
- 
+ The app asks the user if it should continue looking for a shared vehicle
+ or if the trip should be manually rescheduled (excluding shared vehicles)
+\change_inserted -1730310665 1509188472
+
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+
+\change_deleted -1730310665 1509188471
+.
+\change_inserted -1730310665 1509188623
+application must consider whether the user already has a passes when it
+ asks the user to use public transportation means
+\end_layout
+
 \begin_layout Subsubsection
 Flexible events
 \end_layout
