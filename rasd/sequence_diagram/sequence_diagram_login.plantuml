@@ -16,7 +16,7 @@ deactivate System
 
 alt correct data
   System --> User: CorrectLogin
-else not correct data
+else incorrect data
   System --> User: Error
 end
 

@@ -2,7 +2,7 @@
 
 actor User
 participant System
-participant RouteService
+participant RoutingService
 participant SharingService
 
 activate User #FFBBBB
@@ -18,21 +18,34 @@ deactivate System
 alt correct data
   System --> User: DataConfirmation
   User -> System: SuggestedRoutes
-  System -> RouteService: RequestRoutes
-  activate RouteService #FFBBBB
-  RouteService -> System: SentRoutes
-  deactivate RouteService
+  System -> RoutingService: RequestRoutes
+  activate RoutingService #FFBBBB
+  RoutingService -> System: SentRoutes
+  deactivate RoutingService
   System --> User: ShowRoutes
-  User -> System: SharingServices
-  System -> SharingService: RequestSharingServices
-  activate SharingService #FFBBBB
-  SharingService -> System: SentSharingAvailableServices
-  deactivate SharingService
-  System --> User: ShowSharingAvailableServices
-  User -> System: AutoReservation
-  System --> User: AutoReservationConfirmation
-  User -> System: SelectSharingServices
-  System --> User: SelectedSharingServicesConfirmation
+
+  alt accept sharing
+    User -> System: SharingServices
+    activate System #FFBBBB
+    System -> SharingService: RequestSharingServices
+    activate SharingService #FFBBBB
+    SharingService -> System: SentSharingAvailableServices
+    deactivate SharingService
+    System --> User: ShowSharingAvailableServices
+    deactivate System
+    User -> System: AutoReservation
+    activate System #FFBBBB
+    System --> User: AutoReservationConfirmation
+    deactivate System
+    User -> System: SelectSharingServices
+    activate System #FFBBBB
+    System --> User: SelectedSharingServicesConfirmation
+    deactivate System
+  else decline sharing
+    User -> System: DeclineSharingServices
+  end
+
+  System --> User: DataConfirmation
   User -> System: NewEventConfirm
   System --> User: ShowCreatedEvent
 else incorrect data

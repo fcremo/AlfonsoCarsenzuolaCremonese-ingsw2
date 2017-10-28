@@ -3,28 +3,37 @@
 actor User
 participant System
 participant ExternalService
+
+note over User: After registration
+
 activate User #FFBBBB
-System --> User: AskForBillingInformation
 activate System #FFBBBB
+System -> User: AskForBillingInformation
+deactivate System
+
 alt billing info now
-    System -> User: SendRedirectionMessage
-    deactivate System #FFBBBB
-    User -> ExternalService: insertBillingInformation
-    activate ExternalService #FFBBBB
-    ExternalService -> ExternalService: verifyBillingInformation
-    deactivate ExternalService #FFBBBB
-    alt correct billing information
-        ExternalService -> System: correctBillingInformation
-        System -> User: NotifyCorrectBillingInfo
-        else incorrect billing information
-        ExternalService -> System: incorrectBillingInformation
-        activate ExternalService #FFBBBB
-        deactivate ExternalService #FFBBBB
-        System -> User: notifyInvalidBillingInfo
-    end
+  System --> User: SendRedirectionMessage
+  User -> ExternalService: InsertBillingInformation
+  activate ExternalService #FFBBBB
+  ExternalService -> ExternalService: VerifyBillingInformation
+  deactivate ExternalService
+
+  alt correct billing information
+    ExternalService -> System: CorrectBillingInformation
+    activate System #FFBBBB
+    System -> User: NotifyCorrectBillingInfo
+    deactivate System
+  else incorrect billing information
+    ExternalService -> System: IncorrectBillingInformation
+    activate System #FFBBBB
+    System -> User: NotifyInvalidBillingInfo
+    deactivate System
+  end
+
 else billing info later
-System --> User: SendConfermationMessage
-deactivate User #FFBBBB
+  System --> User: SendConfermationMessage
 end
+
+deactivate User
 
 @enduml

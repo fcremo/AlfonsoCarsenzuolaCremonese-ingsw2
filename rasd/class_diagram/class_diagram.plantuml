@@ -29,17 +29,25 @@ class TransportPreferences {
 
 class Event {
     - Name
-    - Place
+    - Date
     - StartTime
-    - Duration
-    - TravelParticipants
+    - EndTime
+    - Place
+    - Description
+    - Participants
+    - Notifications
+    - Attachment
+    - Color
+    - Sharing
 }
+
 class RecurringEvent {
     - Frequency
     - Days
     - RecurringStart
     - RecurringEnd
 }
+
 class FlexibleEvent {
     - ConstraintTimeStart
     - ConstraintTimeEnd
@@ -49,7 +57,7 @@ SharingMobilityServicePosition <|-- CarSharingPosition
 SharingMobilityServicePosition <|-- BikeSharingPosition
 
 class SharingMobilityServicePosition
-class CarSharingPosition 
+class CarSharingPosition
 class BikeSharingPosition
 
 PublicTransportSegment <|-- BusSegment

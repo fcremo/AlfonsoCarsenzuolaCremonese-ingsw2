@@ -16,8 +16,6 @@ User --|> (Set the event as flexible)
 (Set the event as flexible) ..> (Log In) :<<includes>>
 
 User --|> (Share an event)
-(Share an event) ..> (Create new event) :<<includes>>
-(Share an event) ..> (Edit an event) :<<includes>>
 (Share an event) ..> (Log In) :<<includes>>
 
 User --|> (Plan travel)
@@ -25,12 +23,12 @@ User --|> (Plan travel)
 (Plan travel) ..> (Edit an event) :<<includes>>
 (Plan travel) ..> (Log In) :<<includes>>
 
-User --|> (Consult scheduled event)
-(Consult scheduled event) ..> (Log In) :<<includes>>
+User --|> (View scheduled event)
+(View scheduled event) ..> (Log In) :<<includes>>
 
-User --|> (Visualize account information)
-(Edit personal data) .> (Visualize account information) :<<extends>>
-(Visualize account information) ..> (Log In) :<<includes>>
+User --|> (View account information)
+(Edit personal data) .> (View account information) :<<extends>>
+(View account information) ..> (Log In) :<<includes>>
 
 User --|> (Contact the customer service)
 

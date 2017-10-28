@@ -17,36 +17,37 @@ deactivate System #FFBBBB
 
 alt correct information
   System --> Guest: NotifyCorrectInformation
-  System -> Guest: sendEmailWithCode
-  Guest -> System: insertVerificationCode
-  System -> System: verifyCode
+  System -> Guest: SendEmailWithCode
+  Guest -> System: InsertVerificationCode
+  System -> System: VerifyCode
+
   alt correct verification code
       System --> Guest: NotifyCorrectCode
-        System -> Guest: acceptingEULA
-    
-        alt confirmed
-          Guest --> System: sendConfermation
-          activate System #FFBBBB
-          System -> User: <<createUser>>
-          activate User #FFBBBB
-          System -> Guest: sendVerificationEmail
-          System --> User: showLoginPage
-          deactivate System #FFBBBB
-          deactivate User #FFBBBB
-        else not confirmed
-          Guest --> System: sendCancellation
-          activate System #FFBBBB
-          System -> Guest: errorMessage
-          deactivate System #FFBBBB
-        end
- 
-    else incorrect verification code
-    System --> Guest: notifyIncorrectCode
-    end
+      System -> Guest: AcceptingEULA
+
+      alt confirmed
+        Guest --> System: SendConfermation
+        activate System #FFBBBB
+        System -> System: <<CreateUser>>
+        System -> Guest: SendVerificationEmail
+        activate User #FFBBBB
+        System --> User: ShowLoginPage
+        deactivate User #FFBBBB
+        deactivate System #FFBBBB
+      else not confirmed
+        Guest --> System: SendCancellation
+        activate System #FFBBBB
+        System -> Guest: ErrorMessage
+        deactivate System #FFBBBB
+      end
+
+  else incorrect verification code
+    System --> Guest: NotifyIncorrectCode
+  end
 
 else incorrect information
   activate System #FFBBBB
-  System --> Guest: notifyIncorrectInfo
+  System --> Guest: NotifyIncorrectInfo
 end
 
 @enduml
