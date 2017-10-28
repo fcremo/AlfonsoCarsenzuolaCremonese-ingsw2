@@ -748,15 +748,19 @@ The system will need to interact with external entities and events beyond
  of our control (public transportation, sharing mobility services, weather)
  which can disrupt user experience.
  The specifications of the service are based upon the assumption that most
- of the time those external entities will behave as expected but also document
- what to do when the domain assumptions (documented in section 
+ of the time those external entities will behave as expected (documented
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Assumptions and dependencies"
 
 \end_inset
 
-) won't hold.
+).
+ When one or some external services won't behave as expected, the application
+ will work the same but in a dregradated state.
+ If it is possible the system should notify the user that the application
+ will work in a limited way (and tells him which services are unaviable).
  
 \end_layout
 
@@ -888,23 +892,9 @@ An administrative web application will be needed to provide customer support
  and to manage the system.
  From there it will be possible to consult usage statistics, monitor service
  status and so on.
-\end_layout
-
-\begin_layout Standard
-The backend will be accessible only to authenticated Travlendar+ staff.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: expand this section
-\end_layout
-
-\end_inset
-
-
+ The backend will be accessible only to authenticated Travlendar+ staff.
+ In this document we don't analiyze how the administrative application will
+ do or how it will work.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1744,16 +1734,10 @@ due to unavailability of a sharing vehicle until 20 minutes before the scheduled
  start of the trip.
  The app asks the user if it should continue looking for a shared vehicle
  or if the trip should be manually rescheduled (excluding shared vehicles)
-\change_inserted -1730310665 1509188472
-
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_deleted -1730310665 1509188471
-.
-\change_inserted -1730310665 1509188623
 application must consider whether the user already has a passes when it
  asks the user to use public transportation means
 \end_layout
@@ -1771,7 +1755,7 @@ flexible events
 \begin_inset Quotes erd
 \end_inset
 
-:
+
 \end_layout
 
 \begin_deeper
@@ -1786,6 +1770,27 @@ the app must notify users if they are going to schedule an event that go
 \end_layout
 
 \end_deeper
+\begin_layout Subsubsection
+Customer service 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+è abbstanza?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Users (registered or not) could contact customer service through a form
+ in the application.
+ Users, if not logged in, must insert a valid email address on which a system
+ administrator can answer to the user.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -2408,10 +2413,6 @@ Alessandro is a good boy, but he has one really bad habit: on Sunday he
  So, on Monday Alessandro will arrive in time at work and his department
  boss won't fire him.
  Thanks Travlendar+!
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2620,6 +2621,15 @@ Invited User Use Case
 
 \end_layout
 
+\end_inset
+
+
+\change_inserted -1730310665 1509195443
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -3567,16 +3577,6 @@ Edit billing information
 The system notifies the actor that he is going to be redirected to an external
  service web page where he will be required to enter his new billing information
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Sistemare il problema webapp/applicazione mobile
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -5652,7 +5652,7 @@ vspace{0.15cm}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -5748,7 +5748,7 @@ status open
 \begin_inset Graphics
 	filename statecharts/statechart_diagram_login.plantuml
 	display false
-	width 100text%
+	width 80text%
 	height 100theight%
 	keepAspectRatio
 
@@ -5768,16 +5768,6 @@ Login
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-occorre modificare per maggiore coerenza
 \end_layout
 
 \end_inset
@@ -6246,7 +6236,7 @@ This diagram is intended as a starting draft to be expanded further in the
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6281,7 +6271,7 @@ Class Diagram
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage pagebreak
 \end_inset
 
 

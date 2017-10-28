@@ -1,5 +1,6 @@
 [ale]	sistemare mockup per includere informazioni sui percorsi suggeriti (CO2, distanza, etc)
 [ale]	usare nomi coerenti per i vari tipi di utente
+[ale]	sistemare possibilità di mettere vincoli sui viaggi
 [fab]	sistemare che per condividere un evento con qualcuno serve la sua email
 [fab]	sistemare come funziona la ricerca della macchina da prenotare automaticamente (quanto tempo prima e quanto distante), e cosa fare se non ce ne sono disponibili
 [fab]	usare la minuscola negli elenchi
@@ -7,11 +8,10 @@
 [fab]	inserire che per page intendiamo anche schermata
 [fab]	sistemare tabella 5.1.10 punto 2 per specificare meglio come funzionano gli inviti ad eventi
 [fab]	tenere conto del fatto che l'utente può già avere il biglietto
-[]		sistemare possibilità di mettere vincoli sui viaggi
+[fab]	aggiungere come comportarsi in caso i servizi esterni non funzionino
+[fab]	sistemare la questione dell'applicazione amministrativa
+[fab±]	controllare che la descrizione delle funzionalità per contattare il customer service siano coerenti
 []		controllare come pagano gli utenti per i taxi e i servizi di car sharing
-[]		aggiungere come comportarsi in caso i servizi esterni non funzionino
-[]		sistemare la questione dell'applicazione amministrativa
 []		i servizi di taxi e car sharing richiedono che l'utente si registri con loro
-[]		controllare che la descrizione delle funzionalità per contattare il customer service siano coerenti
 []		controllare sezione 4 per errori grammaticali
 []		controllare le note
