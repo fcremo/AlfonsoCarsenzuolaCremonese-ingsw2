@@ -3383,16 +3383,6 @@ The system verifies the correctness and the completeness of the information
 
 \begin_layout Enumerate
 The system shows the actor his updated information
-\change_deleted 666129059 1509194172
-
-\end_layout
-
-\begin_layout Enumerate
-
-\change_deleted 666129059 1509194172
-The system sends an email as a notification of the changement
-\change_unchanged
-
 \end_layout
 
 \end_inset
