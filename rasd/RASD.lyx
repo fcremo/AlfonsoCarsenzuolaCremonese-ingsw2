@@ -194,8 +194,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1730310665 "fabcars"
-\author 666129059 "Alessandro Alfonso"
 \end_header
 
 \begin_body
@@ -560,7 +558,7 @@ Summary
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.1
+1.0
 \end_layout
 
 \end_inset
@@ -569,7 +567,7 @@ Summary
 \begin_inset Text
 
 \begin_layout Plain Layout
-—
+October 29, 2017
 \end_layout
 
 \end_inset
@@ -595,7 +593,7 @@ Filippo Cremonese
 \begin_inset Text
 
 \begin_layout Plain Layout
-Living document
+Initial release
 \end_layout
 
 \end_inset
@@ -1258,8 +1256,6 @@ In each case the users are sent to an informational page (or application
  Travlendar+ and invites them to sign up.
  Users that decide to sign up are asked an email and a password and will
  receive a confirmation email at the specified address.
-\change_inserted 666129059 1509187444
-
 \end_layout
 
 \begin_layout Standard
@@ -1272,8 +1268,6 @@ Guest
 \end_inset
 
  in use case diagrams and sequence diagrams.
-\change_inserted 666129059 1509187333
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1317,8 +1311,6 @@ Maybe
  The preference will be visible to the event owner.
  The email also contains a link to the informational page to invite unregistered
  users to sign up.
-\change_inserted 666129059 1509187344
-
 \end_layout
 
 \begin_layout Standard
@@ -1604,6 +1596,12 @@ allows to set constraints on the transportation means the user can employ
 allows to provide credentials for sharing mobility and taxi services
 \end_layout
 
+\begin_layout Itemize
+allows to set some preferences on the route scheduling (e.g.
+ set maximum km of walking in a single route, set the latest time at which
+ to use public transportation)
+\end_layout
+
 \end_deeper
 \begin_layout Itemize
 password reset
@@ -1799,10 +1797,6 @@ the app must notify users if they are going to schedule an event that goes
 \end_deeper
 \begin_layout Subsubsection
 Customer service
-\change_deleted 666129059 1509301405
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -2335,8 +2329,6 @@ Maintainability
 Code, database schemas and deployment procedures must be documented in order
  to allow new developers to gain familiarity with the system in a reasonable
  time.
-\change_inserted 666129059 1509203339
-
 \end_layout
 
 \begin_layout Subsection
@@ -2554,11 +2546,8 @@ Lily tells Elisabetta about a new service called Travlendar+: Elisabetta,
  the registration page.
  Elisabetta then enters all the data needed by the system to complete the
  process: name and surname, email address and password.
- Then the system sends her a confirmation mail with a
-\change_deleted -1730310665 1509301649
- 
-\change_unchanged
- verification code used to activate her new account.
+ Then the system sends her a confirmation mail with a verification code
+ used to activate her new account.
  After she inserts the code, and to complete the sign-up she finally enters
  the billing information (optionally).
  She has now completed the registration, and she can log into the system
@@ -2822,8 +2811,6 @@ Invited User Use Case
 \end_inset
 
 
-\change_inserted -1730310665 1509195443
-
 \end_layout
 
 \begin_layout Standard
@@ -2839,11 +2826,7 @@ Use case table
 
 \begin_layout Standard
 The following tables analyze the interaction between an actor and the applicatio
-n and how the system should work
-\change_inserted 666129059 1509191591
- from the user perspective
-\change_unchanged
-.
+n and how the system should work from the user perspective.
  For semplicity, here we assume that the actor is using the web application.
  
 \begin_inset Note Note
@@ -3638,14 +3621,10 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509192702
-
 \end_layout
 
 \begin_layout Subsubsection
 Add/Edit travel preferences
-\change_inserted 666129059 1509193879
-
 \end_layout
 
 \begin_layout Standard
@@ -3889,8 +3868,6 @@ vspace{0.15cm}
 
 \end_inset
 
-
-\change_inserted 666129059 1509192740
 
 \end_layout
 
@@ -4142,14 +4119,10 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509187959
-
 \end_layout
 
 \begin_layout Subsubsection
 Buy a ticket/pass
-\change_inserted 666129059 1509188013
-
 \end_layout
 
 \begin_layout Standard
@@ -5458,8 +5431,6 @@ vspace{0.15cm}
 
 \end_inset
 
-
-\change_inserted 666129059 1509199717
 
 \end_layout
 
