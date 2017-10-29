@@ -11,7 +11,7 @@
 [fab]	aggiungere come comportarsi in caso i servizi esterni non funzionino
 [fab]	sistemare la questione dell'applicazione amministrativa
 [fab±]	controllare che la descrizione delle funzionalità per contattare il customer service siano coerenti
-[]		controllare come pagano gli utenti per i taxi e i servizi di car sharing
-[]		i servizi di taxi e car sharing richiedono che l'utente si registri con loro
+[fab]	controllare come pagano gli utenti per i taxi e i servizi di car sharing
+[fab]	i servizi di taxi e car sharing richiedono che l'utente si registri con loro
 []		controllare sezione 4 per errori grammaticali
 []		controllare le note

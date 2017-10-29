@@ -561,7 +561,7 @@ Summary
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.1
+1.0
 \end_layout
 
 \end_inset
@@ -570,7 +570,7 @@ Summary
 \begin_inset Text
 
 \begin_layout Plain Layout
-—
+October 29, 2017
 \end_layout
 
 \end_inset
@@ -596,7 +596,7 @@ Filippo Cremonese
 \begin_inset Text
 
 \begin_layout Plain Layout
-Living document
+Initial release
 \end_layout
 
 \end_inset
@@ -712,7 +712,16 @@ calendar apps that provide weather information
 \end_layout
 
 \begin_layout Itemize
-public transport assistants (such as Citymapper)
+public transport assistants (e.g.
+ Citymapper.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
@@ -721,17 +730,41 @@ public transport ticketing apps
 
 \begin_layout Itemize
 navigation apps (e.g.
- Google Maps)
+ Google Maps.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
 taxi apps (e.g.
- MyTaxi, Uber)
+ MyTaxi, Uber.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
 sharing mobility services applications (e.g.
- enjoy, mobike)
+ Enjoy, Mobike.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -998,17 +1031,8 @@ This services may be provided by external services (the decision to implement
 route planning
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Review this section, I probably forgot something
-\end_layout
-
-\end_inset
-
-
+\begin_layout Itemize
+mobility sharing and taxis payment
 \end_layout
 
 \begin_layout Subsection
@@ -1235,8 +1259,6 @@ In each case the users are sent to an informational page (or application
  Travlendar+ and invites them to sign up.
  Users that decide to sign up are asked an email and a password and will
  receive a confirmation email at the specified address.
-\change_inserted 666129059 1509187444
-
 \end_layout
 
 \begin_layout Standard
@@ -1249,8 +1271,6 @@ Guest
 \end_inset
 
  in use case diagrams and sequence diagrams.
-\change_inserted 666129059 1509187333
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1294,8 +1314,6 @@ Maybe
  The preference will be visible to the event owner.
  The email also contains a link to the informational page to invite unregistered
  users to sign up.
-\change_inserted 666129059 1509187344
-
 \end_layout
 
 \begin_layout Standard
@@ -1463,16 +1481,6 @@ users will input correctly all relevant information about their appointments
 \begin_layout Itemize
 users will have a reliable internet connection, and will be offline only
  for short periods of time
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-puo essere usata anche offline
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1552,19 +1560,6 @@ Functional requirements
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: this section needs to be finished
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 The functional requirements include the functionalities that the system
  must necessarily have and describe the interactions between the system
  developed and the external environment independently from the implementation.
@@ -1602,6 +1597,12 @@ allows to set constraints on the transportation means the user can employ
 
 \begin_layout Itemize
 allows to provide credentials for sharing mobility and taxi services
+\end_layout
+
+\begin_layout Itemize
+allows to set some preferences on the route scheduling (e.g.
+ set maximum km of walking in a single route, set the latest time at which
+ to use public transportation)
 \end_layout
 
 \end_deeper
@@ -1711,18 +1712,8 @@ users can choose the preferred option from the list
 \end_layout
 
 \begin_layout Itemize
-the best options in terms of time, cost, distance, carbon emissions to reach
- the destination must be shown 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riformulare questa parte
-\end_layout
-
-\end_inset
-
-
+the best options in terms of time, cost, distance, carbon emissions, calories
+ to reach the destination must be shown
 \end_layout
 
 \end_deeper
@@ -1808,17 +1799,7 @@ the app must notify users if they are going to schedule an event that goes
 
 \end_deeper
 \begin_layout Subsubsection
-Customer service 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-è abbstanza?
-\end_layout
-
-\end_inset
-
-
+Customer service
 \end_layout
 
 \begin_layout Standard
@@ -1900,18 +1881,9 @@ In order to automatically reserve a taxi one or more external services must
 \end_layout
 
 \begin_layout Itemize
-user authentication
-\change_deleted -1730310665 1509200228
- (optional)
-\change_unchanged
-: depending on the agreement with the company providing the service the
- user 
-\change_deleted -1730310665 1509200240
-might
-\change_inserted -1730310665 1509200241
-must
-\change_unchanged
- be required to register an account to the taxi service.
+user authentication: depending on the agreement with the company providing
+ the service the user must be required to register an account to the taxi
+ service.
 \end_layout
 
 \begin_layout Itemize
@@ -1942,18 +1914,8 @@ In order to automatically reserve a vehicle one or more external services
 \end_layout
 
 \begin_layout Itemize
-user authentication
-\change_deleted -1730310665 1509200234
- (optional)
-\change_unchanged
-: depending on the agreement with the company providing the service the
- user 
-\change_deleted -1730310665 1509200214
-might
-\change_inserted -1730310665 1509200215
-must
-\change_unchanged
- be required to register an account with them.
+user authentication: depending on the agreement with the company providing
+ the service the user must be required to register an account with them.
 \end_layout
 
 \begin_layout Itemize
@@ -2370,8 +2332,6 @@ Maintainability
 Code, database schemas and deployment procedures must be documented in order
  to allow new developers to gain familiarity with the system in a reasonable
  time.
-\change_inserted 666129059 1509203339
-
 \end_layout
 
 \begin_layout Subsection
@@ -2420,7 +2380,7 @@ Desktop home page
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2454,7 +2414,7 @@ Desktop new event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2580,16 +2540,6 @@ This section will present some possible situations that may occur from the
 
 \begin_layout Subsection
 Elisabetta is curious about Travlendar+
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riguarda ordine mail billing
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2598,10 +2548,11 @@ Lily tells Elisabetta about a new service called Travlendar+: Elisabetta,
  She visits the homepage, browses the site a little and then proceeds to
  the registration page.
  Elisabetta then enters all the data needed by the system to complete the
- process: name and surname, email address, password and credit card data.
- To complete the sign-up she finally enters the billing information.
- Once everything is done, the system sends her a confirmation mail with
- a link used to activate her new account.
+ process: name and surname, email address and password.
+ Then the system sends her a confirmation mail with a verification code
+ used to activate her new account.
+ After she inserts the code, and to complete the sign-up she finally enters
+ the billing information (optionally).
  She has now completed the registration, and she can log into the system
  and use all the services given by our app.
 \end_layout
@@ -2863,8 +2814,6 @@ Invited User Use Case
 \end_inset
 
 
-\change_inserted -1730310665 1509195443
-
 \end_layout
 
 \begin_layout Standard
@@ -2880,11 +2829,7 @@ Use case table
 
 \begin_layout Standard
 The following tables analyze the interaction between an actor and the applicatio
-n and how the system should work
-\change_inserted 666129059 1509191591
- from the user perspective
-\change_unchanged
-.
+n and how the system should work from the user perspective.
  For semplicity, here we assume that the actor is using the web application.
  
 \begin_inset Note Note
@@ -3679,14 +3624,10 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509192702
-
 \end_layout
 
 \begin_layout Subsubsection
 Add/Edit travel preferences
-\change_inserted 666129059 1509193879
-
 \end_layout
 
 \begin_layout Standard
@@ -3931,8 +3872,6 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509192740
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -4069,17 +4008,6 @@ Edit billing information
 \begin_layout Enumerate
 The system notifies the actor that he is going to be redirected to an external
  service web page where he will be required to enter his new billing information
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Sistemare il problema webapp/applicazione mobile
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -4194,14 +4122,10 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509187959
-
 \end_layout
 
 \begin_layout Subsubsection
 Buy a ticket/pass
-\change_inserted 666129059 1509188013
-
 \end_layout
 
 \begin_layout Standard
@@ -5511,8 +5435,6 @@ vspace{0.15cm}
 \end_inset
 
 
-\change_inserted 666129059 1509199717
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -6521,26 +6443,6 @@ vspace{0.15cm}
 
 \begin_layout Subsection
 State Charts
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conviene forse scrivere più di due righe di intro?
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-E' la posizione migliore dove metterlo?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -7154,7 +7056,7 @@ This diagram is intended as a starting draft to be expanded further in the
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7162,6 +7064,7 @@ status collapsed
 	filename class_diagram/class_diagram.plantuml
 	width 100text%
 	height 95theight%
+	keepAspectRatio
 	rotateAngle 90
 
 \end_inset
@@ -8113,12 +8016,669 @@ Hours spent
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="17" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-Inserire tabella ore individuali
+Data
 \end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alfonso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carsenzuola
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cremonese
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\begin_layout Subsection
+References
+\change_inserted 1604105849 1509304668
+
+\end_layout
+
+\begin_layout Standard
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+05/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+07/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+09/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29/10/2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Totale
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+48.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -8143,21 +8703,9 @@ target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
 
 \begin_layout Subsection
 References
-\change_inserted 1604105849 1509304668
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: fix this mess and add proper bibliography and references in the text
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:References"
 
 \end_inset
 
@@ -8165,22 +8713,314 @@ TODO: fix this mess and add proper bibliography and references in the text
 \end_layout
 
 \begin_layout Standard
-http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32002L0058:EN:HTML
- european cookie law
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Google Calendar
 \end_layout
 
-\begin_layout Standard
-http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN
- european general data protection law
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://calendar.google.com/calendar/"
+target "https://calendar.google.com/calendar/"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-https://tools.ietf.org/html/rfc5545 iCalendar RFC
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Google Maps
 \end_layout
 
-\begin_layout Standard
-https://tools.ietf.org/html/rfc4791 and https://tools.ietf.org/html/rfc6638
- CalDAV RFCs
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.google.it/maps/"
+target "https://www.google.it/maps/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+City Mapper
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://citymapper.com/"
+target "https://citymapper.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Uber
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.uber.com/"
+target "https://www.uber.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Enjoy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://enjoy.eni.com/"
+target "https://enjoy.eni.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mobike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://mobike.com/"
+target "https://mobike.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+European Cookie Law
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://eur-lex.europa.eu/LexUriServ/..."
+target "http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32002L0058:EN:HTML"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+European General Data Protection Law
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://eur-lex.europa.eu/legal-content/..."
+target "http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iCalendar RFC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc5545"
+target "https://tools.ietf.org/html/rfc5545"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalDAV RFCs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc4791"
+target "https://tools.ietf.org/html/rfc4791"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalDAV RFCs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc6638"
+target "https://tools.ietf.org/html/rfc6638"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_body
