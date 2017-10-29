@@ -712,7 +712,15 @@ calendar apps that provide weather information
 
 \begin_layout Itemize
 public transport assistants (e.g.
- Citymapper)
+ Citymapper.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
@@ -721,17 +729,41 @@ public transport ticketing apps
 
 \begin_layout Itemize
 navigation apps (e.g.
- Google Maps)
+ Google Maps.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
 taxi apps (e.g.
- MyTaxi, Uber)
+ MyTaxi, Uber.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Itemize
 sharing mobility services applications (e.g.
- Enjoy, Mobike)
+ Enjoy, Mobike.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -2353,7 +2385,7 @@ Desktop home page
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2387,7 +2419,7 @@ Desktop new event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2513,16 +2545,6 @@ This section will present some possible situations that may occur from the
 
 \begin_layout Subsection
 Elisabetta is curious about Travlendar+
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riguarda ordine mail billing
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2531,10 +2553,14 @@ Lily tells Elisabetta about a new service called Travlendar+: Elisabetta,
  She visits the homepage, browses the site a little and then proceeds to
  the registration page.
  Elisabetta then enters all the data needed by the system to complete the
- process: name and surname, email address, password and credit card data.
- To complete the sign-up she finally enters the billing information.
- Once everything is done, the system sends her a confirmation mail with
- a link used to activate her new account.
+ process: name and surname, email address and password.
+ Then the system sends her a confirmation mail with a
+\change_deleted -1730310665 1509301649
+ 
+\change_unchanged
+ verification code used to activate her new account.
+ After she inserts the code, and to complete the sign-up she finally enters
+ the billing information (optionally).
  She has now completed the registration, and she can log into the system
  and use all the services given by our app.
 \end_layout
@@ -7056,7 +7082,7 @@ This diagram is intended as a starting draft to be expanded further in the
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7064,6 +7090,7 @@ status collapsed
 	filename class_diagram/class_diagram.plantuml
 	width 100text%
 	height 95theight%
+	keepAspectRatio
 	rotateAngle 90
 
 \end_inset
@@ -8690,120 +8717,327 @@ target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
 \end_inset
 
 )
-\change_inserted 666129059 1509302407
-
 \end_layout
 
-\begin_layout Bibliography
-
-\change_inserted 666129059 1509304955
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-9"
+\begin_layout Subsection
+References
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:References"
 
 \end_inset
 
-Google Maps: https://www.google.it/maps/
+
 \end_layout
 
-\begin_layout Bibliography
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302882
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-10"
+\begin_layout Plain Layout
+Google Calendar
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://calendar.google.com/calendar/"
+target "https://calendar.google.com/calendar/"
 
 \end_inset
 
-Google Calendar: https://calendar.google.com/calendar/
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302889
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-11"
+\begin_layout Plain Layout
+Google Maps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.google.it/maps/"
+target "https://www.google.it/maps/"
 
 \end_inset
 
-City Mapper Milano: https://citymapper.com/milano
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302896
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-12"
+\begin_layout Plain Layout
+City Mapper
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://citymapper.com/"
+target "https://citymapper.com/"
 
 \end_inset
 
-Uber: https://www.uber.com/
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302902
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-13"
+\begin_layout Plain Layout
+Uber
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.uber.com/"
+target "https://www.uber.com/"
 
 \end_inset
 
-Enjoy: https://enjoy.eni.com/
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302911
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-14"
+\begin_layout Plain Layout
+Enjoy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://enjoy.eni.com/"
+target "https://enjoy.eni.com/"
 
 \end_inset
 
-European Cookie Law: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32
-002L0058:EN:HTML
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302917
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-15"
+\begin_layout Plain Layout
+Mobike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://mobike.com/"
+target "https://mobike.com/"
 
 \end_inset
 
-European General Data Protection Law: http://eur-lex.europa.eu/legal-content/EN/TX
-T/HTML/?uri=CELEX:32016R0679&from=EN
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302925
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-16"
+\begin_layout Plain Layout
+European Cookie Law
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://eur-lex.europa.eu/LexUriServ/..."
+target "http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32002L0058:EN:HTML"
 
 \end_inset
 
-iCalendar RFC: https://tools.ietf.org/html/rfc5545
+
 \end_layout
 
-\begin_layout Bibliography
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\change_inserted 666129059 1509302932
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-17"
+\begin_layout Plain Layout
+European General Data Protection Law
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "http://eur-lex.europa.eu/legal-content/..."
+target "http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN"
 
 \end_inset
 
-CalDAV RFCs: https://tools.ietf.org/html/rfc4791 and https://tools.ietf.org/html/rfc
-6638
-\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iCalendar RFC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc5545"
+target "https://tools.ietf.org/html/rfc5545"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalDAV RFCs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc4791"
+target "https://tools.ietf.org/html/rfc4791"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CalDAV RFCs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://tools.ietf.org/html/rfc6638"
+target "https://tools.ietf.org/html/rfc6638"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
 
 \end_layout
 
