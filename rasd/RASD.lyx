@@ -4727,7 +4727,7 @@ Create a new event - Scenario 2 (Standard event)
 <lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20text%">
-<column alignment="block" valignment="middle" width="75text%">
+<column alignment="left" valignment="middle" width="75text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -4738,7 +4738,7 @@ Actors
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4783,7 +4783,7 @@ Preconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4829,7 +4829,7 @@ Events
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Enumerate
@@ -4873,7 +4873,7 @@ Postconditions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4918,7 +4918,7 @@ Exceptions
 
 \end_inset
 </cell>
-<cell alignment="block" valignment="top" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7174,10 +7174,8 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename class_diagram/class_diagram.plantuml
-	display false
 	width 100text%
 	height 95theight%
-	keepAspectRatio
 	rotateAngle 90
 
 \end_inset
