@@ -2,18 +2,35 @@
 
 skinparam classAttributeIconSize 0
 
+Calendar "1"--"*" Event
+Calendar "*"--"1" User
+Event "*"--"1" User
+Event "*"--"2" Position
+User "1"--"1" TransportPreferences
+User "1"--"*" PublicTransportPass
+User "1"--"*" PublicTransportTicket
 Event <|-- RecurringEvent
 Event <|-- FlexibleEvent
-Event -- User
-
-User -- TransportPreferences
+Event <|-- TravelPlannedEvent
+TravelPlannedEvent "*"--"*" RoutePlanner
+RoutePlanner "*"--"*" PublicTransportPass
+RoutePlanner "*"--"*" PublicTransportTicket
+RoutePlanner "*"--"*" PublicTransportSegment
+RoutePlanner "*"--"*" SharingMobilityServicePosition
+RoutePlanner "*"--"1" TransportPreferences
+RoutePlanner "*"--"*" Position
+SharingMobilityServicePosition <|-- CarSharingPosition
+SharingMobilityServicePosition <|-- BikeSharingPosition
+PublicTransportSegment <|-- BusSegment
+PublicTransportSegment <|-- MetroSegment
+PublicTransportSegment <|-- RoadCarSegment
+PublicTransportSegment <|-- TrainSegment
 
 class User {
-    - Username
+    - Email
     - Password
     - Name
     - Surname
-    - Birthday
 }
 
 class TransportPreferences {
@@ -25,6 +42,16 @@ class TransportPreferences {
     - CanUseBus
     - CanUseRoadCar
     - MaxWalkingDistance
+    - MaxPublicTransportHour
+}
+
+class Calendar {
+    - Name
+}
+
+class Position {
+    - Latitude
+    - Longitude
 }
 
 class Event {
@@ -34,11 +61,9 @@ class Event {
     - EndTime
     - Place
     - Description
-    - Participants
-    - Notifications
+    - Participant
+    - Notification
     - Attachment
-    - Color
-    - Sharing
 }
 
 class RecurringEvent {
@@ -51,19 +76,16 @@ class RecurringEvent {
 class FlexibleEvent {
     - ConstraintTimeStart
     - ConstraintTimeEnd
+    - Duration
 }
 
-SharingMobilityServicePosition <|-- CarSharingPosition
-SharingMobilityServicePosition <|-- BikeSharingPosition
+class TravelPlannedEvent {
+    - BestRoute
+}
 
 class SharingMobilityServicePosition
 class CarSharingPosition
 class BikeSharingPosition
-
-PublicTransportSegment <|-- BusSegment
-PublicTransportSegment <|-- MetroSegment
-PublicTransportSegment <|-- RoadCarSegment
-PublicTransportSegment <|-- TrainSegment
 
 class PublicTransportSegment {
     - StartPosition
@@ -91,13 +113,9 @@ class PublicTransportPass {
     - Cost
 }
 
-RoutePlanner -- PublicTransportSegment
-RoutePlanner -- SharingMobilityServicePosition
-RoutePlanner -- TransportPreferences
 class RoutePlanner {
     + findBestRoutes(startPosition: Position, endPosition: Position): List<Route>
     + findBestRoutes(comingFrom: Event, goingTo: Event): List<Route>
 }
-
 
 @enduml
