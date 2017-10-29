@@ -920,12 +920,12 @@ public transport tickets and passes
 \end_layout
 
 \begin_layout Itemize
-sharing mobility services informations and functionality (vehicle position,
+sharing mobility services information and functionality (vehicle position,
  automatic reservations, ...)
 \end_layout
 
 \begin_layout Itemize
-taxi services informations and functionality (prices, automatic reservations,
+taxi services information and functionality (prices, automatic reservations,
  ...)
 \end_layout
 
@@ -1257,11 +1257,11 @@ Unregistered users with a sharing link
 \end_layout
 
 \begin_layout Standard
-Unregistered users (identified by an email address -mandatorily insert by
- the owner of the event- and other optional informations) may be shared
- an event by a registered user or be invited to it.
+Unregistered users (identified by an email address inserted by the owner
+ of the event and other optional information) may receive a link to a shared
+ event from a registered user or be invited to it.
  An email is sent to them as a reminder.
- The email contains all relevant informations about the event such as name,
+ The email contains all relevant information about the event such as name,
  date and time, location, weather forecast, and also a link to view the
  event in the web-based version of the app, which can be used to view updated
  information about the event and, if they are invited, allows them to leave
@@ -1315,7 +1315,7 @@ Registered users
 
 \begin_layout Standard
 Registered users will be identified by their email and a password.
- Other informations will be asked when appropriate:
+ Other information will be asked when appropriate:
 \end_layout
 
 \begin_layout Itemize
@@ -1363,8 +1363,6 @@ credit card information will be asked optionally on registration, otherwise
 \begin_layout Standard
 The account settings page/screen will be accessible at any moment to edit
  the provided information.
-\change_inserted 666129059 1509187367
-
 \end_layout
 
 \begin_layout Standard
@@ -1405,7 +1403,7 @@ In order to provide our users convenient services such as automatic car
  data from external entities which cannot be expected to be perfectly reliable.
  The specifications of the service are based upon the assumption that most
  of the time those external services will behave as expected but also document
- what to do when this assumption won't hold.
+ what to do when this assumption does not hold.
 \end_layout
 
 \begin_layout Paragraph
@@ -1458,11 +1456,12 @@ We suppose these assumptions will hold:
 \end_layout
 
 \begin_layout Itemize
-users input correctly all relevant informations about their appointments
+users will input correctly all relevant information about their appointments
 \end_layout
 
 \begin_layout Itemize
-users have a reliable internet connection
+users will have a reliable internet connection, and will be offline only
+ for short periods of time
 \begin_inset Note Note
 status open
 
@@ -1593,7 +1592,7 @@ user settings
 
 \begin_deeper
 \begin_layout Itemize
-allows to change user informations such as email, password, etc...
+allows to change user information such as email, password, etc...
 \end_layout
 
 \begin_layout Itemize
@@ -1620,42 +1619,28 @@ the email contains a link that allows to change the password
 
 \begin_layout Itemize
 passwords must not be sent by email
-\change_inserted -1730310665 1509187843
-
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_inserted -1730310665 1509187975
-user is allowed to set personal preference about the generation of a route.
- For example users can
+user can choose which transportation means to use, for example
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted -1730310665 1509188005
-choose to use or not shared vehicles
+choose whether to use shared vehicles or not
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1509188010
-set the maximun walking distance
+set maximun walking distance
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1509188140
-insert details about transportation passes
+insert details about which transportation passes they own
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1509188230
-set the type of means that he is able to use (e.g.
- if he don't have a license, he can not drive a car)
+specify if they can drive or not
 \end_layout
 
 \end_deeper
@@ -1705,7 +1690,7 @@ Travel planning
 \begin_layout Standard
 When creating or modifying an event users will be able to specify starting
  and destination locations and time and schedule their travel.
- By default the starting point is the one of the previous event in the same
+ By default the starting point is the one of the previous event on the same
  day, if it exists.
 \end_layout
 
@@ -1716,7 +1701,7 @@ a warning must be shown if it appears that there's no suitable transportation
 
 \begin_layout Itemize
 using the preferences and coinstraints set by the user, the application
- has to give to a list that contains the best solutions
+ has to give a list that contains the best solutions
 \end_layout
 
 \begin_deeper
@@ -1781,7 +1766,7 @@ due to public transportation strike
 \end_layout
 
 \begin_layout Itemize
-due to unavailability of a sharing vehicle until 20 minutes before the scheduled
+due to unavailability of a sharing vehicle up to 20 minutes before the scheduled
  start of the trip.
  The app asks the user if it should continue looking for a shared vehicle
  or if the trip should be manually rescheduled (excluding shared vehicles)
@@ -1789,8 +1774,8 @@ due to unavailability of a sharing vehicle until 20 minutes before the scheduled
 
 \end_deeper
 \begin_layout Itemize
-application must consider whether the user already has a passes when it
- asks the user to use public transportation means
+application must consider whether the user already has a passe when it asks
+ them to use public transportation means
 \end_layout
 
 \begin_layout Subsubsection
@@ -1816,7 +1801,7 @@ users are able to set constraints on what they must do during the day (e.g.
 \end_layout
 
 \begin_layout Itemize
-the app must notify users if they are going to schedule an event that go
+the app must notify users if they are going to schedule an event that goes
  against the set constraints
 \end_layout
 
@@ -1839,7 +1824,7 @@ status open
 Users (registered or not) could contact customer service through a form
  in the application.
  Users, if not logged in, must insert a valid email address on which a system
- administrator can answer to the user.
+ administrator can answer the user.
 \end_layout
 
 \begin_layout Subsection
@@ -1889,7 +1874,7 @@ updating profile information
 \end_layout
 
 \begin_layout Standard
-Trip suggestions should be loaded incrementally, so that informations can
+Trip suggestions should be loaded incrementally, so that information can
  be displayed to the user as soon as possible.
  In order to give hints to the user as to when the app is loading or processing
  spinners will be shown for each waiting period longer than 1 second.
@@ -1976,7 +1961,7 @@ vehicle positions: the service must allow to get a list of the available
 \end_layout
 
 \begin_layout Itemize
-vehicle informations: the service must allow to get details on a specific
+vehicle information: the service must allow to get details on a specific
  vehicle (remaining fuel, cost per minute or km, allowed passengers, ...)
 \end_layout
 
@@ -2020,7 +2005,7 @@ Public transport information service
 \end_layout
 
 \begin_layout Standard
-In order to provide our users informations about public transport the system
+In order to provide our users information about public transport the system
  will need an external service providing:
 \end_layout
 
@@ -2060,7 +2045,7 @@ In order to provide our users with an in-app ticket shop an external service
 \end_layout
 
 \begin_layout Itemize
-informations about which tickets/passes are available for a certain line
+information about which tickets/passes are available for a certain line
 \end_layout
 
 \begin_deeper
@@ -2079,8 +2064,8 @@ ticket and passes shop
 
 \begin_deeper
 \begin_layout Itemize
-payments must go through a payment processor Travelendar+ can interact directly
- via an API (e.g.
+payments must go through a payment processor which Travelendar+ can interact
+ with directly via an API (e.g.
  Stripe)
 \end_layout
 
@@ -2103,7 +2088,7 @@ Payment processor service
 In order to provide our users with an in-app ticket shop an external payment
  processor which allows the user to pay using his credit card (and possibly
  other means) will be needed.
- We choose to use an external payment processor to avoid to be compliant
+ We choose to use an external payment processor to avoid having to be compliant
  with PCI/DSS and other regulations.
 \end_layout
 
@@ -2217,7 +2202,7 @@ Avoiding single points of failure can be achieved by technical design decisions,
 s).
  In the event an non-fundamental service (e.g.
  car sharing API) stops working the app should keep functioning, altough
- in a degraded state (not be able to reserve cars, but still able to reserve
+ in a degraded state (unable to reserve cars, but still able to reserve
  other services).
  Of course a tradeoff must be made between reliability and cost/architecture
  simplicity.
@@ -2362,7 +2347,7 @@ Operational security
 
 \begin_layout Standard
 A small group of authorized people must be in charge of deployment and maintaina
-nce and only them should have access to the production environment.
+nce and only they should have access to the production environment.
  Where possible deployment procedures should be automated.
 \end_layout
 
@@ -2998,7 +2983,7 @@ on.
 
 \begin_layout Plain Layout
 The external payment service didn't confirm the billing information.
- In this case the user can insert the billing informations later.
+ In this case the user can insert the billing information later.
 \begin_inset ERT
 status open
 
@@ -3385,7 +3370,7 @@ The actor clicks the
 \begin_inset Quotes eld
 \end_inset
 
-Edit personal informations
+Edit personal information
 \begin_inset Quotes erd
 \end_inset
 
@@ -3398,7 +3383,7 @@ The system allows the actor to change his settings including address, travel
 \end_layout
 
 \begin_layout Enumerate
-The user enters the new informations and presses ’Save’
+The user enters the new information and presses ’Save’
 \end_layout
 
 \begin_layout Enumerate
@@ -3652,7 +3637,7 @@ The system allows the actor to change his settings about usable vehicles,
 \end_layout
 
 \begin_layout Enumerate
-The user enters the new informations and presses ’Save’
+The user enters the new information and presses ’Save’
 \end_layout
 
 \begin_layout Enumerate
