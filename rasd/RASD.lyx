@@ -711,7 +711,8 @@ calendar apps that provide weather information
 \end_layout
 
 \begin_layout Itemize
-public transport assistants (such as Citymapper)
+public transport assistants (e.g.
+ Citymapper)
 \end_layout
 
 \begin_layout Itemize
@@ -730,7 +731,7 @@ taxi apps (e.g.
 
 \begin_layout Itemize
 sharing mobility services applications (e.g.
- enjoy, mobike)
+ Enjoy, Mobike)
 \end_layout
 
 \begin_layout Standard
@@ -997,17 +998,8 @@ This services may be provided by external services (the decision to implement
 route planning
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Review this section, I probably forgot something
-\end_layout
-
-\end_inset
-
-
+\begin_layout Itemize
+mobility sharing and taxis payment
 \end_layout
 
 \begin_layout Subsection
@@ -1462,16 +1454,6 @@ users will input correctly all relevant information about their appointments
 \begin_layout Itemize
 users will have a reliable internet connection, and will be offline only
  for short periods of time
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-puo essere usata anche offline
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1548,19 +1530,6 @@ This section will analyze in detail functional and non-functional requirements
 
 \begin_layout Subsection
 Functional requirements
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: this section needs to be finished
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1710,18 +1679,8 @@ users can choose the preferred option from the list
 \end_layout
 
 \begin_layout Itemize
-the best options in terms of time, cost, distance, carbon emissions to reach
- the destination must be shown 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riformulare questa parte
-\end_layout
-
-\end_inset
-
-
+the best options in terms of time, cost, distance, carbon emissions, calories
+ to reach the destination must be shown
 \end_layout
 
 \end_deeper
@@ -1807,16 +1766,10 @@ the app must notify users if they are going to schedule an event that goes
 
 \end_deeper
 \begin_layout Subsubsection
-Customer service 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-è abbstanza?
-\end_layout
-
-\end_inset
-
+Customer service
+\change_deleted 666129059 1509301405
+ 
+\change_unchanged
 
 \end_layout
 
@@ -1899,18 +1852,9 @@ In order to automatically reserve a taxi one or more external services must
 \end_layout
 
 \begin_layout Itemize
-user authentication
-\change_deleted -1730310665 1509200228
- (optional)
-\change_unchanged
-: depending on the agreement with the company providing the service the
- user 
-\change_deleted -1730310665 1509200240
-might
-\change_inserted -1730310665 1509200241
-must
-\change_unchanged
- be required to register an account to the taxi service.
+user authentication: depending on the agreement with the company providing
+ the service the user must be required to register an account to the taxi
+ service.
 \end_layout
 
 \begin_layout Itemize
@@ -1941,18 +1885,8 @@ In order to automatically reserve a vehicle one or more external services
 \end_layout
 
 \begin_layout Itemize
-user authentication
-\change_deleted -1730310665 1509200234
- (optional)
-\change_unchanged
-: depending on the agreement with the company providing the service the
- user 
-\change_deleted -1730310665 1509200214
-might
-\change_inserted -1730310665 1509200215
-must
-\change_unchanged
- be required to register an account with them.
+user authentication: depending on the agreement with the company providing
+ the service the user must be required to register an account with them.
 \end_layout
 
 \begin_layout Itemize
@@ -4062,17 +3996,6 @@ Edit billing information
 \begin_layout Enumerate
 The system notifies the actor that he is going to be redirected to an external
  service web page where he will be required to enter his new billing information
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Sistemare il problema webapp/applicazione mobile
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -6514,26 +6437,6 @@ vspace{0.15cm}
 
 \begin_layout Subsection
 State Charts
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conviene forse scrivere più di due righe di intro?
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-E' la posizione migliore dove metterlo?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -8132,42 +8035,121 @@ target "https://github.com/giancarlocolaci/SE2_Project_Colaci_DePasquale_Rinaldi
 \end_inset
 
 )
+\change_inserted 666129059 1509302407
+
 \end_layout
 
-\begin_layout Subsection
-References
-\end_layout
+\begin_layout Bibliography
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: fix this mess and add proper bibliography and references in the text
-\end_layout
+\change_inserted 666129059 1509302874
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-9"
 
 \end_inset
 
-
+Google Maps: https://www.google.it/maps/
 \end_layout
 
-\begin_layout Standard
-http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32002L0058:EN:HTML
- european cookie law
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302882
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
+
+\end_inset
+
+Google Calendar: https://calendar.google.com/calendar/
 \end_layout
 
-\begin_layout Standard
-http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN
- european general data protection law
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302889
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-11"
+
+\end_inset
+
+City Mapper Milano: https://citymapper.com/milano
 \end_layout
 
-\begin_layout Standard
-https://tools.ietf.org/html/rfc5545 iCalendar RFC
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302896
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-12"
+
+\end_inset
+
+Uber: https://www.uber.com/
 \end_layout
 
-\begin_layout Standard
-https://tools.ietf.org/html/rfc4791 and https://tools.ietf.org/html/rfc6638
- CalDAV RFCs
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302902
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-13"
+
+\end_inset
+
+Enjoy: https://enjoy.eni.com/
+\end_layout
+
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302911
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-14"
+
+\end_inset
+
+European Cookie Law: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:32
+002L0058:EN:HTML
+\end_layout
+
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302917
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-15"
+
+\end_inset
+
+European General Data Protection Law: http://eur-lex.europa.eu/legal-content/EN/TX
+T/HTML/?uri=CELEX:32016R0679&from=EN
+\end_layout
+
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302925
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-16"
+
+\end_inset
+
+iCalendar RFC: https://tools.ietf.org/html/rfc5545
+\end_layout
+
+\begin_layout Bibliography
+
+\change_inserted 666129059 1509302932
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-17"
+
+\end_inset
+
+CalDAV RFCs: https://tools.ietf.org/html/rfc4791 and https://tools.ietf.org/html/rfc
+6638
+\change_unchanged
+
 \end_layout
 
 \end_body
