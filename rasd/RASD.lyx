@@ -2419,7 +2419,7 @@ Desktop home page
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2453,7 +2453,7 @@ Desktop new event
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2579,16 +2579,6 @@ This section will present some possible situations that may occur from the
 
 \begin_layout Subsection
 Elisabetta is curious about Travlendar+
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riguarda ordine mail billing
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2597,10 +2587,14 @@ Lily tells Elisabetta about a new service called Travlendar+: Elisabetta,
  She visits the homepage, browses the site a little and then proceeds to
  the registration page.
  Elisabetta then enters all the data needed by the system to complete the
- process: name and surname, email address, password and credit card data.
- To complete the sign-up she finally enters the billing information.
- Once everything is done, the system sends her a confirmation mail with
- a link used to activate her new account.
+ process: name and surname, email address and password.
+ Then the system sends her a confirmation mail with a
+\change_deleted -1730310665 1509301649
+ 
+\change_unchanged
+ verification code used to activate her new account.
+ After she inserts the code, and to complete the sign-up she finally enters
+ the billing information (optionally).
  She has now completed the registration, and she can log into the system
  and use all the services given by our app.
 \end_layout
