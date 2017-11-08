@@ -5369,6 +5369,10 @@ Notiﬁcation Manager
 \end_layout
 
 \begin_layout Section
+Implementation, integration and and test plan
+\end_layout
+
+\begin_layout Section
 Appendix
 \end_layout
 
@@ -5408,8 +5412,8 @@ draw.io
  to draw all the diagrams
 \end_layout
 
-\begin_layout Subsection
-Hours of work
+\begin_layout Section
+Effort spent
 \end_layout
 
 \begin_layout Standard
@@ -5441,6 +5445,10 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+References
 \end_layout
 
 \end_body
