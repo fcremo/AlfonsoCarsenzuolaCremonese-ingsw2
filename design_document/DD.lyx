@@ -682,12 +682,14 @@ Purpose
 \end_layout
 
 \begin_layout Standard
-This document describes the proposed implementation details of the Travlendar+
- application described in the previously delivered RASD.
- Design and implementation choices are documented and explained both in
- overview and in detail.
- The target audience are the developers of the system, as well as the project
- owner, prof.
+This document describes the details of the proposed implementation of Travlendar
++.
+ The requirements for the system were described in the Requirement Analysis
+ and Specifications Document which should be read before reading this document.
+ Here we document and explain design and implementation choices, first in
+ overview and then in detail.
+ The target audience of this document are the future developers of the system,
+ as well as the project owner, prof.
  Di Nitto.
 \end_layout
 
@@ -695,12 +697,51 @@ This document describes the proposed implementation details of the Travlendar+
 Document structure
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TBD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Scope
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TBD (should we copy paste from the RASD?)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Definitions, acronyms, abbreviations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TBD
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -914,18 +955,8 @@ Overview
 \end_layout
 
 \begin_layout Standard
-The PowerEnjoy system will be developed on the Java 2 Enterprise Edition
- platform, one of the most important technology used to build large scale,
- distributed, component-based, web-enabled and multi-tier applications.
- J2EE provides also robustness, efficiency and 
-\shape italic
-portability
-\shape default
- of code because it is based on Java technology and standard-based Java
- programming APIs: in this way, we will be able to “write once” our application
- and “run it anywhere”.
- The system will be designed according to the traditional multi-tier architectur
-e, in order to guarantee:
+Travlendar+ will consist of many separate components, which can be divided
+ into 
 \end_layout
 
 \begin_layout Itemize
