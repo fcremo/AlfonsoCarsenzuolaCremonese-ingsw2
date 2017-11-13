@@ -1,0 +1,88 @@
+@startuml
+
+actor Guest
+participant WebServer
+participant UserManagementService
+participant NotificationDeliveryService
+participant DatabaseService
+actor User
+
+activate Guest #FFBBBB
+Guest -> WebServer: Registration
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadRegistrationPage
+WebServer --> Guest: ShowRegistrationPage
+deactivate WebServer #FFBBBB
+Guest -> WebServer: InsertInformation
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: InsertedInformation
+deactivate WebServer #FFBBBB
+activate UserManagementService #FFBBBB
+UserManagementService -> UserManagementService: VerifyInformation
+deactivate UserManagementService
+
+alt correct information
+  UserManagementService -> WebServer: CorrectInformation
+  activate WebServer #FFBBBB
+  WebServer --> Guest: NotifyCorrectInformation
+  deactivate WebServer
+  UserManagementService -> NotificationDeliveryService: RequestVerificationEmail
+  activate NotificationDeliveryService #FFBBBB
+  NotificationDeliveryService -> Guest: SendEmailWithCode
+  deactivate NotificationDeliveryService
+  Guest -> WebServer: InsertVerificationCode
+  activate WebServer #FFBBBB
+  WebServer -> UserManagementService: Code
+  deactivate WebServer
+  UserManagementService -> DatabaseService: RequestCode
+  activate DatabaseService #FFBBBB
+  DatabaseService -> UserManagementService: UserCode
+  deactivate DatabaseService
+  UserManagementService -> UserManagementService: VerifyCode
+
+  alt correct verification code
+      UserManagementService -> WebServer: CorrectCode
+      activate WebServer #FFBBBB
+      WebServer --> Guest: CorrectCodeMessage
+      WebServer -> Guest: AcceptingEULA
+      deactivate WebServer
+
+      alt confirmed
+        Guest -> WebServer: Confirmation
+        activate WebServer #FFBBBB
+        WebServer -> UserManagementService: NewUserConfirm
+        deactivate WebServer #FFBBBB
+        activate UserManagementService #FFBBBB
+        UserManagementService -> UserManagementService: <<CreateUser>>
+        UserManagementService -> NotificationDeliveryService: RequestVerificationEmail
+        deactivate UserManagementService
+        activate NotificationDeliveryService #FFBBBB
+        NotificationDeliveryService -> Guest: SendConfirmationEmail
+        deactivate NotificationDeliveryService
+        activate User #FFBBBB
+        activate WebServer #FFBBBB
+        WebServer --> User: ShowLoginPage
+        deactivate User #FFBBBB
+        deactivate WebServer #FFBBBB
+      else not confirmed
+        Guest -> WebServer: Cancellation
+        activate WebServer #FFBBBB
+        WebServer --> Guest: ErrorMessage
+        deactivate WebServer #FFBBBB
+      end
+
+  else incorrect verification code
+    UserManagementService -> WebServer: IncorrectCode
+    activate WebServer #FFBBBB
+    WebServer --> Guest: IncorrectCodeMessage
+    deactivate WebServer
+  end
+
+else incorrect information
+  UserManagementService -> WebServer: IncorrectInformation
+  activate WebServer #FFBBBB
+  WebServer --> Guest: NotifyIncorrectInformation
+  deactivate WebServer
+end
+
+@enduml
