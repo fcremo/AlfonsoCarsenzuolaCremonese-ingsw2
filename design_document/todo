@@ -1,0 +1,11 @@
+App iOS: Swift
+App Android: Kotlin
+Webapp/App Desktop: React / React native
+
+Server
+Architettura a microservices
+Linguaggi: Python, altri da vedere eventualmente
+Framework web, ORM: Django
+Application server: gunicorn (dettaglio da confermare)
+Web server: nginx o caddy
+Database: postgresql
