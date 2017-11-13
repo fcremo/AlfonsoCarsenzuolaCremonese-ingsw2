@@ -1,0 +1,38 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: Login
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadLoginPage
+WebServer --> User: ShowLoginPage
+deactivate WebServer
+User -> WebServer: InsertLoginData
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: InsertedLoginData
+deactivate WebServer
+activate UserManagementService #FFBBBB
+UserManagementService -> DatabaseService: RequestLoginData
+activate DatabaseService #FFBBBB
+DatabaseService -> UserManagementService: LoginData
+deactivate DatabaseService
+UserManagementService -> UserManagementService: VerifyData
+deactivate UserManagementService
+
+alt correct data
+  UserManagementService -> WebServer: CorrectLogin
+  activate WebServer #FFBBBB
+  WebServer --> User: CorrectLoginMessage
+  deactivate WebServer
+else incorrect data
+  UserManagementService -> WebServer: IncorrectLogin
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml
