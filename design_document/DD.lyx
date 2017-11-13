@@ -234,7 +234,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -958,37 +957,25 @@ Overview
 \begin_layout Standard
 Travlendar+ will consist of four logical components, according to the traditiona
 l multi-tier architecture:
-\change_inserted 1604105849 1510567780
-
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510567793
 The client
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510567796
 Web
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510567801
 Application logic
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510568299
 Database
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1510568056
 This design is well known and allows to provide the following characteristics:
 \end_layout
 
@@ -1270,173 +1257,152 @@ Component view
 
 \begin_layout Standard
 Each logical tier is made of several components, to allow reusable design.
-\change_inserted 1604105849 1510568428
-
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1604105849 1510568587
 Client tier
 \end_layout
 
-\begin_layout Standard
-
-\change_inserted 1604105849 1510570042
-Mobile applications, web application and native application
+\begin_layout Itemize
+iOS App
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510570043
-
-\series bold
-PowerEnjoyApp GUI
-\series default
-: this is the graphic interface which let the user send request to the server
- and receive response via mobile application;
+Android App
 \end_layout
 
 \begin_layout Itemize
+Desktop web app
+\end_layout
 
-\change_inserted 1604105849 1510570043
-
-\series bold
-PowerEnjoyWeb GUI
-\series default
-: this is the graphic interface which let the user send request to the server
- and receive response via web browser;
+\begin_layout Itemize
+Desktop native app
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1604105849 1510568611
 Web tier
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1510568655
 Web server providing the web application, uses application logic services
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1604105849 1510569206
 Application logic tier
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510568708
-User managment
+User management service
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510568719
 Authentication
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510568723
 Sign up
 \end_layout
 
 \begin_layout Itemize
+Password reset
+\end_layout
 
-\change_inserted 1604105849 1510568729
-User information
+\begin_layout Itemize
+User information and preferences
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510568854
-Calendar managment
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 1604105849 1510568861
-Calendar notification service
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted 1604105849 1510569872
-Travel planner
+Calendar management service
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+Manages calendars and events
+\end_layout
 
-\change_inserted 1604105849 1510570333
+\end_deeper
+\begin_layout Itemize
+Travel planing service
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Provides travel suggestions
+\end_layout
+
+\begin_layout Itemize
 Uses external API to get itineraries, maps, and travel means information
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510570338
-Travel notification service
+Event notifications service
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
+Generates notifications related to calendar events
+\end_layout
 
-\change_inserted 1604105849 1510570353
+\end_deeper
+\begin_layout Itemize
+Travel notifications service
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Generates travel-related notifications (e.g.
+ if a travel needs to be rescheduled due to a strike)
+\end_layout
+
+\begin_layout Itemize
 Uses external APIs to get travel means informations and weather
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510569246
 Notification delivery service
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
+Pushes notifications to users via email or push
+\end_layout
 
-\change_inserted 1604105849 1510569259
-Taxi reservation
+\end_deeper
+\begin_layout Itemize
+Taxi reservation service
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510569548
 Mobility sharing reservation service
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
+Searches for a vehicle to reserve before the start of a trip
+\end_layout
 
-\change_inserted 1604105849 1510569556
+\end_deeper
+\begin_layout Itemize
 Ticket shop service
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-
-\change_inserted 1604105849 1510569566
-Uses external payment processor
+Links our service, public transport ticketing service and payment processor
 \end_layout
 
 \end_deeper
 \begin_layout Subsubsection
-
-\change_inserted 1604105849 1510569453
-Information tier 
+Information and Data tier 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 1604105849 1510569457
 da rinominare meglio
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -1445,8 +1411,6 @@ da rinominare meglio
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1604105849 1510569527
 Stores our application data and fetches external data such as maps, weather,
  public transport informations, ticket information, taxi information, sharing
  mobility
