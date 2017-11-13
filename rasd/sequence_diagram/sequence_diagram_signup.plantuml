@@ -26,18 +26,18 @@ alt correct information
       System -> Guest: AcceptingEULA
 
       alt confirmed
-        Guest --> System: SendConfermation
+        Guest -> System: Confirm
         activate System #FFBBBB
         System -> System: <<CreateUser>>
-        System -> Guest: SendVerificationEmail
+        System -> Guest: SendConfirmationEmail
         activate User #FFBBBB
         System --> User: ShowLoginPage
         deactivate User #FFBBBB
         deactivate System #FFBBBB
       else not confirmed
-        Guest --> System: SendCancellation
+        Guest -> System: Cancel
         activate System #FFBBBB
-        System -> Guest: ErrorMessage
+        System --> Guest: ErrorMessage
         deactivate System #FFBBBB
       end
 
@@ -46,7 +46,6 @@ alt correct information
   end
 
 else incorrect information
-  activate System #FFBBBB
   System --> Guest: NotifyIncorrectInfo
 end
 
