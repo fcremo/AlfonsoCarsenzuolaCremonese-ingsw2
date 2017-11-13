@@ -234,6 +234,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -955,8 +956,40 @@ Overview
 \end_layout
 
 \begin_layout Standard
-Travlendar+ will consist of many separate components, which can be divided
- into 
+Travlendar+ will consist of four logical components, according to the traditiona
+l multi-tier architecture:
+\change_inserted 1604105849 1510567780
+
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510567793
+The client
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510567796
+Web
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510567801
+Application logic
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568299
+Database
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1604105849 1510568056
+This design is well known and allows to provide the following characteristics:
 \end_layout
 
 \begin_layout Itemize
@@ -1195,7 +1228,7 @@ The interactions between the main components are shown in figure:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1236,22 +1269,26 @@ Component view
 \end_layout
 
 \begin_layout Standard
-We adopted a 
-\shape italic
-top-down
-\shape default
- approach to separate, at least from a logical point of view, different
- set of functionalities.
- Once the system was decomposed into several sub-systems, we adopted a 
-\shape italic
-bottom-up
-\shape default
- approach in order to create more modular and reusable components.
- Here are listed the most relevant components the system has been split
- into.
+Each logical tier is made of several components, to allow reusable design.
+\change_inserted 1604105849 1510568428
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 1604105849 1510568587
+Client tier
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1604105849 1510570042
+Mobile applications, web application and native application
 \end_layout
 
 \begin_layout Itemize
+
+\change_inserted 1604105849 1510570043
 
 \series bold
 PowerEnjoyApp GUI
@@ -1262,6 +1299,8 @@ PowerEnjoyApp GUI
 
 \begin_layout Itemize
 
+\change_inserted 1604105849 1510570043
+
 \series bold
 PowerEnjoyWeb GUI
 \series default
@@ -1269,97 +1308,148 @@ PowerEnjoyWeb GUI
  and receive response via web browser;
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Subsubsection
 
-\series bold
-Authentication Manager
-\series default
-: this is the component responsible for the customer registration and login
- system.
- It handles activities such as creating a new customer account, log into
- the system or deleting an existing account;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-AccountInformation Manager
-\series default
-: this is the component responsible for the customer profile management.
- It handles activities such as editing personal and billing data, enabling/disab
-ling money saving option and consulting reservation history;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-CheckAvailability Manager
-\series default
-, this is the component responsible for searching available cars in a specific
- location;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Reservation Manager
-\series default
-: this is the component that manages each reservation.
- It handles activities such as creating a new reservation, checking the
- active reservation information (such as the remaining time until it expires,
- the reserved car's position and status or the elapsed rental time) and
- terminating the active ones;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Car Manager
-\series default
-: this is the component that check and manage the status of each car by
- communicating with them through the ADS of each present on each car.
- If a car needs any kind of maintenance, it will send a request to an external
- maintenance service;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-ADS_Application Manager
-\series default
-: this is the component which guarantee the correct communication between
- the Server and the ADS Application installed on each ADS on each electric
- car; 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Payment Manager
-\series default
-: this is the component that calculates the fees for the rides at the end
- of each reservation and send a payment request to an external service;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Data Manager
-\series default
-: this is the component where the data is managed and viewed;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Notification Manager
-\series default
-: this is the component that manages all the notifications.
+\change_inserted 1604105849 1510568611
+Web tier
 \end_layout
 
 \begin_layout Standard
-Our application will use Google Maps API to manage information about the
- actors' position.
+
+\change_inserted 1604105849 1510568655
+Web server providing the web application, uses application logic services
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 1604105849 1510569206
+Application logic tier
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568708
+User managment
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568719
+Authentication
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568723
+Sign up
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568729
+User information
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568854
+Calendar managment
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510568861
+Calendar notification service
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569872
+Travel planner
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510570333
+Uses external API to get itineraries, maps, and travel means information
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510570338
+Travel notification service
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510570353
+Uses external APIs to get travel means informations and weather
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569246
+Notification delivery service
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569259
+Taxi reservation
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569548
+Mobility sharing reservation service
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569556
+Ticket shop service
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\change_inserted 1604105849 1510569566
+Uses external payment processor
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+
+\change_inserted 1604105849 1510569453
+Information tier 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1604105849 1510569457
+da rinominare meglio
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1604105849 1510569527
+Stores our application data and fetches external data such as maps, weather,
+ public transport informations, ticket information, taxi information, sharing
+ mobility
 \end_layout
 
 \begin_layout Standard
@@ -1403,16 +1493,6 @@ Component View
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-In this representation, in order to avoid redundancy due a duplication of
- the same elements, we decide to use a different color for the actors to
- enlight the fact that only an active user can have the possibility to reserve
- a car.
 \end_layout
 
 \begin_layout Subsection
