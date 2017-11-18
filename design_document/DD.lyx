@@ -234,6 +234,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -990,7 +991,11 @@ End users will be able to use Travlendar on their mobile devices and desktop
  the two most common operating systems, iOS and Android.
  A desktop web application will be developed using the React framework,
  and the same code will be reused to build a standalone desktop application
- with support for push notifications and better OS integration.
+ with support for push notifications and better OS integration
+\change_inserted 1604105849 1511003373
+ by leveraging the Electron framework
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1190,7 +1195,7 @@ End users will be able to use Travlendar+ on
 \end_layout
 
 \begin_layout Itemize
-Smartphones and tablets running Android 4.4+
+smartphones and tablets running Android 4.4+
 \end_layout
 
 \begin_layout Itemize
@@ -1228,9 +1233,15 @@ Desktop web and native apps
 
 \begin_layout Standard
 The desktop web application will be built using the React framework.
- The desktop application will be built using electron reusing most of the
- code of the web application, adding code to support native functionality
- such as OS integrated notifications UI and push notifications delivery.
+ The desktop application will be built using 
+\change_inserted 1604105849 1511003465
+E
+\change_deleted 1604105849 1511003465
+e
+\change_unchanged
+lectron reusing most of the code of the web application, adding code to
+ support native functionality such as OS integrated notifications UI and
+ push notifications delivery.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1842,87 +1853,207 @@ Component interfaces
 \end_layout
 
 \begin_layout Standard
-In this section we're going to describe the interfaces through which the
- various components of the system communicate.
- For each interface we'll provide a short but exhaustive description of
- the main exposed methods.
+In this section we describe the the APIs provided by each component of the
+ system.
+ A mid-high level view of the main functionalities is presented, and other
+ accessory API endpoints may and will be added during the implementation
+ phase.
+ Endpoints that require authentication are clearly marked at the beginning
+ of the description.
 \end_layout
 
 \begin_layout Subsubsection*
 
 \series bold
-Authentication Manager
+User managment service
+\end_layout
+
+\begin_layout Paragraph*
+Sign up and account managment
+\end_layout
+
+\begin_layout Subparagraph*
+initiate_signup(user_data)
 \end_layout
 
 \begin_layout Standard
-Functions implemented by 
-\series bold
-Authentication Manager
-\series default
-:
-\begin_inset VSpace smallskip
+Creates a new 
+\family typewriter
+unconfirmed user
+\family default
+ in the system with the information provided during the registration phase
+ and sends the verification email.
+\end_layout
+
+\begin_layout Enumerate
+verifies correctness and completeness of the data
+\end_layout
+
+\begin_layout Enumerate
+creates user instance in the database
+\end_layout
+
+\begin_layout Enumerate
+generates a secure random verification code
+\end_layout
+
+\begin_layout Enumerate
+associates the code with the user in the database
+\end_layout
+
+\begin_layout Enumerate
+uses the Event notifications service to send a verification email with the
+ code to the user
+\end_layout
+
+\begin_layout Subparagraph*
+complete_signup(verification_code)
+\end_layout
+
+\begin_layout Standard
+Ends the user signup process by verifying the code sent by email to newly
+ registered users.
+ If the code is correct the corresponding user is marked as verified and
+ will be able to use the service.
+\end_layout
+
+\begin_layout Subparagraph*
+change_password(current_password, new_password)
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that current_password matches the current user password.
+ If it does not match, go to 5.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that new_password is different than the current one and satisfies
+ password strength requirements
+\end_layout
+
+\begin_layout Enumerate
+Stores the new password in the database
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that his password
+ has changed.
+ End.
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that an attempt
+ to change his password is failed.
+\end_layout
+
+\begin_layout Subparagraph*
+initiate_password_recovery(username)
+\end_layout
+
+\begin_layout Standard
+Initiates password recovery procedure for a user.
+\end_layout
+
+\begin_layout Enumerate
+Generates a secure random verification code
+\end_layout
+
+\begin_layout Enumerate
+Associates the code with the username in the database
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to send a verification email to the
+ user containing a link with the verification code
+\end_layout
+
+\begin_layout Subparagraph*
+recover_password(verification_code, new_password)
+\end_layout
+
+\begin_layout Standard
+Allows to change a user password.
+\end_layout
+
+\begin_layout Enumerate
+Checks the verification_code against the database and gets which user it
+ belongs to
+\end_layout
+
+\begin_layout Enumerate
+Asserts that the new password satisfies password strength requirements
+\end_layout
+
+\begin_layout Enumerate
+Changes the user password
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that his password
+ has changed.
+\end_layout
+
+\begin_layout Paragraph*
+Login
+\end_layout
+
+\begin_layout Subparagraph*
+login(user, password)
+\end_layout
+
+\begin_layout Standard
+Verifies the supplied user credentials and, if correct, returns an authenticatio
+n token which can be used (via an HTTP header or cookie) to access other
+ restricted APIs.
+\end_layout
+
+\begin_layout Paragraph*
+Account managment
+\end_layout
+
+\begin_layout Subparagraph*
+get_account_information()
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+ Returns user account informations and preferences.
+\end_layout
+
+\begin_layout Subparagraph*
+update_account_information(user_data)
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+ Updates the account information.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that the user can update the data he has provided
+\end_layout
+
+\begin_layout Enumerate
+Updates the user data
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cose non nostre da qui in avanti
+\end_layout
+
 \end_inset
 
 
-\end_layout
+\change_inserted 1604105849 1511013207
 
-\begin_layout Standard
-
-\family typewriter
-register(UserData)
-\family default
-: This function creates a new 
-\family typewriter
-User
-\family default
- instance in the system with all the information provided by the user during
- the registration phase.
- If the entered data are correct, an email is sent to the user address to
- confirm the correct registration to the service.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-login(Credentials)
-\family default
-: This function allows any registered user to log into the system using
- his 
-\shape italic
-username
-\shape default
- and 
-\shape italic
-password
-\shape default
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-checkCredentials(Credentials)
-\family default
-: This function verifies the 
-\shape italic
-username
-\shape default
- - 
-\shape italic
-password
-\shape default
- combination is correct.
- If the credentials are correct, the function returns a token to be used
- in the future requests to identify the user.
- Otherwise, an error is returned.
 \end_layout
 
 \begin_layout Subsubsection*
