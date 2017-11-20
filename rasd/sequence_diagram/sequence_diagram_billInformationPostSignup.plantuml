@@ -12,26 +12,26 @@ System -> User: AskForBillingInformation
 deactivate System
 
 alt billing info now
-  System --> User: SendRedirectionMessage
+  System --> User: RedirectionMessage
   User -> ExternalService: InsertBillingInformation
   activate ExternalService #FFBBBB
-  ExternalService -> ExternalService: VerifyBillingInformation
+  ExternalService -> ExternalService: VerifyData
   deactivate ExternalService
 
-  alt correct billing information
+  alt correct data
     ExternalService -> System: CorrectBillingInformation
     activate System #FFBBBB
-    System -> User: NotifyCorrectBillingInfo
+    System --> User: NotifyCorrectBillingInfo
     deactivate System
-  else incorrect billing information
+  else incorrect data
     ExternalService -> System: IncorrectBillingInformation
     activate System #FFBBBB
-    System -> User: NotifyInvalidBillingInfo
+    System --> User: NotifyInvalidBillingInfo
     deactivate System
   end
 
 else billing info later
-  System --> User: SendConfermationMessage
+  System --> User: ConfermationMessage
 end
 
 deactivate User

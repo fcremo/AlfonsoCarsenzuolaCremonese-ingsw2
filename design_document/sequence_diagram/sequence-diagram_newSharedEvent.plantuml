@@ -1,0 +1,103 @@
+@startuml
+
+actor User
+participant WebServer
+participant CalendarManagementService
+participant DatabaseService
+participant NotificationDeliveryService
+actor InvitedUser
+
+activate User #FFBBBB
+User -> WebServer: NewEvent
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadNewEventForm
+WebServer --> User: ShowNewEventForm
+deactivate WebServer
+User -> WebServer: InsertInformation
+activate WebServer #FFBBBB
+WebServer -> CalendarManagementService: EventData
+deactivate WebServer
+activate CalendarManagementService #FFBBBB
+CalendarManagementService -> CalendarManagementService: VerifyData
+deactivate CalendarManagementService
+
+alt correct data
+  CalendarManagementService -> WebServer: CorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: DataConfirmation
+  deactivate WebServer
+  User -> WebServer: ShareEvent
+  activate WebServer #FFBBBB
+  WebServer -> WebServer: LoadSharedEventForm
+  WebServer --> User: ShowSharedEventForm
+  deactivate WebServer
+  User -> WebServer: InsertSharedEventInformation
+  activate WebServer #FFBBBB
+  WebServer -> CalendarManagementService: SharedEventInformation
+  deactivate WebServer
+  CalendarManagementService -> CalendarManagementService: VerifyData
+
+  alt correct data
+    CalendarManagementService -> WebServer: CorrectData
+    activate WebServer #FFBBBB
+    WebServer --> User: DataConfirmation
+    deactivate WebServer
+    User -> WebServer: NewEventConfirm
+    activate WebServer #FFBBBB
+    WebServer -> CalendarManagementService: NewEvent
+    activate DatabaseService #FFBBBB
+    CalendarManagementService -> DatabaseService: NewEvent
+    deactivate DatabaseService
+    CalendarManagementService --> WebServer: EventCreated
+    WebServer --> User: ShowCreatedEvent
+    WebServer -> CalendarManagementService: SharedEventCreated
+    deactivate WebServer
+    activate CalendarManagementService #FFBBBB
+    CalendarManagementService -> NotificationDeliveryService: SharedEventCreated
+    deactivate CalendarManagementService
+    activate NotificationDeliveryService #FFBBBB
+    NotificationDeliveryService -> InvitedUser: SendEmailSharedEvent
+    deactivate NotificationDeliveryService
+    activate InvitedUser #FFBBBB
+    InvitedUser -> InvitedUser: EvaluateSharedEvent
+    deactivate InvitedUser
+
+    alt accept event
+      InvitedUser -> CalendarManagementService: AcceptEvent
+      activate CalendarManagementService #FFBBBB
+      activate DatabaseService #FFBBBB
+      CalendarManagementService -> DatabaseService: UpdateSharedEvent
+      deactivate DatabaseService
+      CalendarManagementService -> NotificationDeliveryService: EventAccepted
+      deactivate CalendarManagementService
+      activate NotificationDeliveryService #FFBBBB
+      NotificationDeliveryService -> User: SendConfirmEmail
+      deactivate NotificationDeliveryService
+    else decline event
+      InvitedUser -> CalendarManagementService: DeclineEvent
+      activate CalendarManagementService #FFBBBB
+      activate DatabaseService #FFBBBB
+      CalendarManagementService -> DatabaseService: UpdateSharedEvent
+      deactivate DatabaseService
+      CalendarManagementService -> NotificationDeliveryService: EventDeclined
+      deactivate CalendarManagementService
+      activate NotificationDeliveryService #FFBBBB
+      NotificationDeliveryService -> User: SendDeclineEmail
+      deactivate NotificationDeliveryService
+    end
+
+  else incorrect data
+    CalendarManagementService -> WebServer: IncorrectData
+    activate WebServer #FFBBBB
+    WebServer --> User: Error
+    deactivate WebServer
+  end
+
+else incorrect data
+  CalendarManagementService -> WebServer: IncorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

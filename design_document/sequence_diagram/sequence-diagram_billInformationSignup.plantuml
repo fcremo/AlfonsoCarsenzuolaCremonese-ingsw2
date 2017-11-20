@@ -1,0 +1,43 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant ExternalPaymentService
+
+note over User: After registration
+
+activate User #FFBBBB
+activate WebServer #FFBBBB
+WebServer -> User: AskForBillingInformation
+deactivate WebServer
+
+alt billing info now
+  WebServer --> User: RedirectionMessage
+  User -> ExternalPaymentService: InsertBillingInformation
+  activate ExternalPaymentService #FFBBBB
+  ExternalPaymentService -> ExternalPaymentService: VerifyData
+  deactivate ExternalPaymentService
+
+  alt correct data
+    ExternalPaymentService -> WebServer: CorrectBillingInformation
+    activate WebServer #FFBBBB
+    activate UserManagementService #FFBBBB
+    WebServer -> UserManagementService: InsertedBillingInformation
+    deactivate UserManagementService #FFBBBB
+    WebServer --> User: NotifyCorrectBillingInfo
+    deactivate WebServer
+  else incorrect data
+    ExternalPaymentService -> WebServer: IncorrectBillingInformation
+    activate WebServer #FFBBBB
+    WebServer --> User: NotifyInvalidBillingInfo
+    deactivate WebServer
+  end
+
+else billing info later
+  WebServer --> User: ConfermationMessage
+end
+
+deactivate User
+
+@enduml

@@ -238,6 +238,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 666129059 "Alessandro Alfonso"
 \author 1604105849 "Filippo Cremonese"
 \end_header
 
@@ -1421,12 +1422,105 @@ Runtime view
 \end_layout
 
 \begin_layout Standard
-In this section are explained through Sequence diagrams some of the most
- relevant interactions between components and actors of the system.
- Like in the RASD document, some assumptions are made in order to simplify
- the representation and clarify some aspects; by the way, some of the most
- important features, if considered implicit in a Sequence diagram, are explicitl
-y represented in another one.
+In this section are explained through sequence diagrams some of the most
+ important interactions between components and actors of the system.
+ For semplicity, here we assume that the actor is using the web application.
+\end_layout
+
+\begin_layout Subsubsection*
+Signup Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_signup.plantuml
+	width 100text%
+	height 100cm
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Signup Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Billing Information After Signup Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_billInformationSignup.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Billing Information After Signup Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1442,7 +1536,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/login.png
+	filename sequence_diagram/sequence-diagram_login.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1478,7 +1572,7 @@ Login Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Registration Sequence Diagram
+Edit Personal Information Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1490,7 +1584,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/registration.png
+	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1504,7 +1598,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Registration Sequence Diagram
+Edit Personal Information Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1526,7 +1620,7 @@ Registration Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Check Cars' Availability Sequence Diagram
+Add/Edit Travel Preferences Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1538,7 +1632,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/availability.png
+	filename sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1552,7 +1646,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Check Cars’ Availability Sequence Diagram
+Add/Edit Travel Preferences Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1574,7 +1668,7 @@ Check Cars’ Availability Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Modify Personal Information Sequence Diagram
+Edit Billing Information Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1586,7 +1680,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/editpersonalinfo.png
+	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1600,7 +1694,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modify Personal Information Sequence Diagram
+Edit Billing Information Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1622,7 +1716,7 @@ Modify Personal Information Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Car Reservation Sequence Diagram
+Buy Ticket/Pass Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1634,7 +1728,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/reservecar.png
+	filename sequence_diagram/sequence-diagram_buyTicketPass.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1648,7 +1742,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Car Reservation Sequence Diagram
+Buy Ticket/Pass Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1663,6 +1757,9 @@ Car Reservation Sequence Diagram
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -1670,7 +1767,7 @@ Car Reservation Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Car Unlock Sequence Diagram
+New Standard Event Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1682,7 +1779,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/opencar.png
+	filename sequence_diagram/sequence-diagram_newEvent1.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1696,7 +1793,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Car Unlock Sequence Diagram
+New Standard Event Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1711,6 +1808,9 @@ Car Unlock Sequence Diagram
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
@@ -1718,7 +1818,7 @@ Car Unlock Sequence Diagram
 \end_layout
 
 \begin_layout Subsubsection*
-Car Rental Sequence Diagram
+New Event With Sharing Services Sequence Diagram
 \end_layout
 
 \begin_layout Standard
@@ -1730,7 +1830,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/Sequence Diagrams/rental.png
+	filename sequence_diagram/sequence-diagram_newEvent2.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1744,7 +1844,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Car Rental Sequence Diagram
+New Event With Sharing Services Sequence Diagram
 \end_layout
 
 \end_inset
@@ -1765,6 +1865,263 @@ Car Rental Sequence Diagram
 \begin_inset Newpage newpage
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsubsection*
+New Event With Flexible Option Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_newEvent3.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New Event With Flexible Option Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+New Shared Event With Invitation Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_newSharedEvent.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+New Shared Event With Invitation Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Edit Event Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_editEvent.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Edit Event Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Delete Event Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_deleteEvent.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Delete Event Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Contact Customer Service Sequence Diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sequence_diagram/sequence-diagram_customerService.plantuml
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Contact Customer Service Sequence Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\change_inserted 666129059 1511170016
 
 \end_layout
 

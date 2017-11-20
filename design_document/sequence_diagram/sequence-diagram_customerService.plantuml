@@ -1,0 +1,33 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+
+activate User #FFBBBB
+User -> WebServer: ContactCustomerService
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadCustomerServicePage
+WebServer --> User: ShowCustomerServicePage
+deactivate WebServer
+User -> WebServer: InsertRequest
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: HelpRequest
+deactivate WebServer
+activate UserManagementService #FFBBBB
+UserManagementService -> UserManagementService: VerifyData
+deactivate UserManagementService
+
+alt correct data
+  UserManagementService -> WebServer: CorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: ShowRequestConfermation
+  deactivate WebServer
+else incorrect data
+  UserManagementService -> WebServer: IncorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

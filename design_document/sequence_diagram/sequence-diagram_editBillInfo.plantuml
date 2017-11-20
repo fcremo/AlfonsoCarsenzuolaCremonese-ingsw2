@@ -1,0 +1,43 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant NotificationDeliveryService
+participant ExternalPaymentService
+
+activate User #FFBBBB
+User -> WebServer: PersonalArea
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadPersonalArea
+WebServer --> User: ShowPersonalAreaPage
+deactivate WebServer
+User -> WebServer: EditBillingInformation
+activate WebServer #FFBBBB
+WebServer --> User: RedirectionMessage
+deactivate WebServer
+User -> ExternalPaymentService: InsertNewBillingInformation
+activate ExternalPaymentService #FFBBBB
+ExternalPaymentService -> ExternalPaymentService: VerifyData
+deactivate ExternalPaymentService
+
+alt correct data
+  ExternalPaymentService -> WebServer: CorrectBillingInformation
+  activate WebServer #FFBBBB
+  activate UserManagementService #FFBBBB
+  WebServer -> UserManagementService: InsertedBillingInformation
+  deactivate UserManagementService #FFBBBB
+  WebServer --> User: ShowNewBillingInformation
+  WebServer -> NotificationDeliveryService: RequestNotificationEmail
+  deactivate WebServer
+  activate NotificationDeliveryService #FFBBBB
+  NotificationDeliveryService -> User: NotificationEmail
+  deactivate NotificationDeliveryService
+else incorrect data
+  ExternalPaymentService -> WebServer: IncorrectBillingInformation
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

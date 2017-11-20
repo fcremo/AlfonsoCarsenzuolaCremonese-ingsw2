@@ -1,0 +1,49 @@
+@startuml
+
+actor User
+participant WebServer
+participant CalendarManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: SelectEvent
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadSelectedEvent
+WebServer --> User: ShowSelectedEvent
+deactivate WebServer
+User -> WebServer: EditEvent
+activate WebServer #FFBBBB
+WebServer -> CalendarManagementService: RequestEventData
+activate CalendarManagementService #FFBBBB
+CalendarManagementService -> DatabaseService: RequestEventData
+activate DatabaseService #FFBBBB
+DatabaseService -> CalendarManagementService: EventData
+deactivate DatabaseService
+CalendarManagementService -> WebServer: EventData
+deactivate CalendarManagementService
+WebServer --> User: ShowEditableEventInformation
+deactivate WebServer
+User -> WebServer: InsertEditatedInformation
+activate WebServer #FFBBBB
+WebServer -> CalendarManagementService: EditatedInformation
+deactivate WebServer
+activate CalendarManagementService #FFBBBB
+CalendarManagementService -> CalendarManagementService: VerifyData
+deactivate CalendarManagementService
+
+alt correct data
+  CalendarManagementService -> WebServer: CorrectData
+  activate WebServer #FFBBBB
+  activate DatabaseService #FFBBBB
+  WebServer -> DatabaseService: UpdateEvent
+  deactivate DatabaseService
+  WebServer --> User: ShowEditatedEvent
+  deactivate WebServer
+else incorrect data
+  CalendarManagementService -> WebServer: IncorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

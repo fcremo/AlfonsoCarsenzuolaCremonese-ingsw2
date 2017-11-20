@@ -6,6 +6,7 @@ participant System
 activate User #FFBBBB
 User -> System: NewEvent
 activate System #FFBBBB
+System -> System: LoadNewEventForm
 System --> User: ShowNewEventForm
 deactivate System
 User -> System: InsertInformation

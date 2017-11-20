@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+participant WebServer
+participant CalendarManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: SelectEvent
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadSelectedEvent
+WebServer --> User: ShowSelectedEvent
+deactivate WebServer
+User -> WebServer: DeleteEvent
+activate WebServer #FFBBBB
+WebServer -> User: RequestDeletionConfirm
+User -> WebServer: DeletionConfirm
+WebServer -> CalendarManagementService: EventDeletion
+activate CalendarManagementService #FFBBBB
+activate DatabaseService #FFBBBB
+CalendarManagementService -> DatabaseService: DeleteEvent
+deactivate DatabaseService
+CalendarManagementService --> WebServer: EventDeleted
+deactivate CalendarManagementService
+WebServer --> User: ShowDeletionPerformedConfirm
+deactivate WebServer
+
+@enduml
