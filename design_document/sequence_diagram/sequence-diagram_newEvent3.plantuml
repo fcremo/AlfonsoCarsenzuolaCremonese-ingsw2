@@ -1,0 +1,65 @@
+@startuml
+
+actor User
+participant WebServer
+participant CalendarManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: NewEvent
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadNewEventForm
+WebServer --> User: ShowNewEventForm
+deactivate WebServer
+User -> WebServer: InsertInformation
+activate WebServer #FFBBBB
+WebServer -> CalendarManagementService: EventData
+deactivate WebServer
+activate CalendarManagementService #FFBBBB
+CalendarManagementService -> CalendarManagementService: VerifyData
+deactivate CalendarManagementService
+
+alt correct data
+  CalendarManagementService -> WebServer: CorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: DataConfirmation
+  deactivate WebServer
+  User -> WebServer: FlexibleEvent
+  activate WebServer #FFBBBB
+  WebServer --> User: ShowFlexibleEventForm
+  deactivate WebServer
+  User -> WebServer: InsertFlexibleEventInformation
+  activate WebServer #FFBBBB
+  WebServer -> CalendarManagementService: FlexibleEventData
+  deactivate WebServer
+  CalendarManagementService -> CalendarManagementService: VerifyData
+
+  alt correct data
+    CalendarManagementService -> WebServer: CorrectData
+    activate WebServer #FFBBBB
+    WebServer --> User: FlexibleEventInformationConfirmation
+    deactivate WebServer
+  else incorrect data
+    CalendarManagementService -> WebServer: IncorrectData
+    activate WebServer #FFBBBB
+    WebServer --> User: Error
+    deactivate WebServer
+  end
+
+  User -> WebServer: NewEventConfirm
+  activate WebServer #FFBBBB
+  WebServer -> CalendarManagementService: NewEvent
+  activate DatabaseService #FFBBBB
+  CalendarManagementService -> DatabaseService: NewEvent
+  deactivate DatabaseService
+  CalendarManagementService --> WebServer: EventCreated
+  WebServer --> User: ShowCreatedEvent
+  deactivate WebServer
+else incorrect data
+  CalendarManagementService -> WebServer: IncorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

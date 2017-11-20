@@ -1,0 +1,54 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant DatabaseService
+participant TicketShopService
+participant PaymentProcessor
+
+activate User #FFBBBB
+User -> WebServer: PersonalArea
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadPersonalArea
+WebServer --> User: ShowPersonalAreaPage
+deactivate WebServer
+User -> WebServer: BuyTicketPass
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadTicketPassChoicePage
+WebServer --> User: ShowTicketPassChoicePage
+deactivate WebServer
+User -> WebServer: ChooseTicketsPasses
+activate WebServer #FFBBBB
+WebServer -> TicketShopService: TicketsPasses
+deactivate WebServer
+activate TicketShopService #FFBBBB
+TicketShopService -> PaymentProcessor: PaymentRequest
+deactivate TicketShopService
+activate PaymentProcessor #FFBBBB
+PaymentProcessor -> PaymentProcessor: VerifyRequest
+deactivate PaymentProcessor
+
+alt correct payment
+  PaymentProcessor -> TicketShopService: PaymentAccepted
+  activate TicketShopService #FFBBBB
+  TicketShopService -> WebServer: RequestAccepted
+  deactivate TicketShopService
+  activate WebServer #FFBBBB
+  WebServer -> UserManagementService: TicketsPassesData
+  activate UserManagementService #FFBBBB
+  activate DatabaseService #FFBBBB
+  UserManagementService -> DatabaseService: UploadData
+  deactivate UserManagementService
+  deactivate DatabaseService
+
+  WebServer --> User: DataConfirmation
+  deactivate WebServer
+else incorrect payment
+  PaymentProcessor -> WebServer: RequestDeclined
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

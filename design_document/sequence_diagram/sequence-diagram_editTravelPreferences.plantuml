@@ -1,0 +1,49 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: PersonalArea
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadPersonalArea
+WebServer --> User: ShowPersonalAreaPage
+deactivate WebServer
+User -> WebServer: EditTravelPreferences
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: RequestUserTravelPreferences
+activate UserManagementService #FFBBBB
+UserManagementService -> DatabaseService: RequestUserPreferences
+activate DatabaseService #FFBBBB
+DatabaseService -> UserManagementService: UserPreferences
+deactivate DatabaseService
+UserManagementService -> WebServer: UserTravelPreferences
+deactivate UserManagementService
+WebServer --> User: ShowEditablePreferencesForm
+deactivate WebServer
+User -> WebServer: InsertEditatedPreferences
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: EditatedPreferences
+deactivate WebServer
+activate UserManagementService #FFBBBB
+UserManagementService -> UserManagementService: VerifyData
+deactivate UserManagementService
+
+alt correct data
+  UserManagementService -> DatabaseService: UploadPreferences
+  activate DatabaseService #FFBBBB
+  UserManagementService -> WebServer: CorrectInsertedPreferences
+  deactivate DatabaseService
+  activate WebServer #FFBBBB
+  WebServer --> User: ShowNewTravelPreferences
+  deactivate WebServer
+else incorrect data
+  UserManagementService -> WebServer: IncorrectInsertedPreferences
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

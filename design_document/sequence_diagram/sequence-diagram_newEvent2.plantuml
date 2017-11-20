@@ -1,0 +1,91 @@
+@startuml
+
+actor User
+participant WebServer
+participant CalendarManagementService
+participant DatabaseService
+participant TravelPlanningService
+participant MobilitySharingService
+participant ExternalRoutingService
+participant ExternalSharingService
+
+activate User #FFBBBB
+User -> WebServer: NewEvent
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadNewEventForm
+WebServer --> User: ShowNewEventForm
+deactivate WebServer
+User -> WebServer: InsertInformation
+activate WebServer #FFBBBB
+WebServer -> CalendarManagementService: EventData
+deactivate WebServer
+activate CalendarManagementService #FFBBBB
+CalendarManagementService -> CalendarManagementService: VerifyData
+deactivate CalendarManagementService
+
+alt correct data
+  CalendarManagementService -> WebServer: CorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: DataConfirmation
+  deactivate WebServer
+  User -> WebServer: SuggestedRoutes
+  activate WebServer #FFBBBB
+  WebServer -> TravelPlanningService: RequestRoutes
+  activate TravelPlanningService #FFBBBB
+  TravelPlanningService -> ExternalRoutingService: RequestRoutes
+  activate ExternalRoutingService #FFBBBB
+  ExternalRoutingService -> TravelPlanningService: SentRoutes
+  deactivate ExternalRoutingService
+  TravelPlanningService -> WebServer: SentRoutes
+  deactivate TravelPlanningService
+  WebServer --> User: ShowRoutes
+  deactivate WebServer
+
+  alt accept sharing
+    User -> WebServer: MobilitySharingServices
+    activate WebServer #FFBBBB
+    WebServer -> MobilitySharingService: RequestMobilitySharingServices
+    activate MobilitySharingService #FFBBBB
+    MobilitySharingService -> ExternalSharingService: RequestMobilitySharingServices
+    activate ExternalSharingService #FFBBBB
+    ExternalSharingService -> MobilitySharingService: SentSharingAvailableServices
+    deactivate ExternalSharingService
+    MobilitySharingService -> WebServer: SentSharingAvailableServices
+    deactivate MobilitySharingService
+    WebServer --> User: ShowSharingAvailableServices
+    deactivate WebServer
+    User -> WebServer: AutoReservation
+    activate WebServer #FFBBBB
+    WebServer -> MobilitySharingService: ActivateAutoReservation
+    activate MobilitySharingService #FFBBBB
+    deactivate MobilitySharingService
+    WebServer --> User: AutoReservationConfirmation
+    deactivate WebServer
+    User -> WebServer: SelectMobilitySharingServices
+    activate WebServer #FFBBBB
+    WebServer -> MobilitySharingService: SelectedMobilitySharingServices
+    activate MobilitySharingService #FFBBBB
+    deactivate MobilitySharingService
+    WebServer --> User: SelectedMobilitySharingServicesConfirmation
+    deactivate WebServer
+  else decline sharing
+    User -> WebServer: DeclineMobilitySharingServices
+  end
+
+  User -> WebServer: NewEventConfirm
+  activate WebServer #FFBBBB
+  WebServer -> CalendarManagementService: NewEvent
+  activate DatabaseService #FFBBBB
+  CalendarManagementService -> DatabaseService: NewEvent
+  deactivate DatabaseService
+  CalendarManagementService --> WebServer: EventCreated
+  WebServer --> User: ShowCreatedEvent
+  deactivate WebServer
+else incorrect data
+  CalendarManagementService -> WebServer: IncorrectData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

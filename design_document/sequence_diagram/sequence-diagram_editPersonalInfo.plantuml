@@ -1,0 +1,49 @@
+@startuml
+
+actor User
+participant WebServer
+participant UserManagementService
+participant DatabaseService
+
+activate User #FFBBBB
+User -> WebServer: PersonalArea
+activate WebServer #FFBBBB
+WebServer -> WebServer: LoadPersonalArea
+WebServer --> User: ShowPersonalAreaPage
+deactivate WebServer
+User -> WebServer: EditPersonalInformation
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: RequestPersonalUserInformation
+activate UserManagementService #FFBBBB
+UserManagementService -> DatabaseService: RequestUserData
+activate DatabaseService #FFBBBB
+DatabaseService -> UserManagementService: UserData
+deactivate DatabaseService
+UserManagementService -> WebServer: PersonalUserInformation
+deactivate UserManagementService
+WebServer --> User: ShowEditableInformationForm
+deactivate WebServer
+User -> WebServer: InsertEditatedInformation
+activate WebServer #FFBBBB
+WebServer -> UserManagementService: EditatedInformation
+deactivate WebServer
+activate UserManagementService #FFBBBB
+UserManagementService -> UserManagementService: VerifyData
+deactivate UserManagementService
+
+alt correct data
+  UserManagementService -> DatabaseService: UploadData
+  activate DatabaseService #FFBBBB
+  UserManagementService -> WebServer: CorrectInsertedData
+  deactivate DatabaseService
+  activate WebServer #FFBBBB
+  WebServer --> User: ShowNewPersonalInformation
+  deactivate WebServer
+else incorrect data
+  UserManagementService -> WebServer: IncorrectInsertedData
+  activate WebServer #FFBBBB
+  WebServer --> User: Error
+  deactivate WebServer
+end
+
+@enduml

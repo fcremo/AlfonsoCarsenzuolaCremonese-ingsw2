@@ -8,6 +8,7 @@ participant SharingService
 activate User #FFBBBB
 User -> System: NewEvent
 activate System #FFBBBB
+System -> System: LoadNewEventForm
 System --> User: ShowNewEventForm
 deactivate System
 User -> System: InsertInformation
@@ -45,7 +46,6 @@ alt correct data
     User -> System: DeclineSharingServices
   end
 
-  System --> User: DataConfirmation
   User -> System: NewEventConfirm
   System --> User: ShowCreatedEvent
 else incorrect data
