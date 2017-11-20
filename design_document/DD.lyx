@@ -65,6 +65,10 @@ breakatwhitespace=true,
 tabsize=3 }
 
 % _____________________________
+
+\usepackage[math]{cellspace}
+    \cellspacetoplimit 4pt
+    \cellspacebottomlimit 4pt
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -695,23 +699,6 @@ This document describes the details of the proposed implementation of Travlendar
 \end_layout
 
 \begin_layout Subsection
-Document structure
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TBD
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 Scope
 \end_layout
 
@@ -720,12 +707,110 @@ Scope
 status open
 
 \begin_layout Plain Layout
-TBD (should we copy paste from the RASD?)
+TBD (right now it's copy-pasted from the RASD)
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Travlendar+ will be available on all the most used platforms (mobile and
+ desktop).
+ Other apps that partially cover Travlendar+ functionality already exist:
+\end_layout
+
+\begin_layout Itemize
+calendar apps that provide weather information
+\end_layout
+
+\begin_layout Itemize
+public transport assistants (e.g.
+ Citymapper.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+public transport ticketing apps
+\end_layout
+
+\begin_layout Itemize
+navigation apps (e.g.
+ Google Maps.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+taxi apps (e.g.
+ MyTaxi, Uber.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+sharing mobility services applications (e.g.
+ Enjoy, Mobike.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:References"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Altough applications such as Citymapper or Google Maps already offer an
+ excellent user experience, none of those apps allow to seamlessly schedule
+ an appointment while keeping track of weather and travel times.
+ Moreover, ticketing apps for public transportation are often poorly built,
+ which increases the need for the in-app ticket purchase functionality in
+ Travlendar+.
+ The existing sharing mobility services don't offer the possibility to automatic
+ally reserve the nearest vehicle at a certain date and time.
+\end_layout
+
+\begin_layout Standard
+The system will need to interact with external entities and events beyond
+ of our control (public transportation, sharing mobility services, weather)
+ which can disrupt user experience.
+ The specifications of the service are based upon the assumption that most
+ of the time those external entities will behave as expected (documented
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Assumptions and dependencies"
+
+\end_inset
+
+).
+ When one or some external services won't behave as expected, the application
+ will work the same but in a dregradated state.
+ If it is possible the system should notify the user that the application
+ will work in a limited way (and tells him which services are unaviable).
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -764,182 +849,6 @@ Mandatory Project Assignments.pdf
 : Project assignments
 \end_layout
 
-\begin_layout Subsection
-Brief description
-\end_layout
-
-\begin_layout Standard
-This document describes design process for PowerEnjoy project based on the
- requirements described in the RASD.
- It is divided into four sections, following 
-\shape italic
-IEEE
-\shape default
- standard:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Architecture Design
-\series default
-, which describes the structure of the system, highlighting software elements
- and relations among them and their properties;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Data Design
-\series default
-, which describes the chosen data structures, dictated by attributes and
- relationships among data objects;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Interface Design
-\series default
-, which describes either internal or external program interfaces;
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Procedural Design
-\series default
-, which describes procedural details using graphical notations that facilitates
- translation to code.
-\end_layout
-
-\begin_layout Subsection
-Document Structure
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Introduction
-\series default
-: this section introduces the design document.
- It contains a justification of his utility and indications on which parts
- are covered in this document that are not covered by RASD.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Architecture Design
-\series default
-: this section is divided into different parts.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\shape italic
-Overview
-\shape default
-: this sections explains the division in tiers of our application.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-High level components and their interaction
-\shape default
-: this sections gives a global view of the components of the application
- and how they communicate.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Component view
-\shape default
-: this sections gives a more detailed view of the components of the applications.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Deploying view
-\shape default
-: this section shows the components that must be deployed to have the applicatio
-n running correctly.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Runtime view
-\shape default
-: this section shows the course of the different tasks of our application
- through several sequence diagrams .
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Component interfaces
-\shape default
-: this section shows the interfaces between the components.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Selected architectural styles and patterns
-\shape default
-: this section explain the architectural choices taken during the creation
- of the application.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-Other design decisions 
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Algorithms Design
-\series default
-: this section describes the most critical parts via some algorithms.
- Pseudo code is used in order to hide unnecessary implementation details
- in order to focus on the most important parts.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-User Interface Design
-\series default
-: this section presents mockups and user experience explained via UX and
- BCE diagrams.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Requirements Traceability
-\series default
-: this section aims to explain how the decisions taken in the RASD are linked
- to design elements.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Appendix
-\series default
-: in this section will be listed the different tools we used and the hours
- of work spent by each member of the team.
-\end_layout
-
 \begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
@@ -956,7 +865,7 @@ Logical components overview
 \end_layout
 
 \begin_layout Standard
-Travlendar+ will consist of five logical components, following a traditional
+Travlendar+ will consist of several logical components, following a traditional
  multi-tier architecture:
 \end_layout
 
@@ -965,7 +874,7 @@ Client UI
 \end_layout
 
 \begin_layout Itemize
-Web server
+Web server, load balancer and reverse proxy
 \end_layout
 
 \begin_layout Itemize
@@ -991,21 +900,23 @@ End users will be able to use Travlendar on their mobile devices and desktop
  the two most common operating systems, iOS and Android.
  A desktop web application will be developed using the React framework,
  and the same code will be reused to build a standalone desktop application
- with support for push notifications and better OS integration
-\change_inserted 1604105849 1511003373
- by leveraging the Electron framework
-\change_unchanged
-.
+ with support for push notifications and better OS integration by leveraging
+ the Electron framework.
 \end_layout
 
 \begin_layout Subsubsection*
-Web server
+Web server, load balancer and reverse proxy
 \end_layout
 
 \begin_layout Standard
-The web application will fetch code and other resources from a web server.
- The web server will implement almost no application logic, instead using
- the same APIs as the mobile applications.
+In a first moment we will deploy a single Nginx web server and there will
+ be no load balancer.
+ The web application will fetch resources (HTML, CSS, JS, images, ...) from
+ the web server, which will implement no application logic, forwarding API
+ requests to the appropriate backend service instead.
+ When the need will arise more machines will be provisioned as web servers
+ and/or API service providers and Nginx will be configured to balance the
+ load between them.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1013,8 +924,8 @@ APIs (application logic)
 \end_layout
 
 \begin_layout Standard
-Most of Travlendar+ functionality will be implemented as many small services
- reachable by HTTP APIs.
+Server side Travlendar+ functionality will be implemented as many services
+ reachable as HTTP REST APIs.
  Each service will implement a specific functionality (see section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1025,6 +936,7 @@ reference "subsec:APIs-(application-logic)"
  for more details on how the services will be split).
  Each service will depend only on the public APIs provided by other internal
  and external services.
+ We will use Python and leverage the Flask framework.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1035,6 +947,7 @@ Database
 All the services will store and fetch data from a single logical database.
  Physically the database will be replicated over multiple machines, allowing
  to distribute load and avoid having a single point of failure.
+ We will use MariaDB as DBMS.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1042,7 +955,7 @@ External APIs and data sources
 \end_layout
 
 \begin_layout Standard
-Travlendar+ will rely on many external services for:
+Travlendar+ will rely on external services for:
 \end_layout
 
 \begin_layout Itemize
@@ -1233,23 +1146,18 @@ Desktop web and native apps
 
 \begin_layout Standard
 The desktop web application will be built using the React framework.
- The desktop application will be built using 
-\change_inserted 1604105849 1511003465
-E
-\change_deleted 1604105849 1511003465
-e
-\change_unchanged
-lectron reusing most of the code of the web application, adding code to
- support native functionality such as OS integrated notifications UI and
- push notifications delivery.
+ The desktop application will be built using Electron reusing most of the
+ code of the web application, adding code to support native functionality
+ such as OS integrated notifications.
 \end_layout
 
 \begin_layout Subsubsection
-Web tier
+Web server, load balancer and reverse proxy
 \end_layout
 
 \begin_layout Standard
-Web server providing the web application, uses application logic services
+An Nginx web server will serve the web application resources (HTML, CSS,
+ JS, ...) and proxy incoming requests to the HTTP APIs.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1369,6 +1277,14 @@ Links our service, public transport ticketing service and payment processor
 
 \end_deeper
 \begin_layout Subsubsection
+Database
+\end_layout
+
+\begin_layout Standard
+We will use MariaDB as DBMS for storing data.
+\end_layout
+
+\begin_layout Subsubsection
 Information and Data tier 
 \begin_inset Note Note
 status open
@@ -1429,6 +1345,10 @@ Component View
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+External APIs and data sources
 \end_layout
 
 \begin_layout Subsection
@@ -1856,8 +1776,7 @@ Component interfaces
 In this section we describe the the APIs provided by each component of the
  system.
  A mid-high level view of the main functionalities is presented, and other
- accessory API endpoints may and will be added during the implementation
- phase.
+ trivial API endpoints may and will be added during the implementation phase.
  Endpoints that require authentication are clearly marked at the beginning
  of the description.
 \end_layout
@@ -1868,60 +1787,141 @@ In this section we describe the the APIs provided by each component of the
 User managment service
 \end_layout
 
-\begin_layout Paragraph*
-Sign up and account managment
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Vertical cell spacing
 \end_layout
 
-\begin_layout Subparagraph*
-initiate_signup(user_data)
+\begin_layout Plain Layout
+
+{
+\backslash
+renewcommand{
+\backslash
+arraystretch}{2}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none" width="100col%">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sign up and account managment
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+initiate_signup(user_data)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Creates a new 
 \family typewriter
 unconfirmed user
 \family default
  in the system with the information provided during the registration phase
- and sends the verification email.
-\end_layout
-
-\begin_layout Enumerate
-verifies correctness and completeness of the data
-\end_layout
-
-\begin_layout Enumerate
-creates user instance in the database
-\end_layout
-
-\begin_layout Enumerate
-generates a secure random verification code
-\end_layout
-
-\begin_layout Enumerate
-associates the code with the user in the database
-\end_layout
-
-\begin_layout Enumerate
-uses the Event notifications service to send a verification email with the
+ and sends the verification email.verifies correctness and completeness of
+ the datacreates user instance in the databasegenerates a secure random
+ verification codeassociates the code with the user in the databaseuses
+ the Notifications delivery service to send a verification email with the
  code to the user
 \end_layout
 
-\begin_layout Subparagraph*
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 complete_signup(verification_code)
 \end_layout
 
-\begin_layout Standard
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Ends the user signup process by verifying the code sent by email to newly
  registered users.
  If the code is correct the corresponding user is marked as verified and
  will be able to use the service.
 \end_layout
 
-\begin_layout Subparagraph*
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 change_password(current_password, new_password)
 \end_layout
 
-\begin_layout Standard
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Requires authentication.
 \end_layout
 
@@ -1940,21 +1940,33 @@ Stores the new password in the database
 \end_layout
 
 \begin_layout Enumerate
-Uses the Event notifications service to inform the user that his password
+Uses the Notifications delivery service to inform the user that his password
  has changed.
  End.
 \end_layout
 
 \begin_layout Enumerate
-Uses the Event notifications service to inform the user that an attempt
+Uses the Notifications delivery service to inform the user that an attempt
  to change his password is failed.
 \end_layout
 
-\begin_layout Subparagraph*
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 initiate_password_recovery(username)
 \end_layout
 
-\begin_layout Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Initiates password recovery procedure for a user.
 \end_layout
 
@@ -1967,16 +1979,28 @@ Associates the code with the username in the database
 \end_layout
 
 \begin_layout Enumerate
-Uses the Event notifications service to send a verification email to the
- user containing a link with the verification code
+Uses the Notifications delivery service to send a verification email to
+ the user containing a link with the verification code
 \end_layout
 
-\begin_layout Subparagraph*
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 recover_password(verification_code, new_password)
 \end_layout
 
-\begin_layout Standard
-Allows to change a user password.
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Allows to recover a user password.
 \end_layout
 
 \begin_layout Enumerate
@@ -1993,42 +2017,176 @@ Changes the user password
 \end_layout
 
 \begin_layout Enumerate
-Uses the Event notifications service to inform the user that his password
+Uses the Notifications delivery service to inform the user that his password
  has changed.
 \end_layout
 
-\begin_layout Paragraph*
-Login
-\end_layout
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
-\begin_layout Subparagraph*
-login(user, password)
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Login
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+login(user, password)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Verifies the supplied user credentials and, if correct, returns an authenticatio
 n token which can be used (via an HTTP header or cookie) to access other
  restricted APIs.
 \end_layout
 
-\begin_layout Paragraph*
-Account managment
-\end_layout
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
-\begin_layout Subparagraph*
-get_account_information()
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Account managment
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+get_account_information()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Requires authentication.
  Returns user account informations and preferences.
 \end_layout
 
-\begin_layout Subparagraph*
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 update_account_information(user_data)
 \end_layout
 
-\begin_layout Standard
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Requires authentication.
  Updates the account information.
 \end_layout
@@ -2039,6 +2197,744 @@ Verifies that the user can update the data he has provided
 
 \begin_layout Enumerate
 Updates the user data
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Calendar managment service
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Vertical cell spacing
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+renewcommand{
+\backslash
+arraystretch}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+create_calendar(calendar_name)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Creates a new calendar for the authenticated user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+get_calendars()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Returns the calendars accessible by the authenticated user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+delete_calendar(calendar_id)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Deletes a calendar belonging to the authenticated user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+create_event(event_details, calendar_id)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Adds an event to a calendar.
+\end_layout
+
+\begin_layout Enumerate
+Verifies correctness and completness of the event details (e.g.
+ the event must have a name, coherent start/end dates, ...)
+\end_layout
+
+\begin_layout Enumerate
+Verifies that the calendar belongs to the authenticated user
+\end_layout
+
+\begin_layout Enumerate
+Adds the event to the calendar, saving it in the database
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+get_events(query)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Returns the events matching the given query.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+delete_event(event_id)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Deletes an event that belongs to the authenticated user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+update_event(event_id, event_details)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Requires authentication.
+ Updates an event belonging to the authenticated user.
+\end_layout
+
+\begin_layout Enumerate
+Verifies correctness of the updated event details
+\end_layout
+
+\begin_layout Enumerate
+Verifies that the event belongs to the authenticated user
+\end_layout
+
+\begin_layout Enumerate
+Updates the event details
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Da aggiungere altri endpoint relativi agli eventi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Travel planning service
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Vertical cell spacing
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+renewcommand{
+\backslash
+arraystretch}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+get_travel_suggestions(start_location, end_location, travel_start_time[,
+ travel_preferences])
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Returns travel suggestions, combining results from external services.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+schedule_shared_reservation(location, datetime, event_id, vehicle_type)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Schedules a reservation of a shared vehicle associated to an event
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+schedule_taxi_reservation(location, datetime, event_id)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Schedules the reservation of a taxi associated to an event
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Notification delivery service
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Vertical cell spacing
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+renewcommand{
+\backslash
+arraystretch}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+send_push(username, notification)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Sends a push notification to the user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+send_email(username, notification)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Sends an email notification to the user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+send_notification(username, notification)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Send a notification to the user, accounting for their preference when it
+ comes to sending an email or a push or both.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Ticket shop service
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Vertical cell spacing
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+renewcommand{
+\backslash
+arraystretch}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="left" valignment="middle" width="65text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Endpoint
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_deleted 1604105849 1511174925
+send_push(username, notification)
+\change_inserted 1604105849 1511174940
+get_tickets_for(line)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Sends a push notification to the user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_deleted 1604105849 1511174946
+send_email(username, notification)
+\change_inserted 1604105849 1511174949
+get_
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Sends an email notification to the user.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+send_notification(username, notification)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Internal API callable only by other services.
+ Send a notification to the user, accounting for their preference when it
+ comes to sending an email or a push or both.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Event notifications service
+\end_layout
+
+\begin_layout Standard
+This service does not expose any endpoints.
+\end_layout
+
+\begin_layout Subsubsection*
+Travel notifications service
+\end_layout
+
+\begin_layout Standard
+This service does not expose any endpoints.
+\end_layout
+
+\begin_layout Subsubsection*
+Taxi reservations service
+\end_layout
+
+\begin_layout Standard
+This service does not expose any endpoints.
+\end_layout
+
+\begin_layout Subsubsection*
+Mobility sharing reservation service
+\end_layout
+
+\begin_layout Standard
+This service does not expose any endpoints.
 \end_layout
 
 \begin_layout Standard
@@ -2052,837 +2948,6 @@ Cose non nostre da qui in avanti
 \end_inset
 
 
-\change_inserted 1604105849 1511013207
-
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-AccountInformation Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-AccountInformation Manager
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-remove(User)
-\family default
-: This function deletes the 
-\family typewriter
-User
-\family default
- from the system.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-activate(User)
-\family default
-: This function restores the privileges of the 
-\family typewriter
-User
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-deactivate(User)
-\family default
-: This function removes some of the privileges from the 
-\family typewriter
-User
-\family default
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-editProfile(User, UserData)
-\family default
-: This function updates the existent 
-\family typewriter
-User
-\family default
- instance in the system with all the new information provided by the 
-\family typewriter
-UserData
-\family default
- object.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-getHistory(User)
-\family default
-: This function allows a registered 
-\family typewriter
-User
-\family default
- to consult his complete requests history.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-enableMSO(User):
-\family default
-This function enables the Money Saving Option for the 
-\family typewriter
-User
-\family default
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-disableMSO(User):
-\family default
-This function disables the Money Saving Option for the 
-\family typewriter
-User
-\family default
-.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-CheckAvailability Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-CheckAvailability Manager
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-getUserPosition(User)
-\family default
-: This function will retrieve the information about the user’s position
- through the Google Maps API.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-getAvailableCars(Location)
-\family default
-: This function will retrieve the needed information through the Car Manager
- and it will return a list of 
-\shape italic
-available
-\shape default
- cars near the user's 
-\family typewriter
-Location
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-Reservation Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-Reservation Manager
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-checkVerificationCode(User, int)
-\family default
-: This function verifies the 
-\family typewriter
-User
-\family default
- - 
-\shape italic
-verification
-\shape default
- 
-\shape italic
-code
-\shape default
- combination is correct.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-getUserPosition(User)
-\family default
-: This function will retrieve the information about the user’s position
- through the Google Maps API.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-getReservableCars(Location)
-\family default
-: This function will retrieve the needed information through the Car Manager
- and it will return a list of 
-\shape italic
-reservable
-\shape default
- cars near the user's 
-\family typewriter
-Location
-\family default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-startReservation(Car, User)
-\family default
-: This function creates a new instance of 
-\family typewriter
-Reservation
-\family default
-, tying together the 
-\family typewriter
-Car
-\family default
- and 
-\family typewriter
-User
-\family default
- instances passed as argument, and notifies it to the 
-\family typewriter
-User
-\family default
- through the Notification Manager.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-checkReservationStatus(Reservation)
-\family default
-: This function retrieves all the information about the 
-\family typewriter
-Reservation
-\family default
- instance passed as argument, and shows them to the 
-\family typewriter
-User
-\family default
- through the Notification Manager.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-endReservation(Reservation)
-\family default
-: This function terminates the current 
-\family typewriter
-Reservation
-\family default
- and send a payment request to the Payment Manager.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-startRent(Reservation)
-\family default
-: This function creates a new instance of 
-\family typewriter
-Rent
-\family default
-, updating the 
-\family typewriter
-Reservation
-\family default
- instance passed as argument, and notifies it to the 
-\family typewriter
-User
-\family default
- through the Notification Manager.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-checkRentStatus(Rent)
-\family default
-: This function retrieves all the information about the 
-\family typewriter
-Rent
-\family default
- instance passed as argument, and shows them to the 
-\family typewriter
-User
-\family default
- through the Notification Manager.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-isTerminable(Rent)
-\family default
-: This function will check through the Car Manager if all the conditions
- to end the 
-\family typewriter
-Rent
-\family default
- are respected (for example if nobody is still in the car, and so on..) and
- it will return 
-\family typewriter
-true
-\family default
- if the rent is terminable, 
-\family typewriter
-false
-\family default
- otherwise.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-endRent(Rent)
-\family default
-: This function terminates the current 
-\family typewriter
-Rent
-\family default
-, notifies it to the user through the Notification Manager and sends a payment
- request to the Payment Manager.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-ADS_Application Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-ADS_Application Manager
-\series default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-getStatus()
-\family default
-: This function asks the ADS to check the current 
-\family typewriter
-Status
-\family default
- (
-\shape slanted
-available
-\shape default
-, 
-\shape slanted
-reserved
-\shape default
-, 
-\shape slanted
-in_use
-\shape default
-, 
-\shape slanted
-unavailable
-\shape default
-) of the car.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-getDamages()
-\family default
-: This function queries the ADS to check the eventual car’s damages through
- the sensors installed in there.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-getPosition)
-\family default
-: This function queries the ADS to check the current position of the car.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-getPassengers()
-\family default
-: This function queries the ADS the number of passengers actually inside
- the car.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-getPowerGrid()
-\family default
-: This function queries the ADS to check if the car is plugged into the
- power grid.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-lockDoors()
-\family default
-: This function queries the ADS the lock the car’s doors and to change the
- 
-\family typewriter
-Status
-\family default
- of the car into 
-\shape slanted
-available
-\shape default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-unlockDoors()
-\family default
-: This function queries the ADS the unlock the car’s doors and to change
- the 
-\family typewriter
-Status
-\family default
- of the car into 
-\shape slanted
-in_use
-\shape default
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-updateCarStatus(Status)
-\family default
-: This function queries the ADS to change the car’s 
-\family typewriter
-Status
-\family default
- into the one passed as argument.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-Car Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-Car Manager
-\series default
-:
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-contactMaintainanceService(Car)
-\family default
-: Every time the Car Manager retrieve information about a car’s status,
- if necessary, it will send a maintainance request to an external service
- through this function.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-ping(Car)
-\family default
-: This function queries a 
-\family typewriter
-Car
-\family default
- to check whether it is online.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-carsInRadius(Location)
-\family default
-: This function retrieves all the cars near the 
-\family typewriter
-Location
-\family default
- passed as argument.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-Payment Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-Payment Manager
-\series default
-:
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-applyReservationFees(Reservation)
-\family default
-: This function will apply the fees for each 
-\family typewriter
-Reservation
-\family default
- instance.
- Actually, the user can terminate a reservation for free, but in the future
- if PowerEnjoy would decide to apply a fee for the termination of a reservation,
- it would be very easy to modify this value.
- If the user picks up the car, his reservation terminates and the system
- will create another instance 
-\family typewriter
-Rent
-\family default
-: no fees will be applied to transform a 
-\family typewriter
-Reservation
-\family default
- into a 
-\family typewriter
-Rent
-\family default
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-calculateRentFees(Rent)
-\family default
-: This function will calculate the fees for each 
-\family typewriter
-Rent
-\family default
- instance.
- In this case we have to consider eventual discounts and other additional
- fees before sending the payment request to the external payment service.
- It would not be difficult in the future to change some parameters according
- to the PowerEnjoy policy.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-calculateRentDiscount(Rent)
-\family default
-: This function will calculate the eventual discount for each 
-\family typewriter
-Rent
-\family default
- instance.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\family typewriter
-calculateAdditionalFees(Rent)
-\family default
-: This function will calculate the eventual additional fees for each 
-\family typewriter
-Rent
-\family default
- instance.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-Data Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-Data Manager
-\series default
-:
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-store(Data)
-\family default
-: This function allows any authorized entity to store data into the DataBase.
- 
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-retrieve(Data)
-\family default
-:: This function allows any authorized entity to read data from the DataBase.
- 
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-delete(Data)
-\family default
-:: This function allows any authorized entity to delete data from the DataBase.
- 
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-edit(Data)
-\family default
-:: This function allows any authorized entity to modify data into the DataBase.
- 
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
-Notification Manager
-\end_layout
-
-\begin_layout Standard
-Functions implemented by 
-\series bold
-Notification Manager
-\series default
-:
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-notify(User, Notification)
-\family default
-: This function is used to notify a message to the user.
 \end_layout
 
 \begin_layout Standard
@@ -2932,11 +2997,11 @@ The Application Server is configurable by means of a XML configuration file,
 \end_layout
 
 \begin_layout Subsection
-Selected architectural styles and patterns
+Architectural styles and patterns
 \end_layout
 
 \begin_layout Subsubsection
-The Architecture
+Architectural patterns
 \end_layout
 
 \begin_layout Standard
@@ -2983,7 +3048,7 @@ t computing power and is able to manage concurrency issue efficiently.
 \end_layout
 
 \begin_layout Subsubsection
-The Desing Pattern
+Design Patterns
 \end_layout
 
 \begin_layout Standard
