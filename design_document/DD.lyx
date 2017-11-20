@@ -234,6 +234,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -951,162 +952,158 @@ Architectural Design
 \end_layout
 
 \begin_layout Subsection
-Overview
+Logical components overview
 \end_layout
 
 \begin_layout Standard
-Travlendar+ will consist of four logical components, according to the traditiona
-l multi-tier architecture:
+Travlendar+ will consist of five logical components, following a traditional
+ multi-tier architecture:
 \end_layout
 
 \begin_layout Itemize
-The client
+Client UI
 \end_layout
 
 \begin_layout Itemize
-Web
+Web server
 \end_layout
 
 \begin_layout Itemize
-Application logic
+APIs (application logic)
 \end_layout
 
 \begin_layout Itemize
 Database
 \end_layout
 
-\begin_layout Standard
-This design is well known and allows to provide the following characteristics:
+\begin_layout Itemize
+External APIs and data sources
 \end_layout
 
-\begin_layout Itemize
-
-\shape italic
-flexibility
-\shape default
-: by separating the business logic of an application from its presentation
- logic, a multi-tier architecture makes the application much more flexible
- to changes;
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-maintainability
-\shape default
-: because of their independence and the different technology used in each
- layer, changes should have no effect on any other layer and can be managed
- by independent teams with different skills.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-reusability
-\shape default
-: separating the application into multiple layers makes it easier to implement
- re-usable components.
-\end_layout
-
-\begin_layout Itemize
-
-\shape italic
-scalability
-\shape default
-: a multi-tier architecture allows distribution of application components
- across multiple servers thus making the system much more scalable 
+\begin_layout Subsubsection*
+Client UI
 \end_layout
 
 \begin_layout Standard
-In detail, PowerEnjoy architecture will be made up of four logical levels:
- the 
-\series bold
-Client
-\series default
- tier, the 
-\series bold
-Web
-\series default
- tier, the 
-\series bold
-Business
-\series default
- tier and the 
-\series bold
-EIS
-\series default
- tier.
+End users will be able to use Travlendar on their mobile devices and desktop
+ computers.
+ We will develop applications compatible with smartphones and tablets running
+ the two most common operating systems, iOS and Android.
+ A desktop web application will be developed using the React framework,
+ and the same code will be reused to build a standalone desktop application
+ with support for push notifications and better OS integration
+\change_inserted 1604105849 1511003373
+ by leveraging the Electron framework
+\change_unchanged
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Web server
+\end_layout
+
+\begin_layout Standard
+The web application will fetch code and other resources from a web server.
+ The web server will implement almost no application logic, instead using
+ the same APIs as the mobile applications.
+\end_layout
+
+\begin_layout Subsubsection*
+APIs (application logic)
+\end_layout
+
+\begin_layout Standard
+Most of Travlendar+ functionality will be implemented as many small services
+ reachable by HTTP APIs.
+ Each service will implement a specific functionality (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:APIs-(application-logic)"
+
+\end_inset
+
+ for more details on how the services will be split).
+ Each service will depend only on the public APIs provided by other internal
+ and external services.
+\end_layout
+
+\begin_layout Subsubsection*
+Database
+\end_layout
+
+\begin_layout Standard
+All the services will store and fetch data from a single logical database.
+ Physically the database will be replicated over multiple machines, allowing
+ to distribute load and avoid having a single point of failure.
+\end_layout
+
+\begin_layout Subsubsection*
+External APIs and data sources
+\end_layout
+
+\begin_layout Standard
+Travlendar+ will rely on many external services for:
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-Client
-\series default
- tier consists of application clients that make 
-\shape italic
-requests
-\shape default
- to the server, which processes the requests and returns a 
-\shape italic
-response
-\shape default
- back to the client.
- The Client tier is accessible via 
-\shape italic
-mobile application
-\shape default
- (that interacts directly with the application server via RESTful API) or
- by a 
-\shape italic
-web browser
-\shape default
- (that run JavaScript and apply Cascading Style Sheets (CSS) before interpreting
- pages marked up with HTML), and it interacts with the Web tier through
- an HTTP connection, eventually sending data provided by the user.
+public transport information
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-Web
-\series default
- tier consists of components implemented with JEE technology that handle
- the interaction between clients and the business tier.
- Its main tasks are collect HTTP requests from users of the client interface
- and return appropriate anwers with HTML pages, generated with the data
- received from the components in the business tier.
- 
+weather forecast
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-Business
-\series default
- tier consists of Enterprise JavaBean (EJB), software components that encapsulat
-e all the logic of an application.
- This tier uses the Java Persistence API (JPA) to access the database, abstracti
-ng the relational model implemented by the database in a model of data objects,
- in order to allow the interaction with the application.
+map data
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-EIS
-\series default
- tier consists of a Database Management System (DBMS) in charge of create,
- manipulate, query and extract data over a database.
- The business tier uses the Java Database Connectivity (JDBC) to have access
- to the resources located on the database.
+traffic information
+\end_layout
+
+\begin_layout Itemize
+find and reserve sharing mobility vehicles
+\end_layout
+
+\begin_layout Itemize
+obtaining informations on public transportation tickets
+\end_layout
+
+\begin_layout Itemize
+reserving taxis
+\end_layout
+
+\begin_layout Itemize
+route planning
+\end_layout
+
+\begin_layout Itemize
+notifications and emails
+\end_layout
+
+\begin_layout Itemize
+processing payments
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: diagram detailing how the high level components interact with each
+ other
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1143,7 +1140,7 @@ MultiTier Architecture
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1182,101 +1179,69 @@ Hardware Representation
 \end_layout
 
 \begin_layout Subsection
-High level components and their interaction
-\end_layout
-
-\begin_layout Standard
-The high level components architecture is composed of different elements.
- The client can initiate the communication with the server from his mobile
- application or from the webpage of the application.
- This communication is made in a synchronous way since the client, who initiates
- the communication, has to wait the answer of the application that acknowledge
- him that his request has been taken into account.
- The application will receive two kinds of requests from the client: direct
- ones, if he's using the mobile application, or redirected ones by the webserver
-, if he's using the web browser.
- The application will later send an asynchronous message to the client to
- specifiy the status of his reservation.
- The application communicates also with another type of component, the cars.
- The application can send synchronous messages to the cars to check their
- status and eventually reserve one of them for each user or manage any kind
- of maintenance.
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace medskip
-\end_inset
-
-The interactions between the main components are shown in figure: 
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/HighLevel Components.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-High Level Components
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 Component view
 \end_layout
 
 \begin_layout Standard
-Each logical tier is made of several components, to allow reusable design.
+Each logical component is made of several subcomponents.
 \end_layout
 
 \begin_layout Subsubsection
-Client tier
+Client UI
+\end_layout
+
+\begin_layout Standard
+End users will be able to use Travlendar+ on
 \end_layout
 
 \begin_layout Itemize
+smartphones and tablets running Android 4.4+
+\end_layout
+
+\begin_layout Itemize
+iPhone and iPad running iOS 10+
+\end_layout
+
+\begin_layout Itemize
+laptops/desktops browsers (Chrome, Firefox, Safari and Edge)
+\end_layout
+
+\begin_layout Itemize
+desktop (Linux, macOS and Windows)
+\end_layout
+
+\begin_layout Paragraph*
+Android app
+\end_layout
+
+\begin_layout Standard
+The android app will be built using Kotlin, the new official language for
+ building apps for the platform.
+\end_layout
+
+\begin_layout Paragraph*
 iOS App
 \end_layout
 
-\begin_layout Itemize
-Android App
+\begin_layout Standard
+The iOS app will be built using Swift.
 \end_layout
 
-\begin_layout Itemize
-Desktop web app
+\begin_layout Paragraph*
+Desktop web and native apps
 \end_layout
 
-\begin_layout Itemize
-Desktop native app
+\begin_layout Standard
+The desktop web application will be built using the React framework.
+ The desktop application will be built using 
+\change_inserted 1604105849 1511003465
+E
+\change_deleted 1604105849 1511003465
+e
+\change_unchanged
+lectron reusing most of the code of the web application, adding code to
+ support native functionality such as OS integrated notifications UI and
+ push notifications delivery.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1288,7 +1253,14 @@ Web server providing the web application, uses application logic services
 \end_layout
 
 \begin_layout Subsubsection
-Application logic tier
+APIs (application logic)
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:APIs-(application-logic)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1881,87 +1853,207 @@ Component interfaces
 \end_layout
 
 \begin_layout Standard
-In this section we're going to describe the interfaces through which the
- various components of the system communicate.
- For each interface we'll provide a short but exhaustive description of
- the main exposed methods.
+In this section we describe the the APIs provided by each component of the
+ system.
+ A mid-high level view of the main functionalities is presented, and other
+ accessory API endpoints may and will be added during the implementation
+ phase.
+ Endpoints that require authentication are clearly marked at the beginning
+ of the description.
 \end_layout
 
 \begin_layout Subsubsection*
 
 \series bold
-Authentication Manager
+User managment service
+\end_layout
+
+\begin_layout Paragraph*
+Sign up and account managment
+\end_layout
+
+\begin_layout Subparagraph*
+initiate_signup(user_data)
 \end_layout
 
 \begin_layout Standard
-Functions implemented by 
-\series bold
-Authentication Manager
-\series default
-:
-\begin_inset VSpace smallskip
+Creates a new 
+\family typewriter
+unconfirmed user
+\family default
+ in the system with the information provided during the registration phase
+ and sends the verification email.
+\end_layout
+
+\begin_layout Enumerate
+verifies correctness and completeness of the data
+\end_layout
+
+\begin_layout Enumerate
+creates user instance in the database
+\end_layout
+
+\begin_layout Enumerate
+generates a secure random verification code
+\end_layout
+
+\begin_layout Enumerate
+associates the code with the user in the database
+\end_layout
+
+\begin_layout Enumerate
+uses the Event notifications service to send a verification email with the
+ code to the user
+\end_layout
+
+\begin_layout Subparagraph*
+complete_signup(verification_code)
+\end_layout
+
+\begin_layout Standard
+Ends the user signup process by verifying the code sent by email to newly
+ registered users.
+ If the code is correct the corresponding user is marked as verified and
+ will be able to use the service.
+\end_layout
+
+\begin_layout Subparagraph*
+change_password(current_password, new_password)
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that current_password matches the current user password.
+ If it does not match, go to 5.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that new_password is different than the current one and satisfies
+ password strength requirements
+\end_layout
+
+\begin_layout Enumerate
+Stores the new password in the database
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that his password
+ has changed.
+ End.
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that an attempt
+ to change his password is failed.
+\end_layout
+
+\begin_layout Subparagraph*
+initiate_password_recovery(username)
+\end_layout
+
+\begin_layout Standard
+Initiates password recovery procedure for a user.
+\end_layout
+
+\begin_layout Enumerate
+Generates a secure random verification code
+\end_layout
+
+\begin_layout Enumerate
+Associates the code with the username in the database
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to send a verification email to the
+ user containing a link with the verification code
+\end_layout
+
+\begin_layout Subparagraph*
+recover_password(verification_code, new_password)
+\end_layout
+
+\begin_layout Standard
+Allows to change a user password.
+\end_layout
+
+\begin_layout Enumerate
+Checks the verification_code against the database and gets which user it
+ belongs to
+\end_layout
+
+\begin_layout Enumerate
+Asserts that the new password satisfies password strength requirements
+\end_layout
+
+\begin_layout Enumerate
+Changes the user password
+\end_layout
+
+\begin_layout Enumerate
+Uses the Event notifications service to inform the user that his password
+ has changed.
+\end_layout
+
+\begin_layout Paragraph*
+Login
+\end_layout
+
+\begin_layout Subparagraph*
+login(user, password)
+\end_layout
+
+\begin_layout Standard
+Verifies the supplied user credentials and, if correct, returns an authenticatio
+n token which can be used (via an HTTP header or cookie) to access other
+ restricted APIs.
+\end_layout
+
+\begin_layout Paragraph*
+Account managment
+\end_layout
+
+\begin_layout Subparagraph*
+get_account_information()
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+ Returns user account informations and preferences.
+\end_layout
+
+\begin_layout Subparagraph*
+update_account_information(user_data)
+\end_layout
+
+\begin_layout Standard
+Requires authentication.
+ Updates the account information.
+\end_layout
+
+\begin_layout Enumerate
+Verifies that the user can update the data he has provided
+\end_layout
+
+\begin_layout Enumerate
+Updates the user data
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cose non nostre da qui in avanti
+\end_layout
+
 \end_inset
 
 
-\end_layout
+\change_inserted 1604105849 1511013207
 
-\begin_layout Standard
-
-\family typewriter
-register(UserData)
-\family default
-: This function creates a new 
-\family typewriter
-User
-\family default
- instance in the system with all the information provided by the user during
- the registration phase.
- If the entered data are correct, an email is sent to the user address to
- confirm the correct registration to the service.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-login(Credentials)
-\family default
-: This function allows any registered user to log into the system using
- his 
-\shape italic
-username
-\shape default
- and 
-\shape italic
-password
-\shape default
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\family typewriter
-checkCredentials(Credentials)
-\family default
-: This function verifies the 
-\shape italic
-username
-\shape default
- - 
-\shape italic
-password
-\shape default
- combination is correct.
- If the credentials are correct, the function returns a token to be used
- in the future requests to identify the user.
- Otherwise, an error is returned.
 \end_layout
 
 \begin_layout Subsubsection*
