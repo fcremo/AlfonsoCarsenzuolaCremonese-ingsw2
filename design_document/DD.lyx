@@ -1315,6 +1315,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename res/img/ComponentView.png
+	lyxscale 30
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1412,7 +1413,7 @@ Initially there will be no dedicated firewall applicance.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1447,7 +1448,7 @@ Initial Deployment View
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1505,10 +1506,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_signup.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_signup.plantuml
 	width 100text%
 	height 100cm
-	keepAspectRatio
 
 \end_inset
 
@@ -1553,10 +1553,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_billInformationSignup.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_billInformationSignup.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1601,10 +1600,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_login.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_login.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1649,10 +1647,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1697,10 +1694,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1745,10 +1741,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1793,10 +1788,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_buyTicketPass.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_buyTicketPass.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1844,10 +1838,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent1.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent1.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1895,10 +1888,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent2.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent2.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1946,10 +1938,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent3.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent3.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1997,10 +1988,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newSharedEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newSharedEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -2048,10 +2038,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -2099,10 +2088,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_deleteEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_deleteEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -2150,10 +2138,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_customerService.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_customerService.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
