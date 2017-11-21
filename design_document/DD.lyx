@@ -238,8 +238,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 666129059 "Alessandro Alfonso"
-\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -875,15 +873,15 @@ Client UI
 \end_layout
 
 \begin_layout Itemize
-Web server, load balancer and reverse proxy
+Web tier
 \end_layout
 
 \begin_layout Itemize
-APIs (application logic)
+Application logic tier
 \end_layout
 
 \begin_layout Itemize
-Database
+Database tier
 \end_layout
 
 \begin_layout Itemize
@@ -906,37 +904,33 @@ End users will be able to use Travlendar on their mobile devices and desktop
 \end_layout
 
 \begin_layout Subsubsection*
-Web server, load balancer and reverse proxy
+Web tier
 \end_layout
 
 \begin_layout Standard
-In a first moment we will deploy a single Nginx web server and there will
- be no load balancer.
- The web application will fetch resources (HTML, CSS, JS, images, ...) from
- the web server, which will implement no application logic, forwarding API
+The web application will fetch resources (HTML, CSS, JS, images, ...) from
+ a web server, which will implement no application logic, forwarding API
  requests to the appropriate backend service instead.
- When the need will arise more machines will be provisioned as web servers
- and/or API service providers and Nginx will be configured to balance the
- load between them.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
-APIs (application logic)
+Application logic tier
 \end_layout
 
 \begin_layout Standard
-Server side Travlendar+ functionality will be implemented as many services
- reachable as HTTP REST APIs.
- Each service will implement a specific functionality (see section 
+Server side functionality will be implemented by services reachable as HTTP
+ REST APIs.
+ Each service will implement some specific functionality (see section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:APIs-(application-logic)"
+reference "subsec:Application-logic-tier"
 
 \end_inset
 
  for more details on how the services will be split).
  Each service will depend only on the public APIs provided by other internal
- and external services.
+ and external services, allowing for better reliability and availability.
  We will use Python and leverage the Flask framework.
 \end_layout
 
@@ -945,9 +939,8 @@ Database
 \end_layout
 
 \begin_layout Standard
-All the services will store and fetch data from a single logical database.
- Physically the database will be replicated over multiple machines, allowing
- to distribute load and avoid having a single point of failure.
+All the services will store and fetch data from a single logical relational
+ database.
  We will use MariaDB as DBMS.
 \end_layout
 
@@ -1153,19 +1146,20 @@ The desktop web application will be built using the React framework.
 \end_layout
 
 \begin_layout Subsubsection
-Web server, load balancer and reverse proxy
+Web tier
 \end_layout
 
 \begin_layout Standard
-An Nginx web server will serve the web application resources (HTML, CSS,
- JS, ...) and proxy incoming requests to the HTTP APIs.
+One or more Nginx load balancers will distribute requests to other Nginx
+ web servers which will serve the web application resources (HTML, CSS,
+ JS, ...) and proxy incoming requests to the Python HTTP APIs.
 \end_layout
 
 \begin_layout Subsubsection
-APIs (application logic)
+Application logic tier
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:APIs-(application-logic)"
+name "subsec:Application-logic-tier"
 
 \end_inset
 
@@ -1278,7 +1272,7 @@ Links our service, public transport ticketing service and payment processor
 
 \end_deeper
 \begin_layout Subsubsection
-Database
+Database tier
 \end_layout
 
 \begin_layout Standard
@@ -1286,12 +1280,20 @@ We will use MariaDB as DBMS for storing data.
 \end_layout
 
 \begin_layout Subsubsection
-Information and Data tier 
+External APIs and data sources
+\end_layout
+
+\begin_layout Standard
+fetches external data such as maps, weather, public transport informations,
+ ticket information, taxi information, sharing mobility
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-da rinominare meglio
+Da scrivere
 \end_layout
 
 \end_inset
@@ -1300,15 +1302,6 @@ da rinominare meglio
 \end_layout
 
 \begin_layout Standard
-Stores our application data and fetches external data such as maps, weather,
- public transport informations, ticket information, taxi information, sharing
- mobility
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace medskip
-\end_inset
-
 The interactions between the main components are shown in figure:
 \end_layout
 
@@ -1316,7 +1309,7 @@ The interactions between the main components are shown in figure:
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1348,45 +1341,85 @@ Component View
 
 \end_layout
 
-\begin_layout Subsubsection
-External APIs and data sources
-\end_layout
-
 \begin_layout Subsection
 Deployment view
 \end_layout
 
 \begin_layout Standard
-In this section in shown how the software components are distributed with
- respect to the hardware resources available in the system.
- The mobile applications communicate directly with application server via
- RESTful API while the browser applications communicate with the Web server
- that receives users' requests, interacts with the Business server and provides
- HTML pages in order to start the user experience.
- The system can retrieve information from each car communicating with their
- ADS via RESTful API.
- The Business server contains the application logic and the modules that
- handle the main functionalities of the system.
- Every module is accessible only by the allowed users.
- All the data needed for the operations handled by the modules are retrieved
- from the database in the Data server.
- The various interactions with the database are monitored by the DBMS in
- order to guarantee the ACID properties of the database.
+In this section we show how we plan to map the software components of our
+ system on physical machines, planning for future scalability.
+\end_layout
+
+\begin_layout Subsubsection
+Web tier
+\end_layout
+
+\begin_layout Standard
+In a first moment we will deploy a single Nginx web server and there will
+ be no load balancer.
+ One or more machines will be provisioned as load balancers when more capacity
+ will be needed.
+ Requests to the load balancers will be balanced via DNS, and the load balancers
+ themselves will distribute load uniformly to the web and application servers
+ in a way that a single user requests will always reach the same backend
+ server (so to avoid the problem of distributing server-local storage).
+\end_layout
+
+\begin_layout Subsubsection
+Application logic tier
+\end_layout
+
+\begin_layout Standard
+The various Python services implementing Travlendar+ APIs will initially
+ run on the same machine hosting the Nginx web server, under the gunicorn
+ application server.
+ When the need will arise the most demanding services will be moved to one
+ or more dedicated machines and load will be split between them, allowing
+ for a gradual transition to a distributed system.
+\end_layout
+
+\begin_layout Subsubsection
+Database tier
+\end_layout
+
+\begin_layout Standard
+Initially we will deploy a single instance of the MariaDB RDBMS on a single
+ machine.
+ We expect to reach the machine limits in read performance as our user base
+ grows, while we don't expect write performance to pose a problem in the
+ near future.
+ We will monitor load and deploy more machines as slave/read-only servers,
+ and distribute reads between them.
+ We anticipate the possibility of sharding the database on user id when
+ the write performance will become insufficient, as different users interact
+ sparely and mostly in read only way on other user's data.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Other scalability notes
+\end_layout
+
+\begin_layout Standard
+Initially there will be no dedicated firewall applicance.
+ Depending on need (e.g.
+ if the service will be subject of DDOS attacks) a dedicated appliance could
+ be installed in front of the load balancers, or a service such as CloudFlare
+ could be used to mitigate attacks.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename res/img/DeploymentView.png
-	width 76text%
-	height 80theight%
-	keepAspectRatio
+	filename res/img/initial_hardware_deployment.png
+	lyxscale 30
+	width 60text%
 
 \end_inset
 
@@ -1397,7 +1430,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Deployment View
+Initial Deployment View
 \end_layout
 
 \end_inset
@@ -1411,6 +1444,38 @@ Deployment View
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename res/img/future_hardware_deployment.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Future Deployment View
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newpage newpage
 \end_inset
 
@@ -2120,8 +2185,6 @@ Contact Customer Service Sequence Diagram
 \begin_inset Newpage newpage
 \end_inset
 
-
-\change_inserted 666129059 1511170016
 
 \end_layout
 
@@ -3117,6 +3180,13 @@ Ticket shop service
 \end_layout
 
 \begin_layout Standard
+Credit card information is processed through Stripe and associated with
+ our users.
+ Once a user has provided credit card information our service can bill them
+ directly when they buy a ticket.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -3141,7 +3211,7 @@ arraystretch}{2}
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features islongtable="true" longtabularalignment="center">
 <column alignment="center" valignment="top" width="35text%">
 <column alignment="left" valignment="middle" width="65text%">
@@ -3170,23 +3240,16 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_deleted 1604105849 1511174925
-send_push(username, notification)
-\change_inserted 1604105849 1511174940
-get_tickets_for(line)
-\change_unchanged
-
+get_lines()
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Internal API callable only by other services.
- Sends a push notification to the user.
+Returns a list of the public transport lines.
 \end_layout
 
 \end_inset
@@ -3197,13 +3260,27 @@ Internal API callable only by other services.
 \begin_inset Text
 
 \begin_layout Plain Layout
+get_tickets(line)
+\end_layout
 
-\change_deleted 1604105849 1511174946
-send_email(username, notification)
-\change_inserted 1604105849 1511174949
-get_
-\change_unchanged
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
+\begin_layout Plain Layout
+Returns a list of tickets eligible for a given transportation line
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+get_passes(line)
 \end_layout
 
 \end_inset
@@ -3212,8 +3289,7 @@ get_
 \begin_inset Text
 
 \begin_layout Plain Layout
-Internal API callable only by other services.
- Sends an email notification to the user.
+Returns a list of passes eligible for a given transportation line
 \end_layout
 
 \end_inset
@@ -3224,7 +3300,7 @@ Internal API callable only by other services.
 \begin_inset Text
 
 \begin_layout Plain Layout
-send_notification(username, notification)
+purchase(ticket)
 \end_layout
 
 \end_inset
@@ -3233,9 +3309,8 @@ send_notification(username, notification)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Internal API callable only by other services.
- Send a notification to the user, accounting for their preference when it
- comes to sending an email or a push or both.
+Requires authentication.
+ Orders the purchase of a ticket for the authenticated user.
 \end_layout
 
 \end_inset
