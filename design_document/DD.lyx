@@ -1440,10 +1440,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_signup.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_signup.plantuml
 	width 100text%
 	height 100cm
-	keepAspectRatio
 
 \end_inset
 
@@ -1488,10 +1487,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_billInformationSignup.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_billInformationSignup.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1536,10 +1534,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_login.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_login.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1584,10 +1581,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1632,10 +1628,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1680,10 +1675,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editBillInfo.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1728,10 +1722,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_buyTicketPass.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_buyTicketPass.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1779,10 +1772,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent1.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent1.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1830,10 +1822,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent2.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent2.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1881,10 +1872,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newEvent3.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newEvent3.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1932,10 +1922,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_newSharedEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_newSharedEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -1983,10 +1972,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_editEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -2034,10 +2022,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_deleteEvent.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_deleteEvent.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -2085,10 +2072,9 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename sequence_diagram/sequence-diagram_customerService.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_customerService.plantuml
 	width 100text%
 	height 100theight%
-	keepAspectRatio
 
 \end_inset
 
@@ -3927,16 +3913,26 @@ In this way we would achieve our goal to distribute cars in the smartest
 \end_layout
 
 \begin_layout Subsection
-How to apply the Reservation fees
+Automatic reservation algorithm
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Correggere inglese per tutti gli algoritmi
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will handle
- the payment for the reservation fees.
+In this section we will analyze the structure of the code that will manage
+ the automatic reservation of a mobility sharing service setted in an event.
 \end_layout
 
 \begin_layout Subparagraph*
-applyReservationFees(Reservation)
+autoReservation(Event)
 \end_layout
 
 \begin_layout Standard
@@ -3962,17 +3958,16 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-/*   This function will apply the fees for each Reservation instance.
- Actually, the user can terminate a reservation for free, but in the future
- if PowerEnjoy would decide to apply a fee for the termination of a reservation,
- it would be very easy to modify this value.
- If the user picks up the car, his reservation terminates and the system
- will create another object Rent: no fees will be applied to transform a
- reservation into a rent.
- On the other hand, if the reservation expires before the user picks up
- the car, the system will apply to him a fee of one euro.
-  As said before, it would not be difficult in the future also to change
- this amount of money.
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+  This function searches an available sharing transport mean with a specific
+ time-dependent radius of search.
+ When the time before the event start is less than 20 minutes it notifies
+ the search failure to the user and asks to him to reschedule or not the
+ trip.
 \end_layout
 
 \begin_layout Plain Layout
@@ -3986,55 +3981,65 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-function applyReservationFees (Reservation res){
+boolean autoReservation(Event e){
 \end_layout
 
 \begin_layout Plain Layout
 
-	if (res.isExpired()){
+	if (25 < e.startTravelTime - currentTime <= 30)
 \end_layout
 
 \begin_layout Plain Layout
 
-		//   This function will return a 'true' value if the reservation is expired
- because of the time.
+		// This function start to search the selected sharing transportation means
+ available in 2 km and return a true value if one is found.
 \end_layout
 
 \begin_layout Plain Layout
 
-		paymentHandler(res.User, res.expirationFee);
+		return reserveTransportationMean(TWO_KM, e.TransportationMean);
 \end_layout
 
 \begin_layout Plain Layout
 
-		//   This function will send a request of payment to the external payment
- service with as input the ID of the user and the amount of money.
+	if (20 < e.startTravelTime - currentTime <= 25)
 \end_layout
 
 \begin_layout Plain Layout
 
-	}
+		// This function start to search the selected sharing transportation means
+ available in 3 km and return a true value if one is found.
 \end_layout
 
 \begin_layout Plain Layout
 
-	else {
+		return reserveTransportationMean(THREE_KM, e.TransportationMean);
 \end_layout
 
 \begin_layout Plain Layout
 
-		paymentHandler(res.User, 0);
+	if (e.startTravelTime - currentTime <= 20)
 \end_layout
 
 \begin_layout Plain Layout
 
-		//   This case covers both the cases in which the user decides to terminate
- the reservation and in which he unlocks the car's doors.
+		// This function start to search the selected sharing transportation means
+ available in 4 km and return a true value if one is found.
 \end_layout
 
 \begin_layout Plain Layout
 
-	}
+		// It notifies the user and asks if he wants to reschedule the trip.
+\end_layout
+
+\begin_layout Plain Layout
+
+		return reserveTransportationMean(FOUR_KM, e.TransportationMean);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4058,16 +4063,17 @@ end{lstlisting}
 \end_layout
 
 \begin_layout Subsection
-How to calculate the Rent fees
+Flexible event verification algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will handle
- the payment for the reservation fees.
+In this section we will analyze the structure of the code that will verify
+ if the start time and end time of a flexible event are in agreement with
+ the schedule of other event..
 \end_layout
 
 \begin_layout Subparagraph*
-calculateRentDiscount(Rent)
+checkFlexibleEvent (FlexibleEvent)
 \end_layout
 
 \begin_layout Standard
@@ -4093,338 +4099,15 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-/*   This function will calculate the eventual discount for each rent instance.
-   */
+/*   
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-void function calculateRentDiscount(Rent ren){
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		if (ren.atLeastTwoPassengers()){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   This function will return a 'true' value if almost two passengers
- were in the car.
-\end_layout
-
-\begin_layout Plain Layout
-
-		ren.totalCost *= 0.9;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 10% of discount to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	if (ren.report.batteryLevelAtTheEndOfRent >= 0.5){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   This function will return the percentage of battery at the end of
- the rental.
-\end_layout
-
-\begin_layout Plain Layout
-
-		ren.totalCost *= 0.8;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 20% of discount to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	if (ren.report.MSOactived() && ren.report.finalDestinationNotEmpty()){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   The first function will return a 'true' value if the user enabled
- the Money Saving Option at the beginning of his/her rent.
- The second funtion will return a 'true' value if the user input his/her
- final destination.
-\end_layout
-
-\begin_layout Plain Layout
-
-		if (ren.carParkedAt(ren.report.specialArea) && ren.carLeftUnderCharge()){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   The first function will return a 'true' value if the user parked
- the car in the special area the system provided at the beginning of the
- rent.
- The second function will return a 'true' value if the car is left under
- charge.
-\end_layout
-
-\begin_layout Plain Layout
-
-			ren.totalCost *= 0.6;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 40% of discount to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-		else if (ren.carLeftUnderCharge()){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   This function will return a 'true' value if the car is left under
- charge in another recharging area (not the special one provided by the
- system at the beginning of the rent).
-\end_layout
-
-\begin_layout Plain Layout
-
-			ren.totalCost *= 0.7;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 30% of discount to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	else{
-\end_layout
-
-\begin_layout Plain Layout
-
-		if (ren.carLeftUnderCharge()){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   This function will return 'true' if the car is left under charge
- in a recharging area.
-\end_layout
-
-\begin_layout Plain Layout
-
-			ren.totalCost *= 0.7;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 30% of discount to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subparagraph*
-calculateAdditionalFees(Rent)
-\end_layout
-
-\begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-/*   This function will calculate the additional fees for each rent instance.
-   */
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-void function calculateAdditionalFees(Rent ren){
-\end_layout
-
-\begin_layout Plain Layout
-
-	if (ren.report.batteryLevelAtTheEndOfRent <= 0.2 ||
-\end_layout
-
-\begin_layout Plain Layout
-
-		ren.report.distanceFromTheNearestPowerGridStationInKm >= 3){
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   The first value is the same explained above
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   The second one is the distance from the nearest power grid station
- expressed in km
-\end_layout
-
-\begin_layout Plain Layout
-
-		ren.totalCost *= 1.3;
-\end_layout
-
-\begin_layout Plain Layout
-
-		//   In this way we will apply a 30% of additional fee to the client.
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subparagraph*
-calculateRentFees(Rent)
-\end_layout
-
-\begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-/*   This function will calculate the fees for each Rent instance.
-  In this case we have to consider eventual discounts and other additional
- fees before sending the payment request to the external payment service.
- It would not be difficult in the future to change some parameters according
- to the PowerEnjoy policy.
+This function check if between the starting time and the ending time there
+ is a free slot of time (big at least e.getDuration()) for the flexible event.
+ It return to the caller true if there is at least one slot of free time,
+ false otherwise.
 \end_layout
 
 \begin_layout Plain Layout
@@ -4438,67 +4121,73 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-function calculateRentFees (Rent ren){
+boolean checkFlexibleEvent (FlexibleEvent e){
 \end_layout
 
 \begin_layout Plain Layout
 
-	ren.totalCost = ren.report.totalTime * ren.report.pricePerMinute;
+	// This function return a value: true, it means that the flexible event
+ is created; false, it means that there isn't a free slot of time for the
+ flexible event.
 \end_layout
 
 \begin_layout Plain Layout
 
-	// We will first calculate the Total Cost as the multiplication of the
- Total Time of the Rental and the Actual Price Per Minute.
- In the future it would be easy to modify them, according to the PowerEnjoy
- policy.
+	// If the function returns true the user is notified about the successful
+ creation of the event.
 \end_layout
 
 \begin_layout Plain Layout
 
+	// If the function return a false value the user is asked if he wants to
+ reschedule the flexible event or one of the event near it.
 \end_layout
 
 \begin_layout Plain Layout
 
-	calculateRentDiscount(ren);
+	// The function getNextEvent(time) return the first scheduled event after
+ the time specified.
 \end_layout
 
 \begin_layout Plain Layout
 
-	// In this way we will apply all the discount.
+	for(start = e.ConstraintTimeStart; start < e.ConstraintTimeEnd; start = getNextEv
+ent(start).getStartingTime()){
 \end_layout
 
 \begin_layout Plain Layout
 
+		if(getNextEvent(start).getStartingTime() - start >= e.getDuration()){
 \end_layout
 
 \begin_layout Plain Layout
 
-	calculateAdditionalFees(ren);
+			e.setStartTime(start);
 \end_layout
 
 \begin_layout Plain Layout
 
-	// In this way we will apply all the additional fees.
+			e.setEndTime(start+e.getDuration());
 \end_layout
 
 \begin_layout Plain Layout
 
+			return true;
 \end_layout
 
 \begin_layout Plain Layout
 
-	paymentHandler(ren.User, ren.totalCost);
+		}
 \end_layout
 
 \begin_layout Plain Layout
 
-	//   This function will send a request of payment to the external payment
- service with as input the ID of the user and the amount of money .
+	}
 \end_layout
 
 \begin_layout Plain Layout
 
+	return false;
 \end_layout
 
 \begin_layout Plain Layout
@@ -4524,6 +4213,473 @@ end{lstlisting}
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Event reachable verification algorithm
+\end_layout
+
+\begin_layout Standard
+In this section we will analyze the structure of the code that will verify
+ if the event that the user is creating is reachable in time.
+\end_layout
+
+\begin_layout Subparagraph*
+isReachableEvent (Event)
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ligaturebreak
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/*   
+\end_layout
+
+\begin_layout Plain Layout
+
+This function checks if the scheduled event after the event that user is
+ creating is reachable in time.
+ It returns to the caller true if it is possible, false otherwise.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+boolean isReachableEvent (Event e){
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(e.nextEvent().getStartTime()-e.getEndTime() > e.nextEvent().getPosition().getTrave
+lTime(e.getPosition()))
+\end_layout
+
+\begin_layout Plain Layout
+
+		return true;
+\end_layout
+
+\begin_layout Plain Layout
+
+	return false;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+CO2 emissions calculation algorithm
+\end_layout
+
+\begin_layout Standard
+In this section we will analyze the structure of the code that will calculate
+ the CO2 emissions of a route.
+\end_layout
+
+\begin_layout Subparagraph*
+calculateCO2 (StartPosition, EndPosition, TransportMean)
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ligaturebreak
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/*   
+\end_layout
+
+\begin_layout Plain Layout
+
+This function calculates the CO2 emissions of a route with a specific transport
+ mean.
+ It uses external APIs (GoogleMaps) for caluclate the distance between two
+ points.
+\end_layout
+
+\begin_layout Plain Layout
+
+The calculus of the CO2 emission is based on a estimation (it is assumed
+ that if the distance is less than 10km the route will be urban, up to 20km
+ extraurban, otherwise in the route there is an highway and the production
+ of CO2 is proportional to the number of km).
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float calculateCO2 (StartPosition, EndPosition, TransportMean){
+\end_layout
+
+\begin_layout Plain Layout
+
+	// Thanks to an external service (Google Maps) it receives the distance
+ in KM between the starting point and the event location.
+\end_layout
+
+\begin_layout Plain Layout
+
+	distance = GoogleMaps.travelDistance(StartPosition, EndPosition, TransportMean);
+\end_layout
+
+\begin_layout Plain Layout
+
+	// This list contains the coefficients of each transport mean used to calculate
+ the CO2 emissions.
+\end_layout
+
+\begin_layout Plain Layout
+
+	List co2coefficients = loadCO2CoefficientsFor(TransportMean);
+\end_layout
+
+\begin_layout Plain Layout
+
+	float coefficient;
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(distance < 10)
+\end_layout
+
+\begin_layout Plain Layout
+
+		coefficient = co2coefficients[0];
+\end_layout
+
+\begin_layout Plain Layout
+
+	elseif (distance < 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+		coefficient = co2coefficients[1];
+\end_layout
+
+\begin_layout Plain Layout
+
+	else
+\end_layout
+
+\begin_layout Plain Layout
+
+		coefficient = co2coefficient[2];
+\end_layout
+
+\begin_layout Plain Layout
+
+	return distance * coefficient;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cost calculation algorithm
+\end_layout
+
+\begin_layout Standard
+In this section we will analyze the structure of the code that will calculate
+ the cost of a route.
+\end_layout
+
+\begin_layout Subparagraph*
+calculateCost (StartPosition, EndPosition, TransportMean)
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ligaturebreak
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/*   
+\end_layout
+
+\begin_layout Plain Layout
+
+This function calculates the cost of a route with a specific transport mean.
+ It uses external APIs (GoogleMaps for car, motorbike,...
+ and Citymapper for public transportation means).
+\end_layout
+
+\begin_layout Plain Layout
+
+In case of personal motor transport means it is assumed that the total cost
+ is the sum of a toll (if the route include a toll road) and the cost of
+ the gasoline used by the car, motobike,..
+\end_layout
+
+\begin_layout Plain Layout
+
+In case of public transport mean Citymapper gives the cost of the travel.
+\end_layout
+
+\begin_layout Plain Layout
+
+In case of personal free means (bike) or walk the cost will be 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float calculateCost (StartPosition, EndPosition, TransportMean){
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(TransportMean == PersonalMotorTransportMean){
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Thanks to an external service (Google Maps) it receives the distance
+ in KM between the starting point and the event location.
+\end_layout
+
+\begin_layout Plain Layout
+
+		distance = GoogleMaps.travelDistance(StartPosition, EndPosition, TransportMean)
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Thanks to an external service (Google Maps) it receives the distance
+ in KM of the part of the route that provides for the payment of a toll.
+\end_layout
+
+\begin_layout Plain Layout
+
+		distanceToll = GoogleMaps.travelDistanceToll(StartPosition, EndPosition,
+ TransportMean);
+\end_layout
+
+\begin_layout Plain Layout
+
+		float costCoefficient = loadCostCoefficientFor(TransportMean);
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Personal motor transport mean coefficient.
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(distanceToll != 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+			return (distance * costCoefficient + calculateToll(distanceToll));
+\end_layout
+
+\begin_layout Plain Layout
+
+		return distance * costCoefficient;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(TransportMean == PublicTransportMean){
+\end_layout
+
+\begin_layout Plain Layout
+
+		// Thanks to an external service (Citymapper) it receives the cost of
+ the route.
+\end_layout
+
+\begin_layout Plain Layout
+
+		meanRouteCost = Citymapper.routeCost(StartPosition, EndPosition, TransportMean)
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+		return meanRouteCost;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(TransportMean == PersonalFreeTransportMean || Walk){
+\end_layout
+
+\begin_layout Plain Layout
+
+		// The cost of a free transport mean (like bike or walk) is zero.
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
 \end_inset
 
 
