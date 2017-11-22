@@ -10,3 +10,4 @@
 ()	ore di lavoro
 () 	references
 ()	specificare meglio APIs esterne
+()  specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)

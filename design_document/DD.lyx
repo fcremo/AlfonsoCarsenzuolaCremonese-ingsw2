@@ -233,7 +233,7 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -3547,7 +3547,11 @@ Automatic reservation algorithm
 \end_layout
 
 \begin_layout Standard
-This function is called by the mobility sharing reservation service' scheduler
+The 
+\family typewriter
+try_auto_reservation
+\family default
+ function is called by the mobility sharing reservation service' scheduler
  when travel of an event is approaching and the user has requested automatic
  reservation of a shared vehicle.
 \end_layout
@@ -3807,22 +3811,6 @@ Flexible event verification algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will verify
- if the start time and end time of a flexible event are in agreement with
- the schedule of other event..
-\end_layout
-
-\begin_layout Subparagraph*
-checkFlexibleEvent (FlexibleEvent)
-\end_layout
-
-\begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -3830,7 +3818,7 @@ status open
 
 
 \backslash
-begin{lstlisting}
+begin{lstlisting}[language=Python]
 \end_layout
 
 \begin_layout Plain Layout
@@ -3844,10 +3832,8 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-This function check if between the starting time and the ending time there
- is a free slot of time (big at least e.getDuration()) for the flexible event.
- It return to the caller true if there is at least one slot of free time,
- false otherwise.
+This function is called when a new fixed event is added to the calendar.
+ It checks if the flexible events that were scheduled during the 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3861,12 +3847,12 @@ This function check if between the starting time and the ending time there
 
 \begin_layout Plain Layout
 
-boolean checkFlexibleEvent (FlexibleEvent e){
+def check_flexible_events_satisfiable (event):
 \end_layout
 
 \begin_layout Plain Layout
 
-	// This function return a value: true, it means that the flexible event
+	# This function return a value: true, it means that the event does not
  is created; false, it means that there isn't a free slot of time for the
  flexible event.
 \end_layout
