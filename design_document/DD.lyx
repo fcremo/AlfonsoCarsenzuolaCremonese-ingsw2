@@ -1926,7 +1926,7 @@ New Shared Event With Invitation Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2026,7 +2026,7 @@ Delete Event Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2034,6 +2034,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_deleteEvent.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
