@@ -5470,31 +5470,15 @@ We used the following tools to produce this document:
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-LaTex
-\series default
- as typesetting system to write this document
+LaTex as typesetting system to write this document
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-LyX
-\series default
- as editor
+LyX as editor
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-Visio Professional
-\series default
- and 
-\series bold
-draw.io
-\series default
- to draw all the diagrams
+plantuml and draw.io to draw all the diagrams
 \end_layout
 
 \begin_layout Section
