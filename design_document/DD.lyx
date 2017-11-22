@@ -1500,7 +1500,7 @@ Signup Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1508,6 +1508,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_signup.plantuml
 	width 100text%
 	height 100cm
+	keepAspectRatio
 
 \end_inset
 
