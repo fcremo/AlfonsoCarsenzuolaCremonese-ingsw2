@@ -238,6 +238,7 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1730310665 "fabcars"
 \end_header
 
 \begin_body
@@ -1925,7 +1926,7 @@ New Shared Event With Invitation Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2025,7 +2026,7 @@ Delete Event Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2033,6 +2034,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_deleteEvent.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -3292,6 +3294,8 @@ This service does not expose any endpoints.
 
 \begin_layout Subsubsection*
 Mobility sharing reservation service
+\change_inserted -1730310665 1511364966
+
 \end_layout
 
 \begin_layout Standard
@@ -3299,6 +3303,8 @@ This service does not expose any endpoints.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1730310665 1511364958
 \begin_inset Note Note
 status open
 
@@ -3309,18 +3315,15 @@ Cose non nostre da qui in avanti
 \end_inset
 
 
-\end_layout
+\change_inserted -1730310665 1511365420
 
-\begin_layout Standard
-\begin_inset Newpage newpage
+\series bold
+
+\begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection*
-
-\series bold
+\change_unchanged
 Other Specifications
 \end_layout
 
@@ -3355,6 +3358,310 @@ The Application Server is configurable by means of a XML configuration file,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted -1730310665 1511365046
+External components
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511365695
+We suppose to have a commercial agreement with some service.
+ In this section it is documented what functions (give from external services)
+ our system uses.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511366060
+Google Maps 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1730310665 1511366074
+è copiato ma non sapevo fare di meglio
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511366117
+The system uses Google Maps to calculate the distance between two location
+ and the distance of route with toll, to visualize the map, to schedule
+ a trip.
+ The reasons of this choice are the following:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511365681
+manually developing maps for each city is not a viable solution due to the
+ tremendous effort of coding and data collection required
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511365681
+Google Maps is a well-established, tested and reliable software component
+ already used by millions of people around the world
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511365681
+Google Maps offers APIs, enabling programmatic access to its features
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511366090
+the users feel comfortable with a software component they know and use everyday
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511366103
+Citymapper
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511366706
+The system uses Citymapper to schedule a trip that includes public transportatio
+n means or walk track.
+ The reasons of this choice are the followning:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511366527
+Citymapper works very well in large urban city (like Milano)
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511366586
+Citymapper authomatically offers a service to calculate an extimation of
+ the calory effort spent by users that reach the destination by walk
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511366715
+Citymapper is a reliable service for public transportation
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511366736
+AccuWeather
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511366984
+The system uses AccuWeather to recive real time weather forcast.
+ The reason of this choice is the following:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367035
+the cost of a self internal implementation of a service like this would
+ be to much expensive and implement a reliable service of weather forcast
+ is difficoult
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367054
+Trenord
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367181
+The system uses Trenord to know the cost of tickets and passes for railway
+ transportation.
+ The reason of this choice is the following:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367185
+our system will initially work in Milano and Trenord is the greatest company
+ in this area
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367198
+Stripe
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367429
+The system uses Stripe as payment processor.
+ The reason of this choice is the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367272
+it offers grat users experience and it easy to integrate
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367348
+Stripe is secure
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367401
+Enjoy
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367997
+The system uses Enjoy to search and find near shared cars.
+ The reason of this choice are the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367618
+Enjoy is widely used in Milano and in every part of the city it is expected
+ to be possible to find a car
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367739
+users well know how Enjoy works and feel comfortable
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367747
+Uber
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367872
+The system uses Uber to reserve car with driver.
+ The reason of this choice is the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367942
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1730310665 1511367888
+manca della fuffa qui
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367950
+Mobike
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367969
+The system uses Mobike to reserve shared bike.
+ The reason of this choice is the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511367990
+Enjoy is widely used in Milano and in every part of the city it is expected
+ to be possible to find a bike
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511367915
+Taxi
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511367934
+The system uses Taxi to reserve taxi.
+ The reason of this choice is the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511368028
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1730310665 1511367910
+manca della fuffa qui
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511368036
+Amazon SNS
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1730310665 1511368195
+The system uses Amazon SNS as notification deliver.
+ The reason of this choice are the following
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511368145
+reinplement a notification delivers expansive, booth in term of cost and
+ work needed
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -1730310665 1511368189
+Amazon SNS offers a stable services uses by thousands of users
 \end_layout
 
 \begin_layout Subsection
@@ -4444,7 +4751,7 @@ In the RASD document we have deﬁned all the system's requirements: in this
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="42" columns="2">
+<lyxtabular version="3" rows="34" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4537,7 +4844,7 @@ Requirements (RASD)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+User management service
 \end_layout
 
 \end_inset
@@ -4546,47 +4853,7 @@ Requirements (RASD)
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.1 Registration of a guest to the system
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Authentication Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.2 Login of a user into the system
+3.1.1 User account management
 \end_layout
 
 \end_inset
@@ -4637,7 +4904,7 @@ Authentication Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-AccountInformation Manager
+Calendar management service
 \end_layout
 
 \end_inset
@@ -4646,7 +4913,7 @@ AccountInformation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.9 Modify the profile information
+3.1.2 Calendar and event management
 \end_layout
 
 \end_inset
@@ -4697,7 +4964,7 @@ AccountInformation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-CheckAvailability Manager
+Travel planning service
 \end_layout
 
 \end_inset
@@ -4706,7 +4973,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.3 Find the location of available cars in a speciﬁed area
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -4766,7 +5033,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.4 Book a car with the possibility to cancel the reservation
+3.1.1 User account management
 \end_layout
 
 \end_inset
@@ -4797,7 +5064,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Reservation Manager
+Notification delivery service
 \end_layout
 
 \end_inset
@@ -4806,7 +5073,7 @@ Reservation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.6 Be notiﬁed of active reservation status
+3.1.2 Calendar and event management
 \end_layout
 
 \end_inset
@@ -4846,67 +5113,7 @@ Reservation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.7 End the rental
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Car Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.3 Available cars in a speciﬁed area
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -4957,7 +5164,7 @@ Car Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ticket shop service
 \end_layout
 
 \end_inset
@@ -4966,87 +5173,7 @@ Car Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.4 Book a car with the possibility to cancel the reservation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ADS_Application Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.5 Open his/her reserved car
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.6 Active reservation status
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -5097,7 +5224,7 @@ ADS_Application Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Payment Manager
+Event notifications service
 \end_layout
 
 \end_inset
@@ -5106,7 +5233,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.8 Know the total cost at the end of the rental
+3.1.2 Calendar and events management
 \end_layout
 
 \end_inset
@@ -5157,7 +5284,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Travel notifications service
 \end_layout
 
 \end_inset
@@ -5166,47 +5293,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.1 Registration of a guest to the system
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.2 Login of a user into the system
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -5257,7 +5344,7 @@ Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Notiﬁcation Manager
+Taxi reservations service
 \end_layout
 
 \end_inset
@@ -5266,7 +5353,67 @@ Notiﬁcation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.6 Be notiﬁed of active reservation status
+3.1.3 Travel planning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mobility sharing reservation service
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
