@@ -4354,7 +4354,7 @@ In the RASD document we have deﬁned all the system's requirements: in this
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="42" columns="2">
+<lyxtabular version="3" rows="34" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4447,7 +4447,7 @@ Requirements (RASD)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+User management service
 \end_layout
 
 \end_inset
@@ -4456,47 +4456,7 @@ Requirements (RASD)
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.1 Registration of a guest to the system
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Authentication Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.2 Login of a user into the system
+3.1.1 User account management
 \end_layout
 
 \end_inset
@@ -4547,7 +4507,7 @@ Authentication Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-AccountInformation Manager
+Calendar management service
 \end_layout
 
 \end_inset
@@ -4556,7 +4516,7 @@ AccountInformation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.9 Modify the profile information
+3.1.2 Calendar and event management
 \end_layout
 
 \end_inset
@@ -4607,7 +4567,7 @@ AccountInformation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-CheckAvailability Manager
+Travel planning service
 \end_layout
 
 \end_inset
@@ -4616,7 +4576,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.3 Find the location of available cars in a speciﬁed area
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -4676,7 +4636,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.4 Book a car with the possibility to cancel the reservation
+3.1.1 User account management
 \end_layout
 
 \end_inset
@@ -4707,7 +4667,7 @@ CheckAvailability Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Reservation Manager
+Notification delivery service
 \end_layout
 
 \end_inset
@@ -4716,7 +4676,7 @@ Reservation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.6 Be notiﬁed of active reservation status
+3.1.2 Calendar and event management
 \end_layout
 
 \end_inset
@@ -4756,67 +4716,7 @@ Reservation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.7 End the rental
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Car Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.3 Available cars in a speciﬁed area
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -4867,7 +4767,7 @@ Car Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Ticket shop service
 \end_layout
 
 \end_inset
@@ -4876,87 +4776,7 @@ Car Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.4 Book a car with the possibility to cancel the reservation
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ADS_Application Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.5 Open his/her reserved car
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.6 Active reservation status
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -5007,7 +4827,7 @@ ADS_Application Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Payment Manager
+Event notifications service
 \end_layout
 
 \end_inset
@@ -5016,7 +4836,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.8 Know the total cost at the end of the rental
+3.1.2 Calendar and events management
 \end_layout
 
 \end_inset
@@ -5067,7 +4887,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Travel notifications service
 \end_layout
 
 \end_inset
@@ -5076,47 +4896,7 @@ Payment Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.1 Registration of a guest to the system
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data Manager
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.1.2 Login of a user into the system
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
@@ -5167,7 +4947,7 @@ Data Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-Notiﬁcation Manager
+Taxi reservations service
 \end_layout
 
 \end_inset
@@ -5176,7 +4956,67 @@ Notiﬁcation Manager
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.1.6 Be notiﬁed of active reservation status
+3.1.3 Travel planning
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mobility sharing reservation service
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.1.3 Travel planning
 \end_layout
 
 \end_inset
