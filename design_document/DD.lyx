@@ -992,99 +992,6 @@ notifications and emails
 processing payments
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: diagram detailing how the high level components interact with each
- other
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/MultiTier Architecture.png
-	width 85text%
-	height 85theight%
-	keepAspectRatio
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MultiTier Architecture
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newpage newpage
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename res/img/HardwareRepresentation.png
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-	scaleBeforeRotation
-	rotateAngle 90
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Hardware Representation
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Component view
 \end_layout
@@ -1293,7 +1200,7 @@ fetches external data such as maps, weather, public transport informations,
 status open
 
 \begin_layout Plain Layout
-Da scrivere
+Da scrivere e sono messe nel posto giusto queste img?
 \end_layout
 
 \end_inset
@@ -1302,7 +1209,7 @@ Da scrivere
 \end_layout
 
 \begin_layout Standard
-The interactions between the main components are shown in figure:
+The interactions between the main components are shown in this two figure:
 \end_layout
 
 \begin_layout Standard
@@ -1314,10 +1221,45 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
+	filename res/img/HighLevelComponentView.png
+	lyxscale 50
+	width 100text%
+	height 100theight%
+	keepAspectRatio
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+High Level Component View
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
 	filename res/img/ComponentView.png
 	lyxscale 50
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
