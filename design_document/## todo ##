@@ -8,6 +8,6 @@
 ()	sezione 2.7.2 (design pattern)
 () 	sezione 2.8 (other design decision)
 ()	ore di lavoro
-() 	references
+(ale) 	references
 ()	specificare meglio APIs esterne
 ()  specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
