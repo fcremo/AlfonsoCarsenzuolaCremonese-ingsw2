@@ -709,6 +709,10 @@ status open
 
 \begin_layout Plain Layout
 TBD (right now it's copy-pasted from the RASD)
+\change_inserted 1050230769 1511446665
+ - References to 2.6 of DD)
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -724,6 +728,18 @@ Travlendar+ will be available on all the most used platforms (mobile and
 
 \begin_layout Itemize
 calendar apps that provide weather information
+\change_inserted 1050230769 1511446600
+ (e.g AccuWeather.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:AccuWeather"
+
+\end_inset
+
+)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -732,7 +748,7 @@ public transport assistants (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Citymapper"
 
 \end_inset
 
@@ -741,6 +757,19 @@ reference "subsec:References"
 
 \begin_layout Itemize
 public transport ticketing apps
+\change_inserted 1050230769 1511446627
+ (e.g.
+ Trenord.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Trenord"
+
+\end_inset
+
+)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -749,7 +778,7 @@ navigation apps (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Google-Maps"
 
 \end_inset
 
@@ -762,10 +791,21 @@ taxi apps (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Taxi"
 
 \end_inset
 
+
+\change_inserted 1050230769 1511446327
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Uber"
+
+\end_inset
+
+
+\change_unchanged
 )
 \end_layout
 
@@ -775,10 +815,21 @@ sharing mobility services applications (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Enjoy"
 
 \end_inset
 
+
+\change_inserted 1050230769 1511446389
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Mobike"
+
+\end_inset
+
+
+\change_unchanged
 )
 \end_layout
 
@@ -800,12 +851,18 @@ The system will need to interact with external entities and events beyond
  The specifications of the service are based upon the assumption that most
  of the time those external entities will behave as expected (documented
  in section 
+\change_inserted 1050230769 1511446856
+2.5 in the Requirement Analisys and Specifications Document
+\change_deleted 1050230769 1511446817
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Assumptions and dependencies"
 
 \end_inset
 
+
+\change_unchanged
 ).
  When one or some external services won't behave as expected, the application
  will work the same but in a dregradated state.
@@ -1492,7 +1549,7 @@ Billing Information After Signup Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1540,7 +1597,7 @@ Login Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1588,7 +1645,7 @@ Edit Personal Information Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1644,6 +1701,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -1738,6 +1796,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_buyTicketPass.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -1930,7 +1989,7 @@ New Shared Event With Invitation Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2030,7 +2089,7 @@ Delete Event Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3382,7 +3441,18 @@ We suppose to have a commercial agreement with some service.
 \begin_layout Subsubsection
 
 \change_inserted -1730310665 1511366060
-Google Maps 
+Google Maps
+\change_inserted 1050230769 1511446208
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Google-Maps"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366060
+ 
 \begin_inset Note Note
 status open
 
@@ -3438,6 +3508,17 @@ the users feel comfortable with a software component they know and use everyday
 
 \change_inserted -1730310665 1511366103
 Citymapper
+\change_inserted 1050230769 1511446178
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Citymapper"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366103
+
 \end_layout
 
 \begin_layout Standard
@@ -3471,6 +3552,17 @@ Citymapper is a reliable service for public transportation
 
 \change_inserted -1730310665 1511366736
 AccuWeather
+\change_inserted 1050230769 1511446570
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:AccuWeather"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366736
+
 \end_layout
 
 \begin_layout Standard
@@ -3492,6 +3584,17 @@ the cost of a self internal implementation of a service like this would
 
 \change_inserted -1730310665 1511367054
 Trenord
+\change_inserted 1050230769 1511446579
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Trenord"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367054
+
 \end_layout
 
 \begin_layout Standard
@@ -3538,6 +3641,17 @@ Stripe is secure
 
 \change_inserted -1730310665 1511367401
 Enjoy
+\change_inserted 1050230769 1511446359
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Enjoy"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367401
+
 \end_layout
 
 \begin_layout Standard
@@ -3564,6 +3678,17 @@ users well know how Enjoy works and feel comfortable
 
 \change_inserted -1730310665 1511367747
 Uber
+\change_inserted 1050230769 1511446300
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Uber"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367747
+
 \end_layout
 
 \begin_layout Standard
@@ -3596,6 +3721,17 @@ manca della fuffa qui
 
 \change_inserted -1730310665 1511367950
 Mobike
+\change_inserted 1050230769 1511446294
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Mobike"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367950
+
 \end_layout
 
 \begin_layout Standard
@@ -3616,6 +3752,17 @@ Enjoy is widely used in Milano and in every part of the city it is expected
 
 \change_inserted -1730310665 1511367915
 Taxi
+\change_inserted 1050230769 1511446279
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Taxi"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367915
+
 \end_layout
 
 \begin_layout Standard
@@ -5452,13 +5599,7 @@ target "https://www.google.it/maps/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-City
-\change_inserted 1050230769 1511431438
-m
-\change_deleted 1050230769 1511431437
- M
-\change_unchanged
-apper
+Citymapper
 \end_layout
 
 \end_inset
@@ -5566,8 +5707,6 @@ target "https://mobike.com/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431425
 Trenord
 \end_layout
 
@@ -5577,8 +5716,6 @@ Trenord
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431634
 \begin_inset CommandInset href
 LatexCommand href
 name "http://www.trenord.it/"
@@ -5597,8 +5734,6 @@ target "http://www.trenord.it/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431463
 AccuWeather
 \end_layout
 
@@ -5608,8 +5743,6 @@ AccuWeather
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431635
 \begin_inset CommandInset href
 LatexCommand href
 name "https://www.accuweather.com/"
@@ -5628,8 +5761,6 @@ target "https://www.accuweather.com/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431613
 Stripe
 \end_layout
 
@@ -5639,8 +5770,6 @@ Stripe
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431636
 \begin_inset CommandInset href
 LatexCommand href
 name "https://stripe.com/"
@@ -5839,8 +5968,6 @@ target "https://reactjs.org/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431529
 Amazon SNS
 \end_layout
 
@@ -5850,8 +5977,6 @@ Amazon SNS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431541
 \begin_inset CommandInset href
 LatexCommand href
 name "https://aws.amazon.com/sns/"
