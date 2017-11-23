@@ -1265,17 +1265,31 @@ Da scrivere e sono messe nel posto giusto queste img?
 \end_inset
 
 
+\change_inserted -1730310665 1511445086
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1730310665 1511445080
 The interactions between the main components are shown in this two figure:
+\change_inserted -1730310665 1511445116
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511445131
+Component view diagrams
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1309,7 +1323,7 @@ High Level Component View
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4565,57 +4579,39 @@ Cost calculation algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will calculate
- the cost of a route.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-/*   
-\end_layout
-
-\begin_layout Plain Layout
-
 This function calculates the cost of a route with a specific transport mean.
  It uses external APIs (GoogleMaps for car, motorbike,...
  and Citymapper for public transportation means).
-\end_layout
-
-\begin_layout Plain Layout
+\begin_inset Newline newline
+\end_inset
 
 In case of personal motor transport means it is assumed that the total cost
  is the sum of a toll (if the route include a toll road) and the cost of
- the gasoline used by the car, motobike,..
-\end_layout
-
-\begin_layout Plain Layout
+ the gasoline used by the car, motobike.
+\begin_inset Newline newline
+\end_inset
 
 In case of public transport mean Citymapper gives the cost of the travel.
-\end_layout
-
-\begin_layout Plain Layout
+\begin_inset Newline newline
+\end_inset
 
 In case of personal free means (bike) or walk the cost will be 0.
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python"
+inline false
+status open
+
 \begin_layout Plain Layout
 
-*/
+def calculate_cost (start_position, end_position, transport_mean):
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == personal_motor_transport_mean:
 \end_layout
 
 \begin_layout Plain Layout
@@ -4624,118 +4620,19 @@ In case of personal free means (bike) or walk the cost will be 0.
 
 \begin_layout Plain Layout
 
-float calculateCost (StartPosition, EndPosition, TransportMean){
+		# Thanks to an external service (Google Maps) it receives the distance
+ iand the distance of the route that provides for the payment of a toll
 \end_layout
 
 \begin_layout Plain Layout
 
-	if(TransportMean == PersonalMotorTransportMean){
+		distance, distance_toll = GoogleMaps.travelDistance(start_position, end_positio
+n, transport_mean)
 \end_layout
 
 \begin_layout Plain Layout
 
-		// Thanks to an external service (Google Maps) it receives the distance
- in KM between the starting point and the event location.
-\end_layout
-
-\begin_layout Plain Layout
-
-		distance = GoogleMaps.travelDistance(StartPosition, EndPosition, TransportMean)
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-		// Thanks to an external service (Google Maps) it receives the distance
- in KM of the part of the route that provides for the payment of a toll.
-\end_layout
-
-\begin_layout Plain Layout
-
-		distanceToll = GoogleMaps.travelDistanceToll(StartPosition, EndPosition,
- TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-		float costCoefficient = loadCostCoefficientFor(TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-		//Personal motor transport mean coefficient.
-\end_layout
-
-\begin_layout Plain Layout
-
-		if(distanceToll != 0)
-\end_layout
-
-\begin_layout Plain Layout
-
-			return (distance * costCoefficient + calculateToll(distanceToll));
-\end_layout
-
-\begin_layout Plain Layout
-
-		return distance * costCoefficient;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(TransportMean == PublicTransportMean){
-\end_layout
-
-\begin_layout Plain Layout
-
-		// Thanks to an external service (Citymapper) it receives the cost of
- the route.
-\end_layout
-
-\begin_layout Plain Layout
-
-		meanRouteCost = Citymapper.routeCost(StartPosition, EndPosition, TransportMean)
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-		return meanRouteCost;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(TransportMean == PersonalFreeTransportMean || Walk){
-\end_layout
-
-\begin_layout Plain Layout
-
-		// The cost of a free transport mean (like bike or walk) is zero.
-\end_layout
-
-\begin_layout Plain Layout
-
-		return 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+		cost_coefficient = load_cost_coefficient(transport_mean)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4744,9 +4641,80 @@ float calculateCost (StartPosition, EndPosition, TransportMean){
 
 \begin_layout Plain Layout
 
+		if distanceToll != 0:
+\end_layout
 
-\backslash
-end{lstlisting}
+\begin_layout Plain Layout
+
+			return distance * costCoefficient + calculateToll(distance_toll)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return distance * costCoefficient
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == public_transport_mean:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		# Thanks to an external service (Citymapper) it receives the cost of the
+ route
+\end_layout
+
+\begin_layout Plain Layout
+
+		mean_route_cost = Citymapper.route_cost(start_position, end_position, transport
+_mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return mean_route_cost
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == (personal_free_transport_mean || walk)
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		# The cost of a free transport mean (like bike or walk) is zero
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0
 \end_layout
 
 \end_inset
