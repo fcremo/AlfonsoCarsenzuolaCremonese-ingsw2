@@ -233,7 +233,7 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -449,7 +449,7 @@ emph{Supervisor:}
 \backslash
  Elisabetta 
 \backslash
-textsc{De Nitto} 
+textsc{Di Nitto} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -3880,15 +3880,10 @@ The user can halt the search and manually reschedule the trip or allow the
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset listings
+lstparams "language=Python,numbers=left,tabsize=4"
+inline false
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}[language=Python]
-\end_layout
 
 \begin_layout Plain Layout
 
@@ -3916,7 +3911,7 @@ def try_auto_reservation(event, user):
 
 \begin_layout Plain Layout
 
-		throw Exception("Automatic reservation procedure called too early")
+		raise Exception("Automatic reservation procedure called too early")
 \end_layout
 
 \begin_layout Plain Layout
@@ -4097,17 +4092,6 @@ cles):
 	return False
 \end_layout
 
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -4118,14 +4102,76 @@ Flexible event verification algorithm
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+This function is called when a new fixed event is added to the calendar.
+ It reschedules the flexible events that overlap with the fixed event or
+ throws an exception if it is not possible to do so.
+ The algorithm is simplified to account for a single calendar, but is trivial
+ to extend to the multiple calendars scenario.
+ The user calendar should be locked before calling this function to avoid
+ race conditions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,breaklines=true,tabsize=4"
+inline false
 status open
 
 \begin_layout Plain Layout
 
+def reschedule_flexible_events(event, user):
+\end_layout
 
-\backslash
-begin{lstlisting}[language=Python]
+\begin_layout Plain Layout
+
+	# One way to see if flexible events can be rescheduled is to make a copy
+ of the user calendar and act on it
+\end_layout
+
+\begin_layout Plain Layout
+
+	calendars = user.snapshot_calendar()
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Add the event to the calendars
+\end_layout
+
+\begin_layout Plain Layout
+
+	calendar.add(event)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	overlapping_flexible_events = calendar.search_events(flexible=true, between=(eve
+nt.start, event.end))
+\end_layout
+
+\begin_layout Plain Layout
+
+	for fevent in overlapping_flexible_events:
+\end_layout
+
+\begin_layout Plain Layout
+
+		success = calendars.try_rescheduling(fevent)
+\end_layout
+
+\begin_layout Plain Layout
+
+		if not success:
+\end_layout
+
+\begin_layout Plain Layout
+
+			raise CouldNotRescheduleFlexibleEventException(fevent)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4134,118 +4180,57 @@ begin{lstlisting}[language=Python]
 
 \begin_layout Plain Layout
 
-/*   
+	# If we came this far then it is possible to reschedule overlapping flexible
+ events
 \end_layout
 
 \begin_layout Plain Layout
 
-This function is called when a new fixed event is added to the calendar.
- It checks if the flexible events that were scheduled during the 
+	# Add the event to the real user calendars
 \end_layout
 
 \begin_layout Plain Layout
 
-*/
+	user.calendar.add(event)
 \end_layout
 
 \begin_layout Plain Layout
 
+	
 \end_layout
 
 \begin_layout Plain Layout
 
-def check_flexible_events_satisfiable (event):
+	overlapping_flexible_events = user.calendar.search_events(flexible=true,
+ between=(event.start, event.end))
 \end_layout
 
 \begin_layout Plain Layout
 
-	# This function return a value: true, it means that the event does not
- is created; false, it means that there isn't a free slot of time for the
- flexible event.
+	for fevent in overlapping_flexible_events:
 \end_layout
 
 \begin_layout Plain Layout
 
-	// If the function returns true the user is notified about the successful
- creation of the event.
+		success = user.calendar.try_rescheduling(fevent)
 \end_layout
 
 \begin_layout Plain Layout
 
-	// If the function return a false value the user is asked if he wants to
- reschedule the flexible event or one of the event near it.
+		if not success:
 \end_layout
 
 \begin_layout Plain Layout
 
-	// The function getNextEvent(time) return the first scheduled event after
- the time specified.
+			# This should never happen and would leave some flexible events incorrectly
+ scheduled
 \end_layout
 
 \begin_layout Plain Layout
 
-	for(start = e.ConstraintTimeStart; start < e.ConstraintTimeEnd; start = getNextEv
-ent(start).getStartingTime()){
+			raise CouldNotRescheduleFlexibleEventException(fevent)
 \end_layout
 
-\begin_layout Plain Layout
-
-		if(getNextEvent(start).getStartingTime() - start >= e.getDuration()){
-\end_layout
-
-\begin_layout Plain Layout
-
-			e.setStartTime(start);
-\end_layout
-
-\begin_layout Plain Layout
-
-			e.setEndTime(start+e.getDuration());
-\end_layout
-
-\begin_layout Plain Layout
-
-			return true;
-\end_layout
-
-\begin_layout Plain Layout
-
-		}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	return false;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -4256,29 +4241,52 @@ Event reachable verification algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will verify
- if the event that the user is creating is reachable in time.
-\end_layout
-
-\begin_layout Subparagraph*
-isReachableEvent (Event)
+This function is called when the user adds a fixed event to his calendar.
+ It checks if the event location is reachable in time from the previous
+ event location.
+ Does not check if there's another overlapping event.
 \end_layout
 
 \begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
+\begin_inset listings
+lstparams "language=Python,tabsize=4"
+inline false
 status open
 
 \begin_layout Plain Layout
 
+def is_event_location_reachable_in_time (event, user):
+\end_layout
 
-\backslash
-begin{lstlisting}
+\begin_layout Plain Layout
+
+	# The previous event is automatically suggested to the user when possible
+ (if one and only one preceding event exists)
+\end_layout
+
+\begin_layout Plain Layout
+
+	# otherwise the user has to set it manually.
+\end_layout
+
+\begin_layout Plain Layout
+
+	if event.previous_event is None:
+\end_layout
+
+\begin_layout Plain Layout
+
+		return True
+\end_layout
+
+\begin_layout Plain Layout
+
+	travel_start = event.previous_event.end_time
+\end_layout
+
+\begin_layout Plain Layout
+
+	prev_location = event.previous_event.location
 \end_layout
 
 \begin_layout Plain Layout
@@ -4287,49 +4295,18 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-/*   
+	# If we don't know the event location or previous location we assume the
+ user knows what it's doing
 \end_layout
 
 \begin_layout Plain Layout
 
-This function checks if the scheduled event after the event that user is
- creating is reachable in time.
- It returns to the caller true if it is possible, false otherwise.
+	if event.location is None or prev_location is None:
 \end_layout
 
 \begin_layout Plain Layout
 
-*/
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-boolean isReachableEvent (Event e){
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(e.nextEvent().getStartTime()-e.getEndTime() > e.nextEvent().getPosition().getTrave
-lTime(e.getPosition()))
-\end_layout
-
-\begin_layout Plain Layout
-
-		return true;
-\end_layout
-
-\begin_layout Plain Layout
-
-	return false;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+		return True
 \end_layout
 
 \begin_layout Plain Layout
@@ -4338,9 +4315,17 @@ lTime(e.getPosition()))
 
 \begin_layout Plain Layout
 
+	min_travel_time = travel_planning_service.get_shortest_travel_time(prev_location
+, event.location, user.travel_preferences)
+\end_layout
 
-\backslash
-end{lstlisting}
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	return (min_travel_time < event.start - travel_start)
 \end_layout
 
 \end_inset
@@ -4360,29 +4345,29 @@ CO2 emissions calculation algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will calculate
- the CO2 emissions of a route.
-\end_layout
-
-\begin_layout Subparagraph*
-calculateCO2 (StartPosition, EndPosition, TransportMean)
+This code is used to give a rough estimate of the CO2 emissions for a travel.
+ It loads a list of emission coefficients based on the travel distance.
+ The rationale behind this is that as a travel gets longer generally more
+ kilometers will be part of high speed roads, where emissions differ.
+ From the list of (travel_length, co2_emissions_per_km) we find the two
+ closest estimates, do a linear interpolation on the emission coefficient
+ and estimate the CO2 emissions with the interpolated value.
 \end_layout
 
 \begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset ERT
+\begin_inset listings
+lstparams "language=Python"
+inline false
 status open
 
 \begin_layout Plain Layout
 
+def co2_estimation(travel_distance, transportation_mean):
+\end_layout
 
-\backslash
-begin{lstlisting}
+\begin_layout Plain Layout
+
+	coefficients = load_co2_coefficients(transportation_mean)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4391,28 +4376,7 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-/*   
-\end_layout
-
-\begin_layout Plain Layout
-
-This function calculates the CO2 emissions of a route with a specific transport
- mean.
- It uses external APIs (GoogleMaps) for caluclate the distance between two
- points.
-\end_layout
-
-\begin_layout Plain Layout
-
-The calculus of the CO2 emission is based on a estimation (it is assumed
- that if the distance is less than 10km the route will be urban, up to 20km
- extraurban, otherwise in the route there is an highway and the production
- of CO2 is proportional to the number of km).
-\end_layout
-
-\begin_layout Plain Layout
-
-*/
+	km1, c1, km2, c2 = find_two_nearest(travel_distance)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4421,74 +4385,7 @@ The calculus of the CO2 emission is based on a estimation (it is assumed
 
 \begin_layout Plain Layout
 
-float calculateCO2 (StartPosition, EndPosition, TransportMean){
-\end_layout
-
-\begin_layout Plain Layout
-
-	// Thanks to an external service (Google Maps) it receives the distance
- in KM between the starting point and the event location.
-\end_layout
-
-\begin_layout Plain Layout
-
-	distance = GoogleMaps.travelDistance(StartPosition, EndPosition, TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-	// This list contains the coefficients of each transport mean used to calculate
- the CO2 emissions.
-\end_layout
-
-\begin_layout Plain Layout
-
-	List co2coefficients = loadCO2CoefficientsFor(TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-	float coefficient;
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(distance < 10)
-\end_layout
-
-\begin_layout Plain Layout
-
-		coefficient = co2coefficients[0];
-\end_layout
-
-\begin_layout Plain Layout
-
-	elseif (distance < 20)
-\end_layout
-
-\begin_layout Plain Layout
-
-		coefficient = co2coefficients[1];
-\end_layout
-
-\begin_layout Plain Layout
-
-	else
-\end_layout
-
-\begin_layout Plain Layout
-
-		coefficient = co2coefficient[2];
-\end_layout
-
-\begin_layout Plain Layout
-
-	return distance * coefficient;
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+	c = (c2 - c1)/(km2 - km1)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4497,9 +4394,7 @@ float calculateCO2 (StartPosition, EndPosition, TransportMean){
 
 \begin_layout Plain Layout
 
-
-\backslash
-end{lstlisting}
+	return travel_distance * c
 \end_layout
 
 \end_inset
@@ -4523,17 +4418,7 @@ In this section we will analyze the structure of the code that will calculate
  the cost of a route.
 \end_layout
 
-\begin_layout Subparagraph*
-calculateCost (StartPosition, EndPosition, TransportMean)
-\end_layout
-
 \begin_layout Standard
-\SpecialChar ligaturebreak
-
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset ERT
 status open
 
