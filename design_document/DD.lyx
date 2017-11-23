@@ -240,6 +240,7 @@ End
 \html_be_strict false
 \author -1730310665 "fabcars"
 \author 1050230769 "Alessandro"
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -1195,6 +1196,10 @@ External APIs and data sources
 \begin_layout Standard
 fetches external data such as maps, weather, public transport informations,
  ticket information, taxi information, sharing mobility
+\change_inserted 1604105849 1511443817
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1287,6 +1292,17 @@ Component View
 
 \begin_layout Subsection
 Deployment view
+\change_inserted 1604105849 1511446055
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Deployment-view"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1341,7 +1357,7 @@ Initially we will deploy a single instance of the MariaDB RDBMS on a single
 \end_layout
 
 \begin_layout Subsubsection
-Other scalability notes
+Other notes
 \end_layout
 
 \begin_layout Standard
@@ -1492,7 +1508,7 @@ Billing Information After Signup Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1540,7 +1556,7 @@ Login Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1588,7 +1604,7 @@ Edit Personal Information Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1930,7 +1946,7 @@ New Shared Event With Invitation Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2030,7 +2046,7 @@ Delete Event Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3677,46 +3693,22 @@ Architectural patterns
 \end_layout
 
 \begin_layout Standard
-The architecture of the system has been previously described at higher level.
-\end_layout
+As described in this section, particularly in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Deployment-view"
 
-\begin_layout Standard
-As we said, we adopted a 
-\series bold
-multi-tier architecture
-\series default
- in which every tier is hosted on a different machine: the 
-\shape italic
-Client
-\shape default
- tier is on the pc or smartphone the user access the system from, the 
-\shape italic
-Web
-\shape default
- tier is hosted on a separate server used only for this purpose, while another
- server hosts the 
-\shape italic
-Business
-\shape default
- tier.
- Finally a last server contains the 
-\shape italic
-Data
-\shape default
- tier.
-\end_layout
+\end_inset
 
-\begin_layout Standard
-This division between all levels has been made in order to allow update
- and maintenance on a particular tier without affecting the others, and
- to prevent the whole system to interrupt in case of fault of a component.
- We also adopted the 
-\shape italic
-thin client
-\shape default
- paradigm to the interaction between user’s machine and the system: in this
- way all the application logic is on the application server, which has sufficien
-t computing power and is able to manage concurrency issue efficiently.
+, our system will initially adopt a simple 3 tier architecture, composed
+ of the clients tier, the web and application logic tier, and the database
+ tier.
+ We will then gradually migrate to a more complex 4 tier architecture to
+ handle more load as our user base will grow, splitting the web and application
+ logi tier into a web/load balancing tier and a dedicated application logic
+ tier.
+ Each tier will first have one machine but more will be added to handle
+ more traffic.
 \end_layout
 
 \begin_layout Subsubsection
@@ -3724,63 +3716,10 @@ Design Patterns
 \end_layout
 
 \begin_layout Standard
-The Design pattern used for this system is the 
-\series bold
-Model-View-Controller
-\series default
- (MVC).
-\end_layout
-
-\begin_layout Standard
-This choice has been made mainly for the flexibility that this pattern provides:
- the 
-\shape italic
-model
-\shape default
-, the 
-\shape italic
-view
-\shape default
- and the 
-\shape italic
-controller
-\shape default
- are separated into different components that can be modified with a minimum
- impact with respect to the others, helping to achieve a better scalability
- and offering the possibility to add new functionalities to the system or
- to apply changes to the code.
- In more detail:
-\end_layout
-
-\begin_layout Itemize
-The 
-\series bold
-Model
-\series default
- contains the representation of data and the application logic, so all the
- functions that manipulates data.
-\end_layout
-
-\begin_layout Itemize
-The 
-\series bold
-View
-\series default
- makes the model suitable for the user interaction, providing a GUI: every
- user will access the system and all its functionalities through this component.
- Furthermore, it provides the possibility to have different representations
- (or views) for the same data, depending on the user’s preference or on
- the user’s permissions.
-\end_layout
-
-\begin_layout Itemize
-The 
-\series bold
-Controller
-\series default
-, finally, is responsible for the communication between the View and the
- Model: in particular it responds to user’s actions and invokes changes
- on the model.
+The main design pattern used for building our clients will be the well known
+ Model-View-Controller.
+ We choose this design pattern because it is simple and effective, and allows
+ to write functionality independently from the user interface.
 \end_layout
 
 \begin_layout Standard
@@ -3799,42 +3738,8 @@ Storage of passwords
 \end_layout
 
 \begin_layout Standard
-Users’ password will not be stored in plain-text, but they will be hashed
- and salted with cryptographic hash functions.
- This provides a last line of defense in case of data theft.
-\end_layout
-
-\begin_layout Subsubsection
-Google Maps
-\end_layout
-
-\begin_layout Standard
-The system uses an external service, Google Maps, to offload all the geolocaliza
-tion, distance calculation and map visualization processes.
- The reasons of this choice are the following:
-\end_layout
-
-\begin_layout Itemize
-manually developing maps for each city is not a viable solution due to the
- tremendous effort of coding and data collection required;
-\end_layout
-
-\begin_layout Itemize
-Google Maps is a well-established, tested and reliable software component
- already used by millions of people around the world;
-\end_layout
-
-\begin_layout Itemize
-Google Maps offers APIs, enabling programmatic access to its features;
-\end_layout
-
-\begin_layout Itemize
-Google Maps can be used both on the server side (calculation, shortest paths,
- traffic, incident reporting) and on the client side (map visualization);
-\end_layout
-
-\begin_layout Itemize
-the users feel comfortable with a software component they know and use everyday.
+We will use the bcrypt algorithm with cost factor 12 to hash the passwords
+ of our users.
 \end_layout
 
 \begin_layout Standard
