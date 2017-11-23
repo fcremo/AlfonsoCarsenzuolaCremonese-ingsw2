@@ -3396,57 +3396,6 @@ This service does not expose any endpoints.
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1730310665 1511364958
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Cose non nostre da qui in avanti
-\end_layout
-
-\end_inset
-
-
-\change_inserted -1730310665 1511365420
-
-\series bold
-
-\begin_inset Newline newline
-\end_inset
-
-
-\change_unchanged
-Other Specifications
-\end_layout
-
-\begin_layout Itemize
-The front-ends of the system (the mobile app and the web application) communicat
-e with the Application Server using the back-end interface implemented as
- a RESTful interface over the HTTPS protocol.
-\end_layout
-
-\begin_layout Itemize
-The users’ browsers will communicate with the web server via HTTPS requests.
- Any unencrypted request will be denied.
-\end_layout
-
-\begin_layout Itemize
-The RESTful interface is implemented in the Application server using JAX-RS
- and uses XML as the data representation language.
-\end_layout
-
-\begin_layout Itemize
-The Application Server communicates with the DBMS via the Java Persistence
- API over standard network protocols.
-\end_layout
-
-\begin_layout Itemize
-The Application Server is configurable by means of a XML configuration file,
- that will contain any other setting useful in the implementation phase.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage newpage
 \end_inset
 
