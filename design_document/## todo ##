@@ -11,3 +11,4 @@
 (ale) 	references
 (fab)	specificare meglio APIs esterne
 ()  specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
+()	scope
