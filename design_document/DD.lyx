@@ -710,6 +710,10 @@ status open
 
 \begin_layout Plain Layout
 TBD (right now it's copy-pasted from the RASD)
+\change_inserted 1050230769 1511446665
+ - References to 2.6 of DD)
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -725,6 +729,18 @@ Travlendar+ will be available on all the most used platforms (mobile and
 
 \begin_layout Itemize
 calendar apps that provide weather information
+\change_inserted 1050230769 1511446600
+ (e.g AccuWeather.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:AccuWeather"
+
+\end_inset
+
+)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -733,7 +749,7 @@ public transport assistants (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Citymapper"
 
 \end_inset
 
@@ -742,6 +758,19 @@ reference "subsec:References"
 
 \begin_layout Itemize
 public transport ticketing apps
+\change_inserted 1050230769 1511446627
+ (e.g.
+ Trenord.
+ See references 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Trenord"
+
+\end_inset
+
+)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -750,7 +779,7 @@ navigation apps (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Google-Maps"
 
 \end_inset
 
@@ -763,10 +792,21 @@ taxi apps (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Taxi"
 
 \end_inset
 
+
+\change_inserted 1050230769 1511446327
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Uber"
+
+\end_inset
+
+
+\change_unchanged
 )
 \end_layout
 
@@ -776,10 +816,21 @@ sharing mobility services applications (e.g.
  See references 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:References"
+reference "subsec:Enjoy"
 
 \end_inset
 
+
+\change_inserted 1050230769 1511446389
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Mobike"
+
+\end_inset
+
+
+\change_unchanged
 )
 \end_layout
 
@@ -801,12 +852,18 @@ The system will need to interact with external entities and events beyond
  The specifications of the service are based upon the assumption that most
  of the time those external entities will behave as expected (documented
  in section 
+\change_inserted 1050230769 1511446856
+2.5 in the Requirement Analisys and Specifications Document
+\change_deleted 1050230769 1511446817
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Assumptions and dependencies"
 
 \end_inset
 
+
+\change_unchanged
 ).
  When one or some external services won't behave as expected, the application
  will work the same but in a dregradated state.
@@ -1213,17 +1270,31 @@ Da scrivere e sono messe nel posto giusto queste img?
 \end_inset
 
 
+\change_inserted -1730310665 1511445086
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1730310665 1511445080
 The interactions between the main components are shown in this two figure:
+\change_inserted -1730310665 1511445116
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted -1730310665 1511445131
+Component view diagrams
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1257,7 +1328,7 @@ High Level Component View
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1660,6 +1731,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_editTravelPreferences.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -1754,6 +1826,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_buyTicketPass.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -3398,7 +3471,18 @@ We suppose to have a commercial agreement with some service.
 \begin_layout Subsubsection
 
 \change_inserted -1730310665 1511366060
-Google Maps 
+Google Maps
+\change_inserted 1050230769 1511446208
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Google-Maps"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366060
+ 
 \begin_inset Note Note
 status open
 
@@ -3454,6 +3538,17 @@ the users feel comfortable with a software component they know and use everyday
 
 \change_inserted -1730310665 1511366103
 Citymapper
+\change_inserted 1050230769 1511446178
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Citymapper"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366103
+
 \end_layout
 
 \begin_layout Standard
@@ -3487,6 +3582,17 @@ Citymapper is a reliable service for public transportation
 
 \change_inserted -1730310665 1511366736
 AccuWeather
+\change_inserted 1050230769 1511446570
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:AccuWeather"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511366736
+
 \end_layout
 
 \begin_layout Standard
@@ -3508,6 +3614,17 @@ the cost of a self internal implementation of a service like this would
 
 \change_inserted -1730310665 1511367054
 Trenord
+\change_inserted 1050230769 1511446579
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Trenord"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367054
+
 \end_layout
 
 \begin_layout Standard
@@ -3554,6 +3671,17 @@ Stripe is secure
 
 \change_inserted -1730310665 1511367401
 Enjoy
+\change_inserted 1050230769 1511446359
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Enjoy"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367401
+
 \end_layout
 
 \begin_layout Standard
@@ -3580,6 +3708,17 @@ users well know how Enjoy works and feel comfortable
 
 \change_inserted -1730310665 1511367747
 Uber
+\change_inserted 1050230769 1511446300
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Uber"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367747
+
 \end_layout
 
 \begin_layout Standard
@@ -3612,6 +3751,17 @@ manca della fuffa qui
 
 \change_inserted -1730310665 1511367950
 Mobike
+\change_inserted 1050230769 1511446294
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Mobike"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367950
+
 \end_layout
 
 \begin_layout Standard
@@ -3632,6 +3782,17 @@ Enjoy is widely used in Milano and in every part of the city it is expected
 
 \change_inserted -1730310665 1511367915
 Taxi
+\change_inserted 1050230769 1511446279
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Taxi"
+
+\end_inset
+
+
+\change_inserted -1730310665 1511367915
+
 \end_layout
 
 \begin_layout Standard
@@ -4323,57 +4484,39 @@ Cost calculation algorithm
 \end_layout
 
 \begin_layout Standard
-In this section we will analyze the structure of the code that will calculate
- the cost of a route.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-/*   
-\end_layout
-
-\begin_layout Plain Layout
-
 This function calculates the cost of a route with a specific transport mean.
  It uses external APIs (GoogleMaps for car, motorbike,...
  and Citymapper for public transportation means).
-\end_layout
-
-\begin_layout Plain Layout
+\begin_inset Newline newline
+\end_inset
 
 In case of personal motor transport means it is assumed that the total cost
  is the sum of a toll (if the route include a toll road) and the cost of
- the gasoline used by the car, motobike,..
-\end_layout
-
-\begin_layout Plain Layout
+ the gasoline used by the car, motobike.
+\begin_inset Newline newline
+\end_inset
 
 In case of public transport mean Citymapper gives the cost of the travel.
-\end_layout
-
-\begin_layout Plain Layout
+\begin_inset Newline newline
+\end_inset
 
 In case of personal free means (bike) or walk the cost will be 0.
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python"
+inline false
+status open
+
 \begin_layout Plain Layout
 
-*/
+def calculate_cost (start_position, end_position, transport_mean):
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == personal_motor_transport_mean:
 \end_layout
 
 \begin_layout Plain Layout
@@ -4382,118 +4525,19 @@ In case of personal free means (bike) or walk the cost will be 0.
 
 \begin_layout Plain Layout
 
-float calculateCost (StartPosition, EndPosition, TransportMean){
+		# Thanks to an external service (Google Maps) it receives the distance
+ iand the distance of the route that provides for the payment of a toll
 \end_layout
 
 \begin_layout Plain Layout
 
-	if(TransportMean == PersonalMotorTransportMean){
+		distance, distance_toll = GoogleMaps.travelDistance(start_position, end_positio
+n, transport_mean)
 \end_layout
 
 \begin_layout Plain Layout
 
-		// Thanks to an external service (Google Maps) it receives the distance
- in KM between the starting point and the event location.
-\end_layout
-
-\begin_layout Plain Layout
-
-		distance = GoogleMaps.travelDistance(StartPosition, EndPosition, TransportMean)
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-		// Thanks to an external service (Google Maps) it receives the distance
- in KM of the part of the route that provides for the payment of a toll.
-\end_layout
-
-\begin_layout Plain Layout
-
-		distanceToll = GoogleMaps.travelDistanceToll(StartPosition, EndPosition,
- TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-		float costCoefficient = loadCostCoefficientFor(TransportMean);
-\end_layout
-
-\begin_layout Plain Layout
-
-		//Personal motor transport mean coefficient.
-\end_layout
-
-\begin_layout Plain Layout
-
-		if(distanceToll != 0)
-\end_layout
-
-\begin_layout Plain Layout
-
-			return (distance * costCoefficient + calculateToll(distanceToll));
-\end_layout
-
-\begin_layout Plain Layout
-
-		return distance * costCoefficient;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(TransportMean == PublicTransportMean){
-\end_layout
-
-\begin_layout Plain Layout
-
-		// Thanks to an external service (Citymapper) it receives the cost of
- the route.
-\end_layout
-
-\begin_layout Plain Layout
-
-		meanRouteCost = Citymapper.routeCost(StartPosition, EndPosition, TransportMean)
-;
-\end_layout
-
-\begin_layout Plain Layout
-
-		return meanRouteCost;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-	if(TransportMean == PersonalFreeTransportMean || Walk){
-\end_layout
-
-\begin_layout Plain Layout
-
-		// The cost of a free transport mean (like bike or walk) is zero.
-\end_layout
-
-\begin_layout Plain Layout
-
-		return 0;
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+		cost_coefficient = load_cost_coefficient(transport_mean)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4502,9 +4546,80 @@ float calculateCost (StartPosition, EndPosition, TransportMean){
 
 \begin_layout Plain Layout
 
+		if distanceToll != 0:
+\end_layout
 
-\backslash
-end{lstlisting}
+\begin_layout Plain Layout
+
+			return distance * costCoefficient + calculateToll(distance_toll)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return distance * costCoefficient
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == public_transport_mean:
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		# Thanks to an external service (Citymapper) it receives the cost of the
+ route
+\end_layout
+
+\begin_layout Plain Layout
+
+		mean_route_cost = Citymapper.route_cost(start_position, end_position, transport
+_mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+		return mean_route_cost
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	if transport_mean == (personal_free_transport_mean || walk)
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		# The cost of a free transport mean (like bike or walk) is zero
+\end_layout
+
+\begin_layout Plain Layout
+
+		return 0
 \end_layout
 
 \end_inset
@@ -5357,13 +5472,7 @@ target "https://www.google.it/maps/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-City
-\change_inserted 1050230769 1511431438
-m
-\change_deleted 1050230769 1511431437
- M
-\change_unchanged
-apper
+Citymapper
 \end_layout
 
 \end_inset
@@ -5471,8 +5580,6 @@ target "https://mobike.com/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431425
 Trenord
 \end_layout
 
@@ -5482,8 +5589,6 @@ Trenord
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431634
 \begin_inset CommandInset href
 LatexCommand href
 name "http://www.trenord.it/"
@@ -5502,8 +5607,6 @@ target "http://www.trenord.it/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431463
 AccuWeather
 \end_layout
 
@@ -5513,8 +5616,6 @@ AccuWeather
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431635
 \begin_inset CommandInset href
 LatexCommand href
 name "https://www.accuweather.com/"
@@ -5533,8 +5634,6 @@ target "https://www.accuweather.com/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431613
 Stripe
 \end_layout
 
@@ -5544,8 +5643,6 @@ Stripe
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431636
 \begin_inset CommandInset href
 LatexCommand href
 name "https://stripe.com/"
@@ -5744,8 +5841,6 @@ target "https://reactjs.org/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431529
 Amazon SNS
 \end_layout
 
@@ -5755,8 +5850,6 @@ Amazon SNS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1050230769 1511431541
 \begin_inset CommandInset href
 LatexCommand href
 name "https://aws.amazon.com/sns/"
