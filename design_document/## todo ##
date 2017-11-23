@@ -6,8 +6,8 @@
 ()	posizionare grafici
 (ale)	sezione 5 (Requirements Traceability)
 ()	sezione 2.7.2 (design pattern)
-() 	sezione 2.8 (other design decision)
+(fab) 	sezione 2.8 (other design decision)
 ()	ore di lavoro
 (ale) 	references
-()	specificare meglio APIs esterne
+(fab)	specificare meglio APIs esterne
 ()  specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
