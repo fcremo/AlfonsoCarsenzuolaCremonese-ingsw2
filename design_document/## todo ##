@@ -13,3 +13,4 @@
 ()  	specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
 ()		scope
 () 		aggiornare tabella cambiamenti rasd
+() 		modificare fig 11 (buy ticket sd) in modo che quando il web server deve mostrare i ticket prima chiede al ticket shop service (trenord)
