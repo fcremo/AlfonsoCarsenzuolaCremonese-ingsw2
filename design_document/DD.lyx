@@ -1598,7 +1598,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
+	filename diagrams/sequence_diagram/sequence-diagram_editPersonalInfo.plantuml
 	width 100text%
 	height 100theight%
 	keepAspectRatio
@@ -1697,6 +1697,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
