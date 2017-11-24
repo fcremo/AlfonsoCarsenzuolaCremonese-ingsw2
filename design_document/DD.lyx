@@ -1742,6 +1742,7 @@ status open
 	filename diagrams/sequence_diagram/sequence-diagram_editBillInfo.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
