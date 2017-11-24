@@ -1220,24 +1220,6 @@ We will use MariaDB as DBMS for storing data.
 
 \begin_layout Subsubsection
 Component view diagrams
-\change_inserted 1604105849 1511517123
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1604105849 1511517132
-Sistemare grafico
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1274,24 +1256,6 @@ High Level Component View
 
 \end_inset
 
-
-\change_inserted 1604105849 1511517219
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1604105849 1511517229
-Collegare client e web al bordo di API
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -1638,7 +1602,7 @@ Edit Personal Information Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1883,7 +1847,7 @@ New Event With Sharing Services Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1933,7 +1897,7 @@ New Event With Flexible Option Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1941,6 +1905,7 @@ status collapsed
 	filename diagrams/sequence_diagram/sequence-diagram_newEvent3.plantuml
 	width 100text%
 	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -1983,7 +1948,7 @@ New Shared Event With Invitation Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
