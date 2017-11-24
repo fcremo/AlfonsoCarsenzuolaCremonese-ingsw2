@@ -240,6 +240,7 @@ End
 \html_be_strict false
 \author -1730310665 "fabcars"
 \author 1050230769 "Alessandro"
+\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -819,7 +820,7 @@ The system will need to interact with external entities and events beyond
  of the time those external entities will behave as expected (documented
  in section 2.5 in the Requirement Analisys and Specifications Document).
  When one or some external services won't behave as expected, the application
- will work the same but in a dregradated state.
+ will work the same but in a degraded state.
  If it is possible the system should notify the user that the application
  will work in a limited way (and tells him which services are unaviable).
  
@@ -878,23 +879,23 @@ Logical components overview
 
 \begin_layout Standard
 Travlendar+ will consist of several logical components, following a traditional
- multi-tier architecture:
+ multi-layer architecture:
 \end_layout
 
 \begin_layout Itemize
-Client UI
+Clients
 \end_layout
 
 \begin_layout Itemize
-Web tier
+Web layer
 \end_layout
 
 \begin_layout Itemize
-Application logic tier
+Application logic layer
 \end_layout
 
 \begin_layout Itemize
-Database tier
+Database layer
 \end_layout
 
 \begin_layout Itemize
@@ -902,7 +903,7 @@ External APIs and data sources
 \end_layout
 
 \begin_layout Subsubsection*
-Client UI
+Clients
 \end_layout
 
 \begin_layout Standard
@@ -917,7 +918,7 @@ End users will be able to use Travlendar on their mobile devices and desktop
 \end_layout
 
 \begin_layout Subsubsection*
-Web tier
+Web layer
 \end_layout
 
 \begin_layout Standard
@@ -928,7 +929,7 @@ The web application will fetch resources (HTML, CSS, JS, images, ...) from
 \end_layout
 
 \begin_layout Subsubsection*
-Application logic tier
+Application logic layer
 \end_layout
 
 \begin_layout Standard
@@ -937,7 +938,7 @@ Server side functionality will be implemented by services reachable as HTTP
  Each service will implement some specific functionality (see section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Application-logic-tier"
+reference "subsec:Application-logic-layer"
 
 \end_inset
 
@@ -948,7 +949,7 @@ reference "subsec:Application-logic-tier"
 \end_layout
 
 \begin_layout Subsubsection*
-Database
+Database layer
 \end_layout
 
 \begin_layout Standard
@@ -1014,7 +1015,7 @@ Each logical component is made of several subcomponents.
 \end_layout
 
 \begin_layout Subsubsection
-Client UI
+Clients
 \end_layout
 
 \begin_layout Standard
@@ -1066,7 +1067,7 @@ The desktop web application will be built using the React framework.
 \end_layout
 
 \begin_layout Subsubsection
-Web tier
+Web layer
 \end_layout
 
 \begin_layout Standard
@@ -1076,10 +1077,10 @@ One or more Nginx load balancers will distribute requests to other Nginx
 \end_layout
 
 \begin_layout Subsubsection
-Application logic tier
+Application logic layer
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Application-logic-tier"
+name "subsec:Application-logic-layer"
 
 \end_inset
 
@@ -1104,7 +1105,25 @@ Password reset
 \end_layout
 
 \begin_layout Itemize
-User information and preferences
+User preferences
+\change_inserted 1604105849 1511516847
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1604105849 1511516853
+cambiare grafico
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_deeper
@@ -1119,7 +1138,7 @@ Manages calendars and events
 
 \end_deeper
 \begin_layout Itemize
-Travel planing service
+Travel planning service
 \end_layout
 
 \begin_deeper
@@ -1200,16 +1219,25 @@ We will use MariaDB as DBMS for storing data.
 \end_layout
 
 \begin_layout Subsubsection
-External APIs and data sources
-\end_layout
-
-\begin_layout Standard
-fetches external data such as maps, weather, public transport informations,
- ticket information, taxi information, sharing mobility.
-\end_layout
-
-\begin_layout Subsubsection
 Component view diagrams
+\change_inserted 1604105849 1511517123
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1604105849 1511517132
+Sistemare grafico
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1246,6 +1274,24 @@ High Level Component View
 
 \end_inset
 
+
+\change_inserted 1604105849 1511517219
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1604105849 1511517229
+Collegare client e web al bordo di API
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -1342,7 +1388,6 @@ Initially we will deploy a single instance of the MariaDB RDBMS on a single
  We anticipate the possibility of sharding the database on user id when
  the write performance will become insufficient, as different users interact
  sparely and mostly in read only way on other user's data.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1361,7 +1406,7 @@ Initially there will be no dedicated firewall applicance.
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1396,7 +1441,7 @@ Initial Deployment View
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1436,9 +1481,9 @@ Runtime view
 \end_layout
 
 \begin_layout Standard
-In this section are explained through sequence diagrams some of the most
- important interactions between components and actors of the system.
- For semplicity, here we assume that the actor is using the web application.
+In this section we use sequence diagrams to explain some of the most important
+ interactions between components and actors of the system.
+ The actor is using the web application.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1689,7 +1734,7 @@ Edit Billing Information Sequence Diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3748,13 +3793,6 @@ The main design pattern used for building our clients will be the well known
  Model-View-Controller.
  We choose this design pattern because it is simple and effective, and allows
  to write functionality independently from the user interface.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
