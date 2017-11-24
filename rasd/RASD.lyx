@@ -791,7 +791,7 @@ reference "subsec:Assumptions and dependencies"
 
 ).
  When one or some external services won't behave as expected, the application
- will work the same but in a dregradated state.
+ will work the same but in a degraded state.
  If it is possible the system should notify the user that the application
  will work in a limited way (and tells him which services are unaviable).
  
