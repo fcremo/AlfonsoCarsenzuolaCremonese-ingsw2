@@ -2,7 +2,7 @@
 
 ()		correggere inglese
 ()		rilettura coerenza
-()		correggere note 
+()		correggere note
 ()		posizionare grafici
 (ale)	sezione 5 (Requirements Traceability)
 ()		sezione 2.7.2 (design pattern)
@@ -13,4 +13,5 @@
 ()  	specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
 ()		scope
 () 		aggiornare tabella cambiamenti rasd
-() 		modificare fig 11 (buy ticket sd) in modo che quando il web server deve mostrare i ticket prima chiede al ticket shop service (trenord)
+(ale) 		modificare fig 11 (buy ticket sd) in modo che quando il web server deve mostrare i ticket prima chiede al ticket shop service (trenord)
+(ale)		modificare sequence diagram newevent2 conferma autoreservation, selectedsharing

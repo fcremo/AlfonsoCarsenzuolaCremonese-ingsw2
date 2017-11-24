@@ -15,7 +15,10 @@ WebServer --> User: ShowPersonalAreaPage
 deactivate WebServer
 User -> WebServer: BuyTicketPass
 activate WebServer #FFBBBB
-WebServer -> WebServer: LoadTicketPassChoicePage
+WebServer -> TicketShopService: RequestTicketsPasses
+activate TicketShopService #FFBBBB
+TicketShopService -> WebServer: SendTicketsPasses
+deactivate TicketShopService
 WebServer --> User: ShowTicketPassChoicePage
 deactivate WebServer
 User -> WebServer: ChooseTicketsPasses
