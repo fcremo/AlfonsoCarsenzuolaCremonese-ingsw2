@@ -1,0 +1,16 @@
+@startuml
+
+Project starts the 26th February 2018
+[web application] lasts 20 days
+[desktop interface] lasts 5 days
+[Android and iOS apps] lasts 30 days
+[final testing] lasts 15 days
+[release] lasts 3 days
+
+
+[desktop interface] starts at [web application]'s end
+[Android and iOS apps] starts at [web application]'s end
+[final testing] starts at [Android and iOS apps]'s end
+[release] starts at [final testing]'s end
+
+@enduml

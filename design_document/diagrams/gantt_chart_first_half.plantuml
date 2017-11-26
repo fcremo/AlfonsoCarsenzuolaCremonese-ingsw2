@@ -1,4 +1,6 @@
 @startuml
+Project starts the 26th of november 2017
+
 [meeting with Developers Team] lasts 2 days
 [database schema development] lasts 5 days
 [user management service] lasts 10 days
@@ -11,11 +13,6 @@
 [event notifications service] lasts 5 days
 [travel notifications service] lasts 5 days
 [integration between services] lasts 10 days
-[web application] lasts 20 days
-[desktop interface] lasts 5 days
-[Android and iOS apps] lasts 30 days
-[final testing] lasts 15 days
-[release] lasts 3 days
 
 [database schema development] starts at [meeting with Developers Team]'s end
 [user management service] starts at [database schema development]'s end
@@ -28,12 +25,5 @@
 [event notifications service] starts at [notifications delivery service]'s end
 [travel notifications service] starts at [notifications delivery service]'s end
 [integration between services] starts at [travel notifications service]'s end
-[web application] starts at [integration between services]'s end
-[desktop interface] starts at [web application]'s end
-[Android and iOS apps] starts at [web application]'s end
-[final testing] starts at [Android and iOS apps]'s end
-[release] starts at [final testing]'s end
-
-
 
 @enduml

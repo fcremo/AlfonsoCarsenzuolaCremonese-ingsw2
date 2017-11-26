@@ -233,7 +233,7 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -5395,8 +5395,9 @@ Gantt chart
 \end_layout
 
 \begin_layout Standard
-Here we provide a graph of what needs to be developed, representing the
- dependencies between tasks.
+Here we propose a schedule for the development of the project.
+ With a bigger team more tasks could be started in parallel, at the cost
+ of spending more time for integration.
 \end_layout
 
 \begin_layout Subsubsection
@@ -5444,7 +5445,7 @@ Inital meeting with Developers Team and Supervisor
 \begin_inset Text
 
 \begin_layout Plain Layout
-1 day
+2 days
 \end_layout
 
 \end_inset
@@ -5564,7 +5565,7 @@ Implementation and testing travel planning service
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+15 days
 \end_layout
 
 \end_inset
@@ -5644,7 +5645,7 @@ Implementation and testing notifications delivery service
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+5 days
 \end_layout
 
 \end_inset
@@ -5664,7 +5665,7 @@ Implementation and testing event notifications service
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+5 days
 \end_layout
 
 \end_inset
@@ -5684,7 +5685,7 @@ Implementation and testing travel notifications service
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+5 days
 \end_layout
 
 \end_inset
@@ -5724,7 +5725,7 @@ Implementation and testing web application
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+20 days
 \end_layout
 
 \end_inset
@@ -5744,7 +5745,7 @@ Implementation and testing desktop interface
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+5 days
 \end_layout
 
 \end_inset
@@ -5764,7 +5765,7 @@ Implementation and testing Android and iOS apps
 \begin_inset Text
 
 \begin_layout Plain Layout
-10 days
+30 days
 \end_layout
 
 \end_inset
@@ -5795,7 +5796,7 @@ Final testing
 \begin_inset Text
 
 \begin_layout Plain Layout
-Release
+Release & Deployment
 \end_layout
 
 \end_inset
@@ -5804,7 +5805,7 @@ Release
 \begin_inset Text
 
 \begin_layout Plain Layout
-1 day
+3 days
 \end_layout
 
 \end_inset
@@ -5828,13 +5829,68 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
 \begin_inset Graphics
-	filename diagrams/gantt_chart.plantuml
-	width 100text%
-	height 100theight%
-	keepAspectRatio
-	rotateAngle 90
+	filename diagrams/gantt_chart_first_half.plantuml
+	height 50text%
+	scaleBeforeRotation
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename diagrams/gantt_chart_second_half.plantuml
+	height 30text%
+	scaleBeforeRotation
+	rotateAngle 270
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5845,7 +5901,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gantt Diagram
+Gantt chart
 \end_layout
 
 \end_inset
