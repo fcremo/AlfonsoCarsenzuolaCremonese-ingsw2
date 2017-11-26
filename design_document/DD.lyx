@@ -2822,19 +2822,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Da aggiungere altri endpoint relativi agli eventi
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection*
 Travel planning service
 \end_layout
@@ -5060,7 +5047,7 @@ Here we provide a graph of what needs to be developed, representing the
 \end_layout
 
 \begin_layout Subsubsection
-Gantt table
+Tasks
 \end_layout
 
 \begin_layout Standard
@@ -5485,7 +5472,7 @@ Gantt diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
