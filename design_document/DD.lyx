@@ -239,8 +239,6 @@ End
 \html_css_as_file 0
 \html_be_strict false
 \author -1730310665 "fabcars"
-\author 1050230769 "Alessandro"
-\author 1604105849 "Filippo Cremonese"
 \end_header
 
 \begin_body
@@ -1106,24 +1104,6 @@ Password reset
 
 \begin_layout Itemize
 User preferences
-\change_inserted 1604105849 1511516847
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1604105849 1511516853
-cambiare grafico
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \end_deeper
@@ -3332,26 +3312,11 @@ This service does not expose any endpoints.
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1730310665 1511365046
 External components
 \end_layout
 
-\begin_layout Standard
-
-\change_inserted -1730310665 1511365695
-We suppose to have a commercial agreement with some service.
- In this section it is documented what functions (give from external services)
- our system uses.
- 
-\end_layout
-
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511366060
 Google Maps
-\change_inserted 1050230769 1511446208
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Google-Maps"
@@ -3359,65 +3324,34 @@ name "subsec:Google-Maps"
 \end_inset
 
 
-\change_inserted -1730310665 1511366060
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1730310665 1511366074
-è copiato ma non sapevo fare di meglio
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511366117
-The system uses Google Maps to calculate the distance between two location
- and the distance of route with toll, to visualize the map, to schedule
- a trip.
- The reasons of this choice are the following:
+Travlendar+ will use Google Maps to calculate the distance between two locations
+, get travel times for driven trips and to show maps to the users.
+ We chose to use an external service because:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511365681
-manually developing maps for each city is not a viable solution due to the
- tremendous effort of coding and data collection required
+developing maps for each city is not a viable solution due to the tremendous
+ effort required for coding and data collection
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511365681
-Google Maps is a well-established, tested and reliable software component
- already used by millions of people around the world
+Google Maps has almost perfect coverage of the cities we will initially
+ target
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511365681
 Google Maps offers APIs, enabling programmatic access to its features
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511366090
-the users feel comfortable with a software component they know and use everyday
+Google Maps interface is already familiar to many users
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511366103
 Citymapper
-\change_inserted 1050230769 1511446178
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Citymapper"
@@ -3425,43 +3359,29 @@ name "subsec:Citymapper"
 \end_inset
 
 
-\change_inserted -1730310665 1511366103
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511366706
-The system uses Citymapper to schedule a trip that includes public transportatio
-n means or walk track.
- The reasons of this choice are the followning:
+We will use Citymapper to schedule trips using public transportation means
+ or walk.
+ The reasons of this choice are the following:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511366527
-Citymapper works very well in large urban city (like Milano)
+Citymapper works very well in large urban cities like the ones we will target
+ (like Milan)
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511366586
-Citymapper authomatically offers a service to calculate an extimation of
- the calory effort spent by users that reach the destination by walk
+Citymapper offers APIs enabling programmatic access to its services
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511366715
-Citymapper is a reliable service for public transportation
+Citymapper estimates the calories spent for a walking or biking trip
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511366736
 AccuWeather
-\change_inserted 1050230769 1511446570
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:AccuWeather"
@@ -3469,31 +3389,15 @@ name "subsec:AccuWeather"
 \end_inset
 
 
-\change_inserted -1730310665 1511366736
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511366984
-The system uses AccuWeather to recive real time weather forcast.
- The reason of this choice is the following:
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511367035
-the cost of a self internal implementation of a service like this would
- be to much expensive and implement a reliable service of weather forcast
- is difficoult
+We will use AccuWeather as provider for real time weather forcast.
+ It has APIs and has full coverage of the areas targeted by Travlendar+.
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367054
 Trenord
-\change_inserted 1050230769 1511446579
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Trenord"
@@ -3501,56 +3405,30 @@ name "subsec:Trenord"
 \end_inset
 
 
-\change_inserted -1730310665 1511367054
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367181
-The system uses Trenord to know the cost of tickets and passes for railway
- transportation.
- The reason of this choice is the following:
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511367185
-our system will initially work in Milano and Trenord is the greatest company
- in this area
+The system queries Trenord APIs to know the cost of tickets and passes for
+ railway transportation.
+ A commercial agreement with the company was achieved in order to get access
+ to APIs for buying tickets.
+ Other public transportation companies will need to be integrated as Travlendar+
+ target area will expand.
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367198
 Stripe
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367429
-The system uses Stripe as payment processor.
- The reason of this choice is the following
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511367272
-it offers grat users experience and it easy to integrate
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511367348
-Stripe is secure
+We will use Stripe as payment processor.
+ It is easy to integrate, offers great documentation and client code for
+ all the platform we will support.
+ It is also secure and easy to use.
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367401
 Enjoy
-\change_inserted 1050230769 1511446359
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Enjoy"
@@ -3558,36 +3436,23 @@ name "subsec:Enjoy"
 \end_inset
 
 
-\change_inserted -1730310665 1511367401
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367997
-The system uses Enjoy to search and find near shared cars.
+The system uses Enjoy to reserve a shared vehicle (car or scooter).
  The reason of this choice are the following
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511367618
-Enjoy is widely used in Milano and in every part of the city it is expected
- to be possible to find a car
+Enjoy is the most widely used in Milan
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511367739
-users well know how Enjoy works and feel comfortable
+many users already know how Enjoy works and feel comfortable using it
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367747
 Uber
-\change_inserted 1050230769 1511446300
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Uber"
@@ -3595,42 +3460,14 @@ name "subsec:Uber"
 \end_inset
 
 
-\change_inserted -1730310665 1511367747
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367872
-The system uses Uber to reserve car with driver.
- The reason of this choice is the following
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511367942
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1730310665 1511367888
-manca della fuffa qui
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
+The system will use Uber to reserve a car with driver.
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367950
 Mobike
-\change_inserted 1050230769 1511446294
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Mobike"
@@ -3638,30 +3475,20 @@ name "subsec:Mobike"
 \end_inset
 
 
-\change_inserted -1730310665 1511367950
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367969
-The system uses Mobike to reserve shared bike.
+The system will use Mobike to reserve a shared bike.
  The reason of this choice is the following
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511367990
 Enjoy is widely used in Milano and in every part of the city it is expected
  to be possible to find a bike
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511367915
-Taxi
-\change_inserted 1050230769 1511446279
-
+myTaxi
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Taxi"
@@ -3669,58 +3496,25 @@ name "subsec:Taxi"
 \end_inset
 
 
-\change_inserted -1730310665 1511367915
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511367934
-The system uses Taxi to reserve taxi.
- The reason of this choice is the following
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511368028
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1730310665 1511367910
-manca della fuffa qui
-\end_layout
-
-\end_inset
-
-
+We reached a commercial agreement with myTaxi to provide taxi reservations.
+ It has extensive coverage of many major cities and a well built technical
+ infrastructure (compared to other taxi services).
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted -1730310665 1511368036
 Amazon SNS
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1730310665 1511368195
-The system uses Amazon SNS as notification deliver.
- The reason of this choice are the following
+The system uses Amazon SNS to deliver notifications.
+ The reasons of this choice are the following:
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted -1730310665 1511368145
-reinplement a notification delivers expansive, booth in term of cost and
- work needed
-\end_layout
-
-\begin_layout Itemize
-
-\change_inserted -1730310665 1511368189
-Amazon SNS offers a stable services uses by thousands of users
+offers support for email, push and (if needed) SMS
 \end_layout
 
 \begin_layout Subsection
