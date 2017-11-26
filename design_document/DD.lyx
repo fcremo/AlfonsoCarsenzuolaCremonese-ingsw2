@@ -5485,7 +5485,7 @@ Gantt diagram
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5494,7 +5494,8 @@ status collapsed
 	width 100text%
 	height 100theight%
 	keepAspectRatio
-	rotateAngle 90
+	scaleBeforeRotation
+	rotateAngle 270
 
 \end_inset
 
