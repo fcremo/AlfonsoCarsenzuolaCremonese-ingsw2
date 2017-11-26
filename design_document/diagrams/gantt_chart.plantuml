@@ -1,0 +1,39 @@
+@startuml
+[meeting with Developers Team] lasts 1 days
+[database schema development] lasts 5 days
+[user management service] lasts 10 days
+[calendar management service] lasts 10 days
+[travel planning service] lasts 10 days
+[taxi reservation service] lasts 10 days
+[mobility sharing reservation service] lasts 10 days
+[ticket shop service] lasts 10 days
+[notifications delivery service] lasts 10 days
+[event notifications service] lasts 10 days
+[travel notifications service] lasts 10 days
+[integration between services] lasts 10 days
+[web application] lasts 10 days
+[desktop interface] lasts 10 days
+[Android and iOS apps] lasts 10 days
+[final testing] lasts 15 days
+[release] lasts 1 days
+
+[database schema development] starts at [meeting with Developers Team]'s end
+[user management service] starts at [database schema development]'s end
+[calendar management service] starts at [user management service]'s end
+[travel planning service] starts at [calendar management service]'s end
+[taxi reservation service] starts at [travel planning service]'s end
+[mobility sharing reservation service] starts at [taxi reservation service]'s end
+[ticket shop service] starts at [mobility sharing reservation service]'s end
+[notifications delivery service] starts at [ticket shop service]'s end
+[event notifications service] starts at [notifications delivery service]'s end
+[travel notifications service] starts at [notifications delivery service]'s end
+[integration between services] starts at [travel notifications service]'s end
+[web application] starts at [integration between services]'s end
+[desktop interface] starts at [web application]'s end
+[Android and iOS apps] starts at [web application]'s end
+[final testing] starts at [web application]'s end
+[release] starts at [final testing]'s end
+
+
+
+@enduml
