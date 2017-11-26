@@ -5272,6 +5272,34 @@ Mobility sharing reservation service
 Implementation, integration and and test plan
 \end_layout
 
+\begin_layout Subsection
+Suggested development methodology
+\end_layout
+
+\begin_layout Standard
+Not knowing the development team we leave to them the final choice of which
+ development methodology to use.
+ We note that since the requirements of the project are well defined and
+ not subject to big changes both classical and modern methodologies should
+ work well.
+ We suggest in the hypotesis of a small team of 4/5 people the use of an
+ agile methodology inspired to Scrum.
+ We would assume the role of project managers/product owners and help the
+ scrum master create and schedule sprints for the the team, as well as attend
+ to daily meetings and periodic sprint reviews, ideally together with the
+ project commissioner (prof.
+ Di Nitto).
+\end_layout
+
+\begin_layout Subsection
+Gantt chart
+\end_layout
+
+\begin_layout Standard
+Here we provide a graph of what needs to be developed, representing the
+ dependencies between tasks.
+\end_layout
+
 \begin_layout Section
 Appendix
 \end_layout
