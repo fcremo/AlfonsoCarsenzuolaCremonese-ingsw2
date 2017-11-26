@@ -194,7 +194,6 @@ End
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 1050230769 "Alessandro"
 \end_header
 
 \begin_body
@@ -559,7 +558,7 @@ Summary
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.1
+1.0.1
 \end_layout
 
 \end_inset
@@ -6677,7 +6676,6 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename sequence_diagram/sequence_diagram_signup.plantuml
-	display false
 	height 95theight%
 
 \end_inset
@@ -6700,7 +6698,7 @@ Signup
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -8808,13 +8806,7 @@ target "https://www.google.it/maps/"
 \begin_inset Text
 
 \begin_layout Plain Layout
-City
-\change_inserted 1050230769 1511431799
-m
-\change_deleted 1050230769 1511431799
- M
-\change_unchanged
-apper
+Citymapper
 \end_layout
 
 \end_inset
