@@ -5852,7 +5852,7 @@ External services
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="2">
+<lyxtabular version="3" rows="9" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -6046,11 +6046,38 @@ target "https://www.accuweather.com/"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Stripe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "https://stripe.com/"
+target "https://stripe.com/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amazon SNS
 \end_layout
 
 \end_inset
@@ -6061,8 +6088,8 @@ Stripe
 \begin_layout Plain Layout
 \begin_inset CommandInset href
 LatexCommand href
-name "https://stripe.com/"
-target "https://stripe.com/"
+name "https://aws.amazon.com/sns/"
+target "https://aws.amazon.com/sns/"
 
 \end_inset
 
@@ -6080,13 +6107,13 @@ target "https://stripe.com/"
 \end_layout
 
 \begin_layout Subsection
-Frameworks
+Frameworks, languages and technologies
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
+<lyxtabular version="3" rows="6" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -6226,38 +6253,11 @@ target "https://www.swift.com/"
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-React
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset href
-LatexCommand href
-name "https://reactjs.org/"
-target "https://reactjs.org/"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Amazon SNS
+React
 \end_layout
 
 \end_inset
@@ -6268,8 +6268,8 @@ Amazon SNS
 \begin_layout Plain Layout
 \begin_inset CommandInset href
 LatexCommand href
-name "https://aws.amazon.com/sns/"
-target "https://aws.amazon.com/sns/"
+name "https://reactjs.org/"
+target "https://reactjs.org/"
 
 \end_inset
 
