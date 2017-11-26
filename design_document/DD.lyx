@@ -825,23 +825,6 @@ The system will need to interact with external entities and events beyond
 \end_layout
 
 \begin_layout Subsection
-Definitions, acronyms, abbreviations
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TBD
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 Reference documents
 \end_layout
 
@@ -3819,6 +3802,13 @@ cles):
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Flexible event verification algorithm
 \end_layout
@@ -3953,6 +3943,13 @@ nt.start, event.end))
 			raise CouldNotRescheduleFlexibleEventException(fevent)
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -4274,6 +4271,13 @@ _mean)
 		return 0
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
 \end_inset
 
 
@@ -5481,8 +5485,7 @@ status open
 	width 100text%
 	height 100theight%
 	keepAspectRatio
-	scaleBeforeRotation
-	rotateAngle 270
+	rotateAngle 90
 
 \end_inset
 
