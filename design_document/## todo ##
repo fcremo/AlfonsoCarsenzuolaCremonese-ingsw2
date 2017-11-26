@@ -2,14 +2,16 @@
 
 ()		correggere inglese
 ()		rilettura coerenza
-()		correggere note 
-()		posizionare grafici
+()		correggere note
+(fab)		posizionare grafici
 (ale)	sezione 5 (Requirements Traceability)
-()		sezione 2.7.2 (design pattern)
+(fil)		sezione 2.7.2 (design pattern)
 (fab) 	sezione 2.8 (other design decision)
 ()		ore di lavoro
 (ale) 	references
 (fab)	specificare meglio APIs esterne
 ()  	specificare come viene chiamato l'algoritmo di prenotazione automatica (da uno scheduler)
-()		scope
+(ale)		scope
 () 		aggiornare tabella cambiamenti rasd
+(ale) 		modificare fig 11 (buy ticket sd) in modo che quando il web server deve mostrare i ticket prima chiede al ticket shop service (trenord)
+(ale)		modificare sequence diagram newevent2 conferma autoreservation, selectedsharing
