@@ -5481,7 +5481,8 @@ status open
 	width 100text%
 	height 100theight%
 	keepAspectRatio
-	rotateAngle 90
+	scaleBeforeRotation
+	rotateAngle 270
 
 \end_inset
 

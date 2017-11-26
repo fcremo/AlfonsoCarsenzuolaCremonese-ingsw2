@@ -510,7 +510,7 @@ Revision history
 \begin_layout Standard
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="4">
+<lyxtabular version="3" rows="3" columns="4">
 <features tabularvalignment="middle" tabularwidth="80page%">
 <column alignment="center" valignment="middle" width="0pt">
 <column alignment="center" valignment="middle" width="0pt">
@@ -549,6 +549,52 @@ Authors
 
 \begin_layout Plain Layout
 Summary
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topspace="2pt" bottomspace="2pt">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+November 26, 2017
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Alessandro Alfonso
+\begin_inset Newline newline
+\end_inset
+
+Fabrizio Carsenzuola
+\begin_inset Newline newline
+\end_inset
+
+Filippo Cremonese
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minor fixes and adjustments
 \end_layout
 
 \end_inset
